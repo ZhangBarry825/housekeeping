@@ -15,11 +15,12 @@ Page({
   },
   goItem(item){
     let path;
-    if(item.currentTarget.dataset.type=='logo'){
+    let type=item.currentTarget.dataset.type
+    if(type=='logo'){
        path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset
-    }else if(item.currentTarget.dataset.type=='knowledge-list'){
+    }else if(type=='knowledge-list'){
       path = '/pages/knowledge/knowledge?id='
-    }else if(item.currentTarget.dataset.type=='knowledge-detail'){
+    }else if(type=='knowledge-detail'){
       path = '/pages/knowledge-detail/knowledge-detail?id='
     }
 

@@ -1,23 +1,17 @@
-// pages/publish-task/one/one.js
-const app=getApp()
+// pages/feedback/feedback.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    time: '请选择',
-    date: '请选择',
-    files: [],
-    description:'',
-    desLength:0,
-  },
-  goTo(){
-    app.navigateTo('/pages/address/list/list')
+    suggestion:'',
+    sugLength:0,
+    files:[]
   },
   bindinput(e){
     this.setData({
-      desLength:e.detail.value.length
+      sugLength:e.detail.value.length
     })
   },
   chooseImage(e) {
@@ -37,21 +31,6 @@ Page({
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
-    })
-  },
-
-
-
-  bindTimeChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  bindDateChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      date: e.detail.value
     })
   },
   /**

@@ -1,0 +1,64 @@
+.page {
+  width: 100%;
+}
+.page .content {
+  width: 100%;
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.page .content .title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.page .content .items {
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.page .content .items .item {
+  padding: 7rpx;
+  font-size: 25rpx;
+  border: 1px solid #999;
+}
+.page .content .items .selected {
+  color: #00c97d;
+  border: 1px solid #00c97d;
+}
+.page .content .suggestion-box {
+  background-color: #f9f9f9;
+}
+.page .content .weui-textarea,
+.page .content .suggestion-num {
+  font-size: 25rpx;
+}
+.page .content .uploadTitle {
+  font-size: 25rpx;
+}
+.page .content .contact {
+  font-size: 25rpx !important;
+}
+.page .button-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page .button-box .button {
+  margin: 50rpx 0 ;
+  width: 80%;
+  border-radius: 30rpx;
+  background-color: #00c87f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.page .button-box .tip {
+  font-size: 25rpx;
+}

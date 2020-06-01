@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/feedback/feedback",
     "pages/home/home",
     "pages/mine/mine",
     "pages/publish-task/one/one",
