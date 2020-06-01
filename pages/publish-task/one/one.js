@@ -1,32 +1,26 @@
-// pages/home/home.js
-const app=getApp()
+// pages/publish-task/one/one.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
+    time: '请选择',
+    date: '请选择',
+    files: [],
   },
-  goItem(item){
-    let path;
-    if(item.currentTarget.dataset.type=='logo'){
-       path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset
-    }else if(item.currentTarget.dataset.type=='knowledge-list'){
-      path = '/pages/knowledge/knowledge?id='
-    }else if(item.currentTarget.dataset.type=='knowledge-detail'){
-      path = '/pages/knowledge-detail/knowledge-detail?id='
-    }
-
-    console.log(item,123)
-    app.navigateTo(path)
+  bindTimeChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      time: e.detail.value
+    })
   },
-
+  bindDateChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      date: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

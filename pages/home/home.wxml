@@ -11,11 +11,11 @@
     </view>
     <view class="content-box">
         <view class="knowledge">
-            <view class="title">
+            <view class="title" bind:tap="goItem" data-type="knowledge-list">
                 <view class="left">生活小常识</view>
                 <image class="right" src="../../images/right.png"></image>
             </view>
-            <view class="items">
+            <view class="items" bind:tap="goItem" data-type="knowledge-detail">
                 <view class="item">
                     <text>•20个生活小常识、生活小窍门</text>
                 </view>
@@ -31,11 +31,11 @@
             </view>
         </view>
         <view class="logos">
-            <view class="item">
+            <view class="item" bind:tap="goItem" data-type="logo">
                 <image src="../../images/order.png"></image>
                 <text>保姆月嫂</text>
             </view>
-            <view class="item">
+            <view class="item" bind:tap="goItem" data-type="logo">
                 <image src="../../images/order.png"></image>
                 <text>保洁服务</text>
             </view>
@@ -73,12 +73,12 @@
             </view>
         </view>
         <view class="nanny">
-            <view class="title">
+            <view class="title" bind:tap="goItem" data-type="logo">
                 <view class="left">保姆月嫂</view>
                 <image class="right" src="../../images/right.png"></image>
             </view>
             <view class="items">
-                <view class="item">
+                <view class="item" bind:tap="goItem">
                     <text>保姆</text>
                     <image mode="aspectFill" src="../../images/cleanner.png"></image>
                 </view>
@@ -113,7 +113,7 @@
             </view>
         </view>
         <view class="clean">
-            <view class="title">
+            <view class="title" bind:tap="goItem" data-type="logo">
                 <view class="left">保洁服务</view>
                 <image class="right" src="../../images/right.png"></image>
             </view>

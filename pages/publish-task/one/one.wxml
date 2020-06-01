@@ -1,0 +1,112 @@
+<!--pages/publish-task/one/one.wxml-->
+<view class="page">
+    <view class="progress">
+        <view class="item">
+            <image src="../../../images/p1.png"></image>
+            <text>发布需求</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <image src="../../../images/p2.png"></image>
+            <text>家政报价</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <image src="../../../images/p3.png"></image>
+            <text>选择家政</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <image src="../../../images/p4.png"></image>
+            <text>家政上门</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <image src="../../../images/p5.png"></image>
+            <text>服务评价</text>
+        </view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">选择服务地址</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="bindDateChange">
+                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">期待上门日期</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{date}}</view>
+                </navigator>
+            </picker>
+            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">期待上门时间</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{time}}</view>
+                </navigator>
+            </picker>
+        </view>
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__overview">
+                                <view class="weui-uploader__title">图片上传</view>
+                                <view class="weui-uploader__info">{{files.length}}/2</view>
+                            </view>
+                            <view class="weui-uploader__tips">
+                                上传提示
+                            </view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+<!--                                <view class="weui-uploader__file">-->
+<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                </view>-->
+<!--                                <view class="weui-uploader__file">-->
+<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                </view>-->
+<!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
+<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <view class="weui-uploader__file-content">-->
+<!--                                        <view class="weui-loading"></view>-->
+<!--                                    </view>-->
+<!--                                </view>-->
+<!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
+<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <view class="weui-uploader__file-content">-->
+<!--                                        <icon type="warn" size="23" color="#F43530"></icon>-->
+<!--                                    </view>-->
+<!--                                </view>-->
+<!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
+<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <view class="weui-uploader__file-content">50%</view>-->
+<!--                                </view>-->
+                            </view>
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+

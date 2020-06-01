@@ -1,37 +1,20 @@
-// pages/home/home.js
-const app=getApp()
+// pages/service-item/service-item.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
-  },
-  goItem(item){
-    let path;
-    if(item.currentTarget.dataset.type=='logo'){
-       path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset
-    }else if(item.currentTarget.dataset.type=='knowledge-list'){
-      path = '/pages/knowledge/knowledge?id='
-    }else if(item.currentTarget.dataset.type=='knowledge-detail'){
-      path = '/pages/knowledge-detail/knowledge-detail?id='
-    }
 
-    console.log(item,123)
-    app.navigateTo(path)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '保洁服务'
+    })
   },
 
   /**

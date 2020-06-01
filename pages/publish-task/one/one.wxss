@@ -1,0 +1,33 @@
+.page {
+  width: 100%;
+}
+.page .progress {
+  width: 100%;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+  align-items: center;
+}
+.page .progress .connect {
+  position: relative;
+  top: -30rpx;
+  width: 5%;
+  border-bottom: 1px solid #0b0b0b;
+}
+.page .progress .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+.page .progress .item image {
+  width: 70%;
+  height: 80rpx;
+}
+.page .progress .item text {
+  margin: 20rpx 0;
+  font-size: 22rpx;
+}

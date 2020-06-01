@@ -1,0 +1,44 @@
+<!--pages/service-item/service-item.wxml-->
+<view class="page">
+    <view class="content-box">
+        <view class="clean">
+            <view class="title">
+                <view class="left">保洁服务</view>
+            </view>
+            <view class="items">
+                <view class="item">
+                    <text>开荒保洁</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>家庭保洁</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>玻璃清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>灯具清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地毯清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地暖清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地板打蜡</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>瓷砖美缝</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

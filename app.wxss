@@ -1,5 +1,8 @@
 /**app.wxss**/
 @import "weui.wxss";
+page{
+  background-color: #f4f4f4;
+}
 .container {
   height: 100%;
   display: flex;
