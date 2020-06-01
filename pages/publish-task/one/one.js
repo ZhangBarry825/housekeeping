@@ -1,4 +1,5 @@
 // pages/publish-task/one/one.js
+const app=getApp()
 Page({
 
   /**
@@ -8,14 +9,48 @@ Page({
     time: '请选择',
     date: '请选择',
     files: [],
+    description:'',
+    desLength:0,
   },
-  bindTimeChange: function(e) {
+  goTo(){
+    app.navigateTo('/pages/address/list/list')
+  },
+  bindinput(e){
+    console.log('change',this.data.description)
+    console.log('e',e)
+    this.setData({
+      desLength:e.detail.value.length
+    })
+  },
+  chooseImage(e) {
+    var that = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: [ 'album','camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        that.setData({
+          files: that.data.files.concat(res.tempFilePaths)
+        });
+      }
+    })
+  },
+  previewImage(e){
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.files // 需要预览的图片http链接列表
+    })
+  },
+
+
+
+  bindTimeChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       time: e.detail.value
     })
   },
-  bindDateChange: function(e) {
+  bindDateChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       date: e.detail.value

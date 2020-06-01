@@ -9,13 +9,24 @@
     "pages/home/home",
     "pages/knowledge/knowledge",
     "pages/knowledge-detail/knowledge-detail",
-
     "pages/service-item/service-item",
     "pages/mine/mine",
     "pages/order/order",
+    "pages/address/update/update",
+    "pages/address/add/add",
+    "pages/address/list/list",
+
+
+
+
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置选择使用"
+    }
+  },
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",

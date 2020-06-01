@@ -2,33 +2,44 @@
 <view class="page">
     <view class="progress">
         <view class="item">
-            <image src="../../../images/p1.png"></image>
+            <view class="img">
+                <image class="i1" mode="aspectFill" src="../../../images/p1.png"></image>
+            </view>
+
             <text>发布需求</text>
         </view>
         <view class="connect"></view>
         <view class="item">
-            <image src="../../../images/p2.png"></image>
+            <view class="img">
+                <image mode="aspectFill" src="../../../images/p2.png"></image>
+            </view>
             <text>家政报价</text>
         </view>
         <view class="connect"></view>
         <view class="item">
-            <image src="../../../images/p3.png"></image>
+            <view class="img">
+                <image mode="aspectFill" src="../../../images/p3.png"></image>
+            </view>
             <text>选择家政</text>
         </view>
         <view class="connect"></view>
         <view class="item">
-            <image src="../../../images/p4.png"></image>
+            <view class="img">
+                <image mode="aspectFill" src="../../../images/p4.png"></image>
+            </view>
             <text>家政上门</text>
         </view>
         <view class="connect"></view>
         <view class="item">
-            <image src="../../../images/p5.png"></image>
+            <view class="img">
+                <image mode="aspectFill" src="../../../images/p5.png"></image>
+            </view>
             <text>服务评价</text>
         </view>
     </view>
     <view class="page__bd">
         <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="goTo">
                 <view class="weui-cell__bd">选择服务地址</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
@@ -49,15 +60,6 @@
             <view class="weui-cell">
                 <view class="weui-cell__bd">
                     <view class="weui-uploader">
-                        <view class="weui-uploader__hd">
-                            <view class="weui-uploader__overview">
-                                <view class="weui-uploader__title">图片上传</view>
-                                <view class="weui-uploader__info">{{files.length}}/2</view>
-                            </view>
-                            <view class="weui-uploader__tips">
-                                上传提示
-                            </view>
-                        </view>
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
                                 <block wx:for="{{files}}" wx:key="*this">
@@ -66,37 +68,72 @@
                                     </view>
                                 </block>
 <!--                                <view class="weui-uploader__file">-->
-<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <image class="weui-uploader__img" src="../../../images/order.png" mode="aspectFill" />-->
 <!--                                </view>-->
 <!--                                <view class="weui-uploader__file">-->
-<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <image class="weui-uploader__img" src="../../../images/order.png" mode="aspectFill" />-->
 <!--                                </view>-->
 <!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
-<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <image class="weui-uploader__img" src="../../../images/order.png" mode="aspectFill" />-->
 <!--                                    <view class="weui-uploader__file-content">-->
 <!--                                        <view class="weui-loading"></view>-->
 <!--                                    </view>-->
 <!--                                </view>-->
 <!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
-<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <image class="weui-uploader__img" src="../../../images/order.png" mode="aspectFill" />-->
 <!--                                    <view class="weui-uploader__file-content">-->
 <!--                                        <icon type="warn" size="23" color="#F43530"></icon>-->
 <!--                                    </view>-->
 <!--                                </view>-->
 <!--                                <view class="weui-uploader__file weui-uploader__file_status">-->
-<!--                                    <image class="weui-uploader__img" src="../images/pic_160.png" mode="aspectFill" />-->
+<!--                                    <image class="weui-uploader__img" src="../../../images/order.png" mode="aspectFill" />-->
 <!--                                    <view class="weui-uploader__file-content">50%</view>-->
 <!--                                </view>-->
                             </view>
-                            <view class="weui-uploader__input-box">
+                            <view class="weui-uploader__input-box" wx:if="{{files.length<6}}">
                                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
                     </view>
                 </view>
             </view>
+            <text class="tips"><text style="color: red">*</text>上传完整清晰的图片，以便家政准确报价({{files.length}}/6)</text>
+        </view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_active">
+                <view class="weui-cell__bd">
+                    <textarea bindinput="bindinput" maxlength="{{150}}" value="{{description}}" class="weui-textarea" placeholder="请填写其他需求或特殊需求，方便家政带齐工具，以及更合理的报价。" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">{{desLength}}/150</view>
+                </view>
+            </view>
         </view>
 
+    </view>
+    <view class="promise">
+        <label class="weui-agree">
+            <checkbox class="weui-agree__checkbox-check" />
+            <span class="weui-agree__checkbox"></span>
+            <span class="weui-agree__text">我以阅读并同意<navigator url="" class="weui-agree__link">《家政服务协议》</navigator><navigator url="" class="weui-agree__link">《隐私政策》</navigator></span>
+        </label>
+    </view>
+    <view class="page__bd">
+        <view class="weui-article">
+            <view class="weui-article__section">
+                <view class="weui-article__h3">温馨提示：</view>
+                <view class="weui-article__p">
+                    1、下单后，请关注微信通知，将会有家政持续为您报价；
+                </view>
+                <view class="weui-article__p">
+                    2、请保持电话畅通，会有家政和您联系，您也可以主动联系家政；
+                </view>
+                <view class="weui-article__p">
+                    3、为了保证您的权益，所有费用请通过家政服务平台支付；
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="button-box">
+        <view class="button">发布需求</view>
     </view>
 </view>
 

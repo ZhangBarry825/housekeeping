@@ -1,5 +1,6 @@
 .page {
   width: 100%;
+  padding-bottom: 30rpx;
 }
 .page .progress {
   width: 100%;
@@ -15,7 +16,7 @@
   position: relative;
   top: -30rpx;
   width: 5%;
-  border-bottom: 1px solid #0b0b0b;
+  border-bottom: 1px solid #2bcf19;
 }
 .page .progress .item {
   display: flex;
@@ -23,11 +24,61 @@
   align-items: center;
   width: 20%;
 }
-.page .progress .item image {
-  width: 70%;
+.page .progress .item .img {
+  background-color: #2bcf19;
+  width: 80rpx;
   height: 80rpx;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.page .progress .item .img .i1 {
+  position: relative;
+  left: -5rpx;
+}
+.page .progress .item .img image {
+  width: 60%;
+  height: 60%;
 }
 .page .progress .item text {
   margin: 20rpx 0;
   font-size: 22rpx;
+}
+.page .tips {
+  font-size: 25rpx;
+  padding: 0 50rpx;
+  margin-bottom: 50rpx;
+  box-sizing: border-box;
+  position: relative;
+  top: -20rpx;
+}
+.page .weui-textarea {
+  font-size: 28rpx;
+}
+.page .weui-textarea-counter {
+  text-align: left;
+}
+.page .weui-agree__link {
+  color: #02c87d;
+}
+.page .weui-article {
+  font-size: 25rpx;
+  color: #5a5a5a;
+}
+.page .button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .button-box .button {
+  padding: 15rpx 0;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30rpx;
+  color: #fff;
+  background-color: #02c87d;
 }
