@@ -1,1 +1,19 @@
-/* pages/mine/mine.wxss */
+.page {
+  width: 100%;
+}
+.page .avatar-box {
+  width: 100%;
+  background-color: #fff;
+  height: 300rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .avatar-box .avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 20rpx;
+}
+.page .weui-cells .weui-cell__bd {
+  font-size: 25rpx;
+}

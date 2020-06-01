@@ -1,16 +1,15 @@
 {
   "pages":[
-
+    "pages/home/home",
+    "pages/mine/mine",
     "pages/publish-task/one/one",
     "pages/publish-task/two/two",
     "pages/publish-task/three/three",
     "pages/publish-task/four/four",
     "pages/publish-task/five/five",
-    "pages/home/home",
     "pages/knowledge/knowledge",
     "pages/knowledge-detail/knowledge-detail",
     "pages/service-item/service-item",
-    "pages/mine/mine",
     "pages/order/order",
     "pages/address/update/update",
     "pages/address/add/add",
