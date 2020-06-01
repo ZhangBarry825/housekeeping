@@ -1,0 +1,158 @@
+<view class="page">
+    <view class="page-section page-section-spacing swiper">
+        <swiper class="swiper-box" indicator-dots="{{indicatorDots}}"
+                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{background}}" wx:key="*this">
+                <swiper-item>
+                    <image mode="aspectFill" src="../../images/banner.png" class="swiper-item {{item}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="content-box">
+        <view class="knowledge">
+            <view class="title">
+                <view class="left">生活小常识</view>
+                <image class="right" src="../../images/right.png"></image>
+            </view>
+            <view class="items">
+                <view class="item">
+                    <text>•20个生活小常识、生活小窍门</text>
+                </view>
+                <view class="item">
+                    <text>•20个生活小常识、生活小窍门</text>
+                </view>
+                <view class="item">
+                    <text>•20个生活小常识、生活小窍门</text>
+                </view>
+                <view class="item">
+                    <text>•20个生活小常识、生活小窍门</text>
+                </view>
+            </view>
+        </view>
+        <view class="logos">
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>保姆月嫂</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>保洁服务</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>开锁换锁</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>家电清洗</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>专业陪护</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>洗衣</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>管道疏通</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>垃圾分类</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>家具保养</text>
+            </view>
+            <view class="item">
+                <image src="../../images/order.png"></image>
+                <text>数码维修</text>
+            </view>
+        </view>
+        <view class="nanny">
+            <view class="title">
+                <view class="left">保姆月嫂</view>
+                <image class="right" src="../../images/right.png"></image>
+            </view>
+            <view class="items">
+                <view class="item">
+                    <text>保姆</text>
+                    <image mode="aspectFill" src="../../images/cleanner.png"></image>
+                </view>
+                <view class="item">
+                    <text>月嫂</text>
+                    <image mode="aspectFill" src="../../images/nanny.png"></image>
+                </view>
+                <view class="item">
+                    <text>育婴师/育儿嫂</text>
+                    <image mode="aspectFill" src="../../images/cleanner.png"></image>
+                </view>
+                <view class="item">
+                    <text>钟点工</text>
+                    <image mode="aspectFill" src="../../images/nanny.png"></image>
+                </view>
+                <view class="item">
+                    <text>催乳师</text>
+                    <image mode="aspectFill" src="../../images/cleanner.png"></image>
+                </view>
+                <view class="item">
+                    <text>陪护</text>
+                    <image mode="aspectFill" src="../../images/nanny.png"></image>
+                </view>
+                <view class="item">
+                    <text>管家</text>
+                    <image mode="aspectFill" src="../../images/cleanner.png"></image>
+                </view>
+                <view class="item">
+                    <text>月子中心</text>
+                    <image mode="aspectFill" src="../../images/nanny.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="clean">
+            <view class="title">
+                <view class="left">保洁服务</view>
+                <image class="right" src="../../images/right.png"></image>
+            </view>
+            <view class="items">
+                <view class="item">
+                    <text>开荒保洁</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>家庭保洁</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>玻璃清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>灯具清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地毯清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地暖清洗</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>地板打蜡</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+                <view class="item">
+                    <text>瓷砖美缝</text>
+                    <image mode="aspectFill" src="../../images/clean.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+</view>
