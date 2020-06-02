@@ -1,0 +1,31 @@
+<!--pages/bind-card/bind-card.wxml-->
+<view class="page">
+    <view class="content">
+        <view class="item">
+            <view class="left">提现银行</view>
+            <view class="middle">请选择提现银行</view>
+            <image src="../../images/right.png" class="right"></image>
+        </view>
+        <view class="item">
+            <view class="left">开户分行</view>
+            <input class="weui-input middle" placeholder="请填写开户分行"/>
+        </view>
+        <view class="item">
+            <view class="left">卡号</view>
+            <input class="weui-input middle" placeholder="请输入卡号"/>
+        </view>
+        <view class="item">
+            <view class="left">姓名</view>
+            <input class="weui-input middle" placeholder="请输入该银行卡用户的姓名"/>
+        </view>
+        <view class="item">
+            <view class="left">身份证</view>
+            <input class="weui-input middle" placeholder="请输入该银行卡用户的身份证号码"/>
+        </view>
+    </view>
+    <view class="button-box">
+        <view class="button">
+            确认绑定
+        </view>
+    </view>
+</view>

@@ -1,1 +1,108 @@
-/* pages/publish-task/five/five.wxss */
+.page {
+  width: 100%;
+}
+.page .warn {
+  width: 100%;
+  padding: 10rpx 0;
+  color: #fff;
+  background-color: #e12b2a;
+  text-align: center;
+  font-size: 25rpx;
+}
+.page .info {
+  height: 300rpx;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .info .line1 {
+  font-weight: bold;
+}
+.page .info .line2 {
+  font-size: 25rpx;
+  color: #999;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.page .info .line3 {
+  font-size: 28rpx;
+  color: #999;
+}
+.page .detail {
+  width: 100%;
+  background-color: #fff;
+}
+.page .detail .item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 0.5px solid gainsboro;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.page .detail .item .label {
+  width: 20%;
+  margin-right: 20rpx;
+}
+.page .detail .item .content {
+  color: #999;
+  width: 80%;
+}
+.page .detail .item .text-box {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.page .detail .item .text-box .contentArea {
+  width: 100%;
+  height: 10em;
+  box-sizing: border-box;
+}
+.page .detail .item .text-box text {
+  color: #5a5a5a;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.page .detail .item .upload-box {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  color: #5a5a5a;
+}
+.page .detail .item .upload-box .button {
+  border: 1px solid gainsboro;
+  padding: 0 10rpx;
+}
+.page .detail .item .upload-box text {
+  margin: 0 20rpx;
+}
+.page .detail .item .upload-box image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.page .weui-agree__link {
+  color: #00c87f;
+}
+.page .button-box {
+  padding: 50rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .button-box .button {
+  padding: 15rpx 0;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40rpx;
+  color: #fff;
+  background-color: #02c87d;
+}

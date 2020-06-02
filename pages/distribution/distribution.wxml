@@ -1,0 +1,30 @@
+<!--pages/distribution/distribution.wxml-->
+<view class="page">
+    <view class="top">
+        <view class="left">
+            <view class="leftTop">累计获得奖金</view>
+            <view class="leftBottom">0</view>
+        </view>
+        <view class="right">
+            <view class="line1">账户余额</view>
+            <view class="line2">0.00</view>
+            <view class="line3" bind:tap="goEncash">我要提现</view>
+        </view>
+    </view>
+    <view class="items">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">分销人员</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">银行卡配置</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">分享海报</view>
+                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+    </view>
+</view>

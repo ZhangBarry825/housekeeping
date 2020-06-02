@@ -1,18 +1,20 @@
 {
   "pages":[
-    "pages/publish-task/four/four",
-    "pages/publish-task/three/three",
-    "pages/publish-task/one/one",
+    "pages/bind-card/bind-card",
+    "pages/distribution/distribution",
+    "pages/encash/encash",
+
+
+    "pages/cost-record/cost-record",
     "pages/order/order",
     "pages/feedback/feedback",
     "pages/home/home",
     "pages/mine/mine",
-
-    "pages/publish-task/two/two",
     "pages/publish-task/selected/selected",
-
-
-
+    "pages/publish-task/one/one",
+    "pages/publish-task/two/two",
+    "pages/publish-task/three/three",
+    "pages/publish-task/four/four",
     "pages/publish-task/five/five",
     "pages/knowledge/knowledge",
     "pages/knowledge-detail/knowledge-detail",
@@ -20,9 +22,6 @@
     "pages/address/update/update",
     "pages/address/add/add",
     "pages/address/list/list",
-
-
-
 
     "pages/index/index",
     "pages/logs/logs"

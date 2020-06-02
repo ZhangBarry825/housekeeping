@@ -1,25 +1,15 @@
-// pages/publish-task/three/three.js
-const app=getApp()
+// pages/distribution/distribution.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ifShow:false
+
   },
-  checkService(){
-    this.setData({
-      ifShow:true
-    })
-  },
-  complaint(){
-    app.navigateTo('/pages/publish-task/five/five')
-  },
-  cancelCheck(){
-    this.setData({
-      ifShow:false
-    })
+  goEncash(){
+    app.navigateTo('/pages/encash/encash')
   },
   /**
    * 生命周期函数--监听页面加载

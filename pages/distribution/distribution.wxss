@@ -1,0 +1,44 @@
+.page .top {
+  width: 100%;
+  height: 350rpx;
+  background-color: #ff3301;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.page .top .left {
+  color: #fff;
+}
+.page .top .left .leftTop {
+  font-size: 30rpx;
+}
+.page .top .left .leftBottom {
+  font-size: 60rpx;
+}
+.page .top .right {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+.page .top .right .line1 {
+  font-size: 30rpx;
+}
+.page .top .right .line2 {
+  font-size: 60rpx;
+}
+.page .top .right .line3 {
+  font-size: 30rpx;
+  border: 1px solid #fff;
+  padding: 5rpx 50rpx;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .items {
+  width: 100%;
+}

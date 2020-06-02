@@ -93,7 +93,7 @@
 
     <view class="buttons">
         <view class="button1">退款</view>
-        <view class="button2">投诉</view>
+        <view class="button2" bind:tap="complaint">投诉</view>
         <view class="button3" bind:tap="checkService">验收服务</view>
     </view>
 

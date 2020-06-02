@@ -1,0 +1,30 @@
+.page .content {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.page .content .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+}
+.page .content .weui-cell__bd {
+  display: flex;
+  flex-direction: column;
+}
+.page .content .weui-cell__bd .title {
+  font-weight: bold;
+}
+.page .content .weui-cell__bd .time {
+  color: #999;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+.page .content .weui-cell__ft {
+  font-size: 30rpx;
+  color: #fb6d0e;
+}

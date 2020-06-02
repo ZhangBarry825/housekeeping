@@ -1,2 +1,55 @@
 <!--pages/publish-task/five/five.wxml-->
-<text>pages/publish-task/five/five.wxml</text>
+<view class="page">
+    <view class="warn">
+        订单交易成功或交易关闭15天后投诉入口关闭
+    </view>
+    <view class="info">
+        <view class="line1">
+            家庭保洁-开荒
+        </view>
+        <view class="line2">
+            订单完成时间：2020-04-23 18:00
+        </view>
+        <view class="line3">
+            需求详情 >
+        </view>
+    </view>
+
+    <view class="detail">
+        <view class="item">
+            <text class="label">订单投诉</text>
+            <text class="content">订单编号：CSK202004231435</text>
+        </view>
+        <view class="item">
+            <text class="label">订单类别</text>
+            <text class="content">请选择投诉类别</text>
+        </view>
+        <view class="item">
+            <text class="label">联系方式</text>
+            <input class="content weui-input" placeholder="请输入qq"/>
+        </view>
+        <view class="item">
+            <text class="label">投诉内容</text>
+            <view class="text-box">
+                <textarea class="contentArea weui-textarea" placeholder="投诉内容包括：1、师傅违规行为描述；2、诉求说明（投诉想要表达什么目的）；注：请文明用语" />
+                <text>0/500</text>
+            </view>
+        </view>
+        <view class="item">
+            <text class="label">上传凭证</text>
+            <view class="upload-box">
+                <view class="button">文件选择</view>
+                <text>可上传图片、视频、语音</text>
+                <image src="../../../images/info.png"></image>
+            </view>
+        </view>
+    </view>
+    <label class="weui-agree">
+        <checkbox class="weui-agree__checkbox-check" />
+        <span class="weui-agree__checkbox"></span>
+        <span class="weui-agree__text">阅读并同意<navigator url="" class="weui-agree__link">《家政平台“先行赔款”服务协议》</navigator></span>
+    </label>
+    <view class="button-box">
+        <view class="button" bind:tap="goTo" data-type="publish">立即投诉</view>
+    </view>
+</view>

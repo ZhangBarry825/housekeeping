@@ -1,26 +1,13 @@
-// pages/publish-task/three/three.js
-const app=getApp()
+// pages/encash/encash.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ifShow:false
+
   },
-  checkService(){
-    this.setData({
-      ifShow:true
-    })
-  },
-  complaint(){
-    app.navigateTo('/pages/publish-task/five/five')
-  },
-  cancelCheck(){
-    this.setData({
-      ifShow:false
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

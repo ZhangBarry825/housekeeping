@@ -1,0 +1,50 @@
+.page .content {
+  width: 100%;
+  background-color: #fff;
+}
+.page .content .item {
+  width: 100%;
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 28rpx;
+  border-bottom: 0.5px solid gainsboro;
+}
+.page .content .item .left {
+  width: 150rpx;
+  font-size: 30rpx;
+}
+.page .content .item .middle {
+  color: #999;
+  justify-self: flex-start;
+  width: 500rpx;
+}
+.page .content .item .right {
+  width: 40rpx;
+  height: 40rpx;
+}
+.page .content .item .all {
+  color: #3fae70;
+}
+.page .button-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page .button-box .button {
+  margin: 70rpx 0 ;
+  width: 80%;
+  border-radius: 30rpx;
+  background-color: #00c87f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rpx 0;
+}
+.page .button-box .gray {
+  background-color: gainsboro;
+}

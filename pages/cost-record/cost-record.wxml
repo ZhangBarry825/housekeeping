@@ -1,0 +1,37 @@
+<!--pages/cost-record/cost-record.wxml-->
+<view class="page">
+    <view class="content">
+        <view class="weui-cells weui-cells_after-title">
+            <navigator url="" class="weui-cell " hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../images/avatar1.png" class="avatar"></image>
+                </view>
+                <view class="weui-cell__bd">
+                    <text class="title">家庭保洁-开荒</text>
+                    <text class="time">2020-04-23 18:00</text>
+                </view>
+                <view class="weui-cell__ft" style="font-size: 35rpx">-￥120.00</view>
+            </navigator>
+            <navigator url="" class="weui-cell " hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../images/avatar1.png" class="avatar"></image>
+                </view>
+                <view class="weui-cell__bd">
+                    <text class="title">家庭保洁-开荒</text>
+                    <text class="time">2020-04-23 18:00</text>
+                </view>
+                <view class="weui-cell__ft" style="font-size: 35rpx">-￥120.00</view>
+            </navigator>
+            <navigator url="" class="weui-cell " hover-class="weui-cell_active">
+                <view class="weui-cell__hd">
+                    <image src="../../images/avatar1.png" class="avatar"></image>
+                </view>
+                <view class="weui-cell__bd">
+                    <text class="title">家庭保洁-开荒</text>
+                    <text class="time">2020-04-23 18:00</text>
+                </view>
+                <view class="weui-cell__ft" style="font-size: 35rpx">-￥120.00</view>
+            </navigator>
+        </view>
+    </view>
+</view>
