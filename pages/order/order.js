@@ -5,9 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    menu:3,
+  },
+  changeMenu(e){
+    this.setData({
+      menu:e.currentTarget.dataset.type
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/order/order",
     "pages/feedback/feedback",
     "pages/home/home",
     "pages/mine/mine",
@@ -11,7 +12,6 @@
     "pages/knowledge/knowledge",
     "pages/knowledge-detail/knowledge-detail",
     "pages/service-item/service-item",
-    "pages/order/order",
     "pages/address/update/update",
     "pages/address/add/add",
     "pages/address/list/list",
