@@ -1,5 +1,4 @@
-// pages/publish-task/two/two.js
-const app = getApp()
+// pages/publish-task/selected/selected.js
 Page({
 
   /**
@@ -8,14 +7,7 @@ Page({
   data: {
 
   },
-  goTo(e){
-    let path;
-    let type=e.currentTarget.dataset.type
-    if(type=='select'){
-      path='/pages/publish-task/selected/selected'
-    }
-    app.navigateTo(path)
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

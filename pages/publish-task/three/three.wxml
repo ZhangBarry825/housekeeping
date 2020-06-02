@@ -1,2 +1,109 @@
 <!--pages/publish-task/three/three.wxml-->
-<text>pages/publish-task/three/three.wxml</text>
+<view class="page">
+    <view class="warn">
+        请在家政完成服务后再验收服务
+    </view>
+    <view class="progress">
+        <view class="item">
+            <text>雇佣家政</text>
+            <image src="../../../images/check1.png"></image>
+            <text class="time">2020/04/23</text>
+            <text class="time">14:35</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <text>家政预约时间</text>
+            <image src="../../../images/check1.png"></image>
+            <text class="time">2020/04/23</text>
+            <text class="time">12:00 - 14:00</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <text>家政上门服务</text>
+            <image src="../../../images/check1.png"></image>
+            <text class="time">2020/04/23</text>
+            <text class="time">14:35</text>
+        </view>
+        <view class="connect"></view>
+        <view class="item">
+            <text>验收服务</text>
+            <image src="../../../images/check0.png"></image>
+            <text class="time"> </text>
+            <text class="time"> </text>
+        </view>
+    </view>
+
+    <view class="order">
+        <view class="title">
+            <view class="left">订单信息</view>
+            <view class="right">补加订单金额</view>
+        </view>
+        <view class="items">
+            <view class="line1">
+                <text class="label">订单内容： </text>
+                <text class="content">家庭保洁-开荒</text>
+            </view>
+            <view class="line1">
+                <text class="label">订单状态： </text>
+                <text class="content">待完工确认</text>
+            </view>
+            <view class="line1">
+                <text class="label">订单总额： </text>
+                <text class="content">120元</text>
+            </view>
+            <view class="line1">
+                <text class="label">实付金额： </text>
+                <text class="content">120元</text>
+            </view>
+            <view class="line1">
+                <text class="label">雇佣家政： </text>
+                <text class="content">赵阿姨</text>
+            </view>
+            <view class="line1">
+                <text class="label">雇佣支付： </text>
+                <text class="content">2020/04/23 14:35</text>
+            </view>
+            <view class="line1">
+                <text class="label">订单编号： </text>
+                <text class="content">CSK202004231435</text>
+            </view>
+        </view>
+        <view class="detail">
+            <view class="left">需求详情</view>
+            <view class="right">></view>
+        </view>
+    </view>
+
+    <view class="user">
+        <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
+        <view class="userinfo">
+            <view class="info1">
+                <view class="name">赵阿姨</view>
+                <view class="gold">保证金2000</view>
+                <!--                <view class="distance">-->
+                <!--                    <image src="../../../images/address.png"></image>-->
+                <!--                    <text>3.2公里</text>-->
+                <!--                </view>-->
+            </view>
+            <view class="info2">
+                服务56次 | 评价49条 | 好评率98.99%
+            </view>
+        </view>
+    </view>
+
+    <view class="buttons">
+        <view class="button1">退款</view>
+        <view class="button2">投诉</view>
+        <view class="button3" bind:tap="checkService">验收服务</view>
+    </view>
+
+    <view class="erq" wx:if="{{ifShow}}" bind:tap="cancelCheck">
+        <view class="top">
+            <image src="../../../images/erweima.png"></image>
+            <text>5856352278</text>
+        </view>
+        <view class="tips">
+            请师傅扫码核销
+        </view>
+    </view>
+</view>

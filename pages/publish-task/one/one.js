@@ -12,8 +12,15 @@ Page({
     description:'',
     desLength:0,
   },
-  goTo(){
-    app.navigateTo('/pages/address/list/list')
+  goTo(e){
+    let path;
+    let type=e.currentTarget.dataset.type
+    if(type=='address'){
+      path='/pages/address/list/list'
+    }else if(type=='publish'){
+      path='/pages/publish-task/two/two'
+    }
+    app.navigateTo(path)
   },
   bindinput(e){
     this.setData({

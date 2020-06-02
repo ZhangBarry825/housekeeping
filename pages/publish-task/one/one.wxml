@@ -39,7 +39,7 @@
     </view>
     <view class="page__bd">
         <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="goTo">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="goTo" data-type="address">
                 <view class="weui-cell__bd">选择服务地址</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
@@ -133,7 +133,7 @@
         </view>
     </view>
     <view class="button-box">
-        <view class="button">发布需求</view>
+        <view class="button" bind:tap="goTo" data-type="publish">发布需求</view>
     </view>
 </view>
 

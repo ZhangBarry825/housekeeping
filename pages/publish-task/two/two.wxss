@@ -1,1 +1,181 @@
-/* pages/publish-task/two/two.wxss */
+.page {
+  width: 100%;
+}
+.page .warn {
+  width: 100%;
+  padding: 10rpx 0;
+  color: #fff;
+  background-color: #e12b2a;
+  text-align: center;
+  font-size: 25rpx;
+}
+.page .info {
+  height: 300rpx;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .info .line1 {
+  font-weight: bold;
+}
+.page .info .line2 {
+  font-size: 25rpx;
+  color: #999;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.page .info .line3 {
+  font-size: 28rpx;
+  color: #999;
+}
+.page .middle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25rpx;
+  justify-content: space-around;
+  padding: 50rpx 0;
+  height: 200rpx;
+  box-sizing: border-box;
+}
+.page .middle .line1 {
+  color: #28b07d;
+}
+.page .middle .line2 {
+  color: #999;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.page .middle .line2 .border {
+  margin: 0 30rpx;
+  width: 50rpx;
+  border-bottom: 1px solid #999;
+}
+.page .users {
+  width: 100%;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.page .users .item {
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border-radius: 5rpx;
+  font-size: 25rpx;
+}
+.page .users .item .top {
+  width: 100%;
+  display: flex;
+  border-bottom: 0.5px solid gainsboro;
+  flex-direction: row;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+  color: #999;
+}
+.page .users .item .top .color {
+  color: #ff9b85;
+}
+.page .users .item .top .button {
+  padding: 5rpx 30rpx;
+  background-color: #f5f5f5;
+  color: #5a5a5a;
+  border-radius: 5rpx;
+}
+.page .users .item .detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx;
+  box-sizing: border-box;
+  border-bottom: 0.5px solid gainsboro;
+}
+.page .users .item .detail .line1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.page .users .item .detail .line1 .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+}
+.page .users .item .detail .line1 .userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.page .users .item .detail .line1 .userinfo .info1 {
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 25rpx;
+}
+.page .users .item .detail .line1 .userinfo .info1 .name {
+  font-size: 27rpx;
+  font-weight: bold;
+}
+.page .users .item .detail .line1 .userinfo .info1 .gold {
+  color: #f3b64b;
+  border: 1px solid #f3b64b;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+}
+.page .users .item .detail .line1 .userinfo .info1 .distance {
+  display: flex;
+  align-items: center;
+}
+.page .users .item .detail .line1 .userinfo .info1 .distance image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .users .item .detail .line1 .userinfo .info1 .distance text {
+  color: #5a5a5a;
+}
+.page .users .item .detail .line1 .userinfo .info2 {
+  color: #26a859;
+  padding: 10rpx 0;
+}
+.page .users .item .detail .line2 {
+  display: flex;
+  padding: 20rpx 0;
+  justify-content: space-around;
+}
+.page .users .item .detail .line2 view {
+  border-radius: 5rpx;
+  color: #5a5a5a;
+  background-color: #f5f5f5;
+  padding: 0 20rpx;
+}
+.page .users .item .bottom {
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.page .users .item .bottom .bottom1,
+.page .users .item .bottom .bottom3 {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page .users .item .bottom .bottom1 image,
+.page .users .item .bottom .bottom3 image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .users .item .bottom .bottom1 text,
+.page .users .item .bottom .bottom3 text {
+  margin-left: 10rpx;
+}
+.page .users .item .bottom .bottom2 {
+  height: 20rpx;
+  border-right: 1px solid #999;
+}

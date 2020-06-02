@@ -1,13 +1,18 @@
 {
   "pages":[
+    "pages/publish-task/four/four",
+    "pages/publish-task/three/three",
+    "pages/publish-task/one/one",
     "pages/order/order",
     "pages/feedback/feedback",
     "pages/home/home",
     "pages/mine/mine",
-    "pages/publish-task/one/one",
+
     "pages/publish-task/two/two",
-    "pages/publish-task/three/three",
-    "pages/publish-task/four/four",
+    "pages/publish-task/selected/selected",
+
+
+
     "pages/publish-task/five/five",
     "pages/knowledge/knowledge",
     "pages/knowledge-detail/knowledge-detail",

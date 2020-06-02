@@ -1,1 +1,184 @@
-/* pages/publish-task/four/four.wxss */
+.page {
+  width: 100%;
+}
+.page .warn {
+  width: 100%;
+  padding: 10rpx 0;
+  color: #fff;
+  background-color: #e12b2a;
+  text-align: center;
+  font-size: 25rpx;
+}
+.page .info {
+  height: 300rpx;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .info .line1 {
+  font-weight: bold;
+}
+.page .info .line2 {
+  font-size: 25rpx;
+  color: #999;
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+}
+.page .info .line3 {
+  font-size: 28rpx;
+  color: #999;
+}
+.page .userInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+}
+.page .userInfo .title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.page .userInfo .user {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+}
+.page .userInfo .user .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+}
+.page .userInfo .user .userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.page .userInfo .user .userinfo .info1 {
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 27rpx;
+}
+.page .userInfo .user .userinfo .info1 .name {
+  font-size: 27rpx;
+  font-weight: bold;
+}
+.page .userInfo .user .userinfo .info1 .gold {
+  color: #f3b64b;
+  border: 1px solid #f3b64b;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+}
+.page .userInfo .user .userinfo .info1 .distance {
+  display: flex;
+  align-items: center;
+}
+.page .userInfo .user .userinfo .info1 .distance image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .userInfo .user .userinfo .info1 .distance text {
+  color: #5a5a5a;
+}
+.page .userInfo .user .userinfo .info2 {
+  color: #26a859;
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+}
+.page .comment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+}
+.page .comment .title {
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.page .comment .stars {
+  align-items: center;
+  padding: 10rpx 0;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+}
+.page .comment .stars image {
+  margin-right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .comment .stars text {
+  color: #5a5a5a;
+  margin-right: 20rpx;
+}
+.page .comment .tags {
+  align-items: center;
+  padding: 10rpx 0;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+}
+.page .comment .tags .tag {
+  padding: 0 10rpx;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.page .comment .tags .selected {
+  color: #fb9605;
+  border: 1px solid #fb9605;
+}
+.page .comment .weui-cell_active {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+}
+.page .comment .weui-textarea {
+  font-size: 25rpx;
+  box-sizing: border-box;
+}
+.page .comment .hidden {
+  margin-top: 150rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  color: #5a5a5a;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.page .comment .hidden image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .comment .hidden text {
+  margin-left: 10rpx;
+}
+.page .comment .button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.page .comment .button-box .button {
+  padding: 15rpx 0;
+  color: #fff;
+  background-color: #fd9800;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}
