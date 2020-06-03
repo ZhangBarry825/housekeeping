@@ -82,3 +82,28 @@
   color: #fff;
   background-color: #02c87d;
 }
+.page .recorder-box {
+  color: #5a5a5a;
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.page .recorder-box .button {
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  padding: 5rpx 15rpx;
+  box-sizing: border-box;
+  border: 1px solid gainsboro;
+  color: #0b0b0b;
+}
+.page .recorder-box .button image {
+  width: 30rpx;
+  height: 20rpx;
+}
+.page .recorder-box .button text {
+  margin-left: 5rpx;
+}
