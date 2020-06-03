@@ -133,7 +133,7 @@
         </view>
     </view>
     <view class="button-box">
-        <view class="button" bind:tap="goTo" data-type="publish">发布需求</view>
+        <view class="button" bind:tap="goTo" data-type="publish">立即入住</view>
     </view>
 </view>
 

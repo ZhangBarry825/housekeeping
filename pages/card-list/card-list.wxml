@@ -1,28 +1,33 @@
 <!--pages/card-list/card-list.wxml-->
 <view class="page">
     <view class="cardList">
-        <view class="card">
-            <image class="left" src="../../images/gs.png"></image>
-            <view class="right">
-                <view class="name">中国工商银行-储蓄卡</view>
-                <view class="number">**** **** **** **** 7598</view>
+        <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+            <view class="card">
+                <image class="left" src="../../images/gs.png"></image>
+                <view class="right">
+                    <view class="name">中国工商银行-储蓄卡</view>
+                    <view class="number">**** **** **** **** 7598</view>
+                </view>
             </view>
-        </view>
-        <view class="card">
-            <image class="left" src="../../images/gs.png"></image>
-            <view class="right">
-                <view class="name">中国工商银行-储蓄卡</view>
-                <view class="number">**** **** **** **** 7598</view>
+        </mp-slideview>
+        <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+            <view class="card">
+                <image class="left" src="../../images/gs.png"></image>
+                <view class="right">
+                    <view class="name">中国工商银行-储蓄卡</view>
+                    <view class="number">**** **** **** **** 7598</view>
+                </view>
             </view>
-        </view>
-
-
-        <view class="weui-cells">
-            <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
-                <mp-cell value="左滑可以删除" footer="说明文字"></mp-cell>
-            </mp-slideview>
-        </view>
-
+        </mp-slideview>
+        <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+            <view class="card">
+                <image class="left" src="../../images/gs.png"></image>
+                <view class="right">
+                    <view class="name">中国工商银行-储蓄卡</view>
+                    <view class="number">**** **** **** **** 7598</view>
+                </view>
+            </view>
+        </mp-slideview>
 
 
     </view>

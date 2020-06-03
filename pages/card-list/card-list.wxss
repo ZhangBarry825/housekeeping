@@ -27,6 +27,10 @@
 .page .cardList .card .right .name {
   margin-bottom: 20rpx;
 }
+.page .cardList .slide {
+  width: 100%;
+  height: 100rpx;
+}
 .page .button-box {
   margin-top: 50rpx;
   width: 100%;

@@ -20,7 +20,7 @@
             <view class="weui-cell__bd">服务协议</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/cost-record/cost-record" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">消费记录</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
@@ -28,13 +28,13 @@
             <view class="weui-cell__bd">关于我们</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/distribution/distribution" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">分享赚钱</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
     </view>
     <view class="weui-cells weui-cells_after-title">
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/join/join" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">立即入住</view>
             <view class="weui-cell__ft weui-cell__ft_in-access">我是师傅</view>
         </navigator>

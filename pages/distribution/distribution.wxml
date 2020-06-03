@@ -21,7 +21,7 @@
                 <view class="weui-cell__bd">银行卡配置</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="/pages/share/share" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">分享海报</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>

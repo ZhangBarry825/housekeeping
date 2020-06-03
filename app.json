@@ -1,16 +1,16 @@
 {
   "pages":[
+    "pages/join/join",
+    "pages/home/home",
+    "pages/share/share",
+    "pages/card-list/card-list",
     "pages/distribution/distribution",
     "pages/team/team",
     "pages/bind-card/bind-card",
-    "pages/card-list/card-list",
     "pages/encash/encash",
-
-
     "pages/cost-record/cost-record",
     "pages/order/order",
     "pages/feedback/feedback",
-    "pages/home/home",
     "pages/mine/mine",
     "pages/publish-task/selected/selected",
     "pages/publish-task/one/one",

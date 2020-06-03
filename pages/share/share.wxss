@@ -1,0 +1,96 @@
+.page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page .top {
+  width: 100%;
+  height: 350rpx;
+  background-color: #00c87f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+}
+.page .top .line1 {
+  color: #fff;
+  font-size: 70rpx;
+}
+.page .top .line2 {
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffcc00;
+  background-color: #00c87f;
+  z-index: 999;
+}
+.page .top .line2 image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.page .top .line3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -20rpx;
+}
+.page .top .line3 .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 400rpx;
+  border: 1px solid #ffcc00;
+  color: #ffcc00;
+  border-radius: 50rpx;
+  padding: 30rpx 20rpx;
+  font-size: 70rpx;
+}
+.page .top .line3 .box text {
+  position: relative;
+  top: 10rpx;
+  font-size: 30rpx;
+  margin-left: 10rpx;
+}
+.page .share {
+  margin: 50rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700rpx;
+  color: #fff;
+  font-size: 35rpx;
+  background-color: #ffcc00;
+  border-radius: 50rpx;
+  padding: 10rpx 0;
+}
+.page .tip {
+  margin: 20rpx 0;
+  color: #f6680b;
+}
+.page .num {
+  margin: 20rpx 0;
+  font-size: 70rpx;
+}
+.page .num text {
+  font-size: 30rpx;
+}
+.page .detail {
+  margin: 40rpx 0;
+  border-radius: 10rpx;
+  width: 650rpx;
+  border: 1px solid #999;
+  color: #999;
+  padding: 10rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
