@@ -53,6 +53,17 @@
 .page .content-box .knowledge .items .item text {
   font-size: 23rpx;
   color: #5a5a5a;
+  max-width: 100%;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.page .content-box .logos:after {
+  content: '';
+  width: 17%;
+  min-width: 17%;
 }
 .page .content-box .logos {
   background-color: #FFF;
@@ -80,6 +91,12 @@
   margin-top: 20rpx;
   font-size: 22rpx;
   color: #5a5a5a;
+  max-width: 100%;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .page .content-box .nanny {
   padding: 10rpx 0;
@@ -128,6 +145,12 @@
   margin-bottom: 20rpx;
   font-size: 22rpx;
   color: #0b0b0b;
+  max-width: 100%;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .page .content-box .clean {
   padding: 10rpx 0;
@@ -176,4 +199,10 @@
   margin-bottom: 20rpx;
   font-size: 22rpx;
   color: #0b0b0b;
+  max-width: 100%;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }

@@ -17,7 +17,7 @@
             </view>
             <view class="items" bind:tap="goItem" data-type="knowledge-detail">
                 <view class="item">
-                    <text>•20个生活小常识、生活小窍门</text>
+                    <text>•20个生活小常识、生活小窍门20个生活小常识、生活小窍门20个生活小常识、生活小窍门</text>
                 </view>
                 <view class="item">
                     <text>•20个生活小常识、生活小窍门</text>
@@ -37,7 +37,7 @@
             </view>
             <view class="item" bind:tap="goItem" data-type="logo">
                 <image src="../../images/order.png"></image>
-                <text>保洁服务</text>
+                <text>保洁服务保洁服务</text>
             </view>
             <view class="item">
                 <image src="../../images/order.png"></image>
@@ -79,7 +79,7 @@
             </view>
             <view class="items">
                 <view class="item" bind:tap="goItem">
-                    <text>保姆</text>
+                    <text>保姆保姆保姆保姆保姆</text>
                     <image mode="aspectFill" src="../../images/cleanner.png"></image>
                 </view>
                 <view class="item">
@@ -119,7 +119,7 @@
             </view>
             <view class="items">
                 <view class="item">
-                    <text>开荒保洁</text>
+                    <text>开荒保洁开荒保洁开荒保洁开荒保洁开荒保洁</text>
                     <image mode="aspectFill" src="../../images/clean.png"></image>
                 </view>
                 <view class="item">

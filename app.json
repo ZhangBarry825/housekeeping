@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/join/join",
     "pages/home/home",
+    "pages/join/join",
     "pages/share/share",
     "pages/card-list/card-list",
     "pages/distribution/distribution",
