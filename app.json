@@ -24,6 +24,7 @@
     "pages/address/update/update",
     "pages/address/add/add",
     "pages/address/list/list",
+    "pages/shouquan/shouquan",
 
     "pages/index/index",
     "pages/logs/logs"
