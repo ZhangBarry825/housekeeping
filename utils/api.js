@@ -63,7 +63,6 @@ module.exports = {
             success: res => {
                 var data = res.data;
                 if (userid == '' && requireLogin) {
-				
                     if (!tryingLogin) {
                         tryingLogin        = true;
                         var hasGetUserInfo = wx.getStorageSync('hasGetUserInfo');
@@ -84,13 +83,10 @@ module.exports = {
                             })
                         }
                     }
-                    // 登录注册
+                    /* 登录注册 */
                     let currentPages = getCurrentPages();
-
-                    console.log('-------no login!---------');
-
                     let currentRoute = currentPages.pop()['__route__'];
-                  if (currentRoute != 'pages/home/home') {
+                    if (currentRoute != 'pages/home/home') {
                         wx.navigateTo({
                           url: '/pages/home/home'
                         });
@@ -109,56 +105,98 @@ module.exports = {
             complete: options.complete ? options.complete : null
         });
     },
-	
+
+
+    loginTwo: function () {
+
+    },
 	
 	login: function(options) {
-		console.log(options)
 		var that = this;
 		wx.login({
 			success: loginRes => {
 				if (loginRes.code) {
-					var avatarUrl = encodeURIComponent(options.detail.userInfo.avatarUrl);
-					console.log(loginRes.code)
-					console.log(options.detail.iv)
-					console.log(options.detail.encryptedData)
-					console.log(options.detail.userInfo.nickName)
-					console.log(options.detail.userInfo.avatarUrl)
-					console.log(options.detail.userInfo.city)
-					console.log(options.detail.userInfo.province)
-					console.log(options.detail.userInfo.country)
-					console.log(options.detail.signature)
-					return false;
-					that.post({
-						url: '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
-						data: {
-							code: loginRes.code,
-							iv: options.detail.iv,
-							encryptedData: options.detail.encryptedData,
-							nickName: options.detail.userInfo.nickName,
-							avatarUrl: options.detail.userInfo.avatarUrl,
-							invite_id: 0,/* 邀请用户id */
-							city: options.detail.userInfo.city,
-							province: options.detail.userInfo.province,
-							country: options.detail.userInfo.country,
-							signature: options.detail.signature
-						},
-						success: data => {
-							console.log(data, '<回调用户信息')
-							if (data.code == 200) {
-								wx.showToast({
-									title: '登录成功!',
-									icon: 'success',
-									duration: 1000
-								});
-								wx.setStorageSync('login', '1');
-								wx.setStorageSync('token', data.user_token);
-								wx.setStorageSync('userid', data.user_id);
-								wx.switchTab({
-									url: '/pages/home/home',
-								});
-							}
-						}
-					});
+                    wx.request({
+                        url: that.API_ROOT + '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
+                        data: {
+                            code: loginRes.code,
+                            iv: options.detail.iv,
+                            encryptedData: options.detail.encryptedData,
+                            nickName: options.detail.userInfo.nickName,
+                            avatarUrl: options.detail.userInfo.avatarUrl,
+                            invite_id: 0,   /* 邀请用户id */
+                            city: options.detail.userInfo.city,
+                            province: options.detail.userInfo.province,
+                            country: options.detail.userInfo.country,
+                            signature: options.detail.signature
+                        },
+                        method: 'POST',
+                        header: {
+                            'Cache-Control': 'no-cache',
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'XX-Token': '',
+                            'XX-Device-Type': 'wxapp',
+                            'XX-Api-Version': '1.1.0'
+                        },
+                        success: res => {
+                            var data = res.data;
+                            var da = data.replace('{','').replace('}','').split(",");
+                            var dco = da[0].split(":");
+                            var user = da[2].split(":");
+                            var token = da[3].split(":");
+
+                            var dcod = dco[1].replace('"','').replace('"','');
+                            var user_id = user[1].replace('"','').replace('"','');
+                            var user_token = token[1].replace('"','').replace('"','');
+                            if (dcod == 200) {
+                                wx.showToast({
+                                    title: '登录成功!',
+                                    icon: 'success',
+                                    duration: 1000
+                                });
+                                wx.setStorageSync('login', '1');
+                                wx.setStorageSync('token', user_token);
+                                wx.setStorageSync('userid', user_id);
+                                wx.reLaunch({
+                                	url: '/pages/home/home',
+                                });
+                            }
+
+                        }
+                    })
+
+
+					// this.post({
+					// 	url: '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
+					// 	data: {
+					// 		code: loginRes.code,
+					// 		iv: options.detail.iv,
+					// 		encryptedData: options.detail.encryptedData,
+					// 		nickName: options.detail.userInfo.nickName,
+					// 		avatarUrl: options.detail.userInfo.avatarUrl,
+					// 		invite_id: 0,   /* 邀请用户id */
+					// 		city: options.detail.userInfo.city,
+					// 		province: options.detail.userInfo.province,
+					// 		country: options.detail.userInfo.country,
+					// 		signature: options.detail.signature
+					// 	},
+					// 	success: data => {
+					// 		console.log(data,'22222333333')
+					// 		// if (data.code == 200) {
+					// 		// 	wx.showToast({
+					// 		// 		title: '登录成功!',
+					// 		// 		icon: 'success',
+					// 		// 		duration: 1000
+					// 		// 	});
+					// 		// 	wx.setStorageSync('login', '1');
+					// 		// 	wx.setStorageSync('token', data.user_token);
+					// 		// 	wx.setStorageSync('userid', data.user_id);
+					// 		// 	// wx.switchTab({
+					// 		// 	// 	url: '/pages/home/home',
+					// 		// 	// });
+					// 		// }
+					// 	}
+					// });
 				}
 			},
 			fail: ()=> {

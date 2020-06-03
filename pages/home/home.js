@@ -57,12 +57,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        var a1 = wx.getStorageSync('login');
-        var a2 = wx.getStorageSync('token');
-        var a3 = wx.getStorageSync('userid');
-        console.log(a1);
-        console.log(a2);
-        console.log(a3);
+
     },
 
     /**
