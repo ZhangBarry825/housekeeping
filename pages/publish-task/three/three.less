@@ -1,4 +1,4 @@
-.page{
+.page {
   width: 100%;
 
   .warn {
@@ -9,34 +9,40 @@
     text-align: center;
     font-size: 25rpx;
   }
-  .progress{
+
+  .progress {
     background-color: #fff;
     width: 100%;
-    padding:20rpx;
+    padding: 20rpx;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    .item{
+
+    .item {
       display: flex;
       height: 100%;
       flex-direction: column;
       align-items: center;
-      text{
+
+      text {
         font-size: 25rpx;
         color: #999;
       }
-      .time{
+
+      .time {
         font-size: 23rpx;
       }
-      image{
+
+      image {
         margin: 10rpx 0;
         width: 35rpx;
         height: 35rpx;
       }
     }
-    .connect{
+
+    .connect {
       position: relative;
       top: -20rpx;
       width: 30rpx;
@@ -44,12 +50,14 @@
       align-self: center;
     }
   }
-  .order{
+
+  .order {
     width: 100%;
     box-sizing: border-box;
     background-color: #fff;
     margin-top: 20rpx;
-    .title{
+
+    .title {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -58,25 +66,30 @@
       font-size: 25rpx;
       padding: 20rpx;
       box-sizing: border-box;
-      .left{
+
+      .left {
         font-weight: bold;
       }
-      .right{
+
+      .right {
         color: #00c87e;
         border: 1px solid #00c87e;
         border-radius: 10rpx;
         padding: 0 10rpx;
       }
     }
-    .items{
+
+    .items {
       border-bottom: 1px solid gainsboro;
       padding: 20rpx;
       font-size: 25rpx;
-      .label{
+
+      .label {
         color: #5a5a5a;
       }
     }
-    .detail{
+
+    .detail {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -85,15 +98,18 @@
       font-size: 25rpx;
       padding: 20rpx;
       box-sizing: border-box;
-      .left{
+
+      .left {
         font-weight: bold;
       }
-      .right{
+
+      .right {
 
       }
     }
   }
-  .user{
+
+  .user {
     margin-top: 10rpx;
     background-color: #fff;
     width: 100%;
@@ -102,51 +118,60 @@
     padding: 10rpx 20rpx;
     box-sizing: border-box;
     align-items: center;
-    .avatar{
+
+    .avatar {
       width: 80rpx;
       height: 80rpx;
       border-radius: 50rpx;
     }
-    .userinfo{
+
+    .userinfo {
       display: flex;
       flex-direction: column;
       margin-left: 20rpx;
 
-      .info1{
+      .info1 {
         padding: 10rpx 0;
         display: flex;
         font-size: 27rpx;
-        .name{
+
+        .name {
           font-size: 27rpx;
           font-weight: bold;
         }
-        .gold{
+
+        .gold {
           color: #f3b64b;
           border: 1px solid #f3b64b;
           padding: 0 10rpx;
           border-radius: 10rpx;
           margin: 0 20rpx;
         }
-        .distance{
+
+        .distance {
           display: flex;
           align-items: center;
-          image{
+
+          image {
             width: 30rpx;
             height: 30rpx;
           }
-          text{
+
+          text {
             color: #5a5a5a;
           }
         }
       }
-      .info2{
+
+      .info2 {
         color: #26a859;
         padding-bottom: 10rpx;
         font-size: 25rpx;
       }
     }
   }
-  .buttons{
+
+  .buttons {
     position: fixed;
     bottom: 0;
     margin-top: 20rpx;
@@ -154,34 +179,47 @@
     background-color: white;
     display: flex;
     flex-direction: row;
-    .button1,.button2,.button3{
+
+    .button1, .button2, .button3 {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20rpx 0;
     }
-    .button1,.button2{
+
+    .button1, .button2 {
       width: 40%;
       border-right: 1px solid gainsboro;
       border-left: 1px solid gainsboro;
     }
-    .button3{
+
+    .button3 {
       width: 60%;
       color: #fff;
       background-color: #00c87f;
     }
   }
-  .erq{
+
+  .buttons2 {
+    .button1 {
+      width: 100%;
+      color: #fff;
+      background-color: #00c87f;
+    }
+  }
+
+  .erq {
     position: fixed;
     top: 0;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgba(50,49,43,0.67);
+    background-color: rgba(50, 49, 43, 0.67);
     justify-content: center;
     align-items: center;
-    .top{
+
+    .top {
       padding: 10rpx;
       box-sizing: border-box;
       background-color: white;
@@ -189,22 +227,25 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      image{
+
+      image {
         width: 400rpx;
         height: 400rpx;
       }
-      text{
+
+      text {
         color: #00c97d;
       }
     }
-    .tips{
+
+    .tips {
       margin-top: 50rpx;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #00c87f;
       padding: 10rpx 50rpx;
-      color:#fff;
+      color: #fff;
     }
   }
 }

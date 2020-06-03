@@ -1,0 +1,71 @@
+.page .requirement {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.page .requirement .title {
+  font-weight: bold;
+  width: 100%;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid gainsboro;
+}
+.page .requirement .content {
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.page .requirement .content text {
+  width: 100%;
+}
+.page .requirement .content .imgs {
+  margin: 30rpx 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.page .requirement .content .imgs .img {
+  width: 220rpx;
+  height: 180rpx;
+}
+.page .requirement .content .voice {
+  background-color: #00c97d;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+}
+.page .requirement .content .voice image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.page .contact {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.page .contact .title {
+  font-weight: bold;
+  width: 100%;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid gainsboro;
+}
+.page .contact .content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.page .contact .content .label {
+  color: #999;
+}

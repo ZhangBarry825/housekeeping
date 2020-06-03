@@ -68,7 +68,7 @@
                 <text class="content">CSK202004231435</text>
             </view>
         </view>
-        <view class="detail">
+        <view class="detail" bind:tap="goToDetail">
             <view class="left">需求详情</view>
             <view class="right">></view>
         </view>
@@ -80,10 +80,6 @@
             <view class="info1">
                 <view class="name">赵阿姨</view>
                 <view class="gold">保证金2000</view>
-                <!--                <view class="distance">-->
-                <!--                    <image src="../../../images/address.png"></image>-->
-                <!--                    <text>3.2公里</text>-->
-                <!--                </view>-->
             </view>
             <view class="info2">
                 服务56次 | 评价49条 | 好评率98.99%
@@ -91,11 +87,14 @@
         </view>
     </view>
 
-    <view class="buttons">
+    <view class="buttons buttons1">
         <view class="button1">退款</view>
         <view class="button2" bind:tap="complaint">投诉</view>
         <view class="button3" bind:tap="checkService">验收服务</view>
     </view>
+<!--    <view class="buttons buttons2">-->
+<!--        <view class="button1">退款</view>-->
+<!--    </view>-->
 
     <view class="erq" wx:if="{{ifShow}}" bind:tap="cancelCheck">
         <view class="top">

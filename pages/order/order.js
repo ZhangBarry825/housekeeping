@@ -15,13 +15,19 @@ Page({
 
   },
   goToSelect(){
-    app.navigateTo('/pages/publish-task/two/two')
+    wx.navigateTo({
+      url
+    })
   },
   goToCheck(){
-    app.navigateTo('/pages/publish-task/three/three')
+    wx.navigateTo({
+      url:'/pages/publish-task/three/three'
+    })
   },
   goToComment(){
-    app.navigateTo('/pages/publish-task/four/four')
+    wx.navigateTo({
+      url:'/pages/publish-task/four/four'
+    })
   },
   /**
    * 生命周期函数--监听页面加载

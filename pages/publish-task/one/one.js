@@ -19,7 +19,9 @@ Page({
     },
 
     goTo() {
-        app.navigateTo('/pages/address/list/list')
+        wx.navigateTo({
+            url:'/pages/address/list/list'
+        })
     },
     bindinput(e) {
         this.setData({

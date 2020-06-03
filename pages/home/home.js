@@ -29,7 +29,7 @@ Page({
         } else if (tn == 'publish-task') {
             path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id
         }
-        //app.navigateTo(path);
+        //wx.navigateTo(path);
         wx.navigateTo({
             url: path
         })

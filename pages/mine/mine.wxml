@@ -8,7 +8,7 @@
             <view class="weui-cell__bd">评价</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="contactUs">
             <view class="weui-cell__bd">联系客服</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
@@ -16,7 +16,7 @@
             <view class="weui-cell__bd">意见反馈</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/agreement/agreement" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">服务协议</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
@@ -24,7 +24,7 @@
             <view class="weui-cell__bd">消费记录</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/about-us/about-us" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">关于我们</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
@@ -38,5 +38,18 @@
             <view class="weui-cell__bd">立即入住</view>
             <view class="weui-cell__ft weui-cell__ft_in-access">我是师傅</view>
         </navigator>
+    </view>
+
+
+    <view wx:if="{{showContact}}" class="fadeIn" bindtap="close">
+        <view class="weui-mask" bind:tap="cancelShow"></view>
+        <view class="weui-actionsheet weui-actionsheet_toggle">
+            <view class="weui-actionsheet__menu">
+                <view class="weui-actionsheet__cell">电话客服</view>
+            </view>
+            <view class="weui-actionsheet__action">
+                <view class="weui-actionsheet__cell" bind:tap="cancelShow">取消</view>
+            </view>
+        </view>
     </view>
 </view>

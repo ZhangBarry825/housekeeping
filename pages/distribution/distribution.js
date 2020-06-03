@@ -9,7 +9,9 @@ Page({
 
   },
   goEncash(){
-    app.navigateTo('/pages/encash/encash')
+    wx.navigateTo({
+      url:'/pages/encash/encash'
+    })
   },
   /**
    * 生命周期函数--监听页面加载
