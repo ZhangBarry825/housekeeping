@@ -17,7 +17,9 @@ Page({
             }],
     },
     addCard() {
-        app.navigateTo('/pages/bind-card/bind-card')
+        wx.navigateTo({
+            url:'/pages/bind-card/bind-card'
+        })
     },
     /**
      * 生命周期函数--监听页面加载

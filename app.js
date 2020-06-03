@@ -35,5 +35,8 @@ App({
     },
     globalData: {
         userInfo: null
+    },
+    navigateTo(path){
+        wx.navigateTo(path)
     }
 })

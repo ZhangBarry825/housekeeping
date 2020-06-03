@@ -1,37 +1,27 @@
-// pages/publish-task/three/three.js
-const app=getApp()
+// pages/publish-task/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ifShow:false
+    imgUrls: [
+      'http://desk-fd.zol-img.com.cn/g5/M00/02/05/ChMkJ1bKyZmIWCwZABEwe5zfvyMAALIQABa1z4AETCT730.jpg',
+      'http://desk-fd.zol-img.com.cn/g5/M00/02/05/ChMkJ1bKyZmIWCwZABEwe5zfvyMAALIQABa1z4AETCT730.jpg',
+      'http://desk-fd.zol-img.com.cn/g5/M00/02/05/ChMkJ1bKyZmIWCwZABEwe5zfvyMAALIQABa1z4AETCT730.jpg'
+    ],
+    show: false
   },
-  goToDetail(){
-    wx.navigateTo({
-      url:'/pages/publish-task/detail/detail'
-    })
-  },
-  checkService(){
+  previewImg(){
     this.setData({
-      ifShow:true
+      show:true
     })
   },
-  complaint(){
-    wx.navigateTo({
-      url:'/pages/publish-task/five/five'
-    })
+  change(e) {
+    console.log('current index has changed', e.detail)
   },
-  cancelCheck(){
-    this.setData({
-      ifShow:false
-    })
-  },
-  appendMoney(){
-    wx.navigateTo({
-      url:'/pages/append/append'
-    })
+  hide() {
+    console.log('component hide')
   },
   /**
    * 生命周期函数--监听页面加载

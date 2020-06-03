@@ -1,0 +1,30 @@
+.page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+.page .content {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.page .content .title {
+  margin: 20rpx 0;
+  width: 200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15rpx;
+  padding: 10rpx 30rpx;
+  background-color: #00c97d;
+  color: #fff;
+  font-size: 40rpx;
+}
+.page .content .article {
+  text-indent: 2em;
+}

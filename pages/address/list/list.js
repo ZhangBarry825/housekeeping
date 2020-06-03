@@ -15,7 +15,9 @@ Page({
   goTo(e){
     console.log(e)
     if(e.currentTarget.dataset.type=='add'){
-      app.navigateTo('/pages/address/add/add')
+      wx.navigateTo({
+        url:'/pages/address/add/add'
+      })
     }
   },
   /**

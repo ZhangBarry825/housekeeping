@@ -170,6 +170,11 @@
   color: #fff;
   background-color: #00c87f;
 }
+.page .buttons2 .button1 {
+  width: 100%;
+  color: #fff;
+  background-color: #00c87f;
+}
 .page .erq {
   position: fixed;
   top: 0;

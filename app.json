@@ -1,10 +1,15 @@
 {
   "pages":[
-    "pages/refund/refund",
+    "pages/home/home",
+    "pages/about-us/about-us",
+    "pages/agreement-detail/agreement-detail",
+    "pages/mine/mine",
+    "pages/publish-task/detail/detail",
     "pages/publish-task/three/three",
+    "pages/refund/refund",
+    "pages/agreement/agreement",
     "pages/append/append",
     "pages/publish-task/one/one",
-    "pages/home/home",
     "pages/join/join",
     "pages/share/share",
     "pages/card-list/card-list",
@@ -15,11 +20,8 @@
     "pages/cost-record/cost-record",
     "pages/order/order",
     "pages/feedback/feedback",
-    "pages/mine/mine",
     "pages/publish-task/selected/selected",
-
     "pages/publish-task/two/two",
-
     "pages/publish-task/four/four",
     "pages/publish-task/five/five",
     "pages/knowledge/knowledge",

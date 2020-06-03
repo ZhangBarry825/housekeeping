@@ -14,7 +14,7 @@ Page({
     if(type=='select'){
       path='/pages/publish-task/selected/selected'
     }
-    app.navigateTo(path)
+    wx.navigateTo(path)
   },
   /**
    * 生命周期函数--监听页面加载

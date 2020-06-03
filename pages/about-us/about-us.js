@@ -1,38 +1,13 @@
-// pages/publish-task/three/three.js
-const app=getApp()
+// pages/about-us/about-us.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ifShow:false
+
   },
-  goToDetail(){
-    wx.navigateTo({
-      url:'/pages/publish-task/detail/detail'
-    })
-  },
-  checkService(){
-    this.setData({
-      ifShow:true
-    })
-  },
-  complaint(){
-    wx.navigateTo({
-      url:'/pages/publish-task/five/five'
-    })
-  },
-  cancelCheck(){
-    this.setData({
-      ifShow:false
-    })
-  },
-  appendMoney(){
-    wx.navigateTo({
-      url:'/pages/append/append'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
