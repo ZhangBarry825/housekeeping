@@ -63,25 +63,29 @@ module.exports = {
             success: res => {
                 var data = res.data;
                 if (userid == '' && requireLogin) {
+                    console.log(tryingLogin);
                     if (!tryingLogin) {
                         tryingLogin        = true;
-                        var hasGetUserInfo = wx.getStorageSync('hasGetUserInfo');
-                        if (hasGetUserInfo) {
-                            wx.showToast({
-                                title: '正在重新登录',
-                                icon: 'success',
-                                duration: 1000
-                            });
-                            setTimeout(() => {
-                                wx.navigateTo({
-                                  url: '/pages/shouquan/shouquan',
-                                })
-                            }, 1000);
-                        } else {
-                            wx.navigateTo({
-                              url: '/pages/shouquan/shouquan',
-                            })
-                        }
+                        wx.navigateTo({
+                            url: '/pages/shouquan/shouquan',
+                        })
+                        // var hasGetUserInfo = wx.getStorageSync('hasGetUserInfo');
+                        // if (hasGetUserInfo) {
+                        //     wx.showToast({
+                        //         title: '正在重新登录',
+                        //         icon: 'success',
+                        //         duration: 1000
+                        //     });
+                        //     setTimeout(() => {
+                        //         wx.navigateTo({
+                        //           url: '/pages/shouquan/shouquan',
+                        //         })
+                        //     }, 1000);
+                        // } else {
+                        //     wx.navigateTo({
+                        //       url: '/pages/shouquan/shouquan',
+                        //     })
+                        // }
                     }
                     /* 登录注册 */
                     let currentPages = getCurrentPages();
