@@ -62,7 +62,7 @@ module.exports = {
             },
             success: res => {
                 var data = res.data;
-                if (userid == '' && requireLogin) {
+                if (userid == '1' && requireLogin) {
 				
                     if (!tryingLogin) {
                         tryingLogin        = true;

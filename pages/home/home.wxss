@@ -61,6 +61,7 @@
   overflow: hidden;
 }
 .page .content-box .logos:after {
+  height: 0;
   content: '';
   width: 17%;
   min-width: 17%;
@@ -117,6 +118,12 @@
 .page .content-box .nanny .title .right {
   width: 30rpx;
   height: 30rpx;
+}
+.page .content-box .nanny .items:after {
+  height: 0;
+  content: '';
+  width: 200rpx;
+  min-width: 22%;
 }
 .page .content-box .nanny .items {
   background-color: #FFF;
