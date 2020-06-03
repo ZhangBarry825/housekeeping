@@ -58,7 +58,7 @@
         </view>
         <view class="pictures">
             <view class="line1">
-                <view class="pic">
+                <view class="pic" bind:tap="chooseImage1">
                     <image src="../../images/addPic.png"></image>
                     <text>上传身份证正面</text>
                 </view>
