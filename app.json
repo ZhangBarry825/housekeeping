@@ -1,7 +1,9 @@
 {
   "pages":[
-    "pages/bind-card/bind-card",
     "pages/distribution/distribution",
+    "pages/team/team",
+    "pages/bind-card/bind-card",
+    "pages/card-list/card-list",
     "pages/encash/encash",
 
 

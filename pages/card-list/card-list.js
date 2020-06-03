@@ -1,15 +1,15 @@
-// pages/encash/encash.js
+// pages/card-list/card-list.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: 0,
-    array: ['工商银行 尾号0254', '建设银行 尾号0254', '农商银行 尾号0254', '中国银行 尾号0254'],
-  },
-  selectCard(){
 
+  },
+  addCard(){
+    app.navigateTo('/pages/bind-card/bind-card')
   },
   /**
    * 生命周期函数--监听页面加载

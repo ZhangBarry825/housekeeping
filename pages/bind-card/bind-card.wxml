@@ -1,11 +1,13 @@
 <!--pages/bind-card/bind-card.wxml-->
 <view class="page">
     <view class="content">
-        <view class="item">
-            <view class="left">提现银行</view>
-            <view class="middle">请选择提现银行</view>
-            <image src="../../images/right.png" class="right"></image>
-        </view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="item">
+                <view class="left">提现银行</view>
+                <view class="middle">请选择提现银行</view>
+                <image src="../../images/right.png" class="right"></image>
+            </view>
+        </picker>
         <view class="item">
             <view class="left">开户分行</view>
             <input class="weui-input middle" placeholder="请填写开户分行"/>

@@ -1,0 +1,44 @@
+.page .cardList {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.page .cardList .card {
+  margin-bottom: 10rpx;
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-radius: 15rpx;
+  background-color: #c9000b;
+  display: flex;
+  flex-direction: row;
+  color: #fff;
+}
+.page .cardList .card .left {
+  width: 70rpx;
+  height: 70rpx;
+}
+.page .cardList .card .right {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+  font-size: 30rpx;
+}
+.page .cardList .card .right .name {
+  margin-bottom: 20rpx;
+}
+.page .button-box {
+  margin-top: 50rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.page .button-box .button {
+  padding: 10rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #999;
+  color: #999;
+}

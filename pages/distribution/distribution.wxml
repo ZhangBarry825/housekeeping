@@ -13,11 +13,11 @@
     </view>
     <view class="items">
         <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="/pages/team/team" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">分销人员</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="/pages/card-list/card-list" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__bd">银行卡配置</view>
                 <view class="weui-cell__ft weui-cell__ft_in-access"></view>
             </navigator>
