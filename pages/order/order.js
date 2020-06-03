@@ -1,17 +1,27 @@
 // pages/order/order.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    menu:3,
+    menu:1,
   },
   changeMenu(e){
     this.setData({
       menu:e.currentTarget.dataset.type
     })
 
+  },
+  goToSelect(){
+    app.navigateTo('/pages/publish-task/two/two')
+  },
+  goToCheck(){
+    app.navigateTo('/pages/publish-task/three/three')
+  },
+  goToComment(){
+    app.navigateTo('/pages/publish-task/four/four')
   },
   /**
    * 生命周期函数--监听页面加载

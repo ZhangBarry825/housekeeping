@@ -23,7 +23,7 @@
                 <text>联系地址</text>
             </view>
             <view class="right">
-                <input value="{{address}}" class="weui-input" placeholder=""/>
+                <input value="{{address}}" class="weui-input addressInput" placeholder=""/>
             </view>
         </view>
         <view class="item">
@@ -59,21 +59,25 @@
         <view class="pictures">
             <view class="line1">
                 <view class="pic" bind:tap="chooseImage1">
-                    <image src="../../images/addPic.png"></image>
-                    <text>上传身份证正面</text>
+                    <image  wx:if="{{imgUrl1.length==0}}" src="../../images/addPic.png"></image>
+                    <text  wx:if="{{imgUrl1.length==0}}">上传身份证正面</text>
+
+                    <image wx:if="{{imgUrl1.length>0}}" class="image1" src="{{imgUrl1}}"></image>
                 </view>
-                <view class="pic">
-                    <image src="../../images/addPic.png"></image>
-                    <text>上传身份证反面</text>
+                <view class="pic"  bind:tap="chooseImage2">
+                    <image wx:if="{{imgUrl2.length==0}}"  src="../../images/addPic.png"></image>
+                    <text wx:if="{{imgUrl2.length==0}}" >上传身份证反面</text>
+                    <image wx:if="{{imgUrl2.length>0}}" class="image1" src="{{imgUrl2}}"></image>
                 </view>
             </view>
             <view class="line2">
                 请上传1张本人手持身份证号的照片
             </view>
             <view class="line3">
-                <view class="pic">
-                    <image src="../../images/addPic.png"></image>
-                    <text>上传身份证反面</text>
+                <view class="pic"  bind:tap="chooseImage3">
+                    <image wx:if="{{imgUrl3.length==0}}" src="../../images/addPic.png"></image>
+                    <text wx:if="{{imgUrl3.length==0}}">上传身份证反面</text>
+                    <image wx:if="{{imgUrl3.length>0}}" class="image1" src="{{imgUrl3}}"></image>
                 </view>
                 <view class="tips">
                     <text>1、需要本人上身免冠照</text>

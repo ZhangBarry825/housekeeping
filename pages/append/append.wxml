@@ -1,0 +1,35 @@
+<!--pages/append/append.wxml-->
+<view class="page">
+    <view class="requirement">
+        <text class="title">我的需求： </text>
+        <text class="content">家庭保洁-开荒</text>
+    </view>
+    <view class="price">
+        <text class="title">订单总额： </text>
+        <text class="content">￥120.00</text>
+    </view>
+    <view class="price">
+        <text class="title">实付金额： </text>
+        <text class="content">￥120.00</text>
+    </view>
+    <view class="user">
+        <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+        <view class="userinfo">
+            <view class="info1">
+                <view class="name">赵阿姨</view>
+                <view class="gold">保证金2000</view>
+            </view>
+            <view class="info2">
+                服务56次 | 评价49条 | 好评率98.99%
+            </view>
+        </view>
+    </view>
+    <view class="orderPrice">
+        <text class="title">补加金额</text>
+        <input class="weui-input" placeholder="请输入补加金额"/>
+    </view>
+
+    <view class="submit">
+        <view class="button">微信付款</view>
+    </view>
+</view>

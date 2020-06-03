@@ -26,7 +26,7 @@
                 </view>
                 <view class="bottom">
                     <text>最新报价： <text class="color">120元</text></text>
-                    <view class="button">选择师傅</view>
+                    <view class="button" bind:tap="goToSelect">选择师傅</view>
                 </view>
             </view>
             <view class="item item2">
@@ -48,7 +48,7 @@
                 </view>
                 <view class="bottom">
                     <text>订单价格： <text class="color">120元</text></text>
-                    <view class="button">验收服务</view>
+                    <view class="button" bind:tap="goToCheck">验收服务</view>
                 </view>
             </view>
             <view class="item item3">
@@ -61,7 +61,7 @@
                             家庭保洁-开荒
                         </view>
                         <view class="right">
-                            待评价
+                            订单关闭
                         </view>
                     </view>
                     <view class="line2">
@@ -92,7 +92,7 @@
                 </view>
                 <view class="bottom">
                     <text>订单价格： <text class="color">120元</text></text>
-                    <view class="button">去评价</view>
+                    <view class="button" bind:tap="goToComment">去评价</view>
                 </view>
             </view>
         </view>

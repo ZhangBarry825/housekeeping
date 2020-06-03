@@ -36,7 +36,7 @@
     <view class="order">
         <view class="title">
             <view class="left">订单信息</view>
-            <view class="right">补加订单金额</view>
+            <view class="right" bind:tap="appendMoney">补加订单金额</view>
         </view>
         <view class="items">
             <view class="line1">

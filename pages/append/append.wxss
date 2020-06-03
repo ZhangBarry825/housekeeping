@@ -1,0 +1,105 @@
+.page {
+  width: 100%;
+  box-sizing: border-box;
+}
+.page .requirement,
+.page .price {
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+}
+.page .requirement .title,
+.page .price .title {
+  color: #999;
+}
+.page .requirement .content,
+.page .price .content {
+  color: #5a5a5a;
+}
+.page .user {
+  margin-top: 10rpx;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+.page .user .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+}
+.page .user .userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+.page .user .userinfo .info1 {
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 27rpx;
+}
+.page .user .userinfo .info1 .name {
+  font-size: 27rpx;
+  font-weight: bold;
+}
+.page .user .userinfo .info1 .gold {
+  color: #f3b64b;
+  border: 1px solid #f3b64b;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+}
+.page .user .userinfo .info1 .distance {
+  display: flex;
+  align-items: center;
+}
+.page .user .userinfo .info1 .distance image {
+  width: 30rpx;
+  height: 30rpx;
+}
+.page .user .userinfo .info1 .distance text {
+  color: #5a5a5a;
+}
+.page .user .userinfo .info2 {
+  color: #26a859;
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+}
+.page .orderPrice {
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.page .orderPrice .title {
+  color: #0b0b0b;
+  width: 200rpx;
+}
+.page .orderPrice .content {
+  color: #f3b64b;
+}
+.page .submit {
+  margin-top: 300rpx;
+  width: 100%;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.page .submit .button {
+  box-sizing: border-box;
+  padding: 15rpx 0;
+  width: 100%;
+  color: #fff;
+  background-color: #00c87f;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

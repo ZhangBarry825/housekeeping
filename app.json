@@ -1,5 +1,9 @@
 {
   "pages":[
+    "pages/refund/refund",
+    "pages/publish-task/three/three",
+    "pages/append/append",
+    "pages/publish-task/one/one",
     "pages/home/home",
     "pages/join/join",
     "pages/share/share",
@@ -13,9 +17,9 @@
     "pages/feedback/feedback",
     "pages/mine/mine",
     "pages/publish-task/selected/selected",
-    "pages/publish-task/one/one",
+
     "pages/publish-task/two/two",
-    "pages/publish-task/three/three",
+
     "pages/publish-task/four/four",
     "pages/publish-task/five/five",
     "pages/knowledge/knowledge",
