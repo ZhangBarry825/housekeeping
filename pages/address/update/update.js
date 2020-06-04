@@ -1,4 +1,4 @@
-// pages/address/add/add.js
+// pages/address/update/update.js
 Page({
 
   /**

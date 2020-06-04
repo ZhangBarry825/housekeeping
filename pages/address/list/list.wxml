@@ -1,8 +1,9 @@
 <!--pages/address/list/list.wxml-->
 <view class="page">
     <view class="weui-cells weui-cells_checkbox weui-cells_after-title">
+
         <checkbox-group bindchange="checkboxChange">
-            <label bind:tap="selectAdd" class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="value">
+            <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{addressList}}" wx:key="value">
 <!--                <view class="weui-cell__hd">-->
 <!--                    <checkbox-->
 <!--                            class="weui-check"-->
@@ -11,23 +12,23 @@
 <!--                    />-->
 <!--                    <i class="weui-icon-checked"></i>-->
 <!--                </view>-->
-                <view class="weui-cell__bd add0">
+                <view class="weui-cell__bd add0" data-item="{{item}}"  bind:tap="selectAdd" >
                    <view class="add1">
-                       <view class="default" wx:if="{{idx == 0}}">默认</view>
-                       <view class="door"> 1栋1单元808</view>
+                       <view class="default" wx:if="{{item.status == '1'}}">默认</view>
+                       <view class="door"> {{item.address}}{{item.addresses}}</view>
                    </view>
-                   <view class="add2">北京市海淀区东北旺西路8号院</view>
+                   <view class="add2">{{item.province}}{{item.city}}{{item.area}}</view>
                    <view class="add3">
-                       李 (先生) 13800138000
+                       {{item.name}}({{item.sex=='1'?'先生':'女士'}}) {{item.mobile}}
                    </view>
                 </view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">
-                    <image class="right" src="../../../images/cc-edit.png" bind:tap="goEdit"></image>
+                <view class="weui-cell__ft weui-cell__ft_in-access editBox"  bind:tap="goEdit">
+                    <image class="right" src="../../../images/cc-edit.png"></image>
                 </view>
             </label>
         </checkbox-group>
     </view>
-    <view class="add" bind:tap="goTo" data-type="add">
+    <view class="add" bind:tap="goAdd" data-type="add">
         添加新地址
     </view>
 </view>

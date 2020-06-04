@@ -41,20 +41,20 @@
         <view class="weui-cells weui-cells_after-title">
             <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="goTo">
                 <view class="weui-cell__bd">选择服务地址</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                <view class="weui-cell__ft weui-cell__ft_in-access addressDetail">{{address}}</view>
             </navigator>
             <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="bindDateChange">
                 <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                    <view class="weui-cell__bd">期待上门日期</view>
+                    <view class="weui-cell__bd">期待上门时间</view>
                     <view class="weui-cell__ft weui-cell__ft_in-access">{{date}}</view>
                 </navigator>
             </picker>
-            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
-                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                    <view class="weui-cell__bd">期待上门时间</view>
-                    <view class="weui-cell__ft weui-cell__ft_in-access">{{time}}</view>
-                </navigator>
-            </picker>
+<!--            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">-->
+<!--                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">-->
+<!--                    <view class="weui-cell__bd">期待上门时间</view>-->
+<!--                    <view class="weui-cell__ft weui-cell__ft_in-access">{{time}}</view>-->
+<!--                </navigator>-->
+<!--            </picker>-->
         </view>
         <view class="weui-cells">
             <view class="weui-cell">
@@ -62,26 +62,26 @@
                     <view class="weui-uploader">
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
-                                <block wx:for="{{files}}" wx:key="*this">
+                                <block wx:for="{{images}}" wx:key="*this">
                                     <view class="weui-uploader__file clearBox">
 										<icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
                                         <image class="weui-uploader__img" bindtap="previewImage" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
                             </view>
-                            <view class="weui-uploader__input-box" wx:if="{{files.length<6}}">
+                            <view class="weui-uploader__input-box" wx:if="{{images.length<6}}">
                                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
                     </view>
                 </view>
             </view>
-            <text class="tips"><text style="color: red">*</text>上传完整清晰的图片，以便家政准确报价({{files.length}}/6)</text>
+            <text class="tips"><text style="color: red">*</text>上传完整清晰的图片，以便家政准确报价({{images.length}}/6)</text>
         </view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active">
                 <view class="weui-cell__bd">
-                    <textarea bindinput="bindinput" maxlength="{{150}}" value="{{description}}" class="weui-textarea" placeholder="请填写其他需求或特殊需求，方便家政带齐工具，以及更合理的报价。" style="height: 3.3em" />
+                    <textarea bindinput="bindinput" maxlength="{{150}}" value="{{desc}}" class="weui-textarea" placeholder="请填写其他需求或特殊需求，方便家政带齐工具，以及更合理的报价。" style="height: 3.3em" />
 
                 </view>
             </view>
@@ -101,9 +101,9 @@
     </view>
     <view class="promise">
         <label class="weui-agree">
-            <checkbox class="weui-agree__checkbox-check" />
+            <checkbox value="{{checkAgreement}}" class="weui-agree__checkbox-check" />
             <span class="weui-agree__checkbox"></span>
-            <span class="weui-agree__text">我以阅读并同意<navigator url="" class="weui-agree__link">《家政服务协议》</navigator><navigator url="" class="weui-agree__link">《隐私政策》</navigator></span>
+            <span class="weui-agree__text">我已阅读并同意<navigator url="" class="weui-agree__link">《家政服务协议》</navigator><navigator url="" class="weui-agree__link">《隐私政策》</navigator></span>
         </label>
     </view>
     <view class="page__bd">
@@ -123,7 +123,7 @@
         </view>
     </view>
     <view class="button-box">
-        <view class="button">发布需求</view>
+        <view class="button" bind:tap="publishForm">发布需求</view>
     </view>
 </view>
 

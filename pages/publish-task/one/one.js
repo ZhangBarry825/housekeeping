@@ -1,16 +1,20 @@
 // pages/publish-task/one/one.js
 const app = getApp()
 import {formatTimeMS} from "../../../utils/util";
+const api = require('../../../utils/api.js');
 Page({
     /**
      * 页面的初始数据
      */
     data: {
+        checkAgreement:false,
+        address:'请选择',
+        user_address_id:'',
         time: '请选择',
         date: '请选择',
-        pid: '',		/* 分类id */
-        files: [],		/*保存上传图片url的数组*/
-        description: '',
+        category_pid: '',		/* 分类id */
+        images: [],		/*保存上传图片url的数组*/
+        desc: '',
         desLength: 0,
         voiceImg:'../../../images/voice2.png',
         innerAudioContext:wx.createInnerAudioContext(),//音频播放上下文
@@ -18,7 +22,8 @@ Page({
         recordStatus:false,
         recorderManager: '', //录音管理上下文
         recordVoice:{},
-        hasRecord:false
+        hasRecord:false,
+        voice:'',
     },
     goTo() {
         wx.navigateTo({
@@ -33,7 +38,7 @@ Page({
     chooseImage(e) {
         var that = this;
         wx.chooseImage({
-            count: 6,
+            count: 1,
             sizeType: ['original', 'compressed'],
             // 可以指定是原图还是压缩图，默认二者都有
             sourceType: ['album', 'camera'],
@@ -41,9 +46,10 @@ Page({
             success: function (res) {
                 console.log(res.tempFilePaths)
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-                that.setData({
-                    files: that.data.files.concat(res.tempFilePaths)
-                });
+                // that.setData({
+                //     images: that.data.images.concat(res.tempFilePaths)
+                // });
+                that.uploadImg(res.tempFilePaths[0])
             }
         })
     },
@@ -52,24 +58,24 @@ Page({
         wx.previewImage({
             current: e.currentTarget.id,
             // 当前显示图片的http链接
-            urls: this.data.files // 需要预览的图片http链接列表
+            urls: this.data.images // 需要预览的图片http链接列表
         })
     },
     deleteImg(e){
 
         var that = this;
         var nowList = []; /*新数据*/
-        var files = that.data.files; /*原数据*/
+        var images = that.data.images; /*原数据*/
 
-        for (let i = 0; i < files.length; i++) {
+        for (let i = 0; i < images.length; i++) {
             if (i != e.currentTarget.dataset.index) {
-                nowList.push(files[i])
+                nowList.push(images[i])
             }
         }
         this.setData({
-            files: nowList,
+            images: nowList,
         })
-        console.log(this.data.files,987)
+        console.log(this.data.images,987)
     },
     bindTimeChange(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -149,10 +155,53 @@ Page({
         })
 
     },
+    uploadImg(p){
+        wx.showLoading({
+            title: '上传中',
+        })
+        let that = this;
+        console.log(wx.getStorageSync('userid'),'user_id')
+        console.log(wx.getStorageSync('token'),'token')
+        wx.uploadFile({
+            url: api.HOST+"/wxapi.php/Home/upload_img?client_id="+api.client_id+"&client_secret="+api.client_secret, //此处换上你的接口地址
+            filePath: p,
+            name: 'images_'+wx.getStorageSync('userid'),
+            formData: {
+                user_id:wx.getStorageSync('userid'),
+                user_token:wx.getStorageSync('token')
+            },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
+            success(res) {
+                console.log(JSON.parse(res.data),333)
+                console.log(api.HOST+"/"+JSON.parse(res.data).files)
+                if (JSON.parse(res.data).code == 200) {
+                    that.setData({
+                        images: that.data.images.concat(api.HOST+"/"+JSON.parse(res.data).files)
+                    });
+                }
+                wx.hideLoading()
+            },
+            fail(res) {
+                console.log(res,888)
+                wx.showToast({
+                    title: '网络异常,请稍后重试',
+                    icon: "none",
+                    duration: 1000
+                })
+                that.setData({
+                    images:[]
+                })
+                wx.hideLoading()
+            }
+
+        })
+
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('user-id',wx.getStorageSync('userid'))
+        console.log('token',wx.getStorageSync('token'))
         console.log(options)
         this.setData({
             innerAudioContext:wx.createInnerAudioContext(),
@@ -179,6 +228,18 @@ Page({
             }
 
         });
+    },
+    publishForm(){
+        let formData={
+            user_id:wx.getStorageSync('userid'),
+            user_token:wx.getStorageSync('token'),
+            category_pid: this.data.category_pid,
+            user_address_id: this.data.user_address_id,
+            updoor_time: this.data.updoor_time,
+            desc: this.data.desc,
+            voice: this.data.voice,
+        }
+        console.log(formData)
     },
 
     /**
