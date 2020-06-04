@@ -1,4 +1,4 @@
-// pages/mine/mine.js
+/* pages/mine/mine.js */
 const app = getApp()
 const api = require('../../utils/api.js');
 Page({
