@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/comments/comments",
     "pages/about-us/about-us",
     "pages/agreement-detail/agreement-detail",
     "pages/mine/mine",

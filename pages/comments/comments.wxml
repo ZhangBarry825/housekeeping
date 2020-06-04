@@ -1,0 +1,51 @@
+<!--pages/comments/comments.wxml-->
+<view class="page">
+    <view class="content">
+        <view class="menu1" wx:if="{{menu===1}}">
+            <view class="item item4">
+                <view class="top">
+                    <text>订单已完成</text>
+                </view>
+                <view class="middle">
+                    <view class="line1">
+                        <view class="left">
+                            家庭保洁-开荒
+                        </view>
+                        <view class="right">
+                            待评价
+                        </view>
+                    </view>
+                    <view class="line2">
+                        需求发布时间：2020/04/23 11:36
+                    </view>
+                </view>
+                <view class="bottom">
+                    <text>订单价格： <text class="color">120元</text></text>
+                    <view class="button" bind:tap="goToComment">去评价</view>
+                </view>
+            </view>
+            <view class="item item2">
+                <view class="top">
+                    <text>订单已完成</text>
+                </view>
+                <view class="middle">
+                    <view class="line1">
+                        <view class="left">
+                            家庭保洁-开荒
+                        </view>
+                        <view class="right">
+                            已评价
+                        </view>
+                    </view>
+                    <view class="line2">
+                        需求发布时间：2020/04/23 11:36
+                    </view>
+                </view>
+                <view class="bottom">
+                    <text>订单价格： <text class="color">120元</text></text>
+                    <view class="button" bind:tap="goToCheck">查看</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

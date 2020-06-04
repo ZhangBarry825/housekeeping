@@ -1,0 +1,96 @@
+.page .content {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.page .content .item {
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.page .content .item .top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.5px solid gainsboro;
+  font-size: 25rpx;
+  padding: 15rpx 0;
+  color: #5a5a5a;
+}
+.page .content .item .middle {
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  border-bottom: 0.5px solid gainsboro;
+}
+.page .content .item .middle .line1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 27rpx;
+}
+.page .content .item .middle .line1 .left {
+  font-weight: bold;
+}
+.page .content .item .middle .line1 .right {
+  color: #ff6600;
+}
+.page .content .item .middle .line2 {
+  margin-top: 10rpx;
+  color: #5a5a5a;
+  font-size: 23rpx;
+}
+.page .content .item .middle .line3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10rpx;
+  font-size: 25rpx;
+}
+.page .content .item .middle .line3 .color {
+  color: #ff6600;
+}
+.page .content .item .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  font-size: 25rpx;
+}
+.page .content .item .bottom .color {
+  color: #ff6600;
+}
+.page .content .item .bottom .button {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #29a759;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.page .content .menu1 {
+  width: 100%;
+}
+.page .content .menu1 .item2 .bottom .button {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #ff6600;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.page .content .menu1 .item3 .bottom .button {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #cccccc;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.page .content .menu1 .item4 .bottom .button {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #66ccff;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}

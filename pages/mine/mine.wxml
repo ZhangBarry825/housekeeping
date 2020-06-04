@@ -4,7 +4,7 @@
         <image mode="aspectFill" class="avatar" src="../../images/avatar.png"></image>
     </view>
     <view class="weui-cells weui-cells_after-title">
-        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <navigator url="/pages/comments/comments" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
             <view class="weui-cell__bd">评价</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
