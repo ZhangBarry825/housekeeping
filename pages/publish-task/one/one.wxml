@@ -63,8 +63,8 @@
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
                                 <block wx:for="{{files}}" wx:key="*this">
-                                    <view class="weui-uploader__file">
-										<icon class="ui_uploader_item_icon" bindtap="clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
+                                    <view class="weui-uploader__file clearBox">
+										<icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
                                         <image class="weui-uploader__img" bindtap="previewImage" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
@@ -88,9 +88,13 @@
         </view>
         <view class=" recorder-box">
             <text>{{desLength}}/150</text>
-            <view class="button" bindtouchend="looseButton"  bindlongpress="pressButton">
+            <view wx:if="{{!hasRecord}}" class="button" bindtouchend="looseButton"  bindlongpress="pressButton">
                 <image src="../../../images/voice.png"></image>
                 <text>长按录音</text>
+            </view>
+            <view wx:if="{{hasRecord}}"  class="button button2" bind:tap="playRecord">
+                <image src="{{voiceImg}}"></image>
+                {{recordVoice.duration}}
             </view>
         </view>
 

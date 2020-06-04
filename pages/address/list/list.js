@@ -8,9 +8,20 @@ Page({
   data: {
     selected:true,
     checkboxItems: [
-      {name: 'standard is dealt for u.', value: '0', checked: true},
-      {name: 'standard is dealicient for u.', value: '1'}
+      {},
+      {}
     ],
+  },
+  selectAdd(){
+    wx.navigateBack({
+      delta: 1
+    })
+
+  },
+  goEdit(){
+    wx.navigateTo({
+      url:'/pages/address/update/update'
+    })
   },
   goTo(e){
     console.log(e)

@@ -61,10 +61,10 @@
   overflow: hidden;
 }
 .page .content-box .logos:after {
+  width: 130rpx;
   height: 0;
   content: '';
-  width: 17%;
-  min-width: 17%;
+  min-width: 130rpx;
 }
 .page .content-box .logos {
   background-color: #FFF;
@@ -74,7 +74,7 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
 }
 .page .content-box .logos .item {
@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 17%;
+  width: 130rpx;
 }
 .page .content-box .logos .item image {
   width: 75%;
@@ -133,7 +133,7 @@
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
 }
 .page .content-box .nanny .items .item {

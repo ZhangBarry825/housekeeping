@@ -3,15 +3,15 @@
     <view class="tips">个人信息仅用于发布需求，隐私信息完全保密</view>
     <view class="page__bd">
         <view class="weui-cells weui-cells_after-title">
-            <view class="weui-cell weui-cell_active" bind:tap="selectMap">
+            <view class="weui-cell weui-cell_active" >
                 <view class="weui-cell__hd">
                     <view class="weui-label">服务地址</view>
                 </view>
                 <view class="weui-cell__bd">
                     <input value="{{address}}" disabled class="weui-input address-input" placeholder="点击选择"/>
                 </view>
-                <view class="weui-cell__fd">
-                    <image class="right" src="../../../images/address.png"></image>
+                <view class="weui-cell__fd" >
+                    <image class="right" src="../../../images/address.png" bind:tap="selectMap"></image>
                 </view>
             </view>
             <view class="weui-cell weui-cell_active">

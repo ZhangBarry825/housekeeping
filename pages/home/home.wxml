@@ -26,6 +26,7 @@
 				<image src="{{item.icon}}"></image>
 				<text>{{item.title}}</text>
 			</view>
+
 		</view>
         <view class="nanny" wx:for="{{classmenulist}}" wx:key="index">
             <view class="title" bind:tap="goItem" data-type="service-item">

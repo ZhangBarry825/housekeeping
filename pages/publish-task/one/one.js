@@ -1,7 +1,7 @@
 // pages/publish-task/one/one.js
 const app = getApp()
+import {formatTimeMS} from "../../../utils/util";
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -12,12 +12,14 @@ Page({
         files: [],		/*保存上传图片url的数组*/
         description: '',
         desLength: 0,
+        voiceImg:'../../../images/voice2.png',
+        innerAudioContext:wx.createInnerAudioContext(),//音频播放上下文
 
         recordStatus:false,
         recorderManager: '', //录音管理上下文
         recordVoice:{},
+        hasRecord:false
     },
-
     goTo() {
         wx.navigateTo({
             url:'/pages/address/list/list'
@@ -53,55 +55,21 @@ Page({
             urls: this.data.files // 需要预览的图片http链接列表
         })
     },
-    /* 删除图片 */
-    clearImg: function (e) {
+    deleteImg(e){
+
         var that = this;
         var nowList = []; /*新数据*/
         var files = that.data.files; /*原数据*/
 
         for (let i = 0; i < files.length; i++) {
-            console.log(e.currentTarget.dataset.index)
-            if (i == e.currentTarget.dataset.index) {
-                // var arr = that.data.joinString.split(',')
-                // arr.splice(i, 1); /*删除图片的同时删除掉其对应的ID*/
-                // var newArr = arr.join(',')
-                // that.setData({
-                // 	joinString: newArr,
-                // 	id: newArr + ','
-                // })
-            } else {
-                //nowList.push(files[i])
-            }
-        }
-        // this.setData({
-        // 	uploaderNum: this.data.uploaderNum - 1,
-        // 	files: nowList,
-        // 	showUpload: true,
-        // })
-    },
-    clearImg2: function (e) {
-        var that = this;
-        var nowList = []; /*新数据*/
-        var files = that.data.files; /*原数据*/
-
-        for (let i = 0; i < files.length; i++) {
-            if (i == e.currentTarget.dataset.index) {
-                var arr = that.data.joinString.split(',')
-                arr.splice(i, 1); /*删除图片的同时删除掉其对应的ID*/
-                var newArr = arr.join(',')
-                that.setData({
-                    joinString: newArr,
-                    id: newArr + ','
-                })
-            } else {
+            if (i != e.currentTarget.dataset.index) {
                 nowList.push(files[i])
             }
         }
         this.setData({
-            uploaderNum: this.data.uploaderNum - 1,
             files: nowList,
-            showUpload: true,
         })
+        console.log(this.data.files,987)
     },
     bindTimeChange(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -115,12 +83,33 @@ Page({
             date: e.detail.value
         })
     },
-
+    playRecord(){
+        console.log('play')
+        let that = this
+        let ACT=this.data.innerAudioContext
+        ACT.src = this.data.recordVoice.tempFilePath
+        ACT.play()
+        ACT.onPlay(() => {
+            that.setData({
+                voiceImg:'../../../images/voice.gif'
+            })
+            console.log('开始播放')
+        })
+        ACT.onEnded((res) => {
+            that.setData({
+                voiceImg:'../../../images/voice2.png'
+            })
+        })
+        ACT.onError((res) => {
+            console.log(res.errMsg)
+            console.log(res.errCode)
+        })
+    },
     pressButton() {
         console.log('press')
         let that = this
         var recordStatus = that.data.recordStatus;
-        if (!recordStatus){
+        if (recordStatus){
             wx.getSetting({
                 success(res) {
                     console.log(res,890)
@@ -142,7 +131,7 @@ Page({
             that.data.recorderManager.start();//开始录音
             wx.showToast({
                 title: "正在录音",
-                icon: "none",
+                icon: "loading",
                 duration: 60000//先定义个60秒，后面可以手动调用wx.hideToast()隐藏
             });
         }
@@ -155,6 +144,9 @@ Page({
         setTimeout(()=>{
             console.log(this.data.recordVoice,89)
         },1000)
+        this.setData({
+            hasRecord:true
+        })
 
     },
     /**
@@ -163,7 +155,8 @@ Page({
     onLoad: function (options) {
         console.log(options)
         this.setData({
-            recorderManager:wx.getRecorderManager()
+            innerAudioContext:wx.createInnerAudioContext(),
+            recorderManager:wx.getRecorderManager(),
         })
         this.data.recorderManager.onStop(res => {
 
@@ -173,8 +166,12 @@ Page({
                     icon: "none",
                     duration: 1000
                 });
+                this.setData({
+                    hasRecord:false
+                })
             } else {
-                console.log('123123')
+                res.duration=formatTimeMS(res.duration)
+                console.log(res.duration,9090)
                 this.setData({
                     recordVoice:res//contents是存储录音结束后的数据结构,用于渲染.
                 })

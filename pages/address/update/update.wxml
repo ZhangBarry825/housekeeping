@@ -10,8 +10,8 @@
                 <view class="weui-cell__bd">
                     <input value="{{address}}" disabled class="weui-input address-input" placeholder="点击选择"/>
                 </view>
-                <view class="weui-cell__fd">
-                    <image class="right" src="../../../images/address.png"></image>
+                <view class="weui-cell__fd" >
+                    <image class="right" src="../../../images/address.png" bind:tap="selectMap"></image>
                 </view>
             </view>
             <view class="weui-cell weui-cell_active">

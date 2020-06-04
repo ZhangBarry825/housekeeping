@@ -1,37 +1,19 @@
 <!--pages/address/list/list.wxml-->
 <view class="page">
-<!--    <view class="item">-->
-<!--        <view class="left">-->
-<!--            <view class="weui-cell__hd">-->
-<!--                <checkbox-->
-<!--                        class="weui-check"-->
-<!--                        value="{{selected}}"-->
-<!--                        checked="{{selected}}"-->
-<!--                />-->
-<!--                <i class="weui-icon-checked"></i>-->
-<!--            </view>-->
-<!--        </view>-->
-<!--        <view class="middle">-->
-
-<!--        </view>-->
-<!--        <view class="right">-->
-<!--            <image src="../../../images/cc-edit.png"></image>-->
-<!--        </view>-->
-<!--    </view>-->
     <view class="weui-cells weui-cells_checkbox weui-cells_after-title">
         <checkbox-group bindchange="checkboxChange">
-            <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="value">
-                <view class="weui-cell__hd">
-                    <checkbox
-                            class="weui-check"
-                            value="{{item.value}}"
-                            checked="{{item.checked}}"
-                    />
-                    <i class="weui-icon-checked"></i>
-                </view>
+            <label bind:tap="selectAdd" class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{checkboxItems}}" wx:key="value">
+<!--                <view class="weui-cell__hd">-->
+<!--                    <checkbox-->
+<!--                            class="weui-check"-->
+<!--                            value="{{item.value}}"-->
+<!--                            checked="{{item.checked}}"-->
+<!--                    />-->
+<!--                    <i class="weui-icon-checked"></i>-->
+<!--                </view>-->
                 <view class="weui-cell__bd add0">
                    <view class="add1">
-                       <view class="default">默认</view>
+                       <view class="default" wx:if="{{idx == 0}}">默认</view>
                        <view class="door"> 1栋1单元808</view>
                    </view>
                    <view class="add2">北京市海淀区东北旺西路8号院</view>
@@ -40,7 +22,7 @@
                    </view>
                 </view>
                 <view class="weui-cell__ft weui-cell__ft_in-access">
-                    <image class="right" src="../../../images/cc-edit.png"></image>
+                    <image class="right" src="../../../images/cc-edit.png" bind:tap="goEdit"></image>
                 </view>
             </label>
         </checkbox-group>
