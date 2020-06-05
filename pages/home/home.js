@@ -129,7 +129,6 @@ Page({
             success: data => {
                 if(data.code == 200){
                     var list = data.list;
-                    console.log(list)
                     if(list.length > 0){
                         that.setData({
                             lifeCommonSense: data.list

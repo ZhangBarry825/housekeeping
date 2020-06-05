@@ -32,6 +32,8 @@
                     </navigator>
                 </view>
             </view>
+
+            <view class="remind" wx:if="{{state==0}}"><view>没有更多了</view></view>
         </view>
     </view>
 </view>

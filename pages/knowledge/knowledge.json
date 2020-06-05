@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "生活小常识"
+  "navigationBarTitleText": "生活小常识",
+  "enablePullDownRefresh": true
 }
