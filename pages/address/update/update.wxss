@@ -53,6 +53,8 @@
   display: flex;
   padding: 50rpx 0;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .page .button-box .button {
   padding: 20rpx 0;
@@ -62,6 +64,10 @@
   font-size: 30rpx;
   background-color: #00c97d;
   color: white;
+  margin-top: 30rpx;
+}
+.page .button-box .delete {
+  background-color: #dad4d2;
 }
 .page .address-input {
   width: 400rpx;

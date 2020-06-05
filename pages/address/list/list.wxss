@@ -43,9 +43,17 @@
   background-color: #e7f6ff;
   border: 1px solid #89b1be;
   margin-right: 10rpx;
+  width: 60rpx;
+  height: 40rpx;
 }
-.page .add0 .add1 .default .door {
-  font-size: 25rpx;
+.page .add0 .add1 .door {
+  font-size: 33rpx;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  width: 500rpx;
 }
 .page .add0 .add2 {
   font-size: 23rpx;

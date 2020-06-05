@@ -9,6 +9,8 @@ var client_secret = "KISY7H8MK2DU9AGe3d";
 
 module.exports = {
     HOST: host,
+    client_id: client_id,
+    client_secret: client_secret,
     API_ROOT: host + '/wxapi.php',
     API_VERSION: '1.1.0',
     post(options) {

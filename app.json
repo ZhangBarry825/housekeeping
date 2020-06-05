@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/address/add/add",
+    "pages/publish-task/one/one",
     "pages/comments/comments",
     "pages/about-us/about-us",
     "pages/agreement-detail/agreement-detail",
@@ -10,7 +12,6 @@
     "pages/refund/refund",
     "pages/agreement/agreement",
     "pages/append/append",
-    "pages/publish-task/one/one",
     "pages/join/join",
     "pages/share/share",
     "pages/card-list/card-list",
@@ -29,7 +30,7 @@
     "pages/knowledge-detail/knowledge-detail",
     "pages/service-item/service-item",
     "pages/address/update/update",
-    "pages/address/add/add",
+
     "pages/address/list/list",
     "pages/shouquan/shouquan",
 

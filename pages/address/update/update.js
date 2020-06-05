@@ -1,11 +1,45 @@
-// pages/address/add/add.js
+// pages/address/update/update.js
+const api = require('../../../utils/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    address:"河南省郑州市中原区中原西路233号"
+    address:"河南省郑州市中原区中原西路233号",
+    androidDialog1: false,
+  },
+  deleteForm(){
+    this.setData({
+      androidDialog1: false
+    });
+    let formData = {
+      user_id: wx.getStorageSync('userid'),
+      user_token: wx.getStorageSync('token'),
+      id: this.data.id,
+    }
+    api.post({
+      url: '/User/del_address',
+      data: formData,
+      success: res => {
+        console.log(res, 'delete')
+        if(res.code == 200){
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
+    })
+  },
+  openTip(){
+    this.setData({
+      androidDialog1: true
+    });
+  },
+  closeTip(){
+    this.setData({
+      androidDialog1: false
+    });
   },
   selectMap(){
     let that = this
@@ -33,9 +67,114 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let item =JSON.parse(options.item)
+    let address=item.province+item.city+item.area+item.address
+    let {id,addresses,name,sex,mobile,status}=item
+    if(status=='1'){
+      status=true
+    }else {
+      status=false
+    }
+    this.setData({
+      id:id,
+      address:address,
+      addresses:addresses,
+      name:name,
+      sex:sex,
+      mobile:mobile,
+      status:status,
+    })
+    console.log(item)
+  },
+  switchDefault(e) {
+    console.log(e.detail)
+    if (e.detail.value) {
+      this.setData({
+        status: 1
+      })
+    } else {
+      this.setData({
+        status: 0
+      })
+    }
+  },
+  selectSex(e) {
+    this.setData({
+      sex: e.currentTarget.dataset.sex
+    })
+  },
+  updatePhone(e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+  updateAddresses(e) {
+    this.setData({
+      addresses: e.detail.value
+    })
+  },
+  updateName(e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  saveForm() {
+    let status;
+    if(this.data.status){
+      status='1'
+    }else {
+      status='0'
+    }
+
+    let formData = {
+      user_id: wx.getStorageSync('userid'),
+      user_token: wx.getStorageSync('token'),
+      id: this.data.id,
+      address: this.data.address,
+      addresses: this.data.addresses,
+      name: this.data.name,
+      sex: this.data.sex,
+      mobile: this.data.mobile,
+      status: status,
+    }
+    console.log(formData)
+    console.log(status)
+    let tip=''
+    if(formData.address==''){
+      tip='地址'
+    }else if(formData.addresses==''){
+      tip='门牌号'
+    }else if(formData.name==''){
+      tip='联系人'
+    }else if(formData.mobile==''){
+      tip='手机号码'
+    }else if(formData.sex==''){
+      tip='性别'
+    }else {
+      api.post({
+        url: '/User/update_address',
+        data: formData,
+        success: res => {
+          console.log(res, 98)
+          if(res.code == 200){
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+
+        }
+      })
+      return
+    }
+    wx.showToast({
+      title: tip+"必须",
+      icon: 'none',
+      duration: 2000
+    })
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
