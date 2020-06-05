@@ -1,33 +1,35 @@
 // pages/publish-task/one/one.js
 const app = getApp()
 import {formatTimeMS} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        checkAgreement:false,
-        address:'请选择',
-        user_address_id:'',
+        checkAgreement: false,
+        address: '请选择',
+        user_address_id: '',
         time: '请选择',
-        date: '请选择',
+        updoor_time: '请选择',
         category_pid: '',		/* 分类id */
         images: [],		/*保存上传图片url的数组*/
         desc: '',
         desLength: 0,
-        voiceImg:'../../../images/voice2.png',
-        innerAudioContext:wx.createInnerAudioContext(),//音频播放上下文
+        voiceImg: '../../../images/voice2.png',
+        innerAudioContext: wx.createInnerAudioContext(),//音频播放上下文
 
-        recordStatus:false,
+        recordStatus: false,
         recorderManager: '', //录音管理上下文
-        recordVoice:{},
-        hasRecord:false,
-        voice:'',
+        recordVoice: {},
+        hasRecord: false,
+        voice: '',
+        canStop: false,
     },
     goTo() {
         wx.navigateTo({
-            url:'/pages/address/list/list'
+            url: '/pages/address/list/list'
         })
     },
     bindinput(e) {
@@ -61,7 +63,7 @@ Page({
             urls: this.data.images // 需要预览的图片http链接列表
         })
     },
-    deleteImg(e){
+    deleteImg(e) {
 
         var that = this;
         var nowList = []; /*新数据*/
@@ -75,7 +77,7 @@ Page({
         this.setData({
             images: nowList,
         })
-        console.log(this.data.images,987)
+        console.log(this.data.images, 987)
     },
     bindTimeChange(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -89,21 +91,22 @@ Page({
             date: e.detail.value
         })
     },
-    playRecord(){
+    playRecord() {
         console.log('play')
         let that = this
-        let ACT=this.data.innerAudioContext
+        let ACT = this.data.innerAudioContext
         ACT.src = this.data.recordVoice.tempFilePath
         ACT.play()
         ACT.onPlay(() => {
             that.setData({
-                voiceImg:'../../../images/voice.gif'
+                voiceImg: '../../../images/voice.gif'
             })
             console.log('开始播放')
         })
         ACT.onEnded((res) => {
+            console.log('播放停止')
             that.setData({
-                voiceImg:'../../../images/voice2.png'
+                voiceImg: '../../../images/voice2.png'
             })
         })
         ACT.onError((res) => {
@@ -113,12 +116,17 @@ Page({
     },
     pressButton() {
         console.log('press')
+        setTimeout(() => {
+            this.setData({
+                canStop: true
+            })
+        }, 1000)
         let that = this
         var recordStatus = that.data.recordStatus;
-        if (recordStatus){
+        if (recordStatus) {
             wx.getSetting({
                 success(res) {
-                    console.log(res,890)
+                    console.log(res, 890)
                     if (!res.authSetting['scope.record']) {
                         console.log(111)
                         wx.authorize({
@@ -133,7 +141,7 @@ Page({
                     }
                 }
             })
-        }else{
+        } else {
             that.data.recorderManager.start();//开始录音
             wx.showToast({
                 title: "正在录音",
@@ -145,50 +153,96 @@ Page({
     },
     looseButton() {
         console.log('loose')
-        wx.hideToast();//结束录音、隐藏Toast提示框
-        this.data.recorderManager.stop();//结束录音
-        setTimeout(()=>{
-            console.log(this.data.recordVoice,89)
-        },1000)
-        this.setData({
-            hasRecord:true
-        })
+        if (this.data.canStop) {
+            wx.hideToast();//结束录音、隐藏Toast提示框
+            this.data.recorderManager.stop();//结束录音
 
+            this.setData({
+                hasRecord: true
+            })
+            setTimeout(() => {
+                console.log(this.data.recordVoice, 89)
+                this.uploadRecord()
+            }, 1000)
+
+
+        } else {
+            wx.showToast({
+                title: "录音时间太短",
+                icon: "none",
+                duration: 1000
+            });
+            this.setData({
+                hasRecord: false,
+                canStop: false
+            })
+        }
     },
-    uploadImg(p){
-        wx.showLoading({
-            title: '上传中',
-        })
+    uploadRecord(){
         let that = this;
-        console.log(wx.getStorageSync('userid'),'user_id')
-        console.log(wx.getStorageSync('token'),'token')
+        console.log(wx.getStorageSync('userid'), 'user_id')
+        console.log(wx.getStorageSync('token'), 'token')
+        console.log('正在上传',this.data.recordVoice.tempFilePath)
         wx.uploadFile({
-            url: api.HOST+"/wxapi.php/Home/upload_img?client_id="+api.client_id+"&client_secret="+api.client_secret, //此处换上你的接口地址
-            filePath: p,
-            name: 'images_'+wx.getStorageSync('userid'),
+            url: api.HOST + "/wxapi.php/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+            filePath: this.data.recordVoice.tempFilePath,
+            name: 'voice_' + wx.getStorageSync('userid'),
             formData: {
-                user_id:wx.getStorageSync('userid'),
-                user_token:wx.getStorageSync('token')
+                user_id: wx.getStorageSync('userid'),
+                user_token: wx.getStorageSync('token')
             },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
             success(res) {
-                console.log(JSON.parse(res.data),333)
-                console.log(api.HOST+"/"+JSON.parse(res.data).files)
-                if (JSON.parse(res.data).code == 200) {
-                    that.setData({
-                        images: that.data.images.concat(api.HOST+"/"+JSON.parse(res.data).files)
-                    });
-                }
-                wx.hideLoading()
+                console.log(JSON.parse(res.data), 333)
             },
             fail(res) {
-                console.log(res,888)
+                console.log(res, 888)
                 wx.showToast({
                     title: '网络异常,请稍后重试',
                     icon: "none",
                     duration: 1000
                 })
                 that.setData({
-                    images:[]
+                    voice: '',
+                    hasRecord:false
+                })
+            }
+
+        })
+    },
+    uploadImg(p) {
+        wx.showLoading({
+            title: '上传中',
+        })
+        let that = this;
+        console.log(wx.getStorageSync('userid'), 'user_id')
+        console.log(wx.getStorageSync('token'), 'token')
+        wx.uploadFile({
+            url: api.HOST + "/wxapi.php/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+            filePath: p,
+            name: 'images_' + wx.getStorageSync('userid'),
+            formData: {
+                user_id: wx.getStorageSync('userid'),
+                user_token: wx.getStorageSync('token')
+            },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
+            success(res) {
+                console.log(JSON.parse(res.data), 333)
+                console.log(api.HOST + "/" + JSON.parse(res.data).files)
+                if (JSON.parse(res.data).code == 200) {
+                    that.setData({
+                        images: that.data.images.concat(api.HOST + "/" + JSON.parse(res.data).files)
+                    });
+                }
+                wx.hideLoading()
+            },
+            fail(res) {
+                console.log(res, 888)
+                wx.showToast({
+                    title: '网络异常,请稍后重试',
+                    icon: "none",
+                    duration: 1000
+                })
+                that.setData({
+                    images: []
                 })
                 wx.hideLoading()
             }
@@ -200,43 +254,31 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log('user-id',wx.getStorageSync('userid'))
-        console.log('token',wx.getStorageSync('token'))
+        console.log('user-id', wx.getStorageSync('userid'))
+        console.log('token', wx.getStorageSync('token'))
         console.log(options)
         this.setData({
-            innerAudioContext:wx.createInnerAudioContext(),
-            recorderManager:wx.getRecorderManager(),
+            innerAudioContext: wx.createInnerAudioContext(),
+            recorderManager: wx.getRecorderManager(),
         })
         this.data.recorderManager.onStop(res => {
-
-            if (res.duration < 1000){
-                wx.showToast({
-                    title: "录音时间太短",
-                    icon: "none",
-                    duration: 1000
-                });
-                this.setData({
-                    hasRecord:false
-                })
-            } else {
-                res.duration=formatTimeMS(res.duration)
-                console.log(res.duration,9090)
-                this.setData({
-                    recordVoice:res//contents是存储录音结束后的数据结构,用于渲染.
-                })
-                console.log(res,98)
-            }
-
+            res.duration = formatTimeMS(res.duration)
+            console.log(res.duration, 9090)
+            this.setData({
+                recordVoice: res,//contents是存储录音结束后的数据结构,用于渲染.
+            })
+            console.log(res, 98)
         });
     },
-    publishForm(){
-        let formData={
-            user_id:wx.getStorageSync('userid'),
-            user_token:wx.getStorageSync('token'),
+    publishForm() {
+        let formData = {
+            user_id: wx.getStorageSync('userid'),
+            user_token: wx.getStorageSync('token'),
             category_pid: this.data.category_pid,
             user_address_id: this.data.user_address_id,
             updoor_time: this.data.updoor_time,
             desc: this.data.desc,
+            images: this.data.images,
             voice: this.data.voice,
         }
         console.log(formData)
@@ -253,7 +295,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            canStop: false
+        })
     },
 
     /**

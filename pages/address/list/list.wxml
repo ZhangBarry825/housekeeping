@@ -22,7 +22,7 @@
                        {{item.name}}({{item.sex=='1'?'先生':'女士'}}) {{item.mobile}}
                    </view>
                 </view>
-                <view class="weui-cell__ft weui-cell__ft_in-access editBox"  bind:tap="goEdit">
+                <view class="weui-cell__ft weui-cell__ft_in-access editBox" data-item="{{item}}"  bind:tap="goEdit">
                     <image class="right" src="../../../images/cc-edit.png"></image>
                 </view>
             </label>

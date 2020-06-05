@@ -30,18 +30,16 @@ Page({
         })
 
     },
-    goEdit() {
+    goEdit(e) {
+        let item = e.currentTarget.dataset.item
         wx.navigateTo({
-            url: '/pages/address/update/update'
+            url: '/pages/address/update/update?item='+JSON.stringify(item)
         })
     },
-    goTo(e) {
-        console.log(e)
-        if (e.currentTarget.dataset.type == 'add') {
-            wx.navigateTo({
-                url: '/pages/address/add/add'
-            })
-        }
+    goAdd(e) {
+        wx.navigateTo({
+            url: '/pages/address/add/add'
+        })
     },
     fetchData() {
         let that = this
@@ -65,7 +63,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.fetchData()
+
     },
 
     /**
@@ -79,7 +77,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.fetchData()
     },
 
     /**

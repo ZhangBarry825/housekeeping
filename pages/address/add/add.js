@@ -98,11 +98,19 @@ Page({
                 data: formData,
                 success: res => {
                     console.log(res, 98)
-                    wx.showToast({
-                        title: '保存成功',
-                        icon: 'success',
-                        duration: 2000
-                    })
+                    if(res.code==200){
+                        wx.showToast({
+                            title: '保存成功',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                        setTimeout(()=>{
+                            wx.navigateBack({
+                                delta: 1
+                            })
+
+                        },2000)
+                    }
                 }
             })
             return
