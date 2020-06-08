@@ -260,6 +260,12 @@ Page({
         })
 
     },
+    seeDetail(){
+        console.log('detail')
+        wx.navigateTo({
+            url:'/pages/agreement-detail/agreement-detail?id=9'
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

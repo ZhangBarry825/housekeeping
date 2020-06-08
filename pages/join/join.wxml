@@ -6,7 +6,7 @@
                 师傅名称
             </view>
             <view class="right">
-                <input class="weui-input" placeholder=""/>
+                <input bindinput="updateNickname" value="{{user_nickname}}"  class="weui-input" placeholder=""/>
             </view>
         </view>
         <view class="item">
@@ -14,7 +14,7 @@
                 联系人姓名
             </view>
             <view class="right">
-                <input class="weui-input" placeholder=""/>
+                <input bindinput="updateContactName" value="{{contact_name}}" class="weui-input" placeholder=""/>
             </view>
         </view>
         <view class="item">
@@ -23,7 +23,7 @@
                 <text>联系地址</text>
             </view>
             <view class="right">
-                <input value="{{address}}" class="weui-input addressInput" placeholder=""/>
+                <input value="{{address}}" bindinput="updateAddress" class="weui-input addressInput" placeholder=""/>
             </view>
         </view>
         <view class="item">
@@ -31,7 +31,9 @@
                 服务类目
             </view>
             <view class="right">
-                <input class="weui-input" placeholder=""/>
+                <picker bindchange="bindPickerChange" value="{{type}}" range="{{typeList}}">
+                    <input class="weui-input" value="{{type}}" disabled placeholder=""/>
+                </picker>
             </view>
         </view>
     </view>
@@ -45,7 +47,7 @@
                 真实姓名
             </view>
             <view class="right">
-                <input class="weui-input" placeholder="请输入您身份证上的姓名"/>
+                <input bindchange="bindRealName" value="{{real_name}}"  class="weui-input" placeholder="请输入您身份证上的姓名"/>
             </view>
         </view>
         <view class="item">
@@ -53,20 +55,20 @@
                 身份证号码
             </view>
             <view class="right">
-                <input class="weui-input" placeholder="请输入您身份证上的号码"/>
+                <input bindchange="bindIDCard" value="{{id_card_number}}" class="weui-input" placeholder="请输入您身份证上的号码"/>
             </view>
         </view>
         <view class="pictures">
             <view class="line1">
                 <view class="pic" bind:tap="chooseImage1">
-                    <image  wx:if="{{imgUrl1.length==0}}" src="../../images/addPic.png"></image>
-                    <text  wx:if="{{imgUrl1.length==0}}">上传身份证正面</text>
+                    <image wx:if="{{imgUrl1.length==0}}" src="../../images/addPic.png"></image>
+                    <text wx:if="{{imgUrl1.length==0}}">上传身份证正面</text>
 
                     <image wx:if="{{imgUrl1.length>0}}" class="image1" src="{{imgUrl1}}"></image>
                 </view>
-                <view class="pic"  bind:tap="chooseImage2">
-                    <image wx:if="{{imgUrl2.length==0}}"  src="../../images/addPic.png"></image>
-                    <text wx:if="{{imgUrl2.length==0}}" >上传身份证反面</text>
+                <view class="pic" bind:tap="chooseImage2">
+                    <image wx:if="{{imgUrl2.length==0}}" src="../../images/addPic.png"></image>
+                    <text wx:if="{{imgUrl2.length==0}}">上传身份证反面</text>
                     <image wx:if="{{imgUrl2.length>0}}" class="image1" src="{{imgUrl2}}"></image>
                 </view>
             </view>
@@ -74,9 +76,9 @@
                 请上传1张本人手持身份证号的照片
             </view>
             <view class="line3">
-                <view class="pic"  bind:tap="chooseImage3">
+                <view class="pic" bind:tap="chooseImage3">
                     <image wx:if="{{imgUrl3.length==0}}" src="../../images/addPic.png"></image>
-                    <text wx:if="{{imgUrl3.length==0}}">上传身份证反面</text>
+                    <text wx:if="{{imgUrl3.length==0}}">手持身份证照片</text>
                     <image wx:if="{{imgUrl3.length>0}}" class="image1" src="{{imgUrl3}}"></image>
                 </view>
                 <view class="tips">
@@ -89,13 +91,17 @@
         </view>
     </view>
     <view class="item3">
-        <label class="weui-agree">
-            <checkbox class="weui-agree__checkbox-check" />
+        <label class="weui-agree" bind:tap="checkChange">
+            <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}"  class="weui-agree__checkbox-check"/>
             <span class="weui-agree__checkbox"></span>
-            <span class="weui-agree__text">阅读并同意<navigator url="" class="weui-agree__link">《家政平台用户协议》</navigator></span>
+            <span class="weui-agree__text">阅读并同意
+                <a catchtap="seeDetail" class="weui-agree__link">《家政平台用户协议》</a>
+            </span>
         </label>
         <view class="button-box">
-            <view class="button" bind:tap="goTo" data-type="publish">立即入住</view>
+            <view class="button" bind:tap="submitForm" data-type="publish">立即入住</view>
         </view>
     </view>
+
+
 </view>

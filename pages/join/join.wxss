@@ -149,7 +149,7 @@
   height: 100%;
 }
 .page .item2 .pictures .line3 .tips {
-  width: 330rpx;
+  width: 300rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
