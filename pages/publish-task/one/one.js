@@ -18,6 +18,7 @@ Page({
         updoor_time: '请选择',
         category_pid: '',		/* 分类id */
         images: [],		/*保存上传图片url的数组*/
+        imagesUrl: [],		/*展示上传图片url的数组*/
         desc: '',
         desLength: 0,
         voiceImg: '../../../images/voice2.png',
@@ -197,6 +198,9 @@ Page({
             },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
             success(res) {
                 console.log(JSON.parse(res.data), 333)
+                that.setData({
+                    voice:JSON.parse(res.data).files
+                })
             },
             fail(res) {
                 console.log(res, 888)
@@ -233,7 +237,8 @@ Page({
                 console.log(api.HOST + "/" + JSON.parse(res.data).files)
                 if (JSON.parse(res.data).code == 200) {
                     that.setData({
-                        images: that.data.images.concat(api.HOST + "/" + JSON.parse(res.data).files)
+                        imagesUrl: that.data.imagesUrl.concat(api.HOST + "/" + JSON.parse(res.data).files),
+                        images: that.data.images.concat(JSON.parse(res.data).files)
                     });
                 }
                 wx.hideLoading()
@@ -277,16 +282,19 @@ Page({
         });
     },
     checkChange(e){
-      console.log(w)
+      console.log(e)
       console.log('bind change')
+        this.setData({
+            'checkAgreement.checked':!this.data.checkAgreement.checked
+        })
     },
     publishForm() {
         console.log(this.data.checkAgreement)
+        let category_pid=this.data.category_pid
+        let category_id=this.data.category_id
         let formData = {
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
-            category_pid: this.data.category_pid,
-            category_id: this.data.category_id,
             user_address_id: this.data.user_address_id,
             updoor_time: this.data.updoor_time,
             desc: this.data.desc,
@@ -294,6 +302,7 @@ Page({
             voice: this.data.voice,
         }
         let tip='请填写数据'
+        let ifShow=true
         if(formData.user_address_id==''){
             tip='请选择地址'
         }else if(formData.updoor_time=='请选择'){
@@ -302,16 +311,38 @@ Page({
             tip='请上传图片'
         }else if(formData.desc==''){
             tip='请填写描述需求'
-        }else if(!this.data.checkAgreement){
+        }else if(!this.data.checkAgreement.checked){
             tip='请阅读并同意相关协议'
         }else {
-
+            ifShow=false
+            api.post({
+                url: '/Demand/insert/'+category_pid+"/"+category_id,
+                data: formData,
+                success: res => {
+                    console.log(res, 999)
+                    if(res.code==200){
+                        wx.showToast({
+                            title:'发布成功',
+                            icon:"none",
+                            duration:1000
+                        })
+                        setTimeout(()=>{
+                            wx.navigateBack({
+                                delta:1
+                            })
+                        },1000)
+                    }
+                }
+            })
         }
-        wx.showToast({
-            title:tip,
-            icon:"none",
-            duration:1000
-        })
+        if(ifShow){
+            wx.showToast({
+                title:tip,
+                icon:"none",
+                duration:1000
+            })
+        }
+
 
         console.log(formData)
     },
