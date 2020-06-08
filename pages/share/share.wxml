@@ -8,7 +8,7 @@
         </view>
         <view class="line3">
             <view class="box">
-                532.00<text> 元</text>
+                {{dataDetail.balance}}<text> 元</text>
             </view>
         </view>
     </view>
@@ -16,7 +16,7 @@
 
     <view class="tip">我的邀请</view>
     <view class="num">
-        0 <text>人</text>
+        {{dataDetail.invite_number}} <text>人</text>
     </view>
     <view class="detail">查看详情</view>
 </view>

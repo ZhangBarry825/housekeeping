@@ -1,4 +1,5 @@
 // pages/distribution/distribution.js
+const api = require('../../utils/api.js');
 const app = getApp()
 Page({
 
@@ -6,18 +7,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dataDetail:''
   },
   goEncash(){
     wx.navigateTo({
       url:'/pages/encash/encash'
     })
   },
+  fetchData(){
+    let that = this
+    api.post({
+      url: '/Distribution/distribution',
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token:wx.getStorageSync('token'),
+      },
+      success: res => {
+        console.log(res, 765)
+        if (res.code == 200) {
+          that.setData({
+            dataDetail: res.data
+          })
+        } else {
+          console.log('获取数据失败');
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fetchData()
   },
 
   /**

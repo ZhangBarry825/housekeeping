@@ -3,11 +3,11 @@
     <view class="top">
         <view class="left">
             <view class="leftTop">累计获得奖金</view>
-            <view class="leftBottom">0</view>
+            <view class="leftBottom">{{dataDetail.balance}}</view>
         </view>
         <view class="right">
             <view class="line1">账户余额</view>
-            <view class="line2">0.00</view>
+            <view class="line2">{{dataDetail.available_balance}}</view>
             <view class="line3" bind:tap="goEncash">我要提现</view>
         </view>
     </view>
