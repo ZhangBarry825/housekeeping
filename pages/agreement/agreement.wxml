@@ -1,16 +1,8 @@
 <!--pages/agreement/agreement.wxml-->
 <view class="page">
     <view class="weui-cells weui-cells_after-title">
-        <navigator url="/pages/agreement-detail/agreement-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-            <view class="weui-cell__bd">家政用户服务协议</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-        <navigator url="/pages/agreement-detail/agreement-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-            <view class="weui-cell__bd">隐私政策（服务协议的补充协议）</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-        </navigator>
-        <navigator url="/pages/agreement-detail/agreement-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-            <view class="weui-cell__bd">第三者责险任协议</view>
+        <navigator wx:for="{{dataList}}" wx:key="key" wx:for-item="item" url="{{'/pages/agreement-detail/agreement-detail?id='+item.article_id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__bd">{{item.article_title}}</view>
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
         </navigator>
     </view>

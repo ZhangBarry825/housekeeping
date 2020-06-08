@@ -25,6 +25,3 @@
   color: #fff;
   font-size: 40rpx;
 }
-.page .content .article {
-  text-indent: 2em;
-}

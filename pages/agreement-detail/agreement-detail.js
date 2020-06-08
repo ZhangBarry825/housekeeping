@@ -1,20 +1,46 @@
 // pages/agreement-detail/agreement-detail.js
+const api = require('../../utils/api.js');
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:'',
+    dataDetail:''
   },
-
+  fetchData(){
+    let that = this
+    api.get({
+      url: '/Article/article_info/'+this.data.id,
+      data: {},
+      success: res => {
+        console.log(res,765)
+        if(res.code == 200){
+          that.setData({
+            dataDetail:res.data
+          })
+          var art = res.data.content;
+          WxParse.wxParse('articleContent', 'html', art, that, 5);
+        }else{
+          console.log('获取数据失败');
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.id,99)
+    this.setData({
+      id:options.id
+    })
     wx.setNavigationBarTitle({
       title: '协议详情'
     })
+    this.fetchData()
   },
 
   /**

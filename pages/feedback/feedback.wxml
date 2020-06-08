@@ -6,17 +6,13 @@
             <text>反馈问题类型</text>
         </view>
         <view class="items">
-            <view class="item selected">服务类目不合理</view>
-            <view class="item">功能异常</view>
-            <view class="item">体验问题</view>
-            <view class="item">新功能建议</view>
-            <view class="item">其他</view>
+            <view class="item {{selectedTypeId==(idx+1)?'selected':''}}" bind:tap="selectType" wx:for-index="idx" data-item="{{item}}" data-index="{{idx}}" wx:for="{{typeList}}" wx:key="key" wx:for-item="item">{{item.title}}</view>
         </view>
 
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active suggestion-box">
                 <view class="weui-cell__bd">
-                    <textarea bindinput="bindinput" maxlength="{{150}}" value="{{suggestion}}" class="weui-textarea" placeholder="请输入您的详细意见或建议" style="height: 3.3em" />
+                    <textarea bindinput="updateDesc" maxlength="{{150}}" value="{{suggestion}}" class="weui-textarea" placeholder="请输入您的详细意见或建议" style="height: 3.3em" />
                     <view class="weui-textarea-counter suggestion-num">{{sugLength}}/150</view>
                 </view>
             </view>
@@ -33,13 +29,14 @@
                         </view>
                         <view class="weui-uploader__bd">
                             <view class="weui-uploader__files" id="uploaderFiles">
-                                <block wx:for="{{files}}" wx:key="*this">
-                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                <block wx:for="{{imagesUrl}}" wx:key="*this">
+                                    <view class="weui-uploader__file clearBox" bindtap="previewImage" id="{{item}}">
+                                        <icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
                                         <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
                             </view>
-                            <view class="weui-uploader__input-box" wx:if="{{files.length<6}}">
+                            <view class="weui-uploader__input-box" wx:if="{{imagesUrl.length<6}}">
                                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
                             </view>
                         </view>
@@ -58,13 +55,13 @@
                     <view class="weui-label contact" style="font-size: 25rpx">联系方式</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input style="font-size: 25rpx" class="weui-input contact" placeholder="请输入手机号"/>
+                    <input value="{{mobile}}" bindinput="updateMobile" style="font-size: 25rpx" class="weui-input contact" placeholder="请输入手机号"/>
                 </view>
             </view>
         </view>
     </view>
     <view class="button-box">
-        <view class="button">
+        <view class="button" bind:tap="submitForm">
             提交反馈
         </view>
         <view class="tip">

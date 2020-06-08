@@ -7,7 +7,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showContact:false
+        showContact:false,
+        phone:''
     },
     contactUs(){
         this.setData({
@@ -19,11 +20,33 @@ Page({
             showContact:false
         })
     },
+
+    fetchData() {
+        let that = this
+        api.get({
+            url: '/User/contact_service',
+            success: res => {
+                console.log(res, 765)
+                if (res.code == 200) {
+                    that.setData({
+                        phone: res.data.service_phone
+                    })
+                } else {
+                    console.log('获取数据失败');
+                }
+            }
+        })
+    },
+    callPhone(){
+        wx.makePhoneCall({
+            phoneNumber: this.data.phone
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        this.fetchData()
     },
 
     /**

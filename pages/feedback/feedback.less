@@ -16,9 +16,10 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: flex-start;
       .item{
         padding: 7rpx;
+        margin: 0 10rpx;
         font-size: 25rpx;
         border: 1px solid #999;
       }
@@ -60,6 +61,20 @@
     }
     .tip{
       font-size: 25rpx;
+    }
+  }
+
+  .clearBox{
+    position: relative;
+    overflow: auto;
+    .clearImg{
+      position: absolute;
+      top: -3rpx;
+      left: -3rpx;
+      background-color: #fff;
+      border-radius: 10rpx;
+      width: 20rpx;
+      height: 20rpx;
     }
   }
 }

@@ -81,6 +81,7 @@ Page({
         }
         this.setData({
             images: nowList,
+            imagesUrl:nowList
         })
         console.log(this.data.images, 987)
     },

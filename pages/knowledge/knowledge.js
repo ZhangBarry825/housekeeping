@@ -94,7 +94,8 @@ Page({
                 console.log(res)
                 if(res.code == 200 && res.list.length>0){
                     that.setData({
-                        allList:that.allList.concat(res.list)
+                        allList:that.allList.concat(res.list),
+                        pageNum:that.data.pageNum+1
                     })
                 }else {
                     wx.hideLoading()

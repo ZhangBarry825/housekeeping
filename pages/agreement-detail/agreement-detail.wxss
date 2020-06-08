@@ -16,6 +16,3 @@
   font-size: 35rpx;
   padding: 10rpx 0;
 }
-.page .content .article {
-  text-indent: 2em;
-}

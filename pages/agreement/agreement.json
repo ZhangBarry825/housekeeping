@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "服务协议"
+  "navigationBarTitleText": "服务协议",
+  "onReachBottomDistance": 50
 }

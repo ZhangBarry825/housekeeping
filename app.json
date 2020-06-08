@@ -1,12 +1,12 @@
 {
   "pages":[
+    "pages/mine/mine",
     "pages/home/home",
     "pages/address/add/add",
     "pages/publish-task/one/one",
     "pages/comments/comments",
     "pages/about-us/about-us",
     "pages/agreement-detail/agreement-detail",
-    "pages/mine/mine",
     "pages/publish-task/detail/detail",
     "pages/publish-task/three/three",
     "pages/refund/refund",

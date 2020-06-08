@@ -18,10 +18,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .page .content .items .item {
   padding: 7rpx;
+  margin: 0 10rpx;
   font-size: 25rpx;
   border: 1px solid #999;
 }
@@ -61,4 +62,17 @@
 }
 .page .button-box .tip {
   font-size: 25rpx;
+}
+.page .clearBox {
+  position: relative;
+  overflow: auto;
+}
+.page .clearBox .clearImg {
+  position: absolute;
+  top: -3rpx;
+  left: -3rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
 }
