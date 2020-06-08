@@ -5,7 +5,8 @@
             {{article.article_title}}
         </view>
         <view class="article">
-            {{article.content}}
+            <import src="../../wxParse/wxParse.wxml"/>
+            <template is="wxParse" data="{{wxParseData:articleContent.nodes}}"/>
         </view>
     </view>
 

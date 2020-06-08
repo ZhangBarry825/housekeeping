@@ -1,5 +1,6 @@
 // pages/knowledge-detail/knowledge-detail.js
 const api = require('../../utils/api.js');
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -17,19 +18,30 @@ Page({
     this.setData({
       id:options.id
     })
+    let that = this
     this.fetchData()
   },
   fetchData(){
-    let that = this
+    var that = this
     api.get({
       url: '/Article/article_info/' + that.data.id,
       data: {},
       success: res => {
-        console.log(res)
         if(res.code == 200){
           that.setData({
             article:res.data
           })
+          var art = res.data.content;
+          console.log(res.data.content,'content111')
+          /**
+           * WxParse.wxParse(bindName , type, data, target,imagePadding)
+           * 1.bindName绑定的数据名(必填)
+           * 2.type可以为html或者md(必填)
+           * 3.data为传入的具体数据(必填)
+           * 4.target为Page对象,一般为this(必填)
+           * 5.imagePadding为当图片自适应是左右的单一padding(默认为0,可选)
+           */
+          WxParse.wxParse('articleContent', 'html', art, that, 5);
         }
       }
     })
