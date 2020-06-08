@@ -1,19 +1,59 @@
 // pages/service-item/service-item.js
+const api = require('../../utils/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    id:'',
+    menuList:[],
+    host:'',
+    title:''
   },
 
+  fetchData(){
+    var that = this;
+    api.get({
+      url: '/Home/demand_category/'+this.data.id+"/",
+      data: {},
+      success: res => {
+        console.log(res,987)
+        if(res.code == 200){
+          this.setData({
+            menuList:res.list
+          })
+        }else{
+          console.log('获取数据失败');
+        }
+      }
+    });
+  },
+  goDetail(e){
+    let path = '/pages/publish-task/one/one?id=' + e.currentTarget.dataset.item.id
+    console.log(path,89)
+    wx.navigateTo({
+      url: path
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.title,'title')
+    this.setData({
+      title:options.title
+    })
     wx.setNavigationBarTitle({
-      title: '保洁服务'
+      title: options.title
+    })
+    console.log(options.id,9090)
+    this.setData({
+      id:options.id
+    })
+    this.fetchData()
+    this.setData({
+      host:api.HOST
     })
   },
 

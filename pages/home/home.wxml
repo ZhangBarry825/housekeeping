@@ -15,21 +15,21 @@
                 <view class="left">生活小常识</view>
                 <image class="right" src="../../images/right.png"></image>
             </view>
-            <view class="items" bind:tap="goItem" data-type="knowledge-detail">
-                <view class="item" wx:for="{{lifeCommonSense}}" wx:key="index" data-id="{{item.article_id}}">
+            <view class="items">
+                <view class="item"  data-type="knowledge-detail" bind:tap="goItem" wx:for="{{lifeCommonSense}}" wx:key="index" data-id="{{item.article_id}}">
                     <text>•{{item.article_title}}</text>
                 </view>
             </view>
         </view>
         <view class="logos">
-			<view class="item" bind:tap="goItem" data-type="service-item" wx:for="{{navigations}}" wx:key="index" data-id="{{item.id}}">
+			<view class="item" bind:tap="goItem" data-type="service-item" data-item="{{item}}" wx:for="{{navigations}}" wx:key="index" data-id="{{item.id}}" data-title="{{item.title}}">
 				<image src="{{item.icon}}"></image>
 				<text>{{item.title}}</text>
 			</view>
 
 		</view>
         <view class="nanny" wx:for="{{classmenulist}}" wx:key="index">
-            <view class="title" bind:tap="goItem" data-type="service-item">
+            <view class="title" bind:tap="goItem" data-type="service-item" data-item="{{item}}" data-id="{{item.id}}">
                 <view class="left">{{item.title}}</view>
                 <image class="right" src="../../images/right.png"></image>
             </view>

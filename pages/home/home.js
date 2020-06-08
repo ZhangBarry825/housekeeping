@@ -18,14 +18,15 @@ Page({
         duration: 500
     },
     goItem(item) {
+        console.log( item.currentTarget.dataset.item,987)
         let path;
         let tn = item.currentTarget.dataset.type;
         if (tn == 'knowledge-list') {
             path = '/pages/knowledge/knowledge?id='
         } else if (tn == 'knowledge-detail') {
-            path = '/pages/knowledge-detail/knowledge-detail?id='
+            path = '/pages/knowledge-detail/knowledge-detail?id='+item.currentTarget.dataset.id
         } else if (tn == 'service-item') {
-            path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset.id
+            path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset.id+'&title='+item.currentTarget.dataset.item.title
         } else if (tn == 'publish-task') {
             path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id
         }

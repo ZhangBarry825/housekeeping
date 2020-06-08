@@ -6,28 +6,8 @@
             </view>
             <view class="page__bd">
                 <view class="weui-cells weui-cells_after-title">
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
-                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                    </navigator>
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
-                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                    </navigator>
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
-                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                    </navigator>
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
-                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                    </navigator>
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
-                        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                    </navigator>
-                    <navigator url="/pages/knowledge-detail/knowledge-detail" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                        <view class="weui-cell__bd">20个生活小常识、生活小窍门</view>
+                    <navigator wx:for="{{allList}}" wx:for-item="item" wx:key="key" url="/pages/knowledge-detail/knowledge-detail?id={{item.article_id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd">{{item.article_title}}</view>
                         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
                     </navigator>
                 </view>

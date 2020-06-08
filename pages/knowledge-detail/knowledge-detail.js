@@ -1,20 +1,40 @@
 // pages/knowledge-detail/knowledge-detail.js
+const api = require('../../utils/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    article:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options,789)
+    this.setData({
+      id:options.id
+    })
+    this.fetchData()
   },
-
+  fetchData(){
+    let that = this
+    api.get({
+      url: '/Article/article_info/' + that.data.id,
+      data: {},
+      success: res => {
+        console.log(res)
+        if(res.code == 200){
+          that.setData({
+            article:res.data
+          })
+        }
+      }
+    })
+  }
+  ,
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -27,6 +27,11 @@
   width: 30rpx;
   height: 30rpx;
 }
+.page .content-box .clean .items:after {
+  height: 0;
+  content: '';
+  width: 22%;
+}
 .page .content-box .clean .items {
   background-color: #FFF;
   width: 100%;

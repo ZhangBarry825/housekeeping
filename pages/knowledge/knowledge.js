@@ -8,122 +8,116 @@ Page({
      */
     data: {
         pagesize: 2,     /*每页显示的行数：*/
-        p: 1,             /*页码（从1开始）：*/
-        paixu: 'viewcount', /*排序方式：*/
+        pageNum: 1,             /*页码（从1开始）：*/
         order: 'desc',      /*升序或降序：*/
         state: 1,            /*用于标识是否还有更多的状态*/
-        arrayProject:[],    /*用于渲染页面的数组*/
-        allProject:[],      /*用于数组的追加和暂存*/
+        addList: [],    /*用于渲染页面的数组*/
+        allList: [],      /*用于数组的追加和暂存*/
     },
+    fetchData(pageNum =1) {
+        console.log(22)
+        let that = this
+        api.get({
+            url: '/Article/Article_list/5/' + pageNum + '/' + that.data.pagesize,
+            data: {},
+            success: res => {
+                console.log(res)
+                if(res.code == 200){
+                    that.setData({
+                        allList:res.list
+                    })
+                }
+            }
+        });
 
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         var that = this;
-        getproinfo( that.data.pagesize, this.data.p,that)
+        this.fetchData()
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         var that = this;
         console.log('111')
         that.setData({
             arrayProject: {}
         });
-        getproinfo(that.data.pagesize, this.data.p,that);
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
-        var that = this;
+    onReachBottom: function () {
+        let that = this
         wx.showLoading({
-            title: '玩命加载中...',
+            title: '加载中...',
         });
-        that.data.p = mythis.data.p + 1;
-        getproinfo(that.data.pagesize, this.data.p,that);
-        wx.hideLoading();
+        let pageNum=that.data.pageNum+1
+        api.get({
+            url: '/Article/Article_list/5/' + pageNum + '/' + that.data.pagesize,
+            data: {},
+            success: res => {
+                console.log(res)
+                if(res.code == 200 && res.list.length>0){
+                    that.setData({
+                        allList:that.allList.concat(res.list)
+                    })
+                }else {
+                    wx.hideLoading()
+                    wx.showToast({
+                        message:'加载完毕',
+                        icon:'none',
+                        duration:1000
+                    })
+                }
+            },
+            complete:()=>{
+                wx.hideLoading()
+            }
+        });
+
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 
-    
+
 })
-
-
-/**
- * 获取列表
- */
-function getproinfo(pagesize, p, that){
-    console.log(22)
-    api.get({
-        url: '/Article/Article_list/5/'+p+'/'+pagesize,
-        data: {},
-        success: data => {
-            if(data.code == 200){
-                var list = data.list;
-                if(list.length < 1){
-                    that.setData({
-                        state: 0
-                    });
-                }else{
-                    var state1 = 1;
-                    /*如果有数据，但小于每次期望加载的数据量（pagesize）,将state设为0，表示后面已没有数据可加载*/
-                    if (list.length < that.data.pagesize){
-                        var state1 = 0;
-                    }
-                    for (var i = 0; i < list.length; i++) {
-                        that.data.allProject.push(list[i]);
-                    }
-                    that.setData({
-                        arrayProject: that.data.allProject,
-                        state: state1
-                    });
-                }
-            }else{
-                that.setData({
-                    state: 0
-                });
-            }
-
-        }
-    });
-
-}
