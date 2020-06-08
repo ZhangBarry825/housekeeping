@@ -1,18 +1,40 @@
 // pages/team/team.js
+const api = require('../../utils/api.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    pageNum:1,
+    pageSize:20,
+    dataList:[]
   },
-
+  fetchData(){
+    let that = this
+    api.post({
+      url: '/Distribution/invite_list/'+this.data.pageNum+'/'+this.data.pageSize,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token:wx.getStorageSync('token'),
+      },
+      success: res => {
+        console.log(res, 765)
+        if (res.code == 200) {
+          that.setData({
+            dataList: res.list
+          })
+        } else {
+          console.log('获取数据失败');
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.fetchData()
   },
 
   /**

@@ -8,6 +8,11 @@ Page({
   data: {
     dataDetail:''
   },
+  goDetail(){
+    wx.navigateTo({
+      url:'/pages/team/team'
+    })
+  },
   fetchData(){
     let that = this
     api.post({

@@ -18,5 +18,5 @@
     <view class="num">
         {{dataDetail.invite_number}} <text>人</text>
     </view>
-    <view class="detail">查看详情</view>
+    <view class="detail" bind:tap="goDetail">查看详情</view>
 </view>
