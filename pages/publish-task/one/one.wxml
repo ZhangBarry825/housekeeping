@@ -101,7 +101,7 @@
     </view>
     <view class="promise">
         <label class="weui-agree">
-            <checkbox value="{{checkAgreement}}" class="weui-agree__checkbox-check" />
+            <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}" class="weui-agree__checkbox-check" />
             <span class="weui-agree__checkbox"></span>
             <span class="weui-agree__text">我已阅读并同意<navigator url="" class="weui-agree__link">《家政服务协议》</navigator><navigator url="" class="weui-agree__link">《隐私政策》</navigator></span>
         </label>

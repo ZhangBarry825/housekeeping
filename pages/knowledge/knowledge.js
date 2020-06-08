@@ -99,7 +99,7 @@ Page({
                 }else {
                     wx.hideLoading()
                     wx.showToast({
-                        message:'加载完毕',
+                        title:'加载完毕',
                         icon:'none',
                         duration:1000
                     })

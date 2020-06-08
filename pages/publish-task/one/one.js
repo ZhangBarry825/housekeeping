@@ -8,7 +8,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        checkAgreement: false,
+        checkAgreement: {
+            value:'',
+            checked:false
+        },
         address: '请选择',
         user_address_id: '',
         time: '请选择',
@@ -34,6 +37,7 @@ Page({
     },
     bindinput(e) {
         this.setData({
+            desc:e.detail.value,
             desLength: e.detail.value.length
         })
     },
@@ -88,7 +92,7 @@ Page({
     bindDateChange(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
-            date: e.detail.value
+            updoor_time: e.detail.value
         })
     },
     playRecord() {
@@ -256,8 +260,10 @@ Page({
     onLoad: function (options) {
         console.log('user-id', wx.getStorageSync('userid'))
         console.log('token', wx.getStorageSync('token'))
-        console.log(options)
+        console.log(options,96)
         this.setData({
+            category_id:options.id,
+            category_pid:options.pid,
             innerAudioContext: wx.createInnerAudioContext(),
             recorderManager: wx.getRecorderManager(),
         })
@@ -270,17 +276,43 @@ Page({
             console.log(res, 98)
         });
     },
+    checkChange(e){
+      console.log(w)
+      console.log('bind change')
+    },
     publishForm() {
+        console.log(this.data.checkAgreement)
         let formData = {
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
             category_pid: this.data.category_pid,
+            category_id: this.data.category_id,
             user_address_id: this.data.user_address_id,
             updoor_time: this.data.updoor_time,
             desc: this.data.desc,
             images: this.data.images,
             voice: this.data.voice,
         }
+        let tip='请填写数据'
+        if(formData.user_address_id==''){
+            tip='请选择地址'
+        }else if(formData.updoor_time=='请选择'){
+            tip='请选择上门时间'
+        }else if(formData.images.length<1){
+            tip='请上传图片'
+        }else if(formData.desc==''){
+            tip='请填写描述需求'
+        }else if(!this.data.checkAgreement){
+            tip='请阅读并同意相关协议'
+        }else {
+
+        }
+        wx.showToast({
+            title:tip,
+            icon:"none",
+            duration:1000
+        })
+
         console.log(formData)
     },
 

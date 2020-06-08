@@ -34,7 +34,7 @@
                 <image class="right" src="../../images/right.png"></image>
             </view>
             <view class="items">
-                <view class="item" bind:tap="goItem" data-type="publish-task" wx:for="{{item.children}}" wx:for-item="itema" wx:key="index1" data-id="{{itema.id}}">
+                <view class="item" bind:tap="goItem" data-type="publish-task" wx:for="{{item.children}}" wx:for-item="itema" wx:key="index1" data-pid="{{item.id}}" data-id="{{itema.id}}">
                     <text>{{itema.title}}</text>
 					<image mode="aspectFill" src="{{itema.icon}}"></image>
 				</view>

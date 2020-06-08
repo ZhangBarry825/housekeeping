@@ -28,7 +28,7 @@ Page({
         } else if (tn == 'service-item') {
             path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset.id+'&title='+item.currentTarget.dataset.item.title
         } else if (tn == 'publish-task') {
-            path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id
+            path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id+"&pid="+item.currentTarget.dataset.pid
         }
         //wx.navigateTo(path);
         wx.navigateTo({
