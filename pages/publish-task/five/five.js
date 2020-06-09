@@ -8,8 +8,10 @@ Page({
    */
   data: {
     countryIndex: 0,
-    countries: ["视频", "音频", "图片"],
-    picker:false
+    order_id:'',
+    array: [],
+    current:'请选择类型',
+    bankarr:[]
   },
   bindCountryChange(e){
          console.log('picker country 发生选择改变，携带值为', e.detail.value);
@@ -22,29 +24,57 @@ Page({
     this.setData({
       picker:true
     })
-    // wx.chooseImage({
-    //   success (res) {
-    //     const tempFilePaths = res.tempFilePaths
-    //     wx.uploadFile({
-    //       url:  api.HOST + "/wxapi.php/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //仅为示例，非真实的接口地址
-    //       filePath: tempFilePaths[0],
-    //       name: 'file',
-    //       formData: {
-    //         'user': 'test'
-    //       },
-    //       success (res){
-    //         const data = res.data
-    //         //do something
-    //       }
-    //     })
-    //   }
-    // })
+
+  },
+  getAChoice(){
+    api.get({
+      url: '/Home/options_list/6',
+      data: {},
+      success: res => {
+        let datalist=[]
+        for (let i = 0; i < res.list.length; i++) {
+          datalist.push(res.list[i].title);
+        }
+        this.setData({
+          array:datalist,
+          bankarr:res.list
+        })
+        console.log(res,"类型")
+      }
+    })
+  },
+  // 赋值选择银行
+  bindPickerChange(e){
+    console.log(this.data)
+    console.log(e,"111")
+    let bank=this.data.array[e.detail.value]
+    let bankid=this.data.bankarr[e.detail.value].options_id
+    this.setData({
+      current:bank,
+      options_id:bankid
+    })
+    console.log(this.data)
+  },
+  openingvalue(e){
+    this.setData({
+      opening_branch:e.detail.value,
+    })
+    console.log(e.detail.value)
+  },
+  placehvalue(e){
+    this.setData({
+      opening_branch:e.detail.value,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getAChoice()
+    this.setData({
+      order_id:options.order_id,
+    })
+    console.log(options)
   },
 
   /**

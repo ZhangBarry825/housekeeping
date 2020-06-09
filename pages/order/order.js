@@ -8,46 +8,54 @@ Page({
    */
   data: {
     menu: 0,
-    datalist:[]
+    datalist:[],
+    page:1,
+    limit:20
   },
   // 获取数据
   retrieveData (status) {
     let that=this
     let user_id = wx.getStorageSync('userid')
-    let page = 1
-    let limit = 100
     api.get({
       // url: `/Home/demand/${user_id}/${status}/${page}/${limit}`,
-      url: '/Home/demand/' + user_id + '/' + that.data.menu + '/' + page + '/' + limit,
+      url: '/Home/demand/' + user_id + '/' + that.data.menu + '/' + that.data.page + '/' + that.data.limit,
       data: {},
       success: data => {
-        that.setData({
-          datalist:data.list
+        let current=[]
+        data.list.forEach(item=>{
+          current.push(item)
         })
-        console.log(that.setData())
-        console.log(data)
+        let datasnd=this.data.datalist
+        current.forEach(item=>{
+          datasnd.push(item)
+        })
+        that.setData({
+          datalist:datasnd
+        })
+        console.log(that.data)
       }
     });
   },
   // 点击操作
   goToPage(e){
-    console.log(e.currentTarget.dataset.status,"12")
+    console.log(e.currentTarget.dataset,"12")
     let status=e.currentTarget.dataset.status
-    if(status==0||status==12||status==11){
+    let orderid=e.currentTarget.dataset.orderid
+    if(orderid){
       wx.navigateTo({
-        url: '/pages/publish-task/three/three?demandid='+e.currentTarget.dataset.demandid
+        url: '/pages/publish-task/three/three?orderid='+orderid
       })
+    } else if(status==1){
+      wx.navigateTo({
+        url: '/pages/publish-task/two/two?demandid='+e.currentTarget.dataset.demandid
+      })
+    } else if(status==0||status==12||status==11){
       wx.showToast({
         title: '当前不可操作',
         icon: 'none',
         duration: 2000
       })
-    }else if(status==1){
-      wx.navigateTo({
-        url: '/pages/publish-task/two/two?demandid='+e.currentTarget.dataset.demandid
-      })
-    } 
-    
+    }
   },
   // 判断状态
   gingStatus(val){
@@ -125,14 +133,25 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page:1,
+      datalist:[]
+    })
+    this.retrieveData()
+    console.log("111");
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let count=this.data.page
+    count++
+    this.setData({
+      page:count
+    })
+    this.retrieveData()
+    console.log("222");
   },
 
   /**

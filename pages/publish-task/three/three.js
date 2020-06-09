@@ -8,10 +8,11 @@ Page({
    */
   data: {
     ifShow:false,
-    order_id:''
+    order_id:'',
+    renlist:{}
   },
   retrieveData(){
-    
+
     api.post({
       url: `/Order/order_info`,
       data: {
@@ -20,10 +21,10 @@ Page({
         order_id:this.data.order_id
       },
       success: res => {
-        that.setData({
-          renlist:res
+        this.setData({
+          renlist:res.list
         })
-        console.log(that.data.renlist,"111")
+        console.log(res,"111")
       }
   })
   },
@@ -37,9 +38,15 @@ Page({
       ifShow:true
     })
   },
+  // 跳转投诉
   complaint(){
     wx.navigateTo({
-      url:'/pages/publish-task/five/five'
+      url:'/pages/publish-task/five/five?order_id='+this.data.order_id
+    })
+  },
+  refund(){
+    wx.navigateTo({
+      url:'/pages/refund/refund'
     })
   },
   cancelCheck(){
@@ -57,9 +64,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      order_id:options.order_id
+      order_id:options.orderid
     })
-    
+    this.retrieveData()
   },
 
   /**
