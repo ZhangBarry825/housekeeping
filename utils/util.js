@@ -29,6 +29,10 @@ const validateData = data => {
     return validate
 }
 
+function checkDigit(num) {
+    return typeof num === 'number' && !isNaN(num)
+}
+
 function checkPhone(phone){
     if(!(/^1[3456789]\d{9}$/.test(phone))){
         return false;
@@ -47,4 +51,5 @@ module.exports = {
     formatTimeMS: formatTimeMS,
     validateData: validateData,
     checkPhone: checkPhone,
+    checkDigit: checkDigit,
 }

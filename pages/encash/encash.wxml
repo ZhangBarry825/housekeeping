@@ -10,12 +10,12 @@
         </picker>
         <view class="item">
             <view class="left">￥</view>
-            <input class="weui-input middle" placeholder="可提现金额0元"/>
-            <text class="all">全部</text>
+            <input type="number" value="{{withdrawal_amount}}" bindinput="updateWithdraw" class="weui-input middle" placeholder="可提现金额{{available_balance}}元"/>
+            <text class="all" bind:tap="setAll">全部</text>
         </view>
     </view>
     <view class="button-box">
-        <view class="button gray">
+        <view class="button" bind:tap="submitForm">
             确认提现
         </view>
     </view>
