@@ -21,6 +21,11 @@
 .page .requirement .content text {
   width: 100%;
 }
+.page .requirement .content .imgs:after {
+  content: '';
+  height: 0;
+  width: 220rpx ;
+}
 .page .requirement .content .imgs {
   margin: 30rpx 0;
   width: 100%;

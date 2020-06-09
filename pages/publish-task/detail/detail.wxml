@@ -3,14 +3,12 @@
     <view class="requirement">
         <view class="title">需求信息</view>
         <view class="content">
-            <text>家庭保洁家庭保洁家庭保洁家庭保洁家庭保洁家庭保洁家庭保洁家庭保洁</text>
+            <text>{{detailData.desc}}</text>
             <view class="imgs">
-                <image mode="aspectFill" class="img" src="../../../images/avatar.png" bind:tap="previewImg"></image>
-                <image mode="aspectFill" class="img" src="../../../images/avatar.png" bind:tap="previewImg"></image>
-                <image mode="aspectFill" class="img" src="../../../images/avatar.png" bind:tap="previewImg"></image>
+                <image wx:for="{{detailData.images}}" wx:key="key"  mode="aspectFill" class="img" src="{{item}}" bind:tap="previewImg"></image>
             </view>
-            <view class="voice">
-                <image src="../../../images/voice1.png"></image>
+            <view class="voice" bind:tap="playRecord" wx:if="{{false}}">
+                <image src="{{voiceImg}}"></image>
             </view>
         </view>
     </view>
@@ -19,19 +17,19 @@
         <view class="content">
             <view class="item">
                 <text class="label">客户姓名：</text>
-                <text>李先生</text>
+                <text>{{detailData.name}}</text>
             </view>
             <view class="item">
                 <text class="label">联系方式：</text>
-                <text>13800138000</text>
+                <text>{{detailData.mobile}}</text>
             </view>
             <view class="item">
                 <text class="label">客户地址：</text>
-                <text>北京市经济技术开发区科创街道20号1栋5单元806</text>
+                <text>{{detailData.province}}{{detailData.city}}{{detailData.area}}{{detailData.address}}{{detailData.addresses}}</text>
             </view>
         </view>
     </view>
 
 
-    <mp-gallery show="{{show}}" bindchange="change" bindhide="hide" img-urls="{{imgUrls}}" showDelete="{{false}}" hideOnClick="{{true}}" current="0"></mp-gallery>
+    <mp-gallery show="{{show}}" bindchange="change" bindhide="hide" img-urls="{{detailData.images}}" showDelete="{{false}}" hideOnClick="{{true}}" current="0"></mp-gallery>
 </view>
