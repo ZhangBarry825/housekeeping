@@ -52,8 +52,12 @@ module.exports = {
         } else {
             requireLogin = false;
         }
+        let myUrl=apiRoot + options.url + '/?client_id='+client_id+'&client_secret='+client_secret;
+        if(options.noNeed){
+            myUrl=apiRoot + options.url + '/&client_id='+client_id+'&client_secret='+client_secret;
+        }
         wx.request({
-            url: apiRoot + options.url + '/?client_id='+client_id+'&client_secret='+client_secret,
+            url: myUrl,
             data: options.data,
             method: options.method ? options.method : 'POST',
             header: {

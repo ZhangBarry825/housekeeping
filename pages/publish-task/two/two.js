@@ -16,6 +16,12 @@ Page({
     })
   
   },
+  demandDetails(){
+    console.log(this.data)
+    wx.navigateTo({
+      url:'/pages/publish-task/detail/detail?demand_id='+this.data.orderId
+    })
+  },
   // 获取列表
   retrieveData(){
     let that=this

@@ -104,7 +104,8 @@
 
     <view class="erq" wx:if="{{ifShow}}" bind:tap="cancelCheck">
         <view class="top">
-            <image src="../../../images/erweima.png"></image>
+            <!-- <image src="../../../images/erweima.png"></image> -->
+            <image src="{{qrCode}}"></image>
             <text>5856352278</text>
         </view>
         <view class="tips">

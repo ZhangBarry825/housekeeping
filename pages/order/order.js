@@ -66,6 +66,10 @@ Page({
   changeMenu (e) {
     console.log(e)
     this.setData({
+      page:1,
+      datalist:[]
+    })
+    this.setData({
       menu: e.currentTarget.dataset.type
     })
     this.retrieveData()
