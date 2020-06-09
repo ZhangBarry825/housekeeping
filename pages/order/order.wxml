@@ -12,7 +12,8 @@
         </view>
     </view>
     <view class="content">
-        <view class="menu1" wx:if="{{menu===0}}">
+    <!--  wx:if="{{menu===0}}" -->
+        <view class="menu1">
             <view class="item item1" wx:for="{{datalist}}" wx:key="index" wx:for-item="item">
                 <view class="top">
                     <text>雇佣截止时间 {{item.offer_endtime}}</text>
@@ -99,7 +100,7 @@
         </view>
         <!-- 退款记录 -->
         <view class="menu2" wx:if="{{menu===1}}">
-            <view class="item item5">
+            <!-- <view class="item item5">
                 <view class="top">
                     <text>退款发起时间 2020-04-23 18:00</text>
                 </view>
@@ -173,11 +174,11 @@
                     </text>
                     <view class="button">退款完成</view>
                 </view>
-            </view>
+            </view> -->
         </view>
         <!-- 投诉记录 -->
         <view class="menu2" wx:if="{{menu===2}}">
-            <view class="item item8">
+            <!-- <view class="item item8">
                 <view class="top">
                     <text>投诉发起时间 2020-04-23 18:00</text>
                 </view>
@@ -233,7 +234,8 @@
                     </text>
                     <view class="button">立即查看</view>
                 </view>
-            </view>
+            </view> -->
         </view>
     </view>
+    <view class="nodata">暂无数据</view>
 </view>

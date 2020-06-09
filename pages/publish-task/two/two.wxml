@@ -10,7 +10,7 @@
         <view class="line2">
             雇用截止时间：{{renlist.offer_endtime}}
         </view>
-        <view class="line3">
+        <view class="line3" bind:tap="demandDetails">
             需求详情 >
         </view>
     </view>

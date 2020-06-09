@@ -99,6 +99,14 @@
 					"id": -1,
 					"name": "agreement-detail",
 					"pathName": "pages/agreement-detail/agreement-detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/refund/refund",
+					"pathName": "pages/refund/refund",
+					"query": "",
 					"scene": null
 				}
 			]

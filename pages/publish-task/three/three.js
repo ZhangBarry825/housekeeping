@@ -11,7 +11,8 @@ Page({
   data: {
     ifShow:false,
     order_id:'',
-    renlist:{}
+    renlist:{},
+    qrCode:""
   },
   retrieveData(){
 
@@ -66,6 +67,29 @@ Page({
     })
   },
   checkService(){
+    api.post({
+      url: `/Order/acceptance_service/`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id:this.data.order_id,
+      },
+      success: res => {
+        this.setData({
+          qrCode:api.HOST + `/wxapi.php/Home/qrcode/?data=${res.data.verification_code}` + '/&client_id='+ api.client_id+ "&client_secret=" + api.client_secret
+        })
+        console.log(res)
+        // api.post({
+        //   url: `/Home/qrcode/?data=${res.data.verification_code}`,
+        //   noNeed:true,
+        //   // +'/&client_id='+api.client_id+ "&client_secret=" + api.client_secret
+        //   data: { },
+        //   success: resd => {
+        //     console.log(resd,"zhifu")
+        //   }
+        // })
+      }
+    })
     this.setData({
       ifShow:true
     })
@@ -78,7 +102,7 @@ Page({
   },
   refund(){
     wx.navigateTo({
-      url:'/pages/refund/refund'
+      url:'/pages/refund/refund?order_id='+this.data.order_id+'&order_amount'+this.data.renlist.offer_price+'&renlist='+JSON.stringify(this.data.renlist)
     })
   },
   cancelCheck(){
