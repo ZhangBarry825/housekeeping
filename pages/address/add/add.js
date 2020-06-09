@@ -70,9 +70,6 @@ Page({
                 that.setData({
                     address: res.address + res.name
                 })
-            },
-            fail(){
-                wx.navigateTo({url:'/pages/getAuthority/getAuthority?type=location'})
             }
         })
     },
