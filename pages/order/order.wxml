@@ -237,5 +237,5 @@
             </view> -->
         </view>
     </view>
-    <view class="nodata">暂无数据</view>
+    <view wx:if="{{datalist.length==0}}" class="nodata">暂无数据</view>
 </view>

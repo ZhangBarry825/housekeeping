@@ -52,12 +52,8 @@ module.exports = {
         } else {
             requireLogin = false;
         }
-        let myUrl=apiRoot + options.url + '/?client_id='+client_id+'&client_secret='+client_secret;
-        if(options.noNeed){
-            myUrl=apiRoot + options.url + '/&client_id='+client_id+'&client_secret='+client_secret;
-        }
         wx.request({
-            url: myUrl,
+            url: apiRoot + options.url + '/?client_id='+client_id+'&client_secret='+client_secret,
             data: options.data,
             method: options.method ? options.method : 'POST',
             header: {
@@ -152,8 +148,8 @@ module.exports = {
                                 wx.setStorageSync('login', '1');
                                 // wx.setStorageSync('token', user_token);
                                 // wx.setStorageSync('userid', user_id);
-                                wx.setStorageSync('token', '58bd7228f22b34ef570d027b22302078');
-                                wx.setStorageSync('userid', '19');
+                                wx.setStorageSync('token', user_token);
+                                wx.setStorageSync('userid', user_id);
                                 wx.reLaunch({
                                 	url: '/pages/home/home',
                                 });
