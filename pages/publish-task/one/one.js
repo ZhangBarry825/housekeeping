@@ -9,8 +9,8 @@ Page({
      */
     data: {
         checkAgreement: {
-            value:'',
-            checked:false
+            value: '',
+            checked: false
         },
         address: '请选择',
         user_address_id: '',
@@ -30,6 +30,7 @@ Page({
         hasRecord: false,
         voice: '',
         canStop: false,
+        hasRecordRight: false
     },
     goTo() {
         wx.navigateTo({
@@ -38,7 +39,7 @@ Page({
     },
     bindinput(e) {
         this.setData({
-            desc:e.detail.value,
+            desc: e.detail.value,
             desLength: e.detail.value.length
         })
     },
@@ -81,7 +82,7 @@ Page({
         }
         this.setData({
             images: nowList,
-            imagesUrl:nowList
+            imagesUrl: nowList
         })
         console.log(this.data.images, 987)
     },
@@ -120,75 +121,93 @@ Page({
             console.log(res.errCode)
         })
     },
+
     pressButton() {
-        console.log('press')
-        setTimeout(() => {
-            this.setData({
-                canStop: true
-            })
-        }, 1000)
         let that = this
-        var recordStatus = that.data.recordStatus;
-        if (recordStatus) {
-            wx.getSetting({
-                success(res) {
-                    console.log(res, 890)
-                    if (!res.authSetting['scope.record']) {
-                        console.log(111)
-                        wx.authorize({
-                            scope: 'scope.record',
-                            success() {
-                                console.log(222)
-                                that.setData({
-                                    recordStatus: true
-                                })
-                            }
-                        })
+        if(this.data.hasRecordRight){
+            console.log('press')
+            setTimeout(() => {
+                this.setData({
+                    canStop: true
+                })
+            }, 1000)
+            let that = this
+            var recordStatus = that.data.recordStatus;
+            if (recordStatus) {
+                wx.getSetting({
+                    success(res) {
+                        console.log(res, 890)
+                        if (!res.authSetting['scope.record']) {
+                            console.log(111)
+                            wx.authorize({
+                                scope: 'scope.record',
+                                success() {
+                                    console.log(222)
+                                    that.setData({
+                                        recordStatus: true
+                                    })
+                                }
+                            })
+                        }
                     }
+                })
+            } else {
+                that.data.recorderManager.start();//开始录音
+                wx.showToast({
+                    title: "正在录音",
+                    icon: "loading",
+                    duration: 60000//先定义个60秒，后面可以手动调用wx.hideToast()隐藏
+                });
+
+            }
+        }else {
+            wx.authorize({
+                scope: 'scope.record',
+                success() {
+                    that.setData({
+                        hasRecordRight: true
+                    })
+                },
+                fail(){
+                    wx.navigateTo({url: '/pages/getAuthority/getAuthority?type=record'})
                 }
             })
-        } else {
-            that.data.recorderManager.start();//开始录音
-            wx.showToast({
-                title: "正在录音",
-                icon: "loading",
-                duration: 60000//先定义个60秒，后面可以手动调用wx.hideToast()隐藏
-            });
         }
-
     },
     looseButton() {
-        console.log('loose')
-        if (this.data.canStop) {
-            wx.hideToast();//结束录音、隐藏Toast提示框
-            this.data.recorderManager.stop();//结束录音
+        if(this.data.hasRecordRight){
+            console.log('loose')
+            if (this.data.canStop) {
+                wx.hideToast();//结束录音、隐藏Toast提示框
+                this.data.recorderManager.stop();//结束录音
 
-            this.setData({
-                hasRecord: true
-            })
-            setTimeout(() => {
-                console.log(this.data.recordVoice, 89)
-                this.uploadRecord()
-            }, 1000)
+                this.setData({
+                    hasRecord: true
+                })
+                setTimeout(() => {
+                    console.log(this.data.recordVoice, 89)
+                    this.uploadRecord()
+                }, 1000)
 
 
-        } else {
-            wx.showToast({
-                title: "录音时间太短",
-                icon: "none",
-                duration: 1000
-            });
-            this.setData({
-                hasRecord: false,
-                canStop: false
-            })
+            } else {
+                wx.showToast({
+                    title: "录音时间太短",
+                    icon: "none",
+                    duration: 1000
+                });
+                this.setData({
+                    hasRecord: false,
+                    canStop: false
+                })
+            }
         }
     },
-    uploadRecord(){
+    uploadRecord() {
         let that = this;
         console.log(wx.getStorageSync('userid'), 'user_id')
         console.log(wx.getStorageSync('token'), 'token')
-        console.log('正在上传',this.data.recordVoice.tempFilePath)
+        console.log('正在上传', this.data.recordVoice.tempFilePath)
         wx.uploadFile({
             url: api.HOST + "/wxapi.php/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
             filePath: this.data.recordVoice.tempFilePath,
@@ -200,7 +219,7 @@ Page({
             success(res) {
                 console.log(JSON.parse(res.data), 333)
                 that.setData({
-                    voice:JSON.parse(res.data).files
+                    voice: JSON.parse(res.data).files
                 })
             },
             fail(res) {
@@ -212,7 +231,7 @@ Page({
                 })
                 that.setData({
                     voice: '',
-                    hasRecord:false
+                    hasRecord: false
                 })
             }
 
@@ -260,22 +279,23 @@ Page({
         })
 
     },
-    seeDetail(){
+    seeDetail() {
         console.log('detail')
         wx.navigateTo({
-            url:'/pages/agreement-detail/agreement-detail?id=9'
+            url: '/pages/agreement-detail/agreement-detail?id=9'
         })
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let that = this
         console.log('user-id', wx.getStorageSync('userid'))
         console.log('token', wx.getStorageSync('token'))
-        console.log(options,96)
+        console.log(options, 96)
         this.setData({
-            category_id:options.id,
-            category_pid:options.pid,
+            category_id: options.id,
+            category_pid: options.pid,
             innerAudioContext: wx.createInnerAudioContext(),
             recorderManager: wx.getRecorderManager(),
         })
@@ -287,18 +307,19 @@ Page({
             })
             console.log(res, 98)
         });
+
     },
-    checkChange(e){
-      console.log(e)
-      console.log('bind change')
+    checkChange(e) {
+        console.log(e)
+        console.log('bind change')
         this.setData({
-            'checkAgreement.checked':!this.data.checkAgreement.checked
+            'checkAgreement.checked': !this.data.checkAgreement.checked
         })
     },
     publishForm() {
         console.log(this.data.checkAgreement)
-        let category_pid=this.data.category_pid
-        let category_id=this.data.category_id
+        let category_pid = this.data.category_pid
+        let category_id = this.data.category_id
         let formData = {
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
@@ -308,45 +329,45 @@ Page({
             images: this.data.images,
             voice: this.data.voice,
         }
-        let tip='请填写数据'
-        let ifShow=true
-        if(formData.user_address_id==''){
-            tip='请选择地址'
-        }else if(formData.updoor_time=='请选择'){
-            tip='请选择上门时间'
-        }else if(formData.images.length<1){
-            tip='请上传图片'
-        }else if(formData.desc==''){
-            tip='请填写描述需求'
-        }else if(!this.data.checkAgreement.checked){
-            tip='请阅读并同意相关协议'
-        }else {
-            ifShow=false
+        let tip = '请填写数据'
+        let ifShow = true
+        if (formData.user_address_id == '') {
+            tip = '请选择地址'
+        } else if (formData.updoor_time == '请选择') {
+            tip = '请选择上门时间'
+        } else if (formData.images.length < 1) {
+            tip = '请上传图片'
+        } else if (formData.desc == '') {
+            tip = '请填写描述需求'
+        } else if (!this.data.checkAgreement.checked) {
+            tip = '请阅读并同意相关协议'
+        } else {
+            ifShow = false
             api.post({
-                url: '/Demand/insert/'+category_pid+"/"+category_id,
+                url: '/Demand/insert/' + category_pid + "/" + category_id,
                 data: formData,
                 success: res => {
                     console.log(res, 999)
-                    if(res.code==200){
+                    if (res.code == 200) {
                         wx.showToast({
-                            title:'发布成功',
-                            icon:"none",
-                            duration:1000
+                            title: '发布成功',
+                            icon: "none",
+                            duration: 1000
                         })
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             wx.navigateBack({
-                                delta:1
+                                delta: 1
                             })
-                        },1000)
+                        }, 1000)
                     }
                 }
             })
         }
-        if(ifShow){
+        if (ifShow) {
             wx.showToast({
-                title:tip,
-                icon:"none",
-                duration:1000
+                title: tip,
+                icon: "none",
+                duration: 1000
             })
         }
 
@@ -365,8 +386,23 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        let that = this
         this.setData({
             canStop: false
+        })
+        wx.getSetting({
+            success(e) {
+                console.log(e)
+                if (!e.authSetting["scope.record"]) {
+                    that.setData({
+                        hasRecordRight:false
+                    })
+                } else {
+                    that.setData({
+                        hasRecordRight:true
+                    })
+                }
+            }
         })
     },
 

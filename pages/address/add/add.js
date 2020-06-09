@@ -58,6 +58,10 @@ Page({
                 const speed = res.speed
                 const accuracy = res.accuracy
                 console.log(res)
+            },
+            fail(e) {
+                console.log('获取地图失败', e)
+                wx.navigateTo({url:'/pages/getAuthority/getAuthority?type=location'})
             }
         })
         wx.chooseLocation({
@@ -66,6 +70,9 @@ Page({
                 that.setData({
                     address: res.address + res.name
                 })
+            },
+            fail(){
+                wx.navigateTo({url:'/pages/getAuthority/getAuthority?type=location'})
             }
         })
     },
@@ -81,42 +88,42 @@ Page({
             status: this.data.status,
         }
         console.log(formData)
-        let tip=''
-        if(formData.address==''){
-            tip='地址'
-        }else if(formData.addresses==''){
-            tip='门牌号'
-        }else if(formData.name==''){
-            tip='联系人'
-        }else if(formData.mobile==''){
-            tip='手机号码'
-        }else if(formData.sex==''){
-            tip='性别'
-        }else {
+        let tip = ''
+        if (formData.address == '') {
+            tip = '地址'
+        } else if (formData.addresses == '') {
+            tip = '门牌号'
+        } else if (formData.name == '') {
+            tip = '联系人'
+        } else if (formData.mobile == '') {
+            tip = '手机号码'
+        } else if (formData.sex == '') {
+            tip = '性别'
+        } else {
             api.post({
                 url: '/User/insert_address',
                 data: formData,
                 success: res => {
                     console.log(res, 98)
-                    if(res.code==200){
+                    if (res.code == 200) {
                         wx.showToast({
                             title: '保存成功',
                             icon: 'success',
                             duration: 2000
                         })
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             wx.navigateBack({
                                 delta: 1
                             })
 
-                        },2000)
+                        }, 2000)
                     }
                 }
             })
             return
         }
         wx.showToast({
-            title: tip+"必须",
+            title: tip + "必须",
             icon: 'none',
             duration: 2000
         })

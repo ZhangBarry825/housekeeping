@@ -1,0 +1,7 @@
+<!--pages/getAuthority/getAuthority.wxml-->
+<view class="page">
+    <text class="tip">{{tip}}</text>
+    <button class="button" style=""
+            open-type="openSetting" bindgetuserinfo="bindGetAuthority">授权设置
+    </button>
+</view>
