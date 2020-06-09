@@ -15,7 +15,12 @@ Page({
     opening_branch:'',
     cardid:'',
     real_name:'',
-    id_card_number:''
+    id_card_number:'',
+    status:"0",
+    radioItems: [
+      {name: '默认', value: '美国'},
+      {name: '非默认', value: '中国', checked: 'true'}
+    ],
   },
   // 获取银行下拉列表
   getBank(){
@@ -39,6 +44,35 @@ Page({
   },
   // 确认提交
   confirmSubmission(){
+    api.post({
+      url: `/User/insert_bankcard/`,
+      data: {
+          user_id: wx.getStorageSync('userid'),
+          user_token: wx.getStorageSync('token'),
+          status:this.data.status,
+          bank_id:this.data.bank_id,
+          opening_branch:this.data.opening_branch,
+          cardid:this.data.cardid,
+          id_card_number:this.data.id_card_number,
+          real_name:this.data.real_name,
+      },
+      success: res => {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none',
+          duration: 2000
+        })
+        setTimeout(() => {
+          if(res.code==200){
+              wx.navigateBack({
+                delta: 1
+              })
+            }
+          }, 2000)
+        
+          console.log(res, "libiao ")
+      }
+  })
     console.log(this.data)
   },
   // 赋值选择银行
@@ -50,6 +84,30 @@ Page({
       bank_id:bankid
     })
     console.log(this.data)
+  },
+  // 选择默认
+  radioChange(e) {
+    const checked = e.detail.value
+    const changed = {}
+    for (let i = 0; i < this.data.radioItems.length; i++) {
+      if (checked.indexOf(this.data.radioItems[i].name) !== -1) {
+        changed['radioItems[' + i + '].checked'] = true
+      } else {
+        changed['radioItems[' + i + '].checked'] = false
+      }
+    }
+    console.log(changed,"111")
+    console.log(e.detail.value,"111")
+    if(e.detail.value=='默认'){
+      this.setData({
+        status:'1'
+      })
+    }else{
+      this.setData({
+        status:'0'
+      })
+    }
+    this.setData(changed)
   },
   // 开户分行
   openingvalue(e){

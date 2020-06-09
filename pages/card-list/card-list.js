@@ -8,10 +8,7 @@ Page({
      */
     data: {
         slideButtons: [
-            {
-                text: '查看',
-                extClass: 'test',
-            }, {
+             {
                 type: 'warn',
                 text: '删除',
                 extClass: 'test',
@@ -24,34 +21,41 @@ Page({
         })
     },
     slideButtonTap (e) {
-        if (e.detail.index == 1) {
+        console.log(e.currentTarget.dataset.current)
+     let current= e.currentTarget.dataset.current
             api.post({
                 url: `/User/del_bankcard/`,
                 data: {
                     user_id: wx.getStorageSync('userid'),
                     user_token: wx.getStorageSync('token'),
+                    status:current.status,
+                    id:current.cardid,
                 },
                 success: res => {
-                    this.setData({
-                        litedata: res.data
-                    })
+                    wx.showToast({
+                        title: res.msg,
+                        icon: 'none',
+                        duration: 2000
+                      })
+                      this.retrieveData()
                     console.log(res, "libiao ")
                 }
             })
-        }
     },
     // 获取列表
     retrieveData () {
         api.post({
-            url: `/User/bankcard_list/${1}/${10}/`,
+            url: `/User/bankcard_list/${1}/${100}/`,
             data: {
                 user_id: wx.getStorageSync('userid'),
                 user_token: wx.getStorageSync('token'),
             },
             success: res => {
                 this.setData({
-                    litedata: res.data
+                    litedata: res.list
                 })
+                console.log(this.data, "libiao ")
+                
                 console.log(res, "libiao ")
             }
         })
@@ -75,7 +79,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.retrieveData()
     },
 
     /**

@@ -35,7 +35,7 @@
                 <text>0/500</text>
             </view>
         </view>
-        <view class="item">
+        <view class="item" bind:tap="uploadAudio">
             <text class="label">上传凭证</text>
             <view class="upload-box">
                 <view class="button">文件选择</view>
@@ -53,3 +53,4 @@
         <view class="button" bind:tap="goTo" data-type="publish">立即投诉</view>
     </view>
 </view>
+  

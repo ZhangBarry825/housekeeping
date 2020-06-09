@@ -1,12 +1,31 @@
 // pages/publish-task/three/three.js
-const app=getApp()
+const api = require('../../../utils/api.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ifShow:false
+    ifShow:false,
+    order_id:''
+  },
+  retrieveData(){
+    
+    api.post({
+      url: `/Order/order_info`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id:this.data.order_id
+      },
+      success: res => {
+        that.setData({
+          renlist:res
+        })
+        console.log(that.data.renlist,"111")
+      }
+  })
   },
   goToDetail(){
     wx.navigateTo({
@@ -37,7 +56,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      order_id:options.order_id
+    })
+    
   },
 
   /**

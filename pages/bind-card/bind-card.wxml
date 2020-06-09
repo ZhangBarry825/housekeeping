@@ -1,4 +1,4 @@
-<!--pages/bind-card/bind-card.wxml-->
+<!-- pages/bind-card/bind-card.wxml -->
 <view class="page">
     <view class="content">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
@@ -10,24 +10,33 @@
         </picker>
         <view class="item">
             <view class="left">开户分行</view>
-            <input class="weui-input middle" bindinput="openingvalue" value="{{opening_branch}}" placeholder="请填写开户分行"/>
+            <input class="weui-input middle" bindinput="openingvalue" value="{{opening_branch}}" placeholder="请填写开户分行" />
         </view>
         <view class="item">
             <view class="left">卡号</view>
-            <input class="weui-input middle" bindinput="cardidvalue" value="{{cardid}}" placeholder="请输入卡号"/>
+            <input class="weui-input middle" bindinput="cardidvalue" value="{{cardid}}" placeholder="请输入卡号" />
         </view>
         <view class="item">
             <view class="left">姓名</view>
-            <input class="weui-input middle" bindinput="realnamevalue" value="{{real_name}}" placeholder="请输入该银行卡用户的姓名"/>
+            <input class="weui-input middle" bindinput="realnamevalue" value="{{real_name}}" placeholder="请输入该银行卡用户的姓名" />
         </view>
         <view class="item">
             <view class="left">身份证</view>
-            <input class="weui-input middle" bindinput="cardvalue" value="{{id_card_number}}" placeholder="请输入该银行卡用户的身份证号码"/>
+            <input class="weui-input middle" bindinput="cardvalue" value="{{id_card_number}}" placeholder="请输入该银行卡用户的身份证号码" />
+        </view>
+        <view class="item">
+            <view class="left">默认帐户</view>
+            <radio-group class="group" bindchange="radioChange">
+                <view class="label-2" wx:for="{{radioItems}}">
+                    <radio id="{{item.name}}" value="{{item.name}}" checked="{{item.checked}}"></radio>
+                    <label class="label-2-text" for="{{item.name}}">
+                        <text>{{item.name}}</text>
+                    </label>
+                </view>
+            </radio-group>
         </view>
     </view>
     <view class="button-box">
-        <view class="button" bind:tap="confirmSubmission">
-            确认绑定
-        </view>
+        <view class="button" bind:tap="confirmSubmission">确认绑定</view>
     </view>
 </view>

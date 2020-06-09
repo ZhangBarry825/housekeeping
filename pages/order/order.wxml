@@ -97,6 +97,7 @@
                 </view>
             </view> -->
         </view>
+        <!-- 退款记录 -->
         <view class="menu2" wx:if="{{menu===1}}">
             <view class="item item5">
                 <view class="top">
@@ -174,6 +175,7 @@
                 </view>
             </view>
         </view>
+        <!-- 投诉记录 -->
         <view class="menu2" wx:if="{{menu===2}}">
             <view class="item item8">
                 <view class="top">

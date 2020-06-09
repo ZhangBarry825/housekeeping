@@ -49,3 +49,7 @@
 .page .button-box .gray {
   background-color: gainsboro;
 }
+.label-2{
+  float: left;
+  margin: 0 20rpx;  
+}

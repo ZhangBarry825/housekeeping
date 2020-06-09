@@ -12,7 +12,7 @@ Page({
   },
   goTo(e){
     wx.navigateTo({
-      url:'/pages/publish-task/selected/selected?dataset='+JSON.stringify(e.currentTarget.dataset.item)+'&demand='+this.data.renlist.demand_title
+      url:'/pages/publish-task/selected/selected?dataset='+JSON.stringify(e.currentTarget.dataset.item)+'&demand='+this.data.renlist.demand_title+'&demand_id='+this.data.orderId
     })
   
   },

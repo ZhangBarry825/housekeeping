@@ -1,4 +1,6 @@
 // pages/publish-task/selected/selected.js
+const api = require('../../../utils/api.js');
+const app = getApp()
 Page({
 
   /**
@@ -6,20 +8,53 @@ Page({
    */
   data: {
     dataset:{},
-    demand:''
+    demand:'',
+    order_id:'',
+    master_user_id:''
   },
-
+  // 创建订单
+  weChatPayment(){
+    api.post({
+      url: `/Demand/insert_order`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id:this.data.demand_id,
+        master_user_id:this.data.master_user_id,
+        price:1
+      },
+      success: res => {
+        console.log(res,"111")
+      }
+  })
+  },
+  // 获取数据
+  retrieveData(){
+    api.post({
+      url: `/Order/offer_info`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id:this.data.demand_id,
+        master_user_id:this.data.master_user_id
+      },
+      success: res => {
+        console.log(res,"111")
+      }
+  })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     let dataset = JSON.parse(options.dataset);
     this.setData({
-      dataset:dataset,
-      demand:options.demand
+      master_user_id:dataset.master_user_id,
+      demand_id:options.demand_id
     })
+    this.retrieveData()
     console.log(dataset)
+    console.log(options)
   },
 
   /**

@@ -62,15 +62,30 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/card-list/card-list",
-					"pathName": "pages/card-list/card-list",
+					"name": "pages/bind-card/bind-card",
+					"pathName": "pages/bind-card/bind-card",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/bind-card/bind-card",
-					"pathName": "pages/bind-card/bind-card",
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/publish-task/five/five",
+					"pathName": "pages/publish-task/five/five",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/card-list/card-list",
+					"pathName": "pages/card-list/card-list",
+					"query": "",
 					"scene": null
 				}
 			]
