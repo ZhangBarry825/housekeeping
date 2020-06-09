@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/refund_detail/refund_detail",
+    "pages/comment_detail/comment_detail",
     "pages/home/home",
     "pages/address/add/add",
     "pages/getAuthority/getAuthority",
@@ -7,6 +9,7 @@
 
     "pages/publish-task/one/one",
     "pages/comments/comments",
+
     "pages/about-us/about-us",
     "pages/agreement-detail/agreement-detail",
     "pages/publish-task/detail/detail",

@@ -94,6 +94,12 @@
 					"pathName": "pages/publish-task/five/five",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "agreement-detail",
+					"pathName": "pages/agreement-detail/agreement-detail",
+					"scene": null
 				}
 			]
 		}
