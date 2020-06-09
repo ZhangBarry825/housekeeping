@@ -1,4 +1,5 @@
 // pages/publish-task/two/two.js
+const api = require('../../../utils/api.js');
 const app = getApp()
 Page({
 
@@ -6,21 +7,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderId:'',
+    renlist:{}
   },
   goTo(e){
-    let path;
-    let type=e.currentTarget.dataset.type
-    if(type=='select'){
-      path='/pages/publish-task/selected/selected'
-    }
-    wx.navigateTo(path)
+    wx.navigateTo({
+      url:'/pages/publish-task/selected/selected?dataset='+JSON.stringify(e.currentTarget.dataset.item)+'&demand='+this.data.renlist.demand_title
+    })
+  
+  },
+  // 获取列表
+  retrieveData(){
+    let that=this
+    api.post({
+      url: `/Order/demand_offer_list/${1}/${100}`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id:this.data.orderId
+      },
+      success: res => {
+        that.setData({
+          renlist:res
+        })
+        console.log(that.data.renlist,"111")
+      }
+  })
+  },
+  // 拨打电话
+  contact(e){
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
+    console.log(e.currentTarget.dataset.phone)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      orderId:options.demandid
+    })
+    this.retrieveData()
   },
 
   /**

@@ -1,12 +1,12 @@
 <!--pages/card-list/card-list.wxml-->
 <view class="page">
     <view class="cardList">
-        <mp-slideview buttons="{{slideButtons}}" bindbuttontap="slideButtonTap">
+        <mp-slideview buttons="{{slideButtons}}" title bindbuttontap="slideButtonTap" wx:for="{{litedata}}">
             <view class="card">
-                <image class="left" src="../../images/gs.png"></image>
+                <image class="left" src="{{'https://jz2020.njflwlkj.com/'+iten.icon}}"></image>
                 <view class="right">
-                    <view class="name">中国工商银行-储蓄卡</view>
-                    <view class="number">**** **** **** **** 7598</view>
+                    <view class="name">{{item.title}}</view>
+                    <view class="number">{{item.id}}</view>
                 </view>
             </view>
         </mp-slideview>

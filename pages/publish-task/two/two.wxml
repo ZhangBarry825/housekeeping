@@ -5,10 +5,10 @@
     </view>
     <view class="info">
         <view class="line1">
-            家庭保洁-开荒
+            {{renlist.demand_title}}
         </view>
         <view class="line2">
-            雇用截止时间：2020-04-23 18:00
+            雇用截止时间：{{renlist.offer_endtime}}
         </view>
         <view class="line3">
             需求详情 >
@@ -27,9 +27,9 @@
     </view>
 
     <view class="users">
-        <view class="item">
+        <view class="item" wx:for="{{renlist.list}}" wx:key="index">
             <view class="top">
-                <text>报价：<text class="color">120.00</text></text>
+                <text>报价：<text class="color">{{item.price}}元</text></text>
                 <view class="button">取消订单</view>
             </view>
             <view class="detail">
@@ -37,15 +37,15 @@
                     <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
                     <view class="userinfo">
                         <view class="info1">
-                            <view class="name">赵阿姨</view>
-                            <view class="gold">保证金2000</view>
-                            <view class="distance">
+                            <view class="name">{{item.user_nickname}}</view>
+                            <view class="gold">保证金{{item.margin_amount}}</view>
+                            <!-- <view class="distance">
                                 <image src="../../../images/address.png"></image>
                                 <text>3.2公里</text>
-                            </view>
+                            </view> -->
                         </view>
                         <view class="info2">
-                            服务56次 | 评价49条 | 好评率98.99%
+                            服务{{item.order_total}}次 | 评价{{item.evaluation_total}}条 | 好评率{{item.evaluation_credit_rate}}%
                         </view>
                     </view>
                 </view>
@@ -56,52 +56,12 @@
                 </view>
             </view>
             <view class="bottom">
-                <view class="bottom1">
+                <view class="bottom1" bind:tap="contact" data-phone="{{item.mobile}}">
                     <image src="../../../images/phone.png"></image>
                     <text>联系家政</text>
                 </view>
                 <view class="bottom2"></view>
-                <view class="bottom3" bind:tap="goTo" data-type="select">
-                    <image src="../../../images/compass.png"></image>
-                    <text>立即雇佣</text>
-                </view>
-            </view>
-        </view>
-        <view class="item">
-            <view class="top">
-                <text>报价：<text class="color">120.00</text></text>
-                <view class="button">取消订单</view>
-            </view>
-            <view class="detail">
-                <view class="line1">
-                    <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
-                    <view class="userinfo">
-                        <view class="info1">
-                            <view class="name">赵阿姨</view>
-                            <view class="gold">保证金2000</view>
-                            <view class="distance">
-                                <image src="../../../images/address.png"></image>
-                                <text>3.2公里</text>
-                            </view>
-                        </view>
-                        <view class="info2">
-                            服务56次 | 评价49条 | 好评率98.99%
-                        </view>
-                    </view>
-                </view>
-                <view class="line2">
-                    <view>免收空跑费</view>
-                    <view>包月赠送一次</view>
-                    <view>包年赠送一个月</view>
-                </view>
-            </view>
-            <view class="bottom">
-                <view class="bottom1">
-                    <image src="../../../images/phone.png"></image>
-                    <text>联系家政</text>
-                </view>
-                <view class="bottom2"></view>
-                <view class="bottom3">
+                <view class="bottom3" bind:tap="goTo" data-item="{{item}}">
                     <image src="../../../images/compass.png"></image>
                     <text>立即雇佣</text>
                 </view>

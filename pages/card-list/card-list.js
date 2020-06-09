@@ -1,5 +1,6 @@
 // pages/card-list/card-list.js
 const app = getApp()
+const api = require('../../utils/api.js');
 Page({
 
     /**
@@ -15,17 +16,52 @@ Page({
                 text: '删除',
                 extClass: 'test',
             }],
+        litedata: []
     },
-    addCard() {
+    addCard () {
         wx.navigateTo({
-            url:'/pages/bind-card/bind-card'
+            url: '/pages/bind-card/bind-card'
         })
+    },
+    slideButtonTap (e) {
+        if (e.detail.index == 1) {
+            api.post({
+                url: `/User/del_bankcard/`,
+                data: {
+                    user_id: wx.getStorageSync('userid'),
+                    user_token: wx.getStorageSync('token'),
+                },
+                success: res => {
+                    this.setData({
+                        litedata: res.data
+                    })
+                    console.log(res, "libiao ")
+                }
+            })
+        }
+    },
+    // 获取列表
+    retrieveData () {
+        api.post({
+            url: `/User/bankcard_list/${1}/${10}/`,
+            data: {
+                user_id: wx.getStorageSync('userid'),
+                user_token: wx.getStorageSync('token'),
+            },
+            success: res => {
+                this.setData({
+                    litedata: res.data
+                })
+                console.log(res, "libiao ")
+            }
+        })
+        // http://{{host}}/User/bank_list/$page/$limit/?client_id=$client_id&client_secret=$client_secret
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.retrieveData()
     },
 
     /**

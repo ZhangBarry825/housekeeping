@@ -89,6 +89,9 @@
   background-color: #29a759;
   font-size: 25rpx;
   border-radius: 10rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu1 {
   width: 100%;
@@ -99,6 +102,9 @@
   background-color: #ff6600;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu1 .item3 .bottom .button {
   color: #fff;
@@ -106,6 +112,9 @@
   background-color: #cccccc;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu1 .item4 .bottom .button {
   color: #fff;
@@ -113,6 +122,9 @@
   background-color: #66ccff;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu2 {
   width: 100%;
@@ -123,6 +135,9 @@
   background-color: #ff6600;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu2 .item7 .bottom .button {
   color: #fff;
@@ -130,6 +145,9 @@
   background-color: #cccccc;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }
 .page .content .menu3 {
   width: 100%;
@@ -140,4 +158,48 @@
   background-color: #ff6600;
   font-size: 25rpx;
   border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}
+
+.statusbutton{
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #cccccc;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}
+.chooseAMaster{
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #66ccff;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}
+.toEvaluate{
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #ff6600;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}
+.details{
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #66ccff;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
 }

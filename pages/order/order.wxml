@@ -1,125 +1,125 @@
-<!--pages/order/order.wxml-->
+<!-- pages/order/order.wxml -->
 <view class="page">
     <view class="menu">
-        <view class="item {{menu===1?'selected':''}}" data-type="{{1}}" bind:tap="changeMenu">全部订单</view>
-        <view class="item {{menu===2?'selected':''}}" data-type="{{2}}" bind:tap="changeMenu">退款记录</view>
-        <view class="item {{menu===3?'selected':''}}" data-type="{{3}}" bind:tap="changeMenu">投诉记录</view>
+        <view class="item {{menu===0?'selected':''}}" data-type="{{0}}" bind:tap="changeMenu">
+            全部订单
+        </view>
+        <view class="item {{menu===1?'selected':''}}" data-type="{{1}}" bind:tap="changeMenu">
+            退款记录
+        </view>
+        <view class="item {{menu===2?'selected':''}}" data-type="{{2}}" bind:tap="changeMenu">
+            投诉记录
+        </view>
     </view>
     <view class="content">
-        <view class="menu1" wx:if="{{menu===1}}">
-            <view class="item item1">
+        <view class="menu1" wx:if="{{menu===0}}">
+            <view class="item item1" wx:for="{{datalist}}" wx:key="index" wx:for-item="item">
                 <view class="top">
-                    <text>雇佣截止时间 2020-04-23 18:00</text>
+                    <text>雇佣截止时间 {{item.offer_endtime}}</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            3人已经报价
-                        </view>
+                        <view class="left">{{item.title}}</view>
+                        <view class="right" > {{item.status==0?'没有报价':item.status==1?item.offer_total+'人已经报价':item.status==2?'未预约':item.status==3?'待上门':item.status==4?'已上门':
+                        item.status==5?'已完成':item.status==6?'已评价':item.status==7?'退款申请':item.status==8?'确认退款':item.status==9?'已退款':
+                        item.status==10?'需求取消':item.status==11?'需求关闭':item.status==12?'投诉':'无状态'}} </view>
+                        <!-- wx:if="{{item.status==0?}}" -->
+                        <!-- <view class="right">{{item.offer_total}}人已经报价</view> -->
                     </view>
-                    <view class="line2">
-                        需求发布时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">需求发布时间：{{item.create_time}}</view>
                 </view>
                 <view class="bottom">
-                    <text>最新报价： <text class="color">120元</text></text>
-                    <view class="button" bind:tap="goToSelect">选择师傅</view>
+                    <text>
+                        最新报价：
+                        <text class="color">{{item.offer_price}}元</text>
+                    </text>
+                    <view bind:tap="goToSelect" class="{{item.status==0||item.status==10||item.status==11?'statusbutton':item.status==1?'chooseAMaster':item.status==5?'toEvaluate':'details'}}"
+                     data-status='{{item.status}}' data-demandid="{{item.demand_id}}" bind:tap="goToPage">
+                        {{item.status==0?'没有报价':item.status==1?'选择师傅':item.status==10?'需求取消':item.status==11?'需求关闭':item.status==5?'去评价':'查看详情'}}
+                    </view>
                 </view>
             </view>
-            <view class="item item2">
+            <!-- <view class="item item2">
                 <view class="top">
                     <text>雇佣截止时间 2020-04-23 18:00</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            师傅已上门
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">师傅已上门</view>
                     </view>
-                    <view class="line2">
-                        需求发布时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">需求发布时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button" bind:tap="goToCheck">验收服务</view>
                 </view>
-            </view>
-            <view class="item item3">
+            </view> -->
+            <!-- <view class="item item3">
                 <view class="top">
                     <text>订单已结束</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            订单关闭
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">订单关闭</view>
                     </view>
-                    <view class="line2">
-                        需求发布时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">需求发布时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">订单取消</view>
                 </view>
-            </view>
-            <view class="item item4">
+            </view> -->
+            <!-- <view class="item item4">
                 <view class="top">
                     <text>订单已完成</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            待评价
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">待评价</view>
                     </view>
-                    <view class="line2">
-                        需求发布时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">需求发布时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button" bind:tap="goToComment">去评价</view>
                 </view>
-            </view>
+            </view> -->
         </view>
-
-        <view class="menu2" wx:if="{{menu===2}}">
+        <view class="menu2" wx:if="{{menu===1}}">
             <view class="item item5">
                 <view class="top">
                     <text>退款发起时间 2020-04-23 18:00</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            待处理
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">待处理</view>
                     </view>
-                    <view class="line2">
-                        订单创建时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单创建时间：2020/04/23 11:36</view>
                     <view class="line3">
-                        <text>退款金额： <text class="color">120元</text></text>
+                        <text>
+                            退款金额：
+                            <text class="color">120元</text>
+                        </text>
                     </view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">待师傅确认</view>
                 </view>
             </view>
@@ -129,22 +129,22 @@
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            拒绝退款
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">拒绝退款</view>
                     </view>
-                    <view class="line2">
-                        订单创建时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单创建时间：2020/04/23 11:36</view>
                     <view class="line3">
-                        <text>退款金额： <text class="color">120元</text></text>
+                        <text>
+                            退款金额：
+                            <text class="color">120元</text>
+                        </text>
                     </view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">拒绝退款</view>
                 </view>
             </view>
@@ -154,46 +154,43 @@
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            订单完成
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">订单完成</view>
                     </view>
-                    <view class="line2">
-                        订单创建时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单创建时间：2020/04/23 11:36</view>
                     <view class="line3">
-                        <text>退款金额： <text class="color">120元</text></text>
+                        <text>
+                            退款金额：
+                            <text class="color">120元</text>
+                        </text>
                     </view>
                 </view>
                 <view class="bottom">
-                    <text>订单价格： <text class="color">120元</text></text>
+                    <text>
+                        订单价格：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">退款完成</view>
                 </view>
             </view>
         </view>
-        <view class="menu2" wx:if="{{menu===3}}">
+        <view class="menu2" wx:if="{{menu===2}}">
             <view class="item item8">
                 <view class="top">
                     <text>投诉发起时间 2020-04-23 18:00</text>
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            待处理
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">待处理</view>
                     </view>
-                    <view class="line2">
-                        订单开始时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单开始时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单报价： <text class="color">120元</text></text>
+                    <text>
+                        订单报价：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">立即查看</view>
                 </view>
             </view>
@@ -203,19 +200,16 @@
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            师傅举证中
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">师傅举证中</view>
                     </view>
-                    <view class="line2">
-                        订单开始时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单开始时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单报价： <text class="color">120元</text></text>
+                    <text>
+                        订单报价：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">立即查看</view>
                 </view>
             </view>
@@ -225,19 +219,16 @@
                 </view>
                 <view class="middle">
                     <view class="line1">
-                        <view class="left">
-                            家庭保洁-开荒
-                        </view>
-                        <view class="right">
-                            处理完成
-                        </view>
+                        <view class="left">家庭保洁-开荒</view>
+                        <view class="right">处理完成</view>
                     </view>
-                    <view class="line2">
-                        订单开始时间：2020/04/23 11:36
-                    </view>
+                    <view class="line2">订单开始时间：2020/04/23 11:36</view>
                 </view>
                 <view class="bottom">
-                    <text>订单报价： <text class="color">120元</text></text>
+                    <text>
+                        订单报价：
+                        <text class="color">120元</text>
+                    </text>
                     <view class="button">立即查看</view>
                 </view>
             </view>

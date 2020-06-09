@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dataset:{},
+    demand:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    let dataset = JSON.parse(options.dataset);
+    this.setData({
+      dataset:dataset,
+      demand:options.demand
+    })
+    console.log(dataset)
   },
 
   /**
