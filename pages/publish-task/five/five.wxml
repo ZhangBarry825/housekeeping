@@ -41,6 +41,7 @@
                 <text>0/500</text>
             </view>
         </view>
+        <picker bindchange="bindPickerupl" value="{{index}}" range="{{arrayds}}">
         <view class="item" bind:tap="uploadAudio">
             <text class="label">上传凭证</text>
             <view class="upload-box">
@@ -49,14 +50,32 @@
                 <image src="../../../images/info.png"></image>
             </view>
         </view>
+         <view class="item" wx:if="{{imagesUrl!=''}}">
+            <text class="label">图片地址</text>
+            <text class="address">{{imagesUrl}}</text>
+        </view>
+         <view class="item" wx:if="{{video!=''}}">
+            <text class="label">视频地址</text>
+            <text class="address">{{video}}</text>
+        </view>
+         <!-- <view class="item">
+            <text class="label">音频地址</text>
+            <text>0/500</text>
+        </view> -->
+            </picker>
     </view>
-    <label class="weui-agree">
+    <!-- <label class="weui-agree">
         <checkbox class="weui-agree__checkbox-check" />
         <span class="weui-agree__checkbox"></span>
         <span class="weui-agree__text">阅读并同意<navigator url="" class="weui-agree__link">《家政平台“先行赔款”服务协议》</navigator></span>
-    </label>
+    </label> -->
+     <label class="weui-agree" bind:tap="checkChange">
+            <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}" class="weui-agree__checkbox-check" />
+            <span class="weui-agree__checkbox"></span>
+            <span class="weui-agree__text">我已阅读并同意<a catchtap="seeDetail" class="weui-agree__link">《家政平台“先行赔款”服务协议》</a><a catchtap="seeDetail" class="weui-agree__link">《隐私政策》</a></span>
+        </label>
     <view class="button-box">
-        <view class="button" bind:tap="goTo" data-type="publish">立即投诉</view>
+        <view class="button" bind:tap="goTo" data-type="publish" >立即投诉</view>
     </view>
 </view>
   

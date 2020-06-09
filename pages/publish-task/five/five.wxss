@@ -106,3 +106,12 @@
   color: #fff;
   background-color: #02c87d;
 }
+
+.address{
+  width: 60%;
+  font-size: 25rpx;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 3;
+overflow: hidden;
+}

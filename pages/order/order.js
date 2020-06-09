@@ -41,15 +41,15 @@ Page({
     console.log(e.currentTarget.dataset,"12")
     let status=e.currentTarget.dataset.status
     let orderid=e.currentTarget.dataset.orderid
-    if(orderid){
-      wx.navigateTo({
-        url: '/pages/publish-task/three/three?orderid='+orderid
-      })
-    } else if(status==1){
+    if(status==1){
       wx.navigateTo({
         url: '/pages/publish-task/two/two?demandid='+e.currentTarget.dataset.demandid
       })
-    } else if(status==0||status==12||status==11){
+    } else if(orderid){
+      wx.navigateTo({
+        url: '/pages/publish-task/three/three?orderid='+orderid
+      })
+    } else  if(status==0||status==12||status==11){
       wx.showToast({
         title: '当前不可操作',
         icon: 'none',

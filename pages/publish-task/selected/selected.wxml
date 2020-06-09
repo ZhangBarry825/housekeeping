@@ -2,7 +2,7 @@
 <view class="page">
     <view class="requirement">
         <text class="title">我的需求： </text>
-        <text class="content">{{demand}}</text>
+        <text class="content">{{dataset.demand_title}}</text>
     </view>
     <view class="price">
         <text class="title">家政报价： </text>
@@ -30,6 +30,6 @@
     </view>
 
     <view class="submit">
-        <view class="button" >微信付款</view>
+        <view class="button" bind:tap="weChatPdaayment">微信付款</view>
     </view>
 </view>

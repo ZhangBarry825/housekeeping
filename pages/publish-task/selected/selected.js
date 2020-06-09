@@ -13,21 +13,35 @@ Page({
     master_user_id:''
   },
   // 创建订单
-  // weChatPayment(){
-  //   api.post({
-  //     url: `/Demand/insert_order`,
-  //     data: {
-  //       user_id:wx.getStorageSync('userid'),
-  //       user_token: wx.getStorageSync('token'),
-  //       demand_id:this.data.demand_id,
-  //       master_user_id:this.data.master_user_id,
-  //       price:1
-  //     },
-  //     success: res => {
-  //       console.log(res,"111")
-  //     }
-  // })
-  // },
+  weChatPdaayment(){
+    let that=this
+    api.post({
+      url: `/Demand/insert_order`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id:this.data.demand_id,
+        master_user_id:this.data.master_user_id,
+        price:1
+      },
+      success: res => {
+        console.log(res,"111")
+        api.post({
+          url: `/Demand/order_payment`,
+          data: {
+            user_id:wx.getStorageSync('userid'),
+            user_token: wx.getStorageSync('token'),
+            demand_id:that.data.demand_id,
+            order_id:res.data.order_id,
+            master_user_id:res.data.master_user_id,
+          },
+          success: res => {
+            console.log(res,"zhifu")
+          }
+      })
+      }
+  })
+  },
   // 获取数据
   retrieveData(){
     api.post({
@@ -39,6 +53,9 @@ Page({
         master_user_id:this.data.master_user_id
       },
       success: res => {
+        this.setData({
+          dataset:res.list
+        })
         console.log(res,"111")
       }
   })

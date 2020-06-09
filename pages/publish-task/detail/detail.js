@@ -1,4 +1,6 @@
 // pages/publish-task/detail/detail.js
+const api = require('../../../utils/api.js');
+const app = getApp()
 Page({
 
   /**
@@ -23,11 +25,28 @@ Page({
   hide() {
     console.log('component hide')
   },
+  // 需求详情
+  getDemand(){
+    api.post({
+      url: `/Demand/demand_info/`,
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id:this.data.demand_id,
+      },
+      success: res => {
+        console.log(res,"zhifu")
+      }
+  })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      demand_id:options.demand_id
+    })
+    this.getDemand()
   },
 
   /**

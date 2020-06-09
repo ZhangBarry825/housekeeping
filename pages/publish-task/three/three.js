@@ -58,9 +58,11 @@ Page({
       }
   })
   },
+  // 跳转需求
   goToDetail(){
+    console.log(this.data.renlist)
     wx.navigateTo({
-      url:'/pages/publish-task/detail/detail'
+      url:'/pages/publish-task/detail/detail?demand_id='+this.data.renlist.demand_id
     })
   },
   checkService(){
