@@ -1,4 +1,6 @@
 // pages/publish-task/three/three.js
+import {numToTime} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 const app = getApp()
 Page({
@@ -21,6 +23,34 @@ Page({
         order_id:this.data.order_id
       },
       success: res => {
+        if(res.list.demand_time!=null && res.list.demand_time!=undefined ){
+          res.list.demand_time0=true
+          res.list.demand_time1=numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2=numToTime(res.list.demand_time).split(' ')[1]
+        }else {
+          res.list.demand_time0=false
+        }
+        if(res.list.booking_date!=null && res.list.booking_date!=undefined ){
+          res.list.booking_date0=true
+          res.list.booking_date1=numToTime(res.list.booking_date).split(' ')[0]
+        }else {
+          res.list.booking_date0=false
+        }
+        if(res.list.demand_time!=null && res.list.demand_time!=undefined ){
+          res.list.demand_time0=true
+          res.list.demand_time1=numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2=numToTime(res.list.demand_time).split(' ')[1]
+        }else {
+          res.list.demand_time0=false
+        }
+        if(res.list.door_in_time!=null && res.list.door_in_time!=undefined ){
+          res.list.door_in_time0=true
+          res.list.door_in_time1=numToTime(res.list.demand_time).split(' ')[0]
+          res.list.door_in_time2=numToTime(res.list.demand_time).split(' ')[1]
+        }else {
+          res.list.door_in_time0=false
+        }
+
         this.setData({
           renlist:res.list
         })

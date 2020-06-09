@@ -6,23 +6,26 @@
     <view class="progress">
         <view class="item">
             <text>雇佣家政</text>
-            <image src="../../../images/check1.png"></image>
-            <text class="time">2020/04/23</text>
-            <text class="time">14:35</text>
+            <image src="../../../images/check1.png" wx:if="{{renlist.demand_time0}}"></image>
+            <image src="../../../images/check0.png" wx:if="{{!renlist.demand_time0}}"></image>
+            <text class="time" wx:if="{{renlist.demand_time0}}">{{renlist.demand_time1}}</text>
+            <text class="time" wx:if="{{renlist.demand_time0}}">{{renlist.demand_time2}}</text>
         </view>
         <view class="connect"></view>
         <view class="item">
             <text>家政预约时间</text>
-            <image src="../../../images/check1.png"></image>
-            <text class="time">2020/04/23</text>
-            <text class="time">12:00 - 14:00</text>
+            <image src="../../../images/check1.png"  wx:if="{{renlist.booking_date0}}"></image>
+            <image src="../../../images/check0.png" wx:if="{{!renlist.booking_date0}}"></image>
+            <text class="time" wx:if="{{renlist.booking_date0}}">{{renlist.booking_date1}}</text>
+            <text class="time" wx:if="{{renlist.booking_date0}}">{{renlist.booking_time}}</text>
         </view>
         <view class="connect"></view>
         <view class="item">
             <text>家政上门服务</text>
-            <image src="../../../images/check1.png"></image>
-            <text class="time">2020/04/23</text>
-            <text class="time">14:35</text>
+            <image src="../../../images/check1.png" wx:if="{{renlist.door_in_time0}}"></image>
+            <image src="../../../images/check0.png" wx:if="{{!renlist.door_in_time0}}"></image>
+            <text class="time">{{renlist.door_in_time1}}</text>
+            <text class="time">{{renlist.door_in_time2}}</text>
         </view>
         <view class="connect"></view>
         <view class="item">
