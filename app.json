@@ -1,15 +1,13 @@
 {
   "pages":[
+    "pages/home/home",
     "pages/refund_detail/refund_detail",
     "pages/comment_detail/comment_detail",
-    "pages/home/home",
     "pages/address/add/add",
     "pages/getAuthority/getAuthority",
     "pages/mine/mine",
-
     "pages/publish-task/one/one",
     "pages/comments/comments",
-
     "pages/about-us/about-us",
     "pages/agreement-detail/agreement-detail",
     "pages/publish-task/detail/detail",
@@ -35,7 +33,6 @@
     "pages/knowledge-detail/knowledge-detail",
     "pages/service-item/service-item",
     "pages/address/update/update",
-
     "pages/address/list/list",
     "pages/shouquan/shouquan",
 
