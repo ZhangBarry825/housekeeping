@@ -138,6 +138,10 @@ Page({
                 const speed = res.speed
                 const accuracy = res.accuracy
                 console.log(res, 99)
+            },
+            fail(e){
+                console.log('获取地图失败', e)
+                wx.navigateTo({url:'/pages/getAuthority/getAuthority?type=location'})
             }
         })
         wx.chooseLocation({

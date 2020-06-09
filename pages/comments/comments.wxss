@@ -73,24 +73,17 @@
 .page .content .menu1 {
   width: 100%;
 }
-.page .content .menu1 .item2 .bottom .button {
-  color: #fff;
-  padding: 7rpx 50rpx;
-  background-color: #ff6600;
-  font-size: 25rpx;
-  border-radius: 10rpx;
-}
-.page .content .menu1 .item3 .bottom .button {
-  color: #fff;
-  padding: 7rpx 50rpx;
-  background-color: #cccccc;
-  font-size: 25rpx;
-  border-radius: 10rpx;
-}
-.page .content .menu1 .item4 .bottom .button {
+.page .content .menu1 .item1 .bottom .button1 {
   color: #fff;
   padding: 7rpx 50rpx;
   background-color: #66ccff;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.page .content .menu1 .item1 .bottom .button2 {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #ff6600;
   font-size: 25rpx;
   border-radius: 10rpx;
 }

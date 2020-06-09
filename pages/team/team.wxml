@@ -1,17 +1,9 @@
 <!--pages/team/team.wxml-->
 <view class="page">
     <view class="weui-cells weui-cells_after-title">
-        <navigator url="" class="weui-cell " hover-class="weui-cell_active">
-            <view class="weui-cell__bd">吴亦凡(0人)</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access">2020-04-23 16:56</view>
-        </navigator>
-        <navigator url="" class="weui-cell " hover-class="weui-cell_active">
-            <view class="weui-cell__bd">周星驰(10人)</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access">2020-04-23 16:56</view>
-        </navigator>
-        <navigator url="" class="weui-cell " hover-class="weui-cell_active">
-            <view class="weui-cell__bd">周杰伦(3人)</view>
-            <view class="weui-cell__ft weui-cell__ft_in-access">2020-04-23 16:56</view>
+        <navigator url="" class="weui-cell " hover-class="weui-cell_active" wx:key="key" wx:for="{{dataList}}">
+            <view class="weui-cell__bd">{{item.user_nickname}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">{{item.create_time}}</view>
         </navigator>
     </view>
 </view>

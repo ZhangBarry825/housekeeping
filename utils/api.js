@@ -146,8 +146,10 @@ module.exports = {
                                     duration: 1000
                                 });
                                 wx.setStorageSync('login', '1');
-                                wx.setStorageSync('token', user_token);
-                                wx.setStorageSync('userid', user_id);
+                                // wx.setStorageSync('token', user_token);
+                                // wx.setStorageSync('userid', user_id);
+                                wx.setStorageSync('token', '58bd7228f22b34ef570d027b22302078');
+                                wx.setStorageSync('userid', '19');
                                 wx.reLaunch({
                                 	url: '/pages/home/home',
                                 });
