@@ -196,7 +196,7 @@
 .details{
   color: #fff;
   padding: 7rpx 50rpx;
-  background-color: #66ccff;
+  background-color: #29a759;
   font-size: 25rpx;
   border-radius: 10rpx;
   line-height: 50rpx;

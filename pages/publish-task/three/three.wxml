@@ -41,31 +41,34 @@
         <view class="items">
             <view class="line1">
                 <text class="label">订单内容： </text>
-                <text class="content">家庭保洁-开荒</text>
+                <text class="content">{{renlist.title}}</text>
             </view>
             <view class="line1">
                 <text class="label">订单状态： </text>
-                <text class="content">待完工确认</text>
+                <text class="content">{{renlist.status==0?'没有报价':renlist.status==1?renlist.offer_total+'人已经报价':renlist.status==2?'未预约':
+                renlist.status==3?'待上门':renlist.status==4?'已上门':renlist.status==5?'已完成':renlist.status==6?'已评价':renlist.status==7?'退款申请':
+                renlist.status==8?'确认退款':renlist.status==9?'已退款':renlist.status==10?'需求取消':renlist.status==11?'需求关闭':
+                renlist.status==12?'投诉':'无状态'}}</text>
             </view>
             <view class="line1">
                 <text class="label">订单总额： </text>
-                <text class="content">120元</text>
+                <text class="content">{{renlist.offer_price}}元</text>
             </view>
             <view class="line1">
                 <text class="label">实付金额： </text>
-                <text class="content">120元</text>
+                <text class="content">{{renlist.price}}元</text>
             </view>
             <view class="line1">
                 <text class="label">雇佣家政： </text>
-                <text class="content">赵阿姨</text>
+                <text class="content">{{renlist.user_nickname}}</text>
             </view>
             <view class="line1">
                 <text class="label">雇佣支付： </text>
-                <text class="content">2020/04/23 14:35</text>
+                <text class="content">{{renlist.create_time}}</text>
             </view>
             <view class="line1">
                 <text class="label">订单编号： </text>
-                <text class="content">CSK202004231435</text>
+                <text class="content">{{renlist.order_id}}</text>
             </view>
         </view>
         <view class="detail" bind:tap="goToDetail">
@@ -88,7 +91,7 @@
     </view>
 
     <view class="buttons buttons1">
-        <view class="button1">退款</view>
+        <view class="button1" bind:tap="refund">退款</view>
         <view class="button2" bind:tap="complaint">投诉</view>
         <view class="button3" bind:tap="checkService">验收服务</view>
     </view>

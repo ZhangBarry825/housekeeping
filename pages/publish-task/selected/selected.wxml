@@ -30,6 +30,6 @@
     </view>
 
     <view class="submit">
-        <view class="button" bind:tap="weChatPayment">微信付款</view>
+        <view class="button" >微信付款</view>
     </view>
 </view>
