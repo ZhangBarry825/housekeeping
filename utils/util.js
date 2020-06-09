@@ -19,11 +19,11 @@ const formatTimeMS = date => {
 }
 
 const validateData = data => {
-    let values=Object.values(data)
-    let validate=true
-    values.map(item=>{
-        if(item==""||item==undefined){
-            validate=false
+    let values = Object.values(data)
+    let validate = true
+    values.map(item => {
+        if (item == "" || item == undefined) {
+            validate = false
         }
     })
     return validate
@@ -33,12 +33,16 @@ function checkDigit(num) {
     return typeof num === 'number' && !isNaN(num)
 }
 
-function checkPhone(phone){
-    if(!(/^1[3456789]\d{9}$/.test(phone))){
+function checkPhone(phone) {
+    if (!(/^1[3456789]\d{9}$/.test(phone))) {
         return false;
     }
 
     return true
+}
+
+function numToTime(num) {
+    return formatTime(new Date(num*1000))
 }
 
 const formatNumber = n => {
@@ -52,4 +56,5 @@ module.exports = {
     validateData: validateData,
     checkPhone: checkPhone,
     checkDigit: checkDigit,
+    numToTime: numToTime,
 }

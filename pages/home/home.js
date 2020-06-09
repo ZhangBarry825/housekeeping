@@ -1,4 +1,5 @@
 /* pages/home/home.js */
+
 const app = getApp()
 const api = require('../../utils/api.js');
 Page({
@@ -60,7 +61,12 @@ Page({
      */
     onShow: function() {
         var userid = wx.getStorageSync('userid');
-        console.log(userid);
+        console.log(userid,'userid');
+        if(userid=='' || userid==undefined){
+            wx.navigateTo({
+                url: '/pages/shouquan/shouquan',
+            })
+        }
     },
 
     /**

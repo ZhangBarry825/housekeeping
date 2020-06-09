@@ -11,7 +11,7 @@ Page({
     if(type=='location'){
       tip='请打开授权获取位置信息，以便相应功能使用'
     }else if(type=='record'){
-      tip='请打开授权获取语音信息，以便相应功能使用'
+      tip='请打开授权获取录音信息，以便相应功能使用'
     }
 
     this.setData({

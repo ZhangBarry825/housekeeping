@@ -29,23 +29,24 @@ module.exports = {
         this.request(options);
     },
     request(options) {
-		var that = this;
-        var apiRoot = that.API_ROOT;
-        var token   = '';
+		let that = this;
+        let apiRoot = that.API_ROOT;
+        let token   = '';
         try {
             token = wx.getStorageSync('token');
         } catch (e) {
             // Do something when catch error
         }
-		
+
 		var userid = '';
 		try {
 		    userid = wx.getStorageSync('userid');
 		} catch (e) {
 		    // Do something when catch error
 		}
-		
+
         var requireLogin = true;
+		console.log(options.login,'options.login')
         if (typeof options.login == 'undefined' || options.login == true) {
             requireLogin = true;
         } else {
@@ -63,31 +64,15 @@ module.exports = {
                 'XX-Api-Version': that.API_VERSION
             },
             success: res => {
-                var data = res.data;
+                let data = res.data;
                 if (userid == '' && requireLogin) {
                     console.log(tryingLogin);
                     if (!tryingLogin) {
                         tryingLogin        = true;
+                        console.log('去授权')
                         wx.navigateTo({
                             url: '/pages/shouquan/shouquan',
                         })
-                        // var hasGetUserInfo = wx.getStorageSync('hasGetUserInfo');
-                        // if (hasGetUserInfo) {
-                        //     wx.showToast({
-                        //         title: '正在重新登录',
-                        //         icon: 'success',
-                        //         duration: 1000
-                        //     });
-                        //     setTimeout(() => {
-                        //         wx.navigateTo({
-                        //           url: '/pages/shouquan/shouquan',
-                        //         })
-                        //     }, 1000);
-                        // } else {
-                        //     wx.navigateTo({
-                        //       url: '/pages/shouquan/shouquan',
-                        //     })
-                        // }
                     }
                     /* 登录注册 */
                     let currentPages = getCurrentPages();
@@ -116,7 +101,7 @@ module.exports = {
     loginTwo: function () {
 
     },
-	
+
 	login: function(options) {
 		var that = this;
 		wx.login({
@@ -210,36 +195,5 @@ module.exports = {
 			}
 		});
 	},
-
-    uploadFile(options) {
-		let that = this;
-        options.url = that.API_ROOT + options.url;
-        let token = that.getToken();
-        
-        let oldSuccess  = options.success;
-        options.success = function (res) {
-            console.log(res.data);
-            let data = JSON.parse(res.data);
-            console.log(data);
-            if (data.code == 0 && data.data && data.data.code && data.data.code == 10001) {
-                // wx.navigateTo({
-                //     url: '/pages/login/login'
-                // });
-                that.login();
-            } else {
-                oldSuccess(data);
-            }
-        }
-
-        options.header = {
-            'Content-Type': 'multipart/form-data',
-            'XX-Token': token,
-            'XX-Device-Type': 'wxapp',
-            'XX-Api-Version': that.API_VERSION
-        };
-        wx.uploadFile(options);
-
-    }
-
 
 };

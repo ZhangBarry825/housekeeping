@@ -12,7 +12,7 @@ Page({
 	/* 点击授权 */
 	bindGetUserInfo: function(e) {
 		var that = this;
-		that.btntap();
+		// that.btntap();
 		api.login(e);
 	},
 	btntap: function() {

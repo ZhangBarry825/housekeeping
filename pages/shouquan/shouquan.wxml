@@ -1,3 +1,7 @@
 <!-- 需要使用 button 来授权登录 -->
-<button style="position:fixed; width:80%; top:50%; left:10%; z-index:2; color:#fff;background:#f77b29;" 
-wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+<view class="page">
+    <view class="tip">请授权登录信息，以便使用该应用功能</view>
+    <button class="button"
+            wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录
+    </button>
+</view>
