@@ -21,10 +21,12 @@
   justify-content: flex-start;
 }
 .page .content .items .item {
+  border-radius: 5rpx;
   padding: 7rpx;
   margin: 0 10rpx;
   font-size: 25rpx;
-  border: 1px solid #999;
+  border: 1px solid gainsboro;
+  color: #666;
 }
 .page .content .items .selected {
   color: #00c97d;

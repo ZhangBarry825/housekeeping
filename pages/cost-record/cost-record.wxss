@@ -29,9 +29,14 @@
   color: #fb6d0e;
 }
 .page .content .none {
-  background-color: #f4f4f4;
-  padding: 20rpx 0;
+  position: absolute;
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+.page .content .none text {
+  position: relative;
+  top: -20%;
 }

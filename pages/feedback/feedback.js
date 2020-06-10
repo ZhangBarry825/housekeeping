@@ -161,7 +161,7 @@ Page({
           if(res.code==200){
             wx.showToast({
               title:'提交成功',
-              icon:"none",
+              icon:"success",
               duration:1000
             })
             setTimeout(()=>{

@@ -52,7 +52,7 @@
         </view>
         <view class="item">
             <view class="left">
-                身份证号码
+                身份证号
             </view>
             <view class="right">
                 <input bindchange="bindIDCard" value="{{id_card_number}}" class="weui-input" placeholder="请输入您身份证上的号码"/>
@@ -99,7 +99,7 @@
             </span>
         </label>
         <view class="button-box">
-            <view class="button" bind:tap="submitForm" data-type="publish">立即入住</view>
+            <view class="button" bind:tap="submitForm" data-type="publish">立即入驻</view>
         </view>
     </view>
 

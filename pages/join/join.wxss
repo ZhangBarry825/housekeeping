@@ -19,9 +19,10 @@
   width: 480rpx;
 }
 .page .item1 .item .left {
-  width: 150rpx;
+  width: 160rpx;
   padding: 0 20rpx;
   border-right: 1px solid gainsboro;
+  font-size: 28rpx;
 }
 .page .item1 .item .left image {
   width: 30rpx;
@@ -32,6 +33,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  font-size: 28rpx;
 }
 .page .item2 {
   margin-top: 10rpx;
@@ -68,6 +70,7 @@
   width: 150rpx;
   padding: 0 20rpx;
   border-right: 1px solid gainsboro;
+  font-size: 28rpx;
 }
 .page .item2 .item .left image {
   width: 30rpx;
@@ -78,6 +81,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  font-size: 28rpx;
 }
 .page .item2 .pictures {
   width: 100%;

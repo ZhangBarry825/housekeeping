@@ -202,7 +202,7 @@ Page({
                     if (res.code == 200) {
                         wx.showToast({
                             title:"申请成功",
-                            icon:'none',
+                            icon:'success',
                             duration:2000
                         })
                     } else {

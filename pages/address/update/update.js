@@ -1,4 +1,6 @@
 // pages/address/update/update.js
+import {checkPhone} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 Page({
 
@@ -150,7 +152,7 @@ Page({
       tip='门牌号'
     }else if(formData.name==''){
       tip='联系人'
-    }else if(formData.mobile==''){
+    }else if(formData.mobile==''|| !checkPhone(formData.mobile)){
       tip='手机号码'
     }else if(formData.sex==''){
       tip='性别'
@@ -173,7 +175,7 @@ Page({
       return
     }
     wx.showToast({
-      title: tip+"必须",
+      title: "请输入正确的"+tip ,
       icon: 'none',
       duration: 2000
     })
