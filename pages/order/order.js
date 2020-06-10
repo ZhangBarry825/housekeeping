@@ -28,6 +28,21 @@ Page({
             data: {},
             success: data => {
                 let current=[]
+                
+                if(data.list==""||data.list.length==0){
+                  setTimeout(()=>{
+                    wx.stopPullDownRefresh();
+                     wx.hideNavigationBarLoading()
+                     wx.hideLoading();
+                   },2000)
+                   setTimeout(()=>{
+                    wx.showToast({
+                      title: '暂无更多数据',
+                      icon: 'none',
+                        duration: 2000
+                    })
+                   },2000)
+                }
                 if(data.list!=""){
 
                 data.list.forEach(item=>{
@@ -48,11 +63,9 @@ Page({
                 setTimeout(()=>{
                   wx.stopPullDownRefresh();
                    wx.hideNavigationBarLoading()
-            
-                 },500)
-                  wx.stopPullDownRefresh()
-                  wx.hideNavigationBarLoading()
-                  wx.hideLoading();
+                   wx.hideLoading();
+                 },2000)
+                  
                 console.log(that.data)
               }
             }
@@ -61,7 +74,7 @@ Page({
           wx.stopPullDownRefresh();
            wx.hideNavigationBarLoading()
     
-         },500)
+         },2000)
           wx.stopPullDownRefresh()
           wx.hideNavigationBarLoading()
           wx.hideLoading();
