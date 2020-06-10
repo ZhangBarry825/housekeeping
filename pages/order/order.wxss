@@ -206,4 +206,9 @@
   display: flex;
   justify-content: center ;
   align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -50%;
+  top: 45%;
 }
