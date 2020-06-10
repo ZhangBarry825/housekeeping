@@ -1,8 +1,8 @@
 <!--pages/publish-task/two/two.wxml-->
 <view class="page">
-    <view class="warn">
+    <!-- <view class="warn">
         招标任务已结束，请雇佣一个家政
-    </view>
+    </view> -->
     <view class="info">
         <view class="line1">
             {{renlist.demand_title}}

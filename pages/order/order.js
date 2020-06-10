@@ -16,6 +16,10 @@ Page({
     },
     // 获取数据
     retrieveData (status) {
+      wx.showNavigationBarLoading()
+      wx.showLoading({
+        title: '加载中',
+      })
         let that=this
         let user_id = wx.getStorageSync('userid')
         api.get({
@@ -24,6 +28,8 @@ Page({
             data: {},
             success: data => {
                 let current=[]
+                if(data.list!=""){
+
                 data.list.forEach(item=>{
                     current.push(item)
                 })
@@ -39,9 +45,26 @@ Page({
                 that.setData({
                     datalist:datasnd
                 })
+                setTimeout(()=>{
+                  wx.stopPullDownRefresh();
+                   wx.hideNavigationBarLoading()
+            
+                 },500)
+                  wx.stopPullDownRefresh()
+                  wx.hideNavigationBarLoading()
+                  wx.hideLoading();
                 console.log(that.data)
+              }
             }
         });
+        setTimeout(()=>{
+          wx.stopPullDownRefresh();
+           wx.hideNavigationBarLoading()
+    
+         },500)
+          wx.stopPullDownRefresh()
+          wx.hideNavigationBarLoading()
+          wx.hideLoading();
     },
     // 点击操作
     goToPage(e){
@@ -149,12 +172,15 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+      wx.showNavigationBarLoading()
         this.setData({
             page:1,
             datalist:[]
         })
         this.retrieveData()
+        
         console.log("111");
+       
     },
 
     /**

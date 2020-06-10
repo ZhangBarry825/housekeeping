@@ -84,11 +84,11 @@
         <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
         <view class="userinfo">
             <view class="info1">
-                <view class="name">赵阿姨</view>
-                <view class="gold">保证金2000</view>
+                <view class="name">{{renlist.user_nickname}}</view>
+                <view class="gold">保证金{{margin_amount}}</view>
             </view>
             <view class="info2">
-                服务56次 | 评价49条 | 好评率98.99%
+                服务{{renlist.order_total}}次 | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%
             </view>
         </view>
     </view>
