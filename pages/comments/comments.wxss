@@ -5,6 +5,12 @@
   display: flex;
   flex-direction: column;
 }
+.page .content .none {
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .page .content .item {
   margin-bottom: 20rpx;
   border-radius: 10rpx;

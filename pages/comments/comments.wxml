@@ -2,6 +2,9 @@
 <view class="page">
     <view class="content">
         <view class="menu1">
+            <view class="none" wx:if="{{dataList.length<1}}">
+                <text>暂无数据</text>
+            </view>
             <view class="item item1" wx:for="{{dataList}}">
                 <view class="top">
                     <text>订单已完成</text>

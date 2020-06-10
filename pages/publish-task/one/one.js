@@ -355,8 +355,8 @@ Page({
                             duration: 1000
                         })
                         setTimeout(() => {
-                            wx.navigateBack({
-                                delta: 1
+                            wx.switchTab({
+                                url:'/pages/order/order'
                             })
                         }, 1000)
                     }

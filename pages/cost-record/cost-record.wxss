@@ -28,3 +28,10 @@
   font-size: 30rpx;
   color: #fb6d0e;
 }
+.page .content .none {
+  background-color: #f4f4f4;
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

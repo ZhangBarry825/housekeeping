@@ -1,7 +1,10 @@
 <!--pages/cost-record/cost-record.wxml-->
 <view class="page">
     <view class="content">
-        <view class="weui-cells weui-cells_after-title">
+        <view class="none" wx:if="{{dataList.length<1}}">
+            <text>暂无数据</text>
+        </view>
+        <view class="weui-cells weui-cells_after-title" wx:if="{{dataList.length>0}}">
             <navigator wx:for="{{dataList}}" wx:for-item="item" wx:for-index="idx" wx:key="key" url="" class="weui-cell " hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
                     <image src="../../images/avatar1.png" class="avatar"></image>
