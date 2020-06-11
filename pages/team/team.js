@@ -1,4 +1,6 @@
 // pages/team/team.js
+import {numToTime} from "../../utils/util";
+
 const api = require('../../utils/api.js');
 Page({
 
@@ -20,7 +22,13 @@ Page({
       },
       success: res => {
         console.log(res, 765)
+
         if (res.code == 200) {
+          if(res.list.length>0){
+            for (let i = 0; i < res.list.length; i++) {
+              res.list[i].create_time=numToTime( res.list[i].create_time)
+            }
+          }
           that.setData({
             dataList: res.list
           })

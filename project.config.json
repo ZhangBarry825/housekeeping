@@ -108,6 +108,20 @@
 					"pathName": "pages/refund/refund",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/team",
+					"pathName": "pages/team/team",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/publish-task/three/three",
+					"pathName": "pages/publish-task/three/three",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
