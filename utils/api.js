@@ -5,7 +5,7 @@ var host = "https://jz2020.njflwlkj.com";
 // var appid="wx6533831d98a6b7de";
 // var secret = "18d7d3612709192105cf3ee5008e13a2";
 var appid="wx809a06918c2d6bcb";
-var secret = "72b9c8ade917afb728d73185cbee85b7";
+var secret = "a7712073b6a70513d71db1fe24eeccca";
 var client_id = "wxapp";
 var client_secret = "KISY7H8MK2DU9AGe3d";
 
