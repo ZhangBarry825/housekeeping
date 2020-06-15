@@ -34,14 +34,14 @@ Page({
                     wx.stopPullDownRefresh();
                      wx.hideNavigationBarLoading()
                      wx.hideLoading();
-                   },2000)
+                   },1000)
                    setTimeout(()=>{
                     wx.showToast({
                       title: '暂无更多数据',
                       icon: 'none',
                         duration: 2000
                     })
-                   },2000)
+                   },1000)
                 }
                 if(data.list!=""){
 
@@ -64,7 +64,7 @@ Page({
                   wx.stopPullDownRefresh();
                    wx.hideNavigationBarLoading()
                    wx.hideLoading();
-                 },2000)
+                 },1000)
                   
                 console.log(that.data)
               }
@@ -73,11 +73,9 @@ Page({
         setTimeout(()=>{
           wx.stopPullDownRefresh();
            wx.hideNavigationBarLoading()
-    
+           wx.hideLoading();
          },2000)
-          wx.stopPullDownRefresh()
-          wx.hideNavigationBarLoading()
-          wx.hideLoading();
+        
     },
     // 点击操作
     goToPage(e){
