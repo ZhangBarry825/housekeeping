@@ -1,5 +1,8 @@
 <!--pages/team/team.wxml-->
 <view class="page">
+    <view class="none" wx:if="{{dataList.length<1}}">
+        <text>暂无数据</text>
+    </view>
     <view class="weui-cells weui-cells_after-title">
         <navigator url="" class="weui-cell " hover-class="weui-cell_active" wx:key="key" wx:for="{{dataList}}">
             <view class="weui-cell__bd">{{item.user_nickname}}</view>

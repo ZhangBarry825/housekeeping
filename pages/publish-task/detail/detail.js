@@ -42,7 +42,7 @@ Page({
         }
         console.log( res.data.voice,'7777777777777777777777777777777777777')
         if(res.data.voice!='' || res.data.voice!=null){
-          res.data.voice=that.data.hostUrl+res.data.voice
+          res.data.voice=that.data.hostUrl+'/'+res.data.voice
         }
         console.log( res.data.voice,'88888888888888888888888888888888888888888888888')
         res.data.images=images
@@ -60,11 +60,11 @@ Page({
     console.log('play')
     let that = this
     let ACT = this.data.innerAudioContext
-    ACT.src = this.data.voice
+    ACT.src = this.data.detailData.voice
     ACT.play()
     ACT.onPlay(() => {
       that.setData({
-        voiceImg: '../../../images/voice.gif'
+        voiceImg: '../../../images/voice1.gif'
       })
       console.log('开始播放')
     })

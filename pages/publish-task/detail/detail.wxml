@@ -7,7 +7,7 @@
             <view class="imgs">
                 <image wx:for="{{detailData.images}}" wx:key="key"  mode="aspectFill" class="img" src="{{item}}" bind:tap="previewImg"></image>
             </view>
-            <view class="voice" bind:tap="playRecord" wx:if="{{false}}">
+            <view class="voice" bind:tap="playRecord" wx:if="{{detailData.voice.length>0}}">
                 <image src="{{voiceImg}}"></image>
             </view>
         </view>
