@@ -1,50 +1,162 @@
 // pages/publish-task/four/four.js
+const api = require('../../../utils/api.js');
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        hidden:false,
+        order_id:'',
+        descLength:0,
+        desc:'',
         tags: {
             one: true,
             two: false,
             three: true,
             four: false
-        }
+        },
+        commentTags:[],
+        checkTags:[],
+        starNum:4,
+        anonymous:false,
+        orderDetail:{}
+    },
+    updateDesc(e){
+        this.setData({
+            descLength:e.detail.value.length,
+            desc:e.detail.value
+        })
+    },
+    selectStar(e){
+        console.log(e.currentTarget.dataset.number)
+        let num=e.currentTarget.dataset.number
+        this.setData({
+            starNum:num
+        })
     },
     selectTag(e) {
-        let tag = e.currentTarget.dataset.item
-        console.log(tag,9)
-        if (tag == 'one') {
+        let item = e.currentTarget.dataset.item
+        let id = item.options_id
+        let index = e.currentTarget.dataset.index
+        let up = "commentTags[" + index + "].checked";
+        let pushCheck=this.data.checkTags
+
+        if (item.checked == false) {
+            pushCheck.push(id)
             this.setData({
-                "tags.one":!this.data.tags.one
+                [up]:true,
+                checkTags:pushCheck
             })
-        }else if(tag=='two'){
+        }else {
+            let newArr=[]
+            for (let i = 0; i < this.data.checkTags.length; i++) {
+                if(this.data.checkTags[i]!=id){
+                    newArr.push(this.data.checkTags[i])
+                }
+            }
             this.setData({
-                "tags.two":!this.data.tags.two
-            })
-        }else if(tag=='three'){
-            this.setData({
-                "tags.three":!this.data.tags.three
-            })
-        }else if(tag=='four'){
-            this.setData({
-                "tags.four":!this.data.tags.four
+                [up]:false,
+                checkTags:newArr
             })
         }
+        console.log(this.data.commentTags,1)
+        console.log(this.data.checkTags,2)
 
     },
     changHidden(){
         this.setData({
-            hidden:!this.data.hidden
+            anonymous:!this.data.anonymous
         })
+    },
+    goDetail(){
+        wx.navigateTo({
+                url:'/pages/publish-task/detail/detail?demand_id='+this.data.orderDetail.demand_id
+        })
+    },
+    fetchData(id){
+        let that = this
+        api.get({
+            url: '/Home/options_list/5',
+            success: res => {
+
+                for (let i = 0; i < res.list.length; i++) {
+                    res.list[i].checked=false
+                }
+                console.log(res, 765)
+                if (res.code == 200) {
+                    that.setData({
+                        commentTags: res.list
+                    })
+                } else {
+                    console.log('获取数据失败');
+                }
+            }
+        })
+        api.post({
+            url: '/Order/order_info',
+            data:{
+                user_id:wx.getStorageSync('userid'),
+                user_token:wx.getStorageSync('token'),
+                order_id:id
+            },
+            success: res => {
+                console.log(res,789)
+                that.setData({
+                    orderDetail:res.list
+                })
+            }
+        })
+
+    },
+    submitForm(){
+        let that = this
+        let formData={
+            user_id:wx.getStorageSync('userid'),
+            user_token:wx.getStorageSync('token'),
+            order_id:this.data.order_id,
+            score:this.data.starNum,
+            content:this.data.desc,
+            options_id:this.data.checkTags,
+            anonymous:this.data.anonymous,
+        }
+        console.log(formData,975)
+        if(formData.content==''){
+            wx.showToast({
+                title: '请输入评价内容',
+                icon: 'none',
+                duration: 2000
+            })
+        }else {
+            api.post({
+                url: '/Order/insert_evaluation',
+                data:formData,
+                success: res => {
+                    console.log(res,852)
+                    if (res.code == 200) {
+                        wx.showToast({
+                            title: '评价成功',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                        setTimeout(()=>{
+                            // wx.switch
+                        },2000)
+                    } else {
+                        console.log('获取数据失败');
+                    }
+                }
+            })
+        }
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.fetchData(options.id)
+        console.log(options,9090)
+        this.setData({
+            order_id:options.id
+        })
     },
 
     /**

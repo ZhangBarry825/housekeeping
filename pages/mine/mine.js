@@ -8,7 +8,8 @@ Page({
      */
     data: {
         showContact:false,
-        phone:''
+        phone:'',
+        status:0,
     },
     contactUs(){
         this.setData({
@@ -20,7 +21,11 @@ Page({
             showContact:false
         })
     },
-
+    joinUs(){
+        wx.navigateTo({
+            url:"/pages/join/join"
+        })
+    },
     fetchData() {
         let that = this
         api.get({
@@ -30,6 +35,23 @@ Page({
                 if (res.code == 200) {
                     that.setData({
                         phone: res.data.service_phone
+                    })
+                } else {
+                    console.log('获取数据失败');
+                }
+            }
+        })
+        api.post({
+            url: '/User/update_user_info/in',
+            data:{
+                user_id:wx.getStorageSync('userid'),
+                user_token:wx.getStorageSync('token'),
+            },
+            success: res => {
+                console.log(res,852)
+                if (res.code == 200) {
+                    that.setData({
+                        status: res.status
                     })
                 } else {
                     console.log('获取数据失败');

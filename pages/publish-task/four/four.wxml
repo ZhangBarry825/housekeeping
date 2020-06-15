@@ -8,9 +8,9 @@
             家庭保洁-开荒
         </view>
         <view class="line2">
-            订单完成时间：2020-04-23 18:00
+            订单完成时间：{{order_end_time}}
         </view>
-        <view class="line3">
+        <view class="line3" bind:tap="goDetail">
             需求详情 >
         </view>
     </view>
@@ -21,7 +21,7 @@
             <image class="avatar" mode="aspectFill" src="../../../images/avatar1.png"></image>
             <view class="userinfo">
                 <view class="info1">
-                    <view class="name">赵阿姨</view>
+                    <view class="name">{{orderDetail.user_nickname}}</view>
                     <view class="gold">保证金2000</view>
                     <!--                <view class="distance">-->
                     <!--                    <image src="../../../images/address.png"></image>-->
@@ -29,7 +29,7 @@
                     <!--                </view>-->
                 </view>
                 <view class="info2">
-                    服务56次 | 评价49条 | 好评率98.99%
+                    服务{{orderDetail.order_total}}次 | 评价{{orderDetail.evaluation_total}}条 | 好评率{{orderDetail.evaluation_credit_rate}}%
                 </view>
             </view>
         </view>
@@ -39,35 +39,29 @@
         <view class="title">您对师傅的服务满意吗？</view>
         <view class="stars">
             <text>服务评价</text>
-            <image src="../../../images/star1.png"></image>
-            <image src="../../../images/star1.png"></image>
-            <image src="../../../images/star1.png"></image>
-            <image src="../../../images/star1.png"></image>
-            <image src="../../../images/star0.png"></image>
+            <image wx:for="{{5}}" wx:for-index="idx" src="{{(idx+1)<=starNum?'../../../images/star1.png':'../../../images/star0.png'}}" bind:tap="selectStar" data-number="{{idx+1}}"></image>
         </view>
         <view class="tags">
-            <view class="tag {{tags.one?'selected':''}}" bind:tap="selectTag" data-item="one">清洁到位</view>
-            <view class="tag {{tags.two?'selected':''}}" bind:tap="selectTag" data-item="two">按时到</view>
-            <view class="tag {{tags.three?'selected':''}}" bind:tap="selectTag" data-item="three">仪容整洁</view>
-            <view class="tag {{tags.four?'selected':''}}" bind:tap="selectTag" data-item="four">态度友好</view>
+            <view wx:for="{{commentTags}}" wx:for-index="idx" data-index="{{idx}}" wx:key="key" data-item="{{item}}" class="tag {{item.checked?'selected':''}}" bind:tap="selectTag" >
+                {{item.title}}</view>
         </view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="还想说点什么?" style="height: 3.3em" />
-                    <view class="weui-textarea-counter">0/100</view>
+                    <textarea bindinput="updateDesc" maxlength="{{100}}" value="{{desc}}"  class="weui-textarea" placeholder="还想说点什么?" style="height: 3.3em" />
+                    <view class="weui-textarea-counter">{{descLength}}/100</view>
                 </view>
             </view>
         </view>
 
         <view class="hidden">
-            <image bind:tap="changHidden" wx:if="{{!hidden}}" src="../../../images/check0.png"></image>
-            <image bind:tap="changHidden" wx:if="{{hidden}}" src="../../../images/check1.png"></image>
+            <image bind:tap="changHidden" wx:if="{{!anonymous}}" src="../../../images/check0.png"></image>
+            <image bind:tap="changHidden" wx:if="{{anonymous}}" src="../../../images/check1.png"></image>
             <text>匿名评价</text>
         </view>
 
         <view class="button-box">
-            <view class="button">立即评价</view>
+            <view class="button" bind:tap="submitForm">立即评价</view>
         </view>
     </view>
 

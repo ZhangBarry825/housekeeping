@@ -4,8 +4,8 @@ var tryingLogin = false;
 var host = "https://jz2020.njflwlkj.com";
 // var appid="wx6533831d98a6b7de";
 // var secret = "18d7d3612709192105cf3ee5008e13a2";
-var appid="wx809a06918c2d6bcb";
-var secret = "a7712073b6a70513d71db1fe24eeccca";
+var appid="wx1802f78e06cf3960";
+var secret = "a4ba79593c89112ad88889801640d5f4";
 var client_id = "wxapp";
 var client_secret = "KISY7H8MK2DU9AGe3d";
 
@@ -150,8 +150,8 @@ module.exports = {
                                 wx.setStorageSync('login', '1');
                                 // wx.setStorageSync('token', user_token);
                                 // wx.setStorageSync('userid', user_id);
-                                wx.setStorageSync('token', user_token);
-                                wx.setStorageSync('userid', user_id);
+                                wx.setStorageSync('token', 'fff1780cfd90bc1311c53c042bff499f ');
+                                wx.setStorageSync('userid', 39);
                                 wx.reLaunch({
                                 	url: '/pages/home/home',
                                 });

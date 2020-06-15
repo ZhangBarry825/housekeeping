@@ -1,4 +1,5 @@
 // pages/comment_detail/comment_detail.js
+const api = require('../../utils/api.js');
 Page({
 
   /**
@@ -12,6 +13,10 @@ Page({
     this.setData({
       hidden:!this.data.hidden
     })
+  },
+  fetchData(){
+    let that = this
+
   },
   /**
    * 生命周期函数--监听页面加载
