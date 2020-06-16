@@ -2,15 +2,15 @@
 <view class="page">
     <view class="requirement">
         <text class="title">我的需求：</text>
-        <text class="content">{{renlist.title}}</text>
+        <text class="content">{{renlist.demand_title}}</text>
     </view>
     <view class="price">
         <text class="title">订单总额：</text>
-        <text class="content">￥{{renlist.order_amount}}</text>
+        <text class="content">￥{{renlist.price}}</text>
     </view>
     <view class="price">
         <text class="title">实付金额：</text>
-        <text class="content">￥{{renlist.order_amount}}</text>
+        <text class="content">￥{{renlist.price}}</text>
     </view>
     <view class="userInfo">
         <view class="user">
@@ -36,7 +36,7 @@
                 <image src="../../images/user.png"></image>
                 <text>发起投诉</text>
             </view>
-            <!-- <view class="right">{{renlist.create_time}}</view> -->
+            <view class="right">{{renlist.complaints_time}}</view>
         </view>
         <view class="content">
             <view class="line">
@@ -44,16 +44,16 @@
                 <view class="line-content">{{renlist.options_title}}</view>
             </view>
             <view class="line">
-                <view class="line-title">投诉来源：</view>
-                <view class="line-content">{{}}</view>
-            </view>
-            <view class="line">
                 <view class="line-title">订单编号：</view>
-                <view class="line-content">按时打算</view>
+                <view class="line-content">{{renlist.order_id}}</view>
             </view>
             <view class="line">
                 <view class="line-title">投诉时间：</view>
                 <view class="line-content">{{renlist.complaints_time}}</view>
+            </view>
+            <view class="line">
+                <view class="line-title">投诉内容：</view>
+                <view class="line-content">{{renlist.complaints_content}}</view>
             </view>
             <!-- <view class="line line2">
                 <view class="line-title">退款金额：</view>
@@ -64,59 +64,59 @@
                 <view class="line-content">{{renlist.apply_desc}}</view>
             </view> -->
         </view>
-        <view class="title">
+        <view wx:if="{{renlist.status>=32}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
                 <text class="no">平台客服已介入</text>
             </view>
-            <view class="right">{{renlist.create_time}}</view>
+            <view class="right">{{renlist.service_in_time}}</view>
         </view>
-        <view class="contentdasd">
+        <view wx:if="{{renlist.status>=32?true:false}}" class="contentdasd">
             <view class="line ">
-                <view class="line-title">平台客服已结案速度快哈师大</view>
+                <view class="line-title">平台客服已介入,等待师傅举证</view>
             </view>
         </view>
-        <view class="title">
+        <view wx:if="{{status>=33?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
                 <text class="no">师傅已举证</text>
             </view>
-            <view class="right">{{renlist.create_time}}</view>
+            <view class="right">{{renlist.proof_time}}</view>
         </view>
-        <view class="ctdasd">
+        <view wx:if="{{status>=33?true:false}}" class="ctdasd">
             <view class="line ">
                 <view class="line-title">举报内容：</view>
-                <view class="das">举报内容举报内容举报内容</view>
+                <view class="das">{{renlist.proof_content}}</view>
             </view>
             <view class="line linea">
                 <view class="line-title">图片凭证：</view>
-                <view class="tu">
-                    <image bind:tap="previewImg" src="../../images/user1.png"></image>
+                <view class="tu" wx:for="{{detailData}}" wx:key="index">
+                    <image bind:tap="previewImg" src="{{item}}"></image>
                 </view>
             </view>
         </view>
-        <view class="title">
+        <view wx:if="{{status>=34?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
-                <text class="no">撤销投诉</text>
+                <text class="no">{{status==34?"投诉成功未结束":status==35?"投诉成功已结束":"等待结果"}}</text>
             </view>
-            <view class="right">{{renlist.create_time}}</view>
+            <!-- <view class="right">{{renlist.create_time}}</view> -->
         </view>
-        <view class="contentdasd">
+        <view wx:if="{{status==37?true:false}}" class="contentdasd">
             <view class="line ">
-                <view class="line-title">平台客服已结案速度快哈师大</view>
+                <view class="line-title">撤销投诉</view>
             </view>
         </view>
-        <view class="title">
+        <view wx:if="{{status==35?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
                 <text class="no">平台客服已处理</text>
             </view>
-            <view class="right">{{renlist.create_time}}</view>
+            <view class="right">{{renlist.end_time}}</view>
         </view>
-        <view class="condaasdsd">
+        <view wx:if="{{status==35?true:false}}" class="condaasdsd">
             <view class="line ">
-                <view class="line-title">处理:阿三肯定会</view>
+                <view class="line-title">处理:{{renlist.processing_results}}</view>
             </view>
         </view>
     </view>
