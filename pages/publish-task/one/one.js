@@ -1,6 +1,6 @@
 // pages/publish-task/one/one.js
 const app = getApp()
-import {formatTimeMS} from "../../../utils/util";
+import { formatTimeMS } from "../../../utils/util";
 
 const api = require('../../../utils/api.js');
 Page({
@@ -32,18 +32,18 @@ Page({
         canStop: false,
         hasRecordRight: false
     },
-    goTo() {
+    goTo () {
         wx.navigateTo({
             url: '/pages/address/list/list'
         })
     },
-    bindinput(e) {
+    bindinput (e) {
         this.setData({
             desc: e.detail.value,
             desLength: e.detail.value.length
         })
     },
-    chooseImage(e) {
+    chooseImage (e) {
         var that = this;
         wx.chooseImage({
             count: 1,
@@ -62,20 +62,20 @@ Page({
         })
     },
     /* 预览图片 */
-    previewImage(e) {
+    previewImage (e) {
         wx.previewImage({
             current: e.currentTarget.id,
             // 当前显示图片的http链接
             urls: this.data.images // 需要预览的图片http链接列表
         })
     },
-    deleteImg(e) {
+    deleteImg (e) {
 
         var that = this;
         var nowList = []; /*新数据*/
         var images = that.data.images; /*原数据*/
 
-        for (let i = 0; i < images.length; i++) {
+        for (let i = 0;i < images.length;i++) {
             if (i != e.currentTarget.dataset.index) {
                 nowList.push(images[i])
             }
@@ -86,19 +86,19 @@ Page({
         })
         console.log(this.data.images, 987)
     },
-    bindTimeChange(e) {
+    bindTimeChange (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             time: e.detail.value
         })
     },
-    bindDateChange(e) {
+    bindDateChange (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             updoor_time: e.detail.value
         })
     },
-    playRecord() {
+    playRecord () {
         console.log('play')
         let that = this
         let ACT = this.data.innerAudioContext
@@ -122,9 +122,9 @@ Page({
         })
     },
 
-    pressButton() {
+    pressButton () {
         let that = this
-        if(this.data.hasRecordRight){
+        if (this.data.hasRecordRight) {
             console.log('press')
             setTimeout(() => {
                 this.setData({
@@ -135,13 +135,13 @@ Page({
             var recordStatus = that.data.recordStatus;
             if (recordStatus) {
                 wx.getSetting({
-                    success(res) {
+                    success (res) {
                         console.log(res, 890)
                         if (!res.authSetting['scope.record']) {
                             console.log(111)
                             wx.authorize({
                                 scope: 'scope.record',
-                                success() {
+                                success () {
                                     console.log(222)
                                     that.setData({
                                         recordStatus: true
@@ -160,22 +160,22 @@ Page({
                 });
 
             }
-        }else {
+        } else {
             wx.authorize({
                 scope: 'scope.record',
-                success() {
+                success () {
                     that.setData({
                         hasRecordRight: true
                     })
                 },
-                fail(){
-                    wx.navigateTo({url: '/pages/getAuthority/getAuthority?type=record'})
+                fail () {
+                    wx.navigateTo({ url: '/pages/getAuthority/getAuthority?type=record' })
                 }
             })
         }
     },
-    looseButton() {
-        if(this.data.hasRecordRight){
+    looseButton () {
+        if (this.data.hasRecordRight) {
             console.log('loose')
             if (this.data.canStop) {
                 wx.hideToast();//结束录音、隐藏Toast提示框
@@ -203,7 +203,7 @@ Page({
             }
         }
     },
-    uploadRecord() {
+    uploadRecord () {
         let that = this;
         console.log(wx.getStorageSync('userid'), 'user_id')
         console.log(wx.getStorageSync('token'), 'token')
@@ -216,13 +216,13 @@ Page({
                 user_id: wx.getStorageSync('userid'),
                 user_token: wx.getStorageSync('token')
             },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
-            success(res) {
+            success (res) {
                 console.log(JSON.parse(res.data), 333)
                 that.setData({
                     voice: JSON.parse(res.data).files
                 })
             },
-            fail(res) {
+            fail (res) {
                 console.log(res, 888)
                 wx.showToast({
                     title: '网络异常,请稍后重试',
@@ -237,7 +237,7 @@ Page({
 
         })
     },
-    uploadImg(p) {
+    uploadImg (p) {
         wx.showLoading({
             title: '上传中',
         })
@@ -252,7 +252,7 @@ Page({
                 user_id: wx.getStorageSync('userid'),
                 user_token: wx.getStorageSync('token')
             },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
-            success(res) {
+            success (res) {
                 console.log(JSON.parse(res.data), 333)
                 console.log(api.HOST + "/" + JSON.parse(res.data).files)
                 if (JSON.parse(res.data).code == 200) {
@@ -263,7 +263,7 @@ Page({
                 }
                 wx.hideLoading()
             },
-            fail(res) {
+            fail (res) {
                 console.log(res, 888)
                 wx.showToast({
                     title: '网络异常,请稍后重试',
@@ -279,7 +279,7 @@ Page({
         })
 
     },
-    seeDetail() {
+    seeDetail () {
         console.log('detail')
         wx.navigateTo({
             url: '/pages/agreement-detail/agreement-detail?id=9'
@@ -289,6 +289,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(options)
         let that = this
         console.log('user-id', wx.getStorageSync('userid'))
         console.log('token', wx.getStorageSync('token'))
@@ -309,14 +310,14 @@ Page({
         });
 
     },
-    checkChange(e) {
+    checkChange (e) {
         console.log(e)
         console.log('bind change')
         this.setData({
             'checkAgreement.checked': !this.data.checkAgreement.checked
         })
     },
-    publishForm() {
+    publishForm () {
         console.log(this.data.checkAgreement)
         let category_pid = this.data.category_pid
         let category_id = this.data.category_id
@@ -356,7 +357,7 @@ Page({
                         })
                         setTimeout(() => {
                             wx.switchTab({
-                                url:'/pages/order/order'
+                                url: '/pages/order/order'
                             })
                         }, 1000)
                     }
@@ -391,15 +392,15 @@ Page({
             canStop: false
         })
         wx.getSetting({
-            success(e) {
+            success (e) {
                 console.log(e)
                 if (!e.authSetting["scope.record"]) {
                     that.setData({
-                        hasRecordRight:false
+                        hasRecordRight: false
                     })
                 } else {
                     that.setData({
-                        hasRecordRight:true
+                        hasRecordRight: true
                     })
                 }
             }
