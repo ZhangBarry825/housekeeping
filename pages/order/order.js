@@ -34,14 +34,14 @@ Page({
                         wx.stopPullDownRefresh();
                         wx.hideNavigationBarLoading()
                         wx.hideLoading();
-                    }, 1000)
+                    }, 500)
                     setTimeout(() => {
                         wx.showToast({
                             title: '暂无更多数据',
                             icon: 'none',
                             duration: 2000
                         })
-                    }, 1000)
+                    }, 500)
                 }
                 if (data.list != "") {
 
@@ -92,11 +92,11 @@ Page({
             wx.navigateTo({
                 url: '/pages/refund_detail/refund_detail?orderid=' + orderid
             })
-        }else if (status == 31 || status == 32 || status == 33 || status == 34 || status == 35 || status == 36 || status == 37) {
+        } else if (status == 31 || status == 32 || status == 33 || status == 34 || status == 35 || status == 36 || status == 37) {
             wx.navigateTo({
-                url: '/pages/refund_detail/refund_detail?orderid=' + orderid
+                url: '/pages/complaintDetails/complaintDetails?orderid=' + orderid
             })
-        }else if (status ==5) {
+        } else if (status == 5) {
             wx.navigateTo({
                 url: '/pages/publish-task/four/four?id=' + orderid
             })

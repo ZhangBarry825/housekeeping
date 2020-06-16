@@ -134,6 +134,13 @@
 					"id": -1,
 					"name": "pages/refund_detail/refund_detail",
 					"pathName": "pages/refund_detail/refund_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/complaintDetails/complaintDetails",
+					"pathName": "pages/complaintDetails/complaintDetails",
 					"scene": null
 				}
 			]

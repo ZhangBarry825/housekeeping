@@ -36,7 +36,8 @@
     "pages/address/list/list",
     "pages/shouquan/shouquan",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/complaintDetails/complaintDetails"
   ],
   "permission": {
     "scope.userLocation": {
@@ -51,7 +52,6 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-
   "tabBar": {
     "color": "#999",
     "selectedColor": "#2bcf19",

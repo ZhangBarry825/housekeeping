@@ -1,0 +1,124 @@
+<!-- pages/refund_detail/refund_detail.wxml -->
+<view class="page">
+    <view class="requirement">
+        <text class="title">我的需求：</text>
+        <text class="content">{{renlist.title}}</text>
+    </view>
+    <view class="price">
+        <text class="title">订单总额：</text>
+        <text class="content">￥{{renlist.order_amount}}</text>
+    </view>
+    <view class="price">
+        <text class="title">实付金额：</text>
+        <text class="content">￥{{renlist.order_amount}}</text>
+    </view>
+    <view class="userInfo">
+        <view class="user">
+            <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+            <view class="userinfo">
+                <view class="info1">
+                    <view class="name">{{renlist.user_nickname}}</view>
+                    <view class="gold">保证金{{renlist.margin_amount}}</view>
+                    <!-- <view class="distance"> -->
+                    <!-- <image src="../../images/address.png"></image> -->
+                    <!-- <text>3.2公里</text> -->
+                    <!-- </view> -->
+                </view>
+                <view class="info2">
+                    服务{{renlist.order_total}}次 | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="dialog">
+        <view class="title">
+            <view class="left">
+                <image src="../../images/user.png"></image>
+                <text>发起投诉</text>
+            </view>
+            <!-- <view class="right">{{renlist.create_time}}</view> -->
+        </view>
+        <view class="content">
+            <view class="line">
+                <view class="line-title">投诉类型：</view>
+                <view class="line-content">{{renlist.options_title}}</view>
+            </view>
+            <view class="line">
+                <view class="line-title">投诉来源：</view>
+                <view class="line-content">{{}}</view>
+            </view>
+            <view class="line">
+                <view class="line-title">订单编号：</view>
+                <view class="line-content">按时打算</view>
+            </view>
+            <view class="line">
+                <view class="line-title">投诉时间：</view>
+                <view class="line-content">{{renlist.complaints_time}}</view>
+            </view>
+            <!-- <view class="line line2">
+                <view class="line-title">退款金额：</view>
+                <view class="line-content">￥{{renlist.refund_amount}}</view>
+            </view>
+            <view class="line line3">
+                <view class="line-title">退款理由：</view>
+                <view class="line-content">{{renlist.apply_desc}}</view>
+            </view> -->
+        </view>
+        <view class="title">
+            <view class="left">
+                <image src="../../images/user1.png"></image>
+                <text class="no">平台客服已介入</text>
+            </view>
+            <view class="right">{{renlist.create_time}}</view>
+        </view>
+        <view class="contentdasd">
+            <view class="line ">
+                <view class="line-title">平台客服已结案速度快哈师大</view>
+            </view>
+        </view>
+        <view class="title">
+            <view class="left">
+                <image src="../../images/user1.png"></image>
+                <text class="no">师傅已举证</text>
+            </view>
+            <view class="right">{{renlist.create_time}}</view>
+        </view>
+        <view class="ctdasd">
+            <view class="line ">
+                <view class="line-title">举报内容：</view>
+                <view class="das">举报内容举报内容举报内容</view>
+            </view>
+            <view class="line linea">
+                <view class="line-title">图片凭证：</view>
+                <view class="tu">
+                    <image bind:tap="previewImg" src="../../images/user1.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="title">
+            <view class="left">
+                <image src="../../images/user1.png"></image>
+                <text class="no">撤销投诉</text>
+            </view>
+            <view class="right">{{renlist.create_time}}</view>
+        </view>
+        <view class="contentdasd">
+            <view class="line ">
+                <view class="line-title">平台客服已结案速度快哈师大</view>
+            </view>
+        </view>
+        <view class="title">
+            <view class="left">
+                <image src="../../images/user1.png"></image>
+                <text class="no">平台客服已处理</text>
+            </view>
+            <view class="right">{{renlist.create_time}}</view>
+        </view>
+        <view class="condaasdsd">
+            <view class="line ">
+                <view class="line-title">处理:阿三肯定会</view>
+            </view>
+        </view>
+    </view>
+    <mp-gallery show="{{show}}" bindchange="change" bindhide="hide" img-urls="{{detailData}}" showDelete="{{false}}" hideOnClick="{{true}}" current="0"></mp-gallery>
+</view>
