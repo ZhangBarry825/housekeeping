@@ -8,9 +8,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        background: [],
-        lifeCommonSense:  [],
-        navigations:  [],
+        background: {},
+        lifeCommonSense: {},
+        navigations: {},
         classmenulist: [],
         indicatorDots: true,
         vertical: false,
@@ -18,7 +18,7 @@ Page({
         interval: 2000,
         duration: 500
     },
-    goItem(item) {
+    goItem (item) {
         console.log(item.currentTarget.dataset.item, 987)
         let path;
         let tn = item.currentTarget.dataset.type;
@@ -126,7 +126,7 @@ Page({
                 if (data.code == 200) {
                     var list = data.poster;
                     if (list.length > 0) {
-                        for (var i = 0; i < list.length; i++) {
+                        for (var i = 0;i < list.length;i++) {
                             list[i].poster_pic = api.HOST + '/' + list[i].poster_pic;
                         }
                         that.setData({
@@ -172,7 +172,7 @@ Page({
                 if (data.code == 200) {
                     var list = data.list;
                     if (list.length > 0) {
-                        for (var i = 0; i < list.length; i++) {
+                        for (var i = 0;i < list.length;i++) {
                             list[i].icon = api.HOST + '/' + list[i].icon;
                         }
                         that.setData({
@@ -196,11 +196,12 @@ Page({
                 if (data.code == 200) {
                     var list = data.list;
                     if (list.length > 0) {
-                        for (var i = 0; i < list.length; i++) {
+                        for (var i = 0;i < list.length;i++) {
                             var icon = list[i];
                             icon.icon = api.HOST + '/' + icon.icon;
-                            if (icon.children && icon.children.length > 0) {
-                                for (var y = 0; y < icon.children.length; y++) {
+
+                            if (icon.children.length > 0) {
+                                for (var y = 0;y < icon.children.length;y++) {
                                     icon.children[y].icon = api.HOST + '/' + icon.children[y].icon;
                                 }
                             }
@@ -209,13 +210,13 @@ Page({
                             classmenulist: list
                         })
                     }
-                    console.log(this.data.classmenulist,88885)
                 } else {
                     console.log('获取导航数据失败');
                 }
             }
         });
     },
+
 
 
 })

@@ -76,14 +76,14 @@
                 <view class="line-title">平台客服已介入,等待师傅举证</view>
             </view>
         </view>
-        <view wx:if="{{status>=33?true:false}}" class="title">
+        <view wx:if="{{renlist.status>=33?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
                 <text class="no">师傅已举证</text>
             </view>
             <view class="right">{{renlist.proof_time}}</view>
         </view>
-        <view wx:if="{{status>=33?true:false}}" class="ctdasd">
+        <view wx:if="{{renlist.status>=33?true:false}}" class="ctdasd">
             <view class="line ">
                 <view class="line-title">举报内容：</view>
                 <view class="das">{{renlist.proof_content}}</view>
@@ -95,26 +95,28 @@
                 </view>
             </view>
         </view>
-        <view wx:if="{{status>=34?true:false}}" class="title">
+        <view wx:if="{{renlist.status>=34?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
-                <text class="no">{{status==34?"投诉成功未结束":status==35?"投诉成功已结束":"等待结果"}}</text>
+                <text class="no">
+                    {{renlist.status==34?"投诉成功未结束":renlist.status==35?"投诉成功已结束":"等待结果"}}
+                </text>
             </view>
             <!-- <view class="right">{{renlist.create_time}}</view> -->
         </view>
-        <view wx:if="{{status==37?true:false}}" class="contentdasd">
+        <view wx:if="{{renlist.status==37?true:false}}" class="contentdasd">
             <view class="line ">
                 <view class="line-title">撤销投诉</view>
             </view>
         </view>
-        <view wx:if="{{status==35?true:false}}" class="title">
+        <view wx:if="{{renlist.status==35?true:false}}" class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
                 <text class="no">平台客服已处理</text>
             </view>
             <view class="right">{{renlist.end_time}}</view>
         </view>
-        <view wx:if="{{status==35?true:false}}" class="condaasdsd">
+        <view wx:if="{{renlist.status==35?true:false}}" class="condaasdsd">
             <view class="line ">
                 <view class="line-title">处理:{{renlist.processing_results}}</view>
             </view>

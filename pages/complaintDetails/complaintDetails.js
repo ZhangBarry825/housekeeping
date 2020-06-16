@@ -9,7 +9,7 @@ Page({
    */
   data: {
     order_id: '',
-    detailData: ['../../images/user1.png', '../../images/user1.png'],
+    detailData: [],
     renlist: {}
   },
 
@@ -32,6 +32,7 @@ Page({
         for (let i = 0;i < res.list.complaints_files.length;i++) {
           images.push(api.HOST + '/' + res.list.complaints_files[i])
         }
+        console.log(images)
         that.setData({
           renlist: res.list,
           detailData: images
