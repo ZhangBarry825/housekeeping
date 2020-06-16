@@ -4,7 +4,7 @@ var tryingLogin = false;
 var host = "https://jz2020.njflwlkj.com";
 // var appid="wx6533831d98a6b7de";
 // var secret = "18d7d3612709192105cf3ee5008e13a2";
-var appid="wx1802f78e06cf3960";
+var appid = "wx1802f78e06cf3960";
 var secret = "a4ba79593c89112ad88889801640d5f4";
 var client_id = "wxapp";
 var client_secret = "KISY7H8MK2DU9AGe3d";
@@ -15,47 +15,47 @@ module.exports = {
     client_secret: client_secret,
     API_ROOT: host + '/wxapi.php',
     API_VERSION: '1.1.0',
-    post(options) {
+    post (options) {
         this.request(options);
     },
-    get(options) {
+    get (options) {
         options.method = 'GET';
         this.request(options);
     },
-    delete(options) {
+    delete (options) {
         options.method = 'DELETE';
         this.request(options);
     },
-    put(options) {
+    put (options) {
         options.method = 'PUT';
         this.request(options);
     },
-    request(options) {
-		let that = this;
+    request (options) {
+        let that = this;
         let apiRoot = that.API_ROOT;
-        let token   = '';
+        let token = '';
         try {
             token = wx.getStorageSync('token');
         } catch (e) {
             // Do something when catch error
         }
 
-		var userid = '';
-		try {
-		    userid = wx.getStorageSync('userid');
-		} catch (e) {
-		    // Do something when catch error
-		}
+        var userid = '';
+        try {
+            userid = wx.getStorageSync('userid');
+        } catch (e) {
+            // Do something when catch error
+        }
 
         var requireLogin = true;
-		console.log(options.login,'options.login')
+        console.log(options.login, 'options.login')
         if (typeof options.login == 'undefined' || options.login == true) {
             requireLogin = true;
         } else {
             requireLogin = false;
         }
         wx.request({
-            url: apiRoot + options.url + '/?client_id='+client_id+'&client_secret='+client_secret,
+            url: apiRoot + options.url + '/?client_id=' + client_id + '&client_secret=' + client_secret,
             data: options.data,
             method: options.method ? options.method : 'POST',
             header: {
@@ -70,7 +70,7 @@ module.exports = {
                 if (userid == '' && requireLogin) {
                     console.log(tryingLogin);
                     if (!tryingLogin) {
-                        tryingLogin        = true;
+                        tryingLogin = true;
                         console.log('去授权')
                         wx.navigateTo({
                             url: '/pages/shouquan/shouquan',
@@ -81,7 +81,7 @@ module.exports = {
                     let currentRoute = currentPages.pop()['__route__'];
                     if (currentRoute != 'pages/home/home') {
                         wx.navigateTo({
-                          url: '/pages/home/home'
+                            url: '/pages/home/home'
                         });
                     }
 
@@ -104,11 +104,11 @@ module.exports = {
 
     },
 
-	login: function(options) {
-		var that = this;
-		wx.login({
-			success: loginRes => {
-				if (loginRes.code) {
+    login: function (options) {
+        var that = this;
+        wx.login({
+            success: loginRes => {
+                if (loginRes.code) {
                     wx.request({
                         url: that.API_ROOT + '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
                         data: {
@@ -132,15 +132,16 @@ module.exports = {
                             'XX-Api-Version': '1.1.0'
                         },
                         success: res => {
+                            console.log(res, 789)
                             var data = res.data;
-                            var da = data.replace('{','').replace('}','').split(",");
+                            var da = data.replace('{', '').replace('}', '').split(",");
                             var dco = da[0].split(":");
                             var user = da[2].split(":");
                             var token = da[3].split(":");
 
-                            var dcod = dco[1].replace('"','').replace('"','');
-                            var user_id = user[1].replace('"','').replace('"','');
-                            var user_token = token[1].replace('"','').replace('"','');
+                            var dcod = dco[1].replace('"', '').replace('"', '');
+                            var user_id = user[1].replace('"', '').replace('"', '');
+                            var user_token = token[1].replace('"', '').replace('"', '');
                             if (dcod == 200) {
                                 wx.showToast({
                                     title: '登录成功!',
@@ -150,10 +151,21 @@ module.exports = {
                                 wx.setStorageSync('login', '1');
                                 // wx.setStorageSync('token', user_token);
                                 // wx.setStorageSync('userid', user_id);
-                                wx.setStorageSync('token', 'fff1780cfd90bc1311c53c042bff499f ');
-                                wx.setStorageSync('userid', 39);
+                                wx.setStorageSync('token', user_token);
+                                wx.setStorageSync('userid', user_id);
+
+
+                                wx.getUserInfo({
+                                    lang: 'zh_CN',
+                                    success: function (res) {
+                                        console.log(res, '333');
+                                    }
+                                })
+
+
+
                                 wx.reLaunch({
-                                	url: '/pages/home/home',
+                                    url: '/pages/home/home',
                                 });
                             }
 
@@ -161,43 +173,43 @@ module.exports = {
                     })
 
 
-					// this.post({
-					// 	url: '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
-					// 	data: {
-					// 		code: loginRes.code,
-					// 		iv: options.detail.iv,
-					// 		encryptedData: options.detail.encryptedData,
-					// 		nickName: options.detail.userInfo.nickName,
-					// 		avatarUrl: options.detail.userInfo.avatarUrl,
-					// 		invite_id: 0,   /* 邀请用户id */
-					// 		city: options.detail.userInfo.city,
-					// 		province: options.detail.userInfo.province,
-					// 		country: options.detail.userInfo.country,
-					// 		signature: options.detail.signature
-					// 	},
-					// 	success: data => {
-					// 		console.log(data,'22222333333')
-					// 		// if (data.code == 200) {
-					// 		// 	wx.showToast({
-					// 		// 		title: '登录成功!',
-					// 		// 		icon: 'success',
-					// 		// 		duration: 1000
-					// 		// 	});
-					// 		// 	wx.setStorageSync('login', '1');
-					// 		// 	wx.setStorageSync('token', data.user_token);
-					// 		// 	wx.setStorageSync('userid', data.user_id);
-					// 		// 	// wx.switchTab({
-					// 		// 	// 	url: '/pages/home/home',
-					// 		// 	// });
-					// 		// }
-					// 	}
-					// });
-				}
-			},
-			fail: ()=> {
-				tryingLogin = false;
-			}
-		});
-	},
+                    // this.post({
+                    // 	url: '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
+                    // 	data: {
+                    // 		code: loginRes.code,
+                    // 		iv: options.detail.iv,
+                    // 		encryptedData: options.detail.encryptedData,
+                    // 		nickName: options.detail.userInfo.nickName,
+                    // 		avatarUrl: options.detail.userInfo.avatarUrl,
+                    // 		invite_id: 0,   /* 邀请用户id */
+                    // 		city: options.detail.userInfo.city,
+                    // 		province: options.detail.userInfo.province,
+                    // 		country: options.detail.userInfo.country,
+                    // 		signature: options.detail.signature
+                    // 	},
+                    // 	success: data => {
+                    // 		console.log(data,'22222333333')
+                    // 		// if (data.code == 200) {
+                    // 		// 	wx.showToast({
+                    // 		// 		title: '登录成功!',
+                    // 		// 		icon: 'success',
+                    // 		// 		duration: 1000
+                    // 		// 	});
+                    // 		// 	wx.setStorageSync('login', '1');
+                    // 		// 	wx.setStorageSync('token', data.user_token);
+                    // 		// 	wx.setStorageSync('userid', data.user_id);
+                    // 		// 	// wx.switchTab({
+                    // 		// 	// 	url: '/pages/home/home',
+                    // 		// 	// });
+                    // 		// }
+                    // 	}
+                    // });
+                }
+            },
+            fail: () => {
+                tryingLogin = false;
+            }
+        });
+    },
 
 };

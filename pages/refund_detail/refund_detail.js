@@ -1,5 +1,5 @@
 // pages/refund_detail/refund_detail.js
-const api = require('../../../utils/api.js');
+const api = require('../../utils/api.js');
 const app = getApp()
 Page({
 

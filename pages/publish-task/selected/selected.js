@@ -25,6 +25,19 @@ Page({
         price: 1
       },
       success: res => {
+        wx.requestPayment({
+          timeStamp: res.Payment.timeStamp,
+          nonceStr: res.Payment.nonceStr,
+          package: res.Payment.package,
+          signType: res.Payment.signType,
+          paySign: res.Payment.paySign,
+          success (res) {
+            console.log(res, "成功")
+          },
+          fail (res) {
+            console.log(res, "失败")
+          }
+        })
         console.log(res, "111")
         // api.post({
         //   url: `/Demand/order_payment`,

@@ -85,7 +85,7 @@
   width: 130rpx;
 }
 .page .content-box .logos .item image {
-  width: 75%;
+  width: 80rpx;
   height: 80rpx;
 }
 .page .content-box .logos .item text {
@@ -144,7 +144,7 @@
   width: 22%;
 }
 .page .content-box .nanny .items .item image {
-  width: 75%;
+  width: 80rpx;
   height: 80rpx;
 }
 .page .content-box .nanny .items .item text {
@@ -198,7 +198,7 @@
   width: 22%;
 }
 .page .content-box .clean .items .item image {
-  width: 75%;
+  width: 80rpx;
   height: 80rpx;
 }
 .page .content-box .clean .items .item text {

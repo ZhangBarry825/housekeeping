@@ -51,7 +51,7 @@
   width: 22%;
 }
 .page .content-box .clean .items .item image {
-  width: 75%;
+  width: 80rpx;
   height: 80rpx;
 }
 .page .content-box .clean .items .item text {
