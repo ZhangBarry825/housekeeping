@@ -22,36 +22,41 @@ Page({
         user_token: wx.getStorageSync('token'),
         demand_id: this.data.demand_id,
         master_user_id: this.data.master_user_id,
-        price: 1
+        price: this.data.dataset.price
       },
-      success: res => {
+      success: resda => {
+        that.pay(resda.data)
         wx.requestPayment({
-          timeStamp: res.Payment.timeStamp,
-          nonceStr: res.Payment.nonceStr,
-          package: res.Payment.package,
-          signType: res.Payment.signType,
-          paySign: res.Payment.paySign,
+          timeStamp: resda.Payment.timeStamp,
+          nonceStr: resda.Payment.nonceStr,
+          package: resda.Payment.package,
+          signType: resda.Payment.signType,
+          paySign: resda.Payment.paySign,
           success (res) {
             console.log(res, "成功")
+            that.pay(resda.data)
           },
           fail (res) {
             console.log(res, "失败")
           }
         })
         console.log(res, "111")
-        // api.post({
-        //   url: `/Demand/order_payment`,
-        //   data: {
-        //     user_id: wx.getStorageSync('userid'),
-        //     user_token: wx.getStorageSync('token'),
-        //     demand_id: that.data.demand_id,
-        //     order_id: res.data.order_id,
-        //     master_user_id: res.data.master_user_id,
-        //   },
-        //   success: res => {
-        //     console.log(res, "zhifu")
-        //   }
-        // })
+
+      }
+    })
+  },
+  pay (dataa) {
+    api.post({
+      url: `/Demand/order_payment`,
+      data: {
+        user_id: wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        demand_id: dataa.demand_id,
+        order_id: dataa.order_id,
+        master_user_id: dataa.master_user_id,
+      },
+      success: resa => {
+        console.log(resa, "zhifu")
       }
     })
   },
