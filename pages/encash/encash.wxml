@@ -2,9 +2,9 @@
 <view class="page">
     <view class="content">
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-            <view class="item" bind:tap="selectCard">
+            <view class="item" bind:tap="selectCard" >
                 <view class="left">提现账户</view>
-                <view class="middle">请选择提现账户</view>
+                <view class="middle">{{tip}}</view>
                 <image src="../../images/right.png" class="right"></image>
             </view>
         </picker>

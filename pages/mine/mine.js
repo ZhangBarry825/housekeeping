@@ -23,9 +23,12 @@ Page({
         })
     },
     joinUs () {
-        wx.navigateTo({
-            url: "/pages/join/join"
-        })
+        if(this.data.status==0){
+            wx.navigateTo({
+                url: "/pages/join/join"
+            })
+        }
+
     },
     fetchData () {
         let that = this
@@ -42,8 +45,11 @@ Page({
                 }
             }
         })
+
+    },
+    fetchStatus(){
         api.post({
-            url: '/User/update_user_info/in',
+            url: '/User/update_user_info/status',
             data: {
                 user_id: wx.getStorageSync('userid'),
                 user_token: wx.getStorageSync('token'),
@@ -84,6 +90,7 @@ Page({
      */
     onShow: function () {
         var userid = wx.getStorageSync('userid');
+        this.fetchStatus()
         console.log(userid, 'userid');
         if (userid == '' || userid == undefined) {
             wx.navigateTo({

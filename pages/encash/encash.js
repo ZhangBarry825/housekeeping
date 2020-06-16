@@ -8,16 +8,25 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tip:'请选择提现账户',
     index: 0,
-    array: ['工商银行 尾号0254', '建设银行 尾号0254', '农商银行 尾号0254', '中国银行 尾号0254'],
+    array: [],
     pageNum:1,
     pageSize:20,
     cardList:[],
     withdrawal_amount:'',
-    bankcard_id:'21',
+    bankcard_id:'',
     available_balance:0
   },
-  selectCard(){
+  bindPickerChange(e){
+    console.log(this.data.array[e.detail.value],76)
+    console.log(this.data.cardList[e.detail.value].bankcard_id,67)
+    this.setData({
+      tip:this.data.array[e.detail.value],
+      bankcard_id:this.data.cardList[e.detail.value].bankcard_id
+    })
+  },
+  selectCard(e){
 
   },
   updateWithdraw(e){
@@ -83,7 +92,7 @@ Page({
         if (res.code == 200) {
           let arr=[]
           for (let i = 0; i <res.list.length ; i++) {
-            arr.push(res.list[i].title+res.list[i].cardid)
+            arr.push(res.list[i].title+" "+res.list[i].cardid.substring(res.list[i].cardid.length-4))
           }
           that.setData({
             cardList: res.list,
