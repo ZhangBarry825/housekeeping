@@ -12,7 +12,7 @@
         <view class="line1">在线雇佣 平台全程保障 更放心</view>
         <view class="line2">
             <view class="border"></view>
-            <text>已有3位家政为您报价</text>
+            <text>已有{{offerNum}}位家政为您报价</text>
             <view class="border"></view>
         </view>
     </view>
@@ -27,7 +27,7 @@
             </view>
             <view class="detail">
                 <view class="line1">
-                    <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
+                    <image class="avatar" mode="aspectFill" src="{{item.head_portrait}}"></image>
                     <view class="userinfo">
                         <view class="info1">
                             <view class="name">{{item.user_nickname}}</view>

@@ -1,4 +1,6 @@
 // pages/publish-task/four/four.js
+import {numToTime} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 Page({
 
@@ -101,6 +103,7 @@ Page({
             },
             success: res => {
                 console.log(res,789)
+                res.list.order_end_time=numToTime(res.list.order_end_time)
                 that.setData({
                     orderDetail:res.list
                 })
@@ -139,7 +142,9 @@ Page({
                             duration: 2000
                         })
                         setTimeout(()=>{
-                            // wx.switch
+                            wx.navigateBack({
+                                delta: 1
+                            })
                         },2000)
                     } else {
                         console.log('获取数据失败');

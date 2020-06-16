@@ -8,7 +8,7 @@
             家庭保洁-开荒
         </view>
         <view class="line2">
-            订单完成时间：{{order_end_time}}
+            订单完成时间：{{orderDetail.order_end_time}}
         </view>
         <view class="line3" bind:tap="goDetail">
             需求详情 >
@@ -22,7 +22,7 @@
             <view class="userinfo">
                 <view class="info1">
                     <view class="name">{{orderDetail.user_nickname}}</view>
-                    <view class="gold">保证金2000</view>
+                    <view class="gold">保证金{{orderDetail.margin_amount}}</view>
                     <!--                <view class="distance">-->
                     <!--                    <image src="../../../images/address.png"></image>-->
                     <!--                    <text>3.2公里</text>-->

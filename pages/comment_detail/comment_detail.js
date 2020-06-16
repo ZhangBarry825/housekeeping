@@ -1,4 +1,6 @@
 // pages/comment_detail/comment_detail.js
+import {numToTime} from "../../utils/util";
+
 const api = require('../../utils/api.js');
 Page({
 
@@ -7,7 +9,9 @@ Page({
    */
   data: {
     hidden:false,
-
+    dataDetail:{},
+    starNum:0,
+    starLeft:5,
   },
   changHidden(){
     this.setData({
@@ -16,13 +20,38 @@ Page({
   },
   fetchData(){
     let that = this
-
+    api.post({
+      url: '/Order/evaluation_info',
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token:wx.getStorageSync('token'),
+        order_id:that.data.id
+      },
+      success: res => {
+        console.log(res,852)
+        if (res.code == 200) {
+          res.data.create_time=numToTime(res.data.create_time)
+          res.data.options_title=res.data.options_title.split(',')
+          that.setData({
+            dataDetail:res.data,
+            starNum:parseInt(res.data.score),
+            starLeft:5-parseInt(res.data.score)
+          })
+        } else {
+          console.log('获取数据失败');
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options.id)
+    this.setData({
+      id:options.id
+    })
+    this.fetchData()
   },
 
   /**

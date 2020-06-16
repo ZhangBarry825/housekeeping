@@ -9,7 +9,8 @@ Page({
    */
   data: {
     orderId: '',
-    renlist: {}
+    renlist: {},
+    offerNum:0,//报价人数
   },
   goTo (e) {
     wx.navigateTo({
@@ -34,8 +35,10 @@ Page({
         demand_id: this.data.orderId
       },
       success: res => {
-        renlist.offer_endtime = numToTime(renlist.offer_endtime)
+        res.list.offer_endtime = numToTime(res.list.offer_endtime)
+        res.offer_endtime = numToTime(res.offer_endtime)
         that.setData({
+          offerNum:res.list.length,
           renlist: res
         })
         console.log(that.data.renlist, "111")

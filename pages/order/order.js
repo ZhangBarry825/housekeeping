@@ -100,6 +100,10 @@ Page({
             wx.navigateTo({
                 url: '/pages/publish-task/four/four?id=' + orderid
             })
+        }else if (status ==6) {
+            wx.navigateTo({
+                url: '/pages/comment_detail/comment_detail?id=' + orderid
+            })
         } else if (status == 0 || status == 12 || status == 11) {
             wx.showToast({
                 title: '当前不可操作',
