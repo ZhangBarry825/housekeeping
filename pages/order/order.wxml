@@ -16,7 +16,8 @@
         <view class="menu1">
             <view class="item item1" wx:for="{{datalist}}" wx:key="index" wx:for-item="item">
                 <view class="top">
-                    <text>雇佣截止时间 {{item.offer_endtime}}</text>
+                    <text>{{menu===0?'雇佣截止时间':menu===1?'退款发起时间':'投诉发起时间'}} {{menu===0?item.offer_endtime:menu===1?item.create_time:item.complaints_time}}</text>
+
                 </view>
                 <view class="middle">
                     <view class="line1">

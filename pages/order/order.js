@@ -52,6 +52,8 @@ Page({
                     current.forEach(item => {
                         item.create_time = numToTime(item.create_time)
                         item.offer_endtime = numToTime(item.offer_endtime)
+                        item.complaints_time = numToTime(item.complaints_time)
+                        item.demand_create_time = numToTime(item.demand_create_time)
                         if (item.offer_price == null) {
                             item.offer_price = 0
                         }

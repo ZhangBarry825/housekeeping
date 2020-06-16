@@ -25,7 +25,6 @@ Page({
         price: this.data.dataset.price
       },
       success: resda => {
-        that.pay(resda.data)
         wx.requestPayment({
           timeStamp: resda.Payment.timeStamp,
           nonceStr: resda.Payment.nonceStr,
@@ -56,6 +55,18 @@ Page({
         master_user_id: dataa.master_user_id,
       },
       success: resa => {
+        if(resa.code==200 ){
+          wx.showToast({
+            title: '支付成功',
+            icon: 'success',
+            duration: 2000
+          })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 2
+            })
+          },2000)
+        }
         console.log(resa, "zhifu")
       }
     })
