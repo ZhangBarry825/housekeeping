@@ -49,29 +49,41 @@
             </view>
             <view class="line line3">
                 <view class="line-title">退款理由：</view>
-                <view class="line-content">师傅说太远，不想来了</view>
+                <view class="line-content">{{renlist.apply_desc}}</view>
             </view>
         </view>
         <view class="title">
             <view class="left">
                 <image src="../../images/user1.png"></image>
-                <text class="no">退款待师傅确认</text>
+                <text class="no">
+                    {{renlist.status==21?'退款待师傅确认':renlist.status==22?"师傅同意退款":renlist.status==23?"师傅拒绝退款":renlist.status==24?"客服介入":renlist.status==25?"退款完成":"暂无状态"}}
+                </text>
                 <!-- <text>师傅已经处理退款</text> -->
             </view>
-            <view class="right">2020-04-23 15:35</view>
+            <view class="right">{{renlist.create_time}}</view>
         </view>
         <view class="content">
             <view class="line line4">
                 <view class="line-title">退款状态：</view>
-                <view class="line-content">已确认退款</view>
+                <view class="line-content">
+                    {{renlist.status==21?'退款待师傅确认':renlist.status==22?"师傅同意退款":renlist.status==23?"师傅拒绝退款":renlist.status==24?"客服介入":renlist.status==25?"退款完成":"暂无状态"}}
+                </view>
             </view>
             <view class="line line2">
                 <view class="line-title">退款金额：</view>
-                <view class="line-content">￥120.00</view>
+                <view class="line-content">￥{{renlist.refund_amount}}</view>
             </view>
-            <view class="line line5">
+            <view wx:if="{{renlist.status==23}}" class="line line2">
+                <view class="line-title">师傅拒绝理由：</view>
+                <view class="line-content">￥{{renlist.refund_desc}}</view>
+            </view>
+            <view wx:if="{{renlist.status==22}}" class="line line5">
                 <view class="line-title">退款时间：</view>
-                <view class="line-content">2020-04-23 17:35</view>
+                <view class="line-content">{{renlist.automatic_time}}</view>
+            </view>
+            <view wx:if="{{renlist.status==23}}" class="line line5">
+                <view class="line-title">师傅处理时间：</view>
+                <view class="line-content">{{renlist.automatic_time}}</view>
             </view>
         </view>
     </view>
