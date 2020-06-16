@@ -92,11 +92,15 @@ Page({
             wx.navigateTo({
                 url: '/pages/refund_detail/refund_detail?orderid=' + orderid
             })
+        }else if (status == 31 || status == 32 || status == 33 || status == 34 || status == 35 || status == 36 || status == 37) {
+            wx.navigateTo({
+                url: '/pages/refund_detail/refund_detail?orderid=' + orderid
+            })
         }else if (status ==5) {
             wx.navigateTo({
                 url: '/pages/publish-task/four/four?id=' + orderid
             })
-        }  else if (status == 0 || status == 12 || status == 11) {
+        } else if (status == 0 || status == 12 || status == 11) {
             wx.showToast({
                 title: '当前不可操作',
                 icon: 'none',
