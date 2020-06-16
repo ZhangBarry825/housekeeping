@@ -1,5 +1,5 @@
 // pages/complaintDetails/complaintDetails.js
-
+import { numToTime } from "../../utils/util";
 const app = getApp()
 const api = require('../../utils/api.js');
 Page({
@@ -24,8 +24,17 @@ Page({
       },
       success: res => {
         res.list.complaints_files = JSON.parse(res.list.complaints_files)
+        res.list.service_in_time = JSON.parse(res.list.service_in_time)
+        res.list.end_time = JSON.parse(res.list.end_time)
+        let images = []
+        res.list.complaints_time = numToTime(res.list.complaints_time)
+        console.log(res)
+        for (let i = 0;i < res.list.complaints_files.length;i++) {
+          images.push(api.HOST + '/' + res.list.complaints_files[i])
+        }
         that.setData({
-          renlist: res.list
+          renlist: res.list,
+          detailData: images
         })
         console.log(res)
       }
