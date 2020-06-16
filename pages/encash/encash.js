@@ -27,7 +27,15 @@ Page({
     })
   },
   selectCard(e){
+    console.log(122)
+    if(this.data.array.length<1){
+      wx.showToast({
+        title: '请先绑定银行卡',
+        icon: "none",
+        duration: 1000
+      })
 
+    }
   },
   updateWithdraw(e){
     console.log(e.detail.value)
@@ -76,12 +84,18 @@ Page({
               icon: 'success',
               duration: 2000
             })
+            setTimeout(()=>{
+              wx.navigateBack({
+                delta: 1
+              })
+            },2000)
           } else {
             wx.showToast({
               title: res.msg ,
               icon: 'none',
               duration: 2000
             })
+
           }
         }
       })
