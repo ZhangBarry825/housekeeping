@@ -8,9 +8,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        background: {},
-        lifeCommonSense: {},
-        navigations:{},
+        background: [],
+        lifeCommonSense:  [],
+        navigations:  [],
         classmenulist: [],
         indicatorDots: true,
         vertical: false,
@@ -19,17 +19,17 @@ Page({
         duration: 500
     },
     goItem(item) {
-        console.log( item.currentTarget.dataset.item,987)
+        console.log(item.currentTarget.dataset.item, 987)
         let path;
         let tn = item.currentTarget.dataset.type;
         if (tn == 'knowledge-list') {
             path = '/pages/knowledge/knowledge?id='
         } else if (tn == 'knowledge-detail') {
-            path = '/pages/knowledge-detail/knowledge-detail?id='+item.currentTarget.dataset.id
+            path = '/pages/knowledge-detail/knowledge-detail?id=' + item.currentTarget.dataset.id
         } else if (tn == 'service-item') {
-            path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset.id+'&title='+item.currentTarget.dataset.item.title
+            path = '/pages/service-item/service-item?id=' + item.currentTarget.dataset.id + '&title=' + item.currentTarget.dataset.item.title
         } else if (tn == 'publish-task') {
-            path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id+"&pid="+item.currentTarget.dataset.pid
+            path = '/pages/publish-task/one/one?id=' + item.currentTarget.dataset.id + "&pid=" + item.currentTarget.dataset.pid
         }
         //wx.navigateTo(path);
         wx.navigateTo({
@@ -40,15 +40,15 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
-        console.log('user-id',wx.getStorageSync('userid'))
-        console.log('token',wx.getStorageSync('token'))
+    onLoad: function (options) {
+        console.log('user-id', wx.getStorageSync('userid'))
+        console.log('token', wx.getStorageSync('token'))
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
         var that = this;
         that.loadBanners();
         that.lifeCommonSense();
@@ -59,10 +59,10 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         var userid = wx.getStorageSync('userid');
-        console.log(userid,'userid');
-        if(userid=='' || userid==undefined){
+        console.log(userid, 'userid');
+        if (userid == '' || userid == undefined) {
             wx.navigateTo({
                 url: '/pages/shouquan/shouquan',
             })
@@ -72,21 +72,21 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         let that = this;
         that.loadBanners();
         that.lifeCommonSense();
@@ -94,8 +94,8 @@ Page({
         that.classMenuList();
 
         let userid = wx.getStorageSync('userid');
-        console.log(userid,'userid');
-        if(userid=='' || userid==undefined){
+        console.log(userid, 'userid');
+        if (userid == '' || userid == undefined) {
             wx.navigateTo({
                 url: '/pages/shouquan/shouquan',
             })
@@ -105,35 +105,35 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     },
 
     /* 轮播图 */
-    loadBanners: function() {
+    loadBanners: function () {
         var that = this;
         api.get({
             url: '/Home/poster/5',
             data: {},
             success: data => {
-                if(data.code == 200){
+                if (data.code == 200) {
                     var list = data.poster;
-                    if(list.length > 0){
-                        for(var i=0; i<list.length; i++){
-                            list[i].poster_pic = api.HOST +'/'+ list[i].poster_pic;
+                    if (list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            list[i].poster_pic = api.HOST + '/' + list[i].poster_pic;
                         }
                         that.setData({
                             background: list
                         })
                     }
-                }else{
+                } else {
                     console.log('获取banner数据失败');
                 }
             }
@@ -141,20 +141,20 @@ Page({
     },
 
     /* 生活小常识 */
-    lifeCommonSense:function(){
+    lifeCommonSense: function () {
         var that = this;
         api.get({
             url: '/Article/Article_list/5/1/4',
             data: {},
             success: data => {
-                if(data.code == 200){
+                if (data.code == 200) {
                     var list = data.list;
-                    if(list.length > 0){
+                    if (list.length > 0) {
                         that.setData({
                             lifeCommonSense: data.list
                         })
                     }
-                }else{
+                } else {
                     console.log('获取生活小常识数据失败');
                 }
 
@@ -163,23 +163,23 @@ Page({
     },
 
     /* 导航 */
-    navigations: function() {
+    navigations: function () {
         var that = this;
         api.get({
             url: '/Home/demand_category/0',
             data: {},
             success: data => {
-                if(data.code == 200){
+                if (data.code == 200) {
                     var list = data.list;
-                    if(list.length > 0){
-                        for(var i=0; i<list.length; i++){
-                            list[i].icon = api.HOST +'/'+ list[i].icon;
+                    if (list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
+                            list[i].icon = api.HOST + '/' + list[i].icon;
                         }
                         that.setData({
                             navigations: list
                         })
                     }
-                }else{
+                } else {
                     console.log('获取导航数据失败');
                 }
             }
@@ -187,21 +187,21 @@ Page({
     },
 
     /* 分类列表 */
-    classMenuList: function() {
+    classMenuList: function () {
         var that = this;
         api.get({
             url: '/Home/demand_category/9999',
             data: {},
             success: data => {
-                if(data.code == 200){
+                if (data.code == 200) {
                     var list = data.list;
-                    if(list.length > 0){
-                        for(var i=0; i<list.length; i++){
+                    if (list.length > 0) {
+                        for (var i = 0; i < list.length; i++) {
                             var icon = list[i];
-                            icon.icon = api.HOST +'/'+ icon.icon;
-                            if(icon.children.length > 0){
-                                for(var y=0; y<icon.children.length; y++){
-                                    icon.children[y].icon = api.HOST +'/'+ icon.children[y].icon;
+                            icon.icon = api.HOST + '/' + icon.icon;
+                            if (icon.children && icon.children.length > 0) {
+                                for (var y = 0; y < icon.children.length; y++) {
+                                    icon.children[y].icon = api.HOST + '/' + icon.children[y].icon;
                                 }
                             }
                         }
@@ -209,13 +209,13 @@ Page({
                             classmenulist: list
                         })
                     }
-                }else{
+                    console.log(this.data.classmenulist,88885)
+                } else {
                     console.log('获取导航数据失败');
                 }
             }
         });
     },
-
 
 
 })
