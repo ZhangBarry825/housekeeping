@@ -13,6 +13,7 @@ Page({
     innerAudioContext:'',
     voiceImg:'../../../images/voice1.png',
     show: false,
+    hasVoice:false
   },
   previewImg(){
     this.setData({
@@ -41,8 +42,15 @@ Page({
           images.push(api.HOST+'/'+res.data.images[i])
         }
         console.log( res.data.voice,'7777777777777777777777777777777777777')
-        if(res.data.voice!='' || res.data.voice!=null){
+        if(res.data.voice!=="" && res.data.voice!=null && res.data.voice!=' '){
+          this.setData({
+            hasVoice:true
+          })
           res.data.voice=that.data.hostUrl+'/'+res.data.voice
+        }else {
+          this.setData({
+            hasVoice:false
+          })
         }
         console.log( res.data.voice,'88888888888888888888888888888888888888888888888')
         res.data.images=images
