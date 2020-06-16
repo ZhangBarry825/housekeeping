@@ -10,11 +10,11 @@
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
-		"nodeModules": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -121,6 +121,19 @@
 					"name": "pages/publish-task/three/three",
 					"pathName": "pages/publish-task/three/three",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/publish-task/two/two",
+					"pathName": "pages/publish-task/two/two",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/refund_detail/refund_detail",
+					"pathName": "pages/refund_detail/refund_detail",
 					"scene": null
 				}
 			]

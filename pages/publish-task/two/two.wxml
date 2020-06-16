@@ -1,36 +1,29 @@
-<!--pages/publish-task/two/two.wxml-->
+<!-- pages/publish-task/two/two.wxml -->
 <view class="page">
     <!-- <view class="warn">
         招标任务已结束，请雇佣一个家政
     </view> -->
     <view class="info">
-        <view class="line1">
-            {{renlist.demand_title}}
-        </view>
-        <view class="line2">
-            雇用截止时间：{{renlist.offer_endtime}}
-        </view>
-        <view class="line3" bind:tap="demandDetails">
-            需求详情 >
-        </view>
+        <view class="line1">{{renlist.demand_title}}</view>
+        <view class="line2">雇用截止时间：{{renlist.offer_endtime}}</view>
+        <view class="line3" bind:tap="demandDetails">需求详情 ></view>
     </view>
-
     <view class="middle">
-        <view class="line1">
-            在线雇佣 平台全程保障 更放心
-        </view>
+        <view class="line1">在线雇佣 平台全程保障 更放心</view>
         <view class="line2">
             <view class="border"></view>
             <text>已有3位家政为您报价</text>
             <view class="border"></view>
         </view>
     </view>
-
     <view class="users">
         <view class="item" wx:for="{{renlist.list}}" wx:key="index">
             <view class="top">
-                <text>报价：<text class="color">{{item.price}}元</text></text>
-                <view class="button">取消订单</view>
+                <text class="tcstom">
+                    <text>报价：</text>
+                    <text class="color">{{item.price}}元</text>
+                </text>
+                <!-- <view class="button">取消订单</view> -->
             </view>
             <view class="detail">
                 <view class="line1">

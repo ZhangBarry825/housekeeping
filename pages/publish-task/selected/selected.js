@@ -7,58 +7,58 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataset:{},
-    demand:'',
-    order_id:'',
-    master_user_id:''
+    dataset: {},
+    demand: '',
+    order_id: '',
+    master_user_id: ''
   },
   // 创建订单
-  weChatPdaayment(){
-    let that=this
+  weChatPdaayment () {
+    let that = this
     api.post({
       url: `/Demand/insert_order`,
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        demand_id:this.data.demand_id,
-        master_user_id:this.data.master_user_id,
-        price:1
+        demand_id: this.data.demand_id,
+        master_user_id: this.data.master_user_id,
+        price: 1
       },
       success: res => {
-        console.log(res,"111")
-        api.post({
-          url: `/Demand/order_payment`,
-          data: {
-            user_id:wx.getStorageSync('userid'),
-            user_token: wx.getStorageSync('token'),
-            demand_id:that.data.demand_id,
-            order_id:res.data.order_id,
-            master_user_id:res.data.master_user_id,
-          },
-          success: res => {
-            console.log(res,"zhifu")
-          }
-      })
+        console.log(res, "111")
+        // api.post({
+        //   url: `/Demand/order_payment`,
+        //   data: {
+        //     user_id: wx.getStorageSync('userid'),
+        //     user_token: wx.getStorageSync('token'),
+        //     demand_id: that.data.demand_id,
+        //     order_id: res.data.order_id,
+        //     master_user_id: res.data.master_user_id,
+        //   },
+        //   success: res => {
+        //     console.log(res, "zhifu")
+        //   }
+        // })
       }
-  })
+    })
   },
   // 获取数据
-  retrieveData(){
+  retrieveData () {
     api.post({
       url: `/Order/offer_info`,
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        demand_id:this.data.demand_id,
-        master_user_id:this.data.master_user_id
+        demand_id: this.data.demand_id,
+        master_user_id: this.data.master_user_id
       },
       success: res => {
         this.setData({
-          dataset:res.list
+          dataset: res.list
         })
-        console.log(res,"111")
+        console.log(res, "111")
       }
-  })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -66,8 +66,8 @@ Page({
   onLoad: function (options) {
     let dataset = JSON.parse(options.dataset);
     this.setData({
-      master_user_id:dataset.master_user_id,
-      demand_id:options.demand_id
+      master_user_id: dataset.master_user_id,
+      demand_id: options.demand_id
     })
     this.retrieveData()
     console.log(dataset)

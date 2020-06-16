@@ -1,18 +1,40 @@
 // pages/refund_detail/refund_detail.js
+const api = require('../../../utils/api.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    order_id: '',
+    renlist: {}
   },
-
+  retrieveData () {
+    let that = this
+    api.post({
+      url: `/Order/order_refund_info/`,
+      data: {
+        user_id: wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id: this.data.order_id
+      },
+      success: res => {
+        console.log(res)
+        that.setData({
+          renlist: res
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      renlist: options.orderid
+    })
+    // 
   },
 
   /**

@@ -86,7 +86,9 @@
         box-sizing: border-box;
         justify-content: space-between;
         color: #999;
-
+        .tcstom {
+          display: flex;
+        }
         .color {
           color: #ff9b85;
         }
@@ -106,58 +108,58 @@
         padding: 10rpx;
         box-sizing: border-box;
         border-bottom: 0.5px solid gainsboro;
-        .line1{
+        .line1 {
           width: 100%;
           display: flex;
           flex-direction: row;
-          .avatar{
+          .avatar {
             width: 80rpx;
             height: 80rpx;
             border-radius: 50rpx;
           }
-          .userinfo{
+          .userinfo {
             display: flex;
             flex-direction: column;
             margin-left: 20rpx;
 
-            .info1{
+            .info1 {
               padding: 10rpx 0;
               display: flex;
               font-size: 25rpx;
-              .name{
+              .name {
                 font-size: 27rpx;
                 font-weight: bold;
               }
-              .gold{
+              .gold {
                 color: #f3b64b;
                 border: 1px solid #f3b64b;
                 padding: 0 10rpx;
                 border-radius: 10rpx;
                 margin: 0 20rpx;
               }
-              .distance{
+              .distance {
                 display: flex;
                 align-items: center;
-                image{
+                image {
                   width: 30rpx;
                   height: 30rpx;
                 }
-                text{
+                text {
                   color: #5a5a5a;
                 }
               }
             }
-            .info2{
+            .info2 {
               color: #26a859;
               padding: 10rpx 0;
             }
           }
         }
-        .line2{
+        .line2 {
           display: flex;
           padding: 20rpx 0;
           justify-content: space-around;
-          view{
+          view {
             border-radius: 5rpx;
             color: #5a5a5a;
             background-color: #f5f5f5;
@@ -172,25 +174,25 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .bottom1,.bottom3{
+        .bottom1,
+        .bottom3 {
           width: 50%;
           display: flex;
           justify-content: center;
           align-items: center;
-          image{
+          image {
             width: 30rpx;
             height: 30rpx;
           }
-          text{
+          text {
             margin-left: 10rpx;
           }
         }
-        .bottom2{
+        .bottom2 {
           height: 20rpx;
           border-right: 1px solid #999;
         }
       }
-
     }
   }
 }
