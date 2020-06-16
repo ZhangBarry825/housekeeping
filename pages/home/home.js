@@ -200,7 +200,7 @@ Page({
                             var icon = list[i];
                             icon.icon = api.HOST + '/' + icon.icon;
 
-                            if (icon.children.length > 0) {
+                            if (icon.children && icon.children.length > 0) {
                                 for (var y = 0;y < icon.children.length;y++) {
                                     icon.children[y].icon = api.HOST + '/' + icon.children[y].icon;
                                 }
