@@ -12,7 +12,8 @@ Page({
     ifShow: false,
     order_id: '',
     renlist: {},
-    qrCode: ""
+    qrCode: "",
+    verification_code: ''
   },
   retrieveData () {
 
@@ -77,9 +78,10 @@ Page({
       },
       success: res => {
         this.setData({
-          qrCode: api.HOST + `/wxapi.php/Home/qrcode/?data=${res.data.verification_code}` + '/&client_id=' + api.client_id + "&client_secret=" + api.client_secret
+          qrCode: api.HOST + `/wxapi.php/Home/qrcode/?data=${res.data.verification_code}` + '/&client_id=' + api.client_id + "&client_secret=" + api.client_secret,
+          verification_code: res.data.verification_code
         })
-        console.log(res)
+        console.log(res.data.verification_code)
         // api.post({
         //   url: `/Home/qrcode/?data=${res.data.verification_code}`,
         //   noNeed:true,

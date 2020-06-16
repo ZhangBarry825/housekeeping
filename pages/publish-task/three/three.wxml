@@ -106,7 +106,7 @@
         <view class="top">
             <!-- <image src="../../../images/erweima.png"></image> -->
             <image src="{{qrCode}}"></image>
-            <text>5856352278</text>
+            <text>{{verification_code}}</text>
         </view>
         <view class="tips">
             请师傅扫码核销
