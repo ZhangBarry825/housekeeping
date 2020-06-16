@@ -104,6 +104,7 @@
 }
 .page .dialog .title .left .no {
   color: #26a859;
+  line-height: 7rpx;
 }
 .page .dialog .title .left image {
   width: 40rpx;
@@ -138,10 +139,10 @@
 }
 .page .dialog .content .line3 .line-title {
   width: 100%;
-  padding: 5rpx 0 ;
+  padding: 5rpx 0;
 }
 .page .dialog .content .line3 .line-content {
-  padding: 5rpx 0 ;
+  padding: 5rpx 0;
   width: 100%;
   color: #999;
 }

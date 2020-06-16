@@ -1,5 +1,6 @@
 // pages/publish-task/two/two.js
 const api = require('../../../utils/api.js');
+import { numToTime } from "../../../utils/util";
 const app = getApp()
 Page({
 
@@ -7,41 +8,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-    orderId:'',
-    renlist:{}
+    orderId: '',
+    renlist: {}
   },
-  goTo(e){
+  goTo (e) {
     wx.navigateTo({
-      url:'/pages/publish-task/selected/selected?dataset='+JSON.stringify(e.currentTarget.dataset.item)+'&demand='+this.data.renlist.demand_title+'&demand_id='+this.data.orderId
+      url: '/pages/publish-task/selected/selected?dataset=' + JSON.stringify(e.currentTarget.dataset.item) + '&demand=' + this.data.renlist.demand_title + '&demand_id=' + this.data.orderId
     })
-  
+
   },
-  demandDetails(){
+  demandDetails () {
     console.log(this.data)
     wx.navigateTo({
-      url:'/pages/publish-task/detail/detail?demand_id='+this.data.orderId
+      url: '/pages/publish-task/detail/detail?demand_id=' + this.data.orderId
     })
   },
   // 获取列表
-  retrieveData(){
-    let that=this
+  retrieveData () {
+    let that = this
     api.post({
       url: `/Order/demand_offer_list/${1}/${100}`,
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        demand_id:this.data.orderId
+        demand_id: this.data.orderId
       },
       success: res => {
+        renlist.offer_endtime = numToTime(renlist.offer_endtime)
         that.setData({
-          renlist:res
+          renlist: res
         })
-        console.log(that.data.renlist,"111")
+        console.log(that.data.renlist, "111")
       }
-  })
+    })
   },
   // 拨打电话
-  contact(e){
+  contact (e) {
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone
     })
@@ -52,7 +54,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      orderId:options.demandid
+      orderId: options.demandid
     })
     this.retrieveData()
   },
