@@ -1,5 +1,6 @@
 // pages/refund_detail/refund_detail.js
 const api = require('../../utils/api.js');
+import { numToTime } from "../../utils/util";
 const app = getApp()
 Page({
 
@@ -13,7 +14,7 @@ Page({
   retrieveData () {
     let that = this
     api.post({
-      url: `/Order/order_refund_info/`,
+      url: `/Order/order_refund_info`,
       data: {
         user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
@@ -21,9 +22,14 @@ Page({
       },
       success: res => {
         console.log(res)
+        res.data.create_time = numToTime(res.data.create_time)
+        if (res.data.refund_amount == null) {
+          res.data.refund_amount = 0
+        }
         that.setData({
-          renlist: res
+          renlist: res.data
         })
+        console.log(that.data, "赋值数据")
       }
     })
   },
@@ -32,7 +38,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      renlist: options.orderid
+      order_id: options.orderid
     })
     // 
   },
@@ -48,6 +54,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.retrieveData()
 
   },
 

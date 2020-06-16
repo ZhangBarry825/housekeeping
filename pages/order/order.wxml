@@ -24,7 +24,8 @@
                         <view class="left">{{item.title}}</view>
                         <view class="right" > {{item.status==0?'暂无报价':item.status==1?item.offer_total+'人已经报价':item.status==2?'未预约':item.status==3?'待上门':item.status==4?'已上门':
                         item.status==5?'已完成':item.status==6?'已评价':item.status==7?'退款申请':item.status==8?'确认退款':item.status==9?'已退款':
-                        item.status==10?'需求取消':item.status==11?'需求关闭':item.status==12?'投诉':'无状态'}} </view>
+                        item.status==10?'需求取消':item.status==11?'需求关闭':item.status==12?'投诉':item.status==21?"退款申请":item.status==22?"师傅同意退款"
+                        :item.status==23?"师傅拒绝退款":item.status==24?"退款客服介入":item.status==25?"退款完成":'暂无状态'}} </view>
                         <!-- wx:if="{{item.status==0?}}" -->
                         <!-- <view class="right">{{item.offer_total}}人已经报价</view> -->
                     </view>

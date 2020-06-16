@@ -88,18 +88,15 @@ Page({
             wx.navigateTo({
                 url: '/pages/publish-task/two/two?demandid=' + e.currentTarget.dataset.demandid
             })
-        } else if (status == 7) {
+        } else if (status == 21 || status == 22 || status == 23 || status == 24 || status == 25) {
             wx.navigateTo({
                 url: '/pages/refund_detail/refund_detail?orderid=' + orderid
             })
         } else if (status == 0 || status == 12 || status == 11) {
-            // wx.showToast({
-            //     title: '当前不可操作',
-            //     icon: 'none',
-            //     duration: 2000
-            // })
-            wx.navigateTo({
-                url: 'pages/refund_detail/refund_detail?orderid=' + orderid
+            wx.showToast({
+                title: '当前不可操作',
+                icon: 'none',
+                duration: 2000
             })
         } else if (orderid) {
             wx.navigateTo({

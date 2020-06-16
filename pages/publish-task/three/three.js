@@ -1,5 +1,5 @@
 // pages/publish-task/three/three.js
-import {numToTime} from "../../../utils/util";
+import { numToTime } from "../../../utils/util";
 
 const api = require('../../../utils/api.js');
 const app = getApp()
@@ -9,74 +9,75 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ifShow:false,
-    order_id:'',
-    renlist:{},
-    qrCode:""
+    ifShow: false,
+    order_id: '',
+    renlist: {},
+    qrCode: ""
   },
-  retrieveData(){
+  retrieveData () {
 
     api.post({
       url: `/Order/order_info`,
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        order_id:this.data.order_id
+        order_id: this.data.order_id
       },
       success: res => {
-        if(res.list.demand_time!=null && res.list.demand_time!=undefined ){
-          res.list.demand_time0=true
-          res.list.demand_time1=numToTime(res.list.demand_time).split(' ')[0]
-          res.list.demand_time2=numToTime(res.list.demand_time).split(' ')[1]
-        }else {
-          res.list.demand_time0=false
+        res.list.create_time = numToTime(res.list.create_time)
+        if (res.list.demand_time != null && res.list.demand_time != undefined) {
+          res.list.demand_time0 = true
+          res.list.demand_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.demand_time0 = false
         }
-        if(res.list.booking_date!=null && res.list.booking_date!=undefined ){
-          res.list.booking_date0=true
-          res.list.booking_date1=numToTime(res.list.booking_date).split(' ')[0]
-        }else {
-          res.list.booking_date0=false
+        if (res.list.booking_date != null && res.list.booking_date != undefined) {
+          res.list.booking_date0 = true
+          res.list.booking_date1 = numToTime(res.list.booking_date).split(' ')[0]
+        } else {
+          res.list.booking_date0 = false
         }
-        if(res.list.demand_time!=null && res.list.demand_time!=undefined ){
-          res.list.demand_time0=true
-          res.list.demand_time1=numToTime(res.list.demand_time).split(' ')[0]
-          res.list.demand_time2=numToTime(res.list.demand_time).split(' ')[1]
-        }else {
-          res.list.demand_time0=false
+        if (res.list.demand_time != null && res.list.demand_time != undefined) {
+          res.list.demand_time0 = true
+          res.list.demand_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.demand_time0 = false
         }
-        if(res.list.door_in_time!=null && res.list.door_in_time!=undefined ){
-          res.list.door_in_time0=true
-          res.list.door_in_time1=numToTime(res.list.demand_time).split(' ')[0]
-          res.list.door_in_time2=numToTime(res.list.demand_time).split(' ')[1]
-        }else {
-          res.list.door_in_time0=false
+        if (res.list.door_in_time != null && res.list.door_in_time != undefined) {
+          res.list.door_in_time0 = true
+          res.list.door_in_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.door_in_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.door_in_time0 = false
         }
 
         this.setData({
-          renlist:res.list
+          renlist: res.list
         })
-        console.log(res,"111")
+        console.log(res, "111")
       }
-  })
-  },
-  // 跳转需求
-  goToDetail(){
-    console.log(this.data.renlist)
-    wx.navigateTo({
-      url:'/pages/publish-task/detail/detail?demand_id='+this.data.renlist.demand_id
     })
   },
-  checkService(){
+  // 跳转需求
+  goToDetail () {
+    console.log(this.data.renlist)
+    wx.navigateTo({
+      url: '/pages/publish-task/detail/detail?demand_id=' + this.data.renlist.demand_id
+    })
+  },
+  checkService () {
     api.post({
       url: `/Order/acceptance_service/`,
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        order_id:this.data.order_id,
+        order_id: this.data.order_id,
       },
       success: res => {
         this.setData({
-          qrCode:api.HOST + `/wxapi.php/Home/qrcode/?data=${res.data.verification_code}` + '/&client_id='+ api.client_id+ "&client_secret=" + api.client_secret
+          qrCode: api.HOST + `/wxapi.php/Home/qrcode/?data=${res.data.verification_code}` + '/&client_id=' + api.client_id + "&client_secret=" + api.client_secret
         })
         console.log(res)
         // api.post({
@@ -91,28 +92,28 @@ Page({
       }
     })
     this.setData({
-      ifShow:true
+      ifShow: true
     })
   },
   // 跳转投诉
-  complaint(){
+  complaint () {
     wx.navigateTo({
-      url:'/pages/publish-task/five/five?order_id='+this.data.order_id
+      url: '/pages/publish-task/five/five?order_id=' + this.data.order_id
     })
   },
-  refund(){
+  refund () {
     wx.navigateTo({
-      url:'/pages/refund/refund?order_id='+this.data.order_id+'&order_amount'+this.data.renlist.offer_price+'&renlist='+JSON.stringify(this.data.renlist)
+      url: '/pages/refund/refund?order_id=' + this.data.order_id + '&order_amount' + this.data.renlist.offer_price + '&renlist=' + JSON.stringify(this.data.renlist)
     })
   },
-  cancelCheck(){
+  cancelCheck () {
     this.setData({
-      ifShow:false
+      ifShow: false
     })
   },
-  appendMoney(){
+  appendMoney () {
     wx.navigateTo({
-      url:'/pages/append/append'
+      url: '/pages/append/append?renlist=' + JSON.stringify(this.data.renlist)
     })
   },
   /**
@@ -120,7 +121,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      order_id:options.orderid
+      order_id: options.orderid
     })
     this.retrieveData()
   },

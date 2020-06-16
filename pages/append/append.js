@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    renlist: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    options.renlist = JSON.parse(options.renlist);
+    console.log(options)
+    this.setData({
+      renlist: options.renlist
+    })
   },
 
   /**
