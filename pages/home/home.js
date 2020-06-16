@@ -100,6 +100,10 @@ Page({
                 url: '/pages/shouquan/shouquan',
             })
         }
+
+        setTimeout(()=>{
+            wx.stopPullDownRefresh();
+        },2000)
     },
 
     /**
