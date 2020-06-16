@@ -10,7 +10,7 @@ Page({
      */
     data: {
         pageNum:1,
-        pageSize:20,
+        pageSize:10,
         dataList:[]
     },
     changeMenu(e) {
@@ -22,7 +22,7 @@ Page({
     goToCheck(e) {
         let id=e.currentTarget.dataset.id
         wx.navigateTo({
-            url: '/pages/publish-task/three/three?id='+id
+            url: '/pages/comment_detail/comment_detail?id='+id
         })
     },
     goToComment(e) {
@@ -31,10 +31,13 @@ Page({
             url: '/pages/publish-task/four/four?id='+id
         })
     },
-    fetchData() {
+    fetchData(pageNum=1) {
         let that = this
+        wx.showLoading({
+            title: '加载中',
+        })
         api.post({
-            url: '/Order/order_evaluation_list/'+this.data.pageNum+'/'+this.data.pageSize,
+            url: '/Order/order_evaluation_list/'+pageNum+'/'+this.data.pageSize,
             data: {
                 user_id:wx.getStorageSync('userid'),
                 user_token:wx.getStorageSync('token'),
@@ -46,11 +49,15 @@ Page({
                         res.list[i].demand_time=numToTime(res.list[i].demand_time)
                     }
                     that.setData({
-                        dataList: res.list
+                        dataList: that.data.dataList.concat(res.list),
+                        pageNum:pageNum
                     })
                 } else {
                     console.log('获取数据失败');
                 }
+            },
+            complete: res => {
+                wx.hideLoading();
             }
         })
     },
@@ -58,7 +65,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.fetchData()
+        this.setData({
+            dataList:[]
+        })
     },
 
     /**
@@ -72,7 +81,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            dataList:[]
+        })
+        this.fetchData()
     },
 
     /**
@@ -100,7 +112,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        this.fetchData(this.pageNum+1)
     },
 
     /**

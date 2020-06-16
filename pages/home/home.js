@@ -87,7 +87,19 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
+        let that = this;
+        that.loadBanners();
+        that.lifeCommonSense();
+        that.navigations();
+        that.classMenuList();
 
+        let userid = wx.getStorageSync('userid');
+        console.log(userid,'userid');
+        if(userid=='' || userid==undefined){
+            wx.navigateTo({
+                url: '/pages/shouquan/shouquan',
+            })
+        }
     },
 
     /**

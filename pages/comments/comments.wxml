@@ -14,10 +14,10 @@
                         <view class="left">
                             {{item.title}}
                         </view>
-                        <view class="right " wx:if="{{item.status=='3'}}">
+                        <view class="right " wx:if="{{item.status=='4'}}">
                             待评价
                         </view>
-                        <view class="right" wx:if="{{item.status=='11'}}">
+                        <view class="right" wx:if="{{item.status=='12'}}">
                             已评价
                         </view>
                     </view>
@@ -27,8 +27,8 @@
                 </view>
                 <view class="bottom">
                     <text>订单价格： <text class="color">120元</text></text>
-                    <view class="button1" bind:tap="goToComment" data-id="{{item.order_id}}" wx:if="{{item.status=='3'}}">去评价</view>
-                    <view class="button2" bind:tap="goToCheck" data-id="{{item.order_id}}" wx:if="{{item.status=='11'}}">查看</view>
+                    <view class="button1" bind:tap="goToComment" data-id="{{item.order_id}}" wx:if="{{item.status=='4'}}">评价</view>
+                    <view class="button2" bind:tap="goToCheck" data-id="{{item.order_id}}" wx:if="{{item.status=='12'}}">查看</view>
                 </view>
             </view>
         </view>
