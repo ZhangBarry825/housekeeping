@@ -27,6 +27,12 @@ Page({
             wx.navigateTo({
                 url: "/pages/join/join"
             })
+        }else {
+            wx.showToast({
+                title:this.data.status==1?'待审核':this.data.status==2?'审核通过':this.data.status==3?'审核未通过':'',
+                icon: 'none',
+                duration: 2000
+            })
         }
 
     },
@@ -48,6 +54,7 @@ Page({
 
     },
     fetchStatus(){
+        let that = this
         api.post({
             url: '/User/update_user_info/status',
             data: {

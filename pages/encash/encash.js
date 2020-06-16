@@ -71,9 +71,17 @@ Page({
         success: res => {
           console.log(res, 765)
           if (res.code == 200) {
-
+            wx.showToast({
+              title: res.msg ,
+              icon: 'success',
+              duration: 2000
+            })
           } else {
-            console.log('获取数据失败');
+            wx.showToast({
+              title: res.msg ,
+              icon: 'none',
+              duration: 2000
+            })
           }
         }
       })

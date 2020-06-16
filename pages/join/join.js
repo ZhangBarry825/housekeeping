@@ -205,6 +205,11 @@ Page({
                             icon:'success',
                             duration:2000
                         })
+                        setTimeout(()=>{
+                            wx.navigateBack({
+                                delta: 1
+                            })
+                        },2000)
                     } else {
                         console.log('获取数据失败');
                     }
