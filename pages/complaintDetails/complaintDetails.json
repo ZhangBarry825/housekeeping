@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-gallery": "../../miniprogram_npm/weui-miniprogram/gallery/gallery"
+  },
+  "navigationBarTitleText": "投诉详情"
+}

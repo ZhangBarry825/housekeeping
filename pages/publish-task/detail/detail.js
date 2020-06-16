@@ -7,63 +7,63 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hostUrl:'',
-    demand_id:'',
-    detailData:{},
-    innerAudioContext:'',
-    voiceImg:'../../../images/voice1.png',
+    hostUrl: '',
+    demand_id: '',
+    detailData: {},
+    innerAudioContext: '',
+    voiceImg: '../../../images/voice1.png',
     show: false,
-    hasVoice:false
+    hasVoice: false
   },
-  previewImg(){
+  previewImg () {
     this.setData({
-      show:true
+      show: true
     })
   },
-  change(e) {
+  change (e) {
     console.log('current index has changed', e.detail)
   },
-  hide() {
+  hide (e) {
     console.log('component hide')
   },
   // 需求详情
-  getDemand(){
+  getDemand () {
     let that = this
     api.post({
       url: '/Demand/demand_info',
       data: {
-        user_id:wx.getStorageSync('userid'),
+        user_id: wx.getStorageSync('userid'),
         user_token: wx.getStorageSync('token'),
-        demand_id:this.data.demand_id,
+        demand_id: this.data.demand_id,
       },
       success: res => {
-        let images=[]
-        for (let i = 0; i < res.data.images.length; i++) {
-          images.push(api.HOST+'/'+res.data.images[i])
+        let images = []
+        for (let i = 0;i < res.data.images.length;i++) {
+          images.push(api.HOST + '/' + res.data.images[i])
         }
-        console.log( res.data.voice,'7777777777777777777777777777777777777')
-        if(res.data.voice!=="" && res.data.voice!=null && res.data.voice!=' '){
+        console.log(res.data.voice, '7777777777777777777777777777777777777')
+        if (res.data.voice !== "" && res.data.voice != null && res.data.voice != ' ') {
           this.setData({
-            hasVoice:true
+            hasVoice: true
           })
-          res.data.voice=that.data.hostUrl+'/'+res.data.voice
-        }else {
+          res.data.voice = that.data.hostUrl + '/' + res.data.voice
+        } else {
           this.setData({
-            hasVoice:false
+            hasVoice: false
           })
         }
-        console.log( res.data.voice,'88888888888888888888888888888888888888888888888')
-        res.data.images=images
+        console.log(res.data.voice, '88888888888888888888888888888888888888888888888')
+        res.data.images = images
         that.setData({
-          detailData:res.data
+          detailData: res.data
         })
-        console.log(images,888)
-        console.log(api.HOST,998)
-        console.log(res.data,99999999)
+        console.log(images, 888)
+        console.log(api.HOST, 998)
+        console.log(res.data, 99999999)
       }
-  })
+    })
   },
-  playRecord() {
+  playRecord () {
     console.log(this.data.voice)
     console.log('play')
     let that = this
@@ -91,10 +91,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options,998)
+    console.log(options, 998)
     this.setData({
-      demand_id:options.demand_id,
-      hostUrl:api.HOST,
+      demand_id: options.demand_id,
+      hostUrl: api.HOST,
       innerAudioContext: wx.createInnerAudioContext(),
     })
     this.getDemand()
