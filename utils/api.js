@@ -158,7 +158,8 @@ module.exports = {
                                 wx.getUserInfo({
                                     lang: 'zh_CN',
                                     success: function (res) {
-                                        console.log(res, '333');
+                                        console.log(JSON.parse(res.rawData), '333');
+                                        wx.setStorageSync('avatar', JSON.parse(res.rawData).avatarUrl);
                                     }
                                 })
 

@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <view class="page">
     <view class="avatar-box">
-        <image mode="aspectFill" class="avatar" src="../../images/avatar.png"></image>
+        <image mode="aspectFill" class="avatar" src="{{avatarUrl}}"></image>
     </view>
     <view class="weui-cells weui-cells_after-title">
         <navigator url="/pages/comments/comments" class="weui-cell weui-cell_access" hover-class="weui-cell_active">

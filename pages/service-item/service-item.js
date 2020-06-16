@@ -30,7 +30,7 @@ Page({
     });
   },
   goDetail(e){
-    let path = '/pages/publish-task/one/one?id=' + e.currentTarget.dataset.item.id
+    let path = '/pages/publish-task/one/one?id=' + e.currentTarget.dataset.item.id+"&pid="+e.currentTarget.dataset.item.pid
     console.log(path,89)
     wx.navigateTo({
       url: path

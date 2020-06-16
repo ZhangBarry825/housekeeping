@@ -10,6 +10,7 @@ Page({
         showContact: false,
         phone: '',
         status: 0,
+        avatarUrl: "../../images/avatar.png"
     },
     contactUs () {
         this.setData({
@@ -87,6 +88,15 @@ Page({
         if (userid == '' || userid == undefined) {
             wx.navigateTo({
                 url: '/pages/shouquan/shouquan',
+            })
+        }
+        if(wx.getStorageSync('avatar').length>0){
+            this.setData({
+                avatarUrl:wx.getStorageSync('avatar')
+            })
+        }else {
+            this.setData({
+                avatarUrl: "../../images/avatar.png"
             })
         }
     },
