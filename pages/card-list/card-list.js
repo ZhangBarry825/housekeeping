@@ -29,7 +29,7 @@ Page({
                     user_id: wx.getStorageSync('userid'),
                     user_token: wx.getStorageSync('token'),
                     status:current.status,
-                    id:current.cardid,
+                    id:current.bankcard_id,
                 },
                 success: res => {
                     wx.showToast({
