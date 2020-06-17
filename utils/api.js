@@ -15,6 +15,8 @@ module.exports = {
     client_secret: client_secret,
     API_ROOT: host + '/wxapi.php',
     API_VERSION: '1.1.0',
+    AppID: appid,
+    AppSecret: secret,
     post (options) {
         this.request(options);
     },

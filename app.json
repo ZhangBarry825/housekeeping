@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/share-page/share-page",
     "pages/home/home",
     "pages/refund_detail/refund_detail",
     "pages/comment_detail/comment_detail",
@@ -17,6 +18,7 @@
     "pages/append/append",
     "pages/join/join",
     "pages/share/share",
+
     "pages/card-list/card-list",
     "pages/distribution/distribution",
     "pages/team/team",

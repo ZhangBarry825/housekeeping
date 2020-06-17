@@ -287,6 +287,12 @@ Page({
                 }
             }
         })
+        api.get({
+            url: '/Article/user_agreement',
+            success: res => {
+                console.log(res,999)
+            }
+        })
     },
     /**
      * 生命周期函数--监听页面加载
