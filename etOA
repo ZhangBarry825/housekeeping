@@ -1,0 +1,303 @@
+[33mcommit 4dbd2dbe85b4527083cd6b0373144661201b6132[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Your Name <you@example.com>
+Date:   Wed Jun 17 15:50:43 2020 +0800
+
+    补加金额
+
+[33mcommit 88375231191ff9560e6e7d9bf695093f9d087fbf[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 19:14:11 2020 +0800
+
+    xiugai
+
+[33mcommit d6906a5518753c2c5342b059a19f4c9492310322[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 18:46:53 2020 +0800
+
+    投诉
+
+[33mcommit e757727752f36eeccfa25dec6898923b247aadea[m
+Merge: ce8192c e68133c
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 18:46:26 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit ce8192cefa30852d2b9c466ed4c42606d53f5234[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 18:45:59 2020 +0800
+
+    首页刷新、评价列表
+
+[33mcommit e68133c0a2d3caff130cbeb6119208cb605e7670[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 17:38:34 2020 +0800
+
+    投诉
+
+[33mcommit 2008ea7a57502cda44b15f0e08033eadb2ba2bc7[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 17:37:15 2020 +0800
+
+    退款头像等等
+
+[33mcommit 2cecd48aa185f108ef1349dda8cae41ed69b0b7a[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 17:27:38 2020 +0800
+
+    头像、评价详情等等
+
+[33mcommit 77c51ea8e9469d033925f2cf24a53985ad2fc635[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 16:09:21 2020 +0800
+
+    tuikuan
+
+[33mcommit 2b18f69ade2a58b9e30711f7649d85bc6afcdaab[m
+Merge: a162388 b818e10
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 16:03:17 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       pages/order/order.js
+
+[33mcommit b818e10a2d23b336ec2448d8e9e7b889d5b5e6df[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 16:01:02 2020 +0800
+
+    退款
+
+[33mcommit a16238896a651b0cd017211c75c941cbbf7318c0[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 16:01:06 2020 +0800
+
+    订单，需求详情
+
+[33mcommit fb35c6cd97ec2b033d884acd8fe44409ed180f45[m
+Merge: e7373c8 b70779b
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 14:07:57 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit e7373c888cea1689fd7b3ec73f04d0cadb28ce3c[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 14:07:48 2020 +0800
+
+    提现
+
+[33mcommit b70779b5121dd8c61c36a622d70759b37cf33437[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 12:28:05 2020 +0800
+
+    添加退款详情
+
+[33mcommit 6c9e76ae50d2161c87af51d711eff4db4ab6e2f1[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 12:17:35 2020 +0800
+
+    提现、我的入驻状态
+
+[33mcommit 5ce71653543f67f7bca7274e3dd2b7b1616124ca[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 11:29:10 2020 +0800
+
+    添加微信支付
+
+[33mcommit de7515f972723a2d9a4f49c79ec379d9d525b2b2[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 11:26:20 2020 +0800
+
+    提现、我的入驻状态
+
+[33mcommit 85704f9ad989e5b8eb459477bec5cf79921f441e[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 10:40:24 2020 +0800
+
+    订单列表字段问题，支付回调
+
+[33mcommit 7e6e0afdc18393415418a6794d8ec5417932c461[m
+Merge: 9857814 5f338c3
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 10:17:46 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 985781431a2c927cf8240102574b34d5de7c4d31[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Tue Jun 16 10:17:34 2020 +0800
+
+    修改头像，跳转等
+
+[33mcommit 5f338c3918c20b20a69ae567bbfd1d6b933dcc54[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 10:15:56 2020 +0800
+
+    zhidu
+
+[33mcommit 8587e0b95ff71c1aea494ba58fcf739f81478242[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 09:50:06 2020 +0800
+
+    da
+
+[33mcommit 35359bdf19c4ead8b8068b89a3da37a314fb7947[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 16 08:51:13 2020 +0800
+
+    tijiao
+
+[33mcommit 4a53c69e4743a4237ffb973badb128e08b3934e2[m
+Author: Your Name <you@example.com>
+Date:   Mon Jun 15 16:13:50 2020 +0800
+
+    d
+
+[33mcommit 1b47fb722d1ee3d56e6097abe1b376c0450608cc[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Mon Jun 15 19:14:37 2020 +0800
+
+    需求详情、我的、评价等
+
+[33mcommit 5edcbefa42a1229e7f10d8c30be3b2372b7197d8[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Mon Jun 15 16:09:20 2020 +0800
+
+    play voice, none tips of team page.
+
+[33mcommit 0293a6be9345368bc480e575624d630e4eb4ded2[m
+Author: ZhangBarry <530027054@qq.com>
+Date:   Mon Jun 15 15:44:05 2020 +0800
+
+    update AppID AppSecret
+
+[33mcommit a502689ffd1c53392576981460efe65d8658b344[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Thu Jun 11 18:43:16 2020 +0800
+
+    修改我的团队
+
+[33mcommit 8509b04f6ee173a4892cb18e143f3144cdaeb3a6[m
+Merge: b63c578 4592293
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 10:59:59 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 4592293e8c84124b559220a57b66c3d6fcf6b5a5[m
+Author: Your Name <you@example.com>
+Date:   Wed Jun 10 10:57:34 2020 +0800
+
+    样式
+
+[33mcommit b63c578bf7b259ec2ef72d21476aa7ce07e97722[m
+Merge: 00d4dbd 37a08e8
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 10:54:52 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 00d4dbde886337b456fb684064290a78b62233d9[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 10:54:43 2020 +0800
+
+    修改部分页面样式
+
+[33mcommit 37a08e8117bfbce71a70c07a757126b8edd8107c[m
+Author: Your Name <you@example.com>
+Date:   Wed Jun 10 10:52:30 2020 +0800
+
+    修改样式
+
+[33mcommit 3d84cfaef4b9887fa5e3c2da2b9362bb9f100a97[m
+Merge: 0c4a540 662e99e
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 10:21:27 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 0c4a540be137e047648e51c294e9825025c5a316[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 10:21:17 2020 +0800
+
+    订单样式、消费记录、评价列表
+
+[33mcommit 662e99e3e5ce3838b8f441492e1cc65f053f33c9[m
+Author: Your Name <you@example.com>
+Date:   Wed Jun 10 10:21:06 2020 +0800
+
+    修改下拉动作
+
+[33mcommit 146edcde0fe4079ffe2386ce58259587f5a566d8[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Wed Jun 10 09:19:44 2020 +0800
+
+    更新appID
+
+[33mcommit 71f8fb03026d161c6c285203f064dcf9b2bf6f53[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 20:36:57 2020 +0800
+
+    订单列表修改
+
+[33mcommit eb64f2d06158f8a75adef60bc7dca4485e98cc1b[m
+Merge: 2384d66 be70f29
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 20:22:31 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 2384d66057aeffd9b6228534d0fc13b93c8ccf4a[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 20:22:14 2020 +0800
+
+    需求详情
+
+[33mcommit be70f29913ecb95e55c899f491a481f26f70cd83[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 9 20:11:09 2020 +0800
+
+    订单
+
+[33mcommit e125e47e0a414822e4be3024d9749dc07f1a3404[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 9 18:39:02 2020 +0800
+
+    订单那
+
+[33mcommit f441703de477f87ae541c61bc8f4a9cd8a0c394c[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 18:36:55 2020 +0800
+
+    新增退款详情、评价详情页面
+
+[33mcommit 5c138f74e39e0400de43828e828eccf9f9f06796[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 18:36:22 2020 +0800
+
+    新增退款详情、评价详情页面
+
+[33mcommit 5a2cb4d95252de00b79ce52ba6277da8807e5071[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 17:28:32 2020 +0800
+
+    家政上门流程时间
+
+[33mcommit 2cbab0a318b222537849e12ac98fcd4f9bae7d67[m
+Merge: 39985ea 70792ce
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 16:32:57 2020 +0800
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit 70792cea64c20c467d33ccd7b99f331a34d1630f[m
+Author: Your Name <you@example.com>
+Date:   Tue Jun 9 16:31:17 2020 +0800
+
+    添加订单那
+
+[33mcommit 39985eaf987af5c95c09d7ba84cbd4dee007bd3a[m
+Author: zhangbarry <530027054@qq.com>
+Date:   Tue Jun 9 16:

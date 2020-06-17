@@ -26,9 +26,9 @@
     </view>
     <view class="orderPrice">
         <text class="title">补加金额</text>
-        <input class="weui-input" placeholder="请输入补加金额" />
+        <input class="weui-input" bindinput="getCode" placeholder="请输入补加金额" />
     </view>
     <view class="submit">
-        <view class="button">微信付款</view>
+        <view class="button" bind:tap="weChatPay">微信付款</view>
     </view>
 </view>
