@@ -85,7 +85,7 @@
                     <text>1、需要本人上身免冠照</text>
                     <text>2、照片五官清晰可见</text>
                     <text>3、照片身份证号码可见</text>
-                    <text class="example">查看示例照片</text>
+                    <text class="example" bind:tap="seePhoto">查看示例照片</text>
                 </view>
             </view>
         </view>
@@ -95,7 +95,7 @@
             <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}"  class="weui-agree__checkbox-check"/>
             <span class="weui-agree__checkbox"></span>
             <span class="weui-agree__text">阅读并同意
-                <a catchtap="seeDetail" class="weui-agree__link">《家政平台用户协议》</a>
+                <a catchtap="seeDetail" data-id="{{agreementId}}" class="weui-agree__link">《家政平台用户协议》</a>
             </span>
         </label>
         <view class="button-box">

@@ -72,7 +72,7 @@
      <label class="weui-agree" bind:tap="checkChange">
             <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}" class="weui-agree__checkbox-check" />
             <span class="weui-agree__checkbox"></span>
-            <span class="weui-agree__text">我已阅读并同意<a catchtap="seeDetail" class="weui-agree__link">《家政平台“先行赔款”服务协议》</a><a catchtap="seeDetail" class="weui-agree__link">《隐私政策》</a></span>
+            <span class="weui-agree__text">我已阅读并同意<a catchtap="seeDetail" data-id="{{agreementOne}}" class="weui-agree__link">《家政平台“先行赔款”服务协议》</a><a catchtap="seeDetail" data-id="{{agreementTwo}}" class="weui-agree__link">《隐私政策》</a></span>
         </label>
     <view class="button-box">
         <view class="button" bind:tap="goTo" data-type="publish" >立即投诉</view>

@@ -24,6 +24,8 @@ Page({
         voiceImg: '../../../images/voice2.png',
         innerAudioContext: wx.createInnerAudioContext(),//音频播放上下文
 
+        agreementOne:'',
+        agreementTwo:'',
         recordStatus: false,
         recorderManager: '', //录音管理上下文
         recordVoice: {},
@@ -121,7 +123,6 @@ Page({
             console.log(res.errCode)
         })
     },
-
     pressButton () {
         let that = this
         if (this.data.hasRecordRight) {
@@ -279,36 +280,12 @@ Page({
         })
 
     },
-    seeDetail () {
-        console.log('detail')
+    seeDetail (e) {
+        let id=e.currentTarget.dataset.id
+        console.log(id)
         wx.navigateTo({
-            url: '/pages/agreement-detail/agreement-detail?id=9'
+            url: '/pages/agreement-detail/agreement-detail?id='+id
         })
-    },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        console.log(options)
-        let that = this
-        console.log('user-id', wx.getStorageSync('userid'))
-        console.log('token', wx.getStorageSync('token'))
-        console.log(options, 96)
-        this.setData({
-            category_id: options.id,
-            category_pid: options.pid,
-            innerAudioContext: wx.createInnerAudioContext(),
-            recorderManager: wx.getRecorderManager(),
-        })
-        this.data.recorderManager.onStop(res => {
-            res.duration = formatTimeMS(res.duration)
-            console.log(res.duration, 9090)
-            this.setData({
-                recordVoice: res,//contents是存储录音结束后的数据结构,用于渲染.
-            })
-            console.log(res, 98)
-        });
-
     },
     checkChange (e) {
         console.log(e)
@@ -375,6 +352,59 @@ Page({
 
         console.log(formData)
     },
+
+    fetchData(){
+        let that = this
+        api.get({
+            url: '/Article/privacy_agreement',
+            success: res => {
+                console.log(res, 765)
+                if(res.code == 200){
+                    that.setData({
+                        agreementTwo:res.data.article_id
+                    })
+                }
+            }
+        })
+        api.get({
+            url: '/Article/service_agreement',
+            success: res => {
+                console.log(res, 765)
+                if(res.code == 200){
+                    that.setData({
+                        agreementOne:res.data.article_id
+                    })
+                }
+            }
+        })
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        console.log(options)
+        let that = this
+        that.fetchData()
+        console.log('user-id', wx.getStorageSync('userid'))
+        console.log('token', wx.getStorageSync('token'))
+        console.log(options, 96)
+        this.setData({
+            category_id: options.id,
+            category_pid: options.pid,
+            innerAudioContext: wx.createInnerAudioContext(),
+            recorderManager: wx.getRecorderManager(),
+        })
+        this.data.recorderManager.onStop(res => {
+            res.duration = formatTimeMS(res.duration)
+            console.log(res.duration, 9090)
+            this.setData({
+                recordVoice: res,//contents是存储录音结束后的数据结构,用于渲染.
+            })
+            console.log(res, 98)
+        });
+
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

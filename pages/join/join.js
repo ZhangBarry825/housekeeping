@@ -225,10 +225,11 @@ Page({
         }
 
     },
-    seeDetail(){
+    seeDetail(e){
+        let id=e.currentTarget.dataset.id
       console.log('detail')
         wx.navigateTo({
-            url:'/pages/agreement-detail/agreement-detail?id=9'
+            url:'/pages/agreement-detail/agreement-detail?id='+id
         })
     },
     updateNickname(e) {
@@ -272,7 +273,6 @@ Page({
         api.get({
             url: '/Home/demand_category/9999',
             success: res => {
-                console.log(res, 765)
                 if (res.code == 200) {
                     let typeList = []
                     for (let i = 0; i < res.list.length; i++) {
@@ -290,7 +290,24 @@ Page({
         api.get({
             url: '/Article/user_agreement',
             success: res => {
-                console.log(res,999)
+                that.setData({
+                    agreementId:res.data.article_id
+                })
+
+            }
+        })
+
+
+    },
+    seePhoto(){
+        api.get({
+            url: 'Article/handheld_sample',
+            success: res => {
+                if(res.code==200){
+                    wx.navigateTo({
+                        url:'/pages/agreement-detail/agreement-detail?id='+res.data.article_id+'&title=示例图片'
+                    })
+                }
             }
         })
     },

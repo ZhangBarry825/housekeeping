@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    agreementOne:'',
+    agreementTwo:'',
     countryIndex: 0,
     order_id:'',
     array: [],
@@ -24,10 +26,11 @@ Page({
   },
   options_id:''
   },
-  seeDetail() {
+  seeDetail(e) {
+    let id = e.currentTarget.dataset.id
     console.log('detail')
     wx.navigateTo({
-        url: '/pages/agreement-detail/agreement-detail?id=9'/////////////..........
+        url: '/pages/agreement-detail/agreement-detail?id='+id
     })
 },
 // 确认投诉
@@ -259,11 +262,38 @@ checkChange(e) {
     })
     console.log(this.data,"打 ")
   },
+  fetchData(){
+    let that = this
+    api.get({
+      url: 'Article/advance_payments_agreement',
+      success: res => {
+        console.log(res,9090)
+        if(res.code==200){
+          that.setData({
+            agreementOne:res.data.article_id
+          })
+        }
+      }
+    })
+    api.get({
+      url: 'Article/privacy_agreement',
+      success: res => {
+        console.log(res,9090)
+        if(res.code==200){
+          that.setData({
+            agreementTwo:res.data.article_id
+          })
+        }
+      }
+    })
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.getAChoice()
+    this.fetchData()
     this.setData({
       order_id:options.order_id,
     })

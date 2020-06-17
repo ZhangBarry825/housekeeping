@@ -13,6 +13,11 @@ Page({
       url:'/pages/team/team'
     })
   },
+  goShare(){
+    wx.navigateTo({
+      url:'/pages/share-page/share-page'
+    })
+  },
   fetchData(){
     let that = this
     api.post({

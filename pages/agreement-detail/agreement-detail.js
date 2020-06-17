@@ -37,9 +37,15 @@ Page({
     this.setData({
       id:options.id
     })
-    wx.setNavigationBarTitle({
-      title: '协议详情'
-    })
+    if(options.title){
+      wx.setNavigationBarTitle({
+        title: options.title
+      })
+    }else {
+      wx.setNavigationBarTitle({
+        title: '协议详情'
+      })
+    }
     this.fetchData()
   },
 

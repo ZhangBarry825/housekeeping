@@ -12,7 +12,7 @@
             </view>
         </view>
     </view>
-    <view class="share">海报分享</view>
+    <view class="share" bind:tap="goShare">海报分享</view>
 
     <view class="tip">我的邀请</view>
     <view class="num">

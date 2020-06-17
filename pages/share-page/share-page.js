@@ -33,6 +33,24 @@ Page({
     //     })
     //   }
     // })
+
+    let that = this
+    api.post({
+      url: '/Home/Wxcode',
+      data: {
+        user_id:wx.getStorageSync('userid'),
+        user_token:wx.getStorageSync('token'),
+        page:'pages/home/home?invite_id='+wx.getStorageSync('userid')
+      },
+      success: res => {
+        console.log(res, 765)
+        if (res.code == 200) {
+
+        } else {
+          console.log('获取数据失败');
+        }
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
