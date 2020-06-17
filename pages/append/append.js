@@ -47,7 +47,6 @@ Page({
             console.log(res, "失败")
           }
         })
-        console.log(res, "111")
 
       }
     })
