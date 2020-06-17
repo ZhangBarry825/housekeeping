@@ -101,9 +101,9 @@ Page({
             })
         }
 
-        setTimeout(()=>{
+        setTimeout(() => {
             wx.stopPullDownRefresh();
-        },2000)
+        }, 2000)
     },
 
     /**
