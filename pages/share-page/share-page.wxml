@@ -1,4 +1,9 @@
 <!--pages/share-page/share-page.wxml-->
 <view class="page">
-
+    <view class="box">
+        <image src="../../images/erweima.png"></image>
+    </view>
+    <view class="text">
+        微信扫一扫
+    </view>
 </view>
