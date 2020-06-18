@@ -1,0 +1,265 @@
+.head {
+  background-color: #fff;
+  padding: 20rpx 0;
+}
+
+.head .user {
+  margin-top: 10rpx;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.head .user .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+}
+
+.head .user .userinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.head .user .userinfo .info1 {
+  padding: 10rpx 0;
+  display: flex;
+  font-size: 27rpx;
+}
+
+.head .user .userinfo .info1 .name {
+  font-size: 27rpx;
+  font-weight: bold;
+}
+
+.head .user .userinfo .info1 .gold {
+  color: #f3b64b;
+  border: 1px solid #f3b64b;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+}
+
+.head .user .userinfo .info1 .distance {
+  display: flex;
+  align-items: center;
+}
+
+.head .user .userinfo .info1 .distance image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.head .user .userinfo .info1 .distance text {
+  color: #5a5a5a;
+}
+
+.head .user .userinfo .info2 {
+  color: #26a859;
+  padding-bottom: 10rpx;
+  font-size: 25rpx;
+}
+
+.head .comment {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.head .comment > view {
+  padding: 0 20rpx;
+  background-color: #f5f5f5;
+  height: 50rpx;
+  font-size: 26rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  margin-left: 10rpx;
+  margin-bottom: 15rpx;
+}
+
+.commedsant {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10rpx;
+  background-color: #fff;
+  padding: 10rpx 20rpx;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+}
+
+.commedsant .title {
+  font-size: 28rpx;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.commedsant .title .time {
+  font-weight: normal;
+  color: #333;
+}
+
+.commedsant .appraiser {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+.commedsant .appraiser > view:nth-child(1) {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+}
+
+.commedsant .appraiser > view:nth-child(1) > image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50rpx;
+}
+
+.commedsant .appraiser .information > view:nth-child(1) {
+  display: flex;
+}
+
+.commedsant .appraiser .information > view:nth-child(1) > view:nth-child(1) {
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  padding: 10rpx 0;
+}
+
+.commedsant .appraiser .information > view:nth-child(1) .stars {
+  margin-left: 10rpx;
+  align-items: center;
+  padding: 10rpx 0;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.commedsant .appraiser .information > view:nth-child(1) .stars image {
+  margin-right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.commedsant .appraiser .information > view:nth-child(1) .stars text {
+  color: #5a5a5a;
+  margin-right: 20rpx;
+}
+
+.commedsant .appraiser .information > view:nth-child(2) {
+  font-size: 25rpx;
+  color: #5a5a5a;
+  margin-left: 10rpx;
+  margin-top: -5rpx;
+}
+
+.commedsant .tags {
+  padding: 10rpx 0;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.commedsant .tags .tagsTitle {
+  min-width: 100rpx;
+  color: #5a5a5a;
+}
+
+.commedsant .tags .box {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.commedsant .tags .box .tag {
+  margin-bottom: 20rpx;
+  padding: 0 10rpx;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.commedsant .tags .box .selected {
+  color: #fb9605;
+  border: 1px solid #fb9605;
+}
+
+.commedsant .tags .boxasd {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.commedsant .tags .boxasd .tag-ted {
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.commedsant .tags .boxasd .tag-ted > image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.commedsant .weui-cell_active {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+}
+
+.commedsant .weui-textarea {
+  font-size: 25rpx;
+  box-sizing: border-box;
+}
+
+.commedsant .hidden {
+  margin-top: 150rpx;
+  margin-bottom: 20rpx;
+  width: 100%;
+  color: #5a5a5a;
+  font-size: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.commedsant .hidden image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.commedsant .hidden text {
+  margin-left: 10rpx;
+}
+
+.commedsant .button-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.commedsant .button-box .button {
+  padding: 15rpx 0;
+  color: #fff;
+  background-color: #fd9800;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}

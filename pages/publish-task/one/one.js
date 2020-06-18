@@ -14,7 +14,7 @@ Page({
         },
         address: '请选择',
         user_address_id: '',
-        time: '请选择',
+        updoor_date: '请选择',
         updoor_time: '请选择',
         category_pid: '',		/* 分类id */
         images: [],		/*保存上传图片url的数组*/
@@ -88,13 +88,13 @@ Page({
         })
         console.log(this.data.images, 987)
     },
-    bindTimeChange (e) {
+    bindDateChange (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
-            time: e.detail.value
+            updoor_date: e.detail.value
         })
     },
-    bindDateChange (e) {
+    bindTimeChange (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
             updoor_time: e.detail.value
@@ -302,7 +302,7 @@ Page({
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
             user_address_id: this.data.user_address_id,
-            updoor_time: this.data.updoor_time,
+            updoor_date: this.data.updoor_date,
             desc: this.data.desc,
             images: this.data.images,
             voice: this.data.voice,
@@ -311,13 +311,11 @@ Page({
         let ifShow = true
         if (formData.user_address_id == '') {
             tip = '请选择地址'
+        } else if (formData.updoor_date == '请选择') {
+            tip = '请选择上门日期'
         } else if (formData.updoor_time == '请选择') {
             tip = '请选择上门时间'
-        } else if (formData.images.length < 1) {
-            tip = '请上传图片'
-        } else if (formData.desc == '') {
-            tip = '请填写描述需求'
-        } else if (!this.data.checkAgreement.checked) {
+        }else if (!this.data.checkAgreement.checked) {
             tip = '请阅读并同意相关协议'
         } else {
             ifShow = false

@@ -45,16 +45,16 @@
             </navigator>
             <picker mode="date" value="{{date}}" start="2020-01-01" end="2030-12-31" bindchange="bindDateChange">
                 <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                    <view class="weui-cell__bd">期待上门日期</view>
+                    <view class="weui-cell__ft weui-cell__ft_in-access">{{updoor_date}}</view>
+                </navigator>
+            </picker>
+            <picker mode="time" value="{{updoor_time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                     <view class="weui-cell__bd">期待上门时间</view>
                     <view class="weui-cell__ft weui-cell__ft_in-access">{{updoor_time}}</view>
                 </navigator>
             </picker>
-<!--            <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">-->
-<!--                <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">-->
-<!--                    <view class="weui-cell__bd">期待上门时间</view>-->
-<!--                    <view class="weui-cell__ft weui-cell__ft_in-access">{{time}}</view>-->
-<!--                </navigator>-->
-<!--            </picker>-->
         </view>
         <view class="weui-cells">
             <view class="weui-cell">
@@ -76,7 +76,7 @@
                     </view>
                 </view>
             </view>
-            <text class="tips"><text style="color: red">*</text>上传完整清晰的图片，以便家政准确报价({{images.length}}/6)</text>
+            <text class="tips"><text style="color: red"></text>上传完整清晰的图片，以便家政准确报价({{images.length}}/6)</text>
         </view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active">

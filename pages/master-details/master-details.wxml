@@ -1,0 +1,66 @@
+<!-- pages/masterDetails/masterDetails.wxml -->
+<view>
+    <view class="head">
+        <view class="user">
+            <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+            <view class="userinfo">
+                <view class="info1">
+                    <view class="name">赵师傅</view>
+                    <view class="gold">保证金2000</view>
+                </view>
+                <view class="info2">服务50次 | 评价40条 | 好评率100%</view>
+            </view>
+        </view>
+        <view class="comment">
+            <view>免收空跑腿</view>
+            <view>包月赠送一次</view>
+            <view>包年赠送一个月</view>
+            <view>包年赠送一个月</view>
+            <view>包年赠送一个月</view>
+        </view>
+    </view>
+    <view>
+        <view class="commedsant">
+            <view class="title">
+                <text>历史评价</text>
+                <text class="time">{{dataDetail.create_time}}</text>
+            </view>
+            <view>
+                <view class="appraiser">
+                    <view>
+                        <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+                    </view>
+                    <view class="information">
+                        <view>
+                            <view>评价名称</view>
+                            <view class="stars">
+                                <text>综合评分</text>
+                                <image src="../../images/star1.png" wx:for="{{5}}"></image>
+                                <image src="../../images/star0.png" wx:for="{{starLeft}}"></image>
+                            </view>
+                        </view>
+                        <view>2020-04-23 10:59</view>
+                    </view>
+                </view>
+                <view class="tags">
+                    <text class="tagsTitle">评价内容</text>
+                    <view class="box">师傅牛师傅牛师傅牛师傅牛</view>
+                </view>
+                <view class="tags">
+                    <text class="tagsTitle">整体印象</text>
+                    <view class="box">
+                        <view wx:for="{{5}}" wx:key="key" class="tag selected">整体印象</view>
+                    </view>
+                </view>
+                <view class="tags">
+                    <text class="tagsTitle">完成效果</text>
+                    <view class="boxasd">
+                        <view wx:for="{{5}}" wx:key="key" class="tag-ted">
+                            <image src="../../images/avatar1.png" mode="aspectFill" />
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -2,6 +2,7 @@
   "pages": [
 
     "pages/home/home",
+    "pages/master-details/master-details",
     "pages/refund_detail/refund_detail",
     "pages/comment_detail/comment_detail",
     "pages/address/add/add",
