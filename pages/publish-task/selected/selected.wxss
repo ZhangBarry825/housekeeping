@@ -85,6 +85,30 @@
 .page .orderPrice .content {
   color: #f3b64b;
 }
+.page .orderPrice2 {
+  width: 100%;
+  background-color: #fff;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.page .orderPrice2 .title {
+  color: #0b0b0b;
+  display: flex;
+  align-items: center;
+}
+.page .orderPrice2 .content {
+  color: #f3b64b;
+  display: flex;
+  align-items: center;
+}
+.page .orderPrice2 .content input {
+  color: #666;
+  margin-left: 20rpx;
+}
 .page .submit {
   margin-top: 300rpx;
   width: 100%;

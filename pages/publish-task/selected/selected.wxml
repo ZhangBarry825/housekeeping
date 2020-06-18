@@ -9,7 +9,7 @@
         <text class="content">￥{{dataset.price}}</text>
     </view>
     <view class="user">
-        <image class="avatar" mode="aspectFill" src="../../../images/avatar.png"></image>
+        <image class="avatar" mode="aspectFill" src="{{dataset.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{dataset.user_nickname}}</view>
@@ -28,7 +28,12 @@
         <text class="title">订单金额</text>
         <text class="content">￥{{dataset.price}}</text>
     </view>
-
+    <view class="orderPrice2">
+        <text class="title">联系方式</text>
+        <view class="content">
+            <input bindinput="updatePhone" value="{{phone}}" placeholder="请输入手机号码"/>
+        </view>
+    </view>
     <view class="submit">
         <view class="button" bind:tap="weChatPdaayment">微信付款</view>
     </view>

@@ -1,4 +1,6 @@
 // pages/publish-task/selected/selected.js
+import {checkPhone} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 const app = getApp()
 Page({
@@ -10,39 +12,55 @@ Page({
     dataset: {},
     demand: '',
     order_id: '',
-    master_user_id: ''
+    master_user_id: '',
+    phone:'',
+  },
+  updatePhone(e){
+    this.setData({
+      phone: e.detail.value
+    })
   },
   // 创建订单
   weChatPdaayment () {
-    let that = this
-    api.post({
-      url: `/Demand/insert_order`,
-      data: {
-        user_id: wx.getStorageSync('userid'),
-        user_token: wx.getStorageSync('token'),
-        demand_id: this.data.demand_id,
-        master_user_id: this.data.master_user_id,
-        price: this.data.dataset.price
-      },
-      success: resda => {
-        wx.requestPayment({
-          timeStamp: resda.Payment.timeStamp,
-          nonceStr: resda.Payment.nonceStr,
-          package: resda.Payment.package,
-          signType: resda.Payment.signType,
-          paySign: resda.Payment.paySign,
-          success (res) {
-            console.log(res, "成功")
-            that.pay(resda.data)
-          },
-          fail (res) {
-            console.log(res, "失败")
-          }
-        })
-        console.log(res, "111")
+    if(!checkPhone(this.data.phone)){
+      wx.showToast({
+        title:'请输入正确的手机号',
+        icon:'none',
+        duration:2000
+      })
+    }else {
+      let that = this
+      api.post({
+        url: `/Demand/insert_order`,
+        data: {
+          user_id: wx.getStorageSync('userid'),
+          user_token: wx.getStorageSync('token'),
+          demand_id: this.data.demand_id,
+          master_user_id: this.data.master_user_id,
+          price: this.data.dataset.price,
+          mobile: this.data.phone
+        },
+        success: resda => {
+          wx.requestPayment({
+            timeStamp: resda.Payment.timeStamp,
+            nonceStr: resda.Payment.nonceStr,
+            package: resda.Payment.package,
+            signType: resda.Payment.signType,
+            paySign: resda.Payment.paySign,
+            success (res) {
+              console.log(res, "成功")
+              that.pay(resda.data)
+            },
+            fail (res) {
+              console.log(res, "失败")
+            }
+          })
+          console.log(res, "111")
 
-      }
-    })
+        }
+      })
+    }
+
   },
   pay (dataa) {
     api.post({

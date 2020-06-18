@@ -111,6 +111,7 @@ module.exports = {
         wx.login({
             success: loginRes => {
                 if (loginRes.code) {
+                    console.log(loginRes.code,8)
                     wx.request({
                         url: that.API_ROOT + '/User/login/?client_id=' + client_id + '&client_secret=' + client_secret,
                         data: {

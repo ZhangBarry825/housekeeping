@@ -13,6 +13,7 @@ Page({
 	bindGetUserInfo: function(e) {
 		var that = this;
 		// that.btntap();
+		console.log(e.detail,9)
 		api.login(e);
 	},
 	btntap: function() {
