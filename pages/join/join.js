@@ -13,6 +13,7 @@ Page({
         imgUrl1: '',
         imgUrl2: '',
         imgUrl3: '',
+        imgUrl4: '',
         typeList: [],
         type: '',
 
@@ -25,7 +26,38 @@ Page({
         id_positive: '',
         id_opposite: '',
         handheld: '',
+        head_portrait:'',
+
+
+        imagesUrl:[],
     },
+
+
+    previewImage(e){
+        wx.previewImage({
+            current: e.currentTarget.id, // 当前显示图片的http链接
+            urls: this.data.imagesUrl // 需要预览的图片http链接列表
+        })
+    },
+    deleteImg(e) {
+
+        var that = this;
+        var nowList = []; /*新数据*/
+        var images = that.data.images; /*原数据*/
+
+        for (let i = 0; i < images.length; i++) {
+            if (i != e.currentTarget.dataset.index) {
+                nowList.push(images[i])
+            }
+        }
+        this.setData({
+            images: nowList,
+            imagesUrl:nowList
+        })
+        console.log(this.data.images, 987)
+    },
+
+
     uploadImg(p,num) {
         wx.showLoading({
             title: '上传中',
@@ -59,6 +91,11 @@ Page({
                         that.setData({
                             imgUrl3: api.HOST + "/" + JSON.parse(res.data).files,
                             handheld: JSON.parse(res.data).files
+                        });
+                    }else if(num ==4){
+                        that.setData({
+                            imgUrl4: api.HOST + "/" + JSON.parse(res.data).files,
+                            head_portrait: JSON.parse(res.data).files
                         });
                     }
 
@@ -128,6 +165,18 @@ Page({
             }
         })
     },
+    chooseImage4() {
+        let that = this
+        wx.chooseImage({
+            sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                console.log(res, 987)
+                that.uploadImg(res.tempFilePaths[0],4)
+            }
+        })
+    },
     selectMap() {
         let that = this
         wx.getLocation({
@@ -158,8 +207,8 @@ Page({
         let formData = {
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
-            user_nickname: this.data.user_nickname,
             contact_name: this.data.contact_name,
+            head_portrait: this.data.imgUrl4,
             address: this.data.address,
             service_category: this.data.service_category,
             real_name: this.data.real_name,
@@ -172,14 +221,12 @@ Page({
         let tip=''
         let ifShow=true
 
-        if(formData.user_nickname==''){
-            tip='请输入师傅名称'
-        }else if(formData.contact_name==''){
+        if(formData.contact_name==''){
             tip='请输入联系人'
+        }else if(formData.head_portrait==''){
+            tip='请上传头像'
         }else if(formData.address==''){
             tip='请输入联系地址'
-        }else if(formData.service_category==''){
-            tip='请选择服务类目'
         }else if(formData.real_name==''){
             tip='请输入真实姓名'
         }else if(formData.id_card_number==''){

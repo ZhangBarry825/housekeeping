@@ -28,12 +28,39 @@
   width: 30rpx;
   height: 30rpx;
 }
+.page .item1 .item .left1 {
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+}
+.page .item1 .item .left1 image {
+  width: 50rpx;
+  height: 50rpx;
+}
 .page .item1 .item .right {
   padding: 0 20rpx;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   font-size: 28rpx;
+}
+.page .item1 .item .right .avatar {
+  width: 200rpx;
+  height: 200rpx;
+  border: 1px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+.page .item1 .item .right .avatar image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.page .item1 .item .right .avatar .image1 {
+  width: 100%;
+  height: 100%;
 }
 .page .item2 {
   margin-top: 10rpx;

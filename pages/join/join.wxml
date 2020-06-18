@@ -1,20 +1,31 @@
 <!--pages/join/join.wxml-->
 <view class="page">
     <view class="item1">
-        <view class="item">
-            <view class="left">
-                师傅名称
-            </view>
-            <view class="right">
-                <input bindinput="updateNickname" value="{{user_nickname}}"  class="weui-input" placeholder=""/>
-            </view>
-        </view>
+<!--        <view class="item">-->
+<!--            <view class="left">-->
+<!--                师傅名称-->
+<!--            </view>-->
+<!--            <view class="right">-->
+<!--                <input bindinput="updateNickname" value="{{user_nickname}}"  class="weui-input" placeholder=""/>-->
+<!--            </view>-->
+<!--        </view>-->
         <view class="item">
             <view class="left">
                 联系人姓名
             </view>
             <view class="right">
                 <input bindinput="updateContactName" value="{{contact_name}}" class="weui-input" placeholder=""/>
+            </view>
+        </view>
+        <view class="item">
+            <view class="left left1">
+                上传头像
+            </view>
+            <view class="right">
+                <view class="avatar" bind:tap="chooseImage4">
+                    <image wx:if="{{imgUrl4.length==0}}" src="../../images/addPic2.png"></image>
+                    <image wx:if="{{imgUrl4.length>0}}" class="image1" src="{{imgUrl4}}"></image>
+                </view>
             </view>
         </view>
         <view class="item">
@@ -26,16 +37,16 @@
                 <input value="{{address}}" bindinput="updateAddress" class="weui-input addressInput" placeholder=""/>
             </view>
         </view>
-        <view class="item">
-            <view class="left">
-                服务类目
-            </view>
-            <view class="right">
-                <picker bindchange="bindPickerChange" value="{{type}}" range="{{typeList}}">
-                    <input class="weui-input" value="{{type}}" disabled placeholder=""/>
-                </picker>
-            </view>
-        </view>
+<!--        <view class="item">-->
+<!--            <view class="left">-->
+<!--                服务类目-->
+<!--            </view>-->
+<!--            <view class="right">-->
+<!--                <picker bindchange="bindPickerChange" value="{{type}}" range="{{typeList}}">-->
+<!--                    <input class="weui-input" value="{{type}}" disabled placeholder=""/>-->
+<!--                </picker>-->
+<!--            </view>-->
+<!--        </view>-->
     </view>
     <view class="item2">
         <view class="title">
