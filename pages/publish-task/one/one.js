@@ -12,6 +12,7 @@ Page({
             value: '',
             checked: false
         },
+        timeList:["6:00-8:00","8:00-10:00","10:00-12:00","12:00-14:00","14:00-16:00","16:00-18:00","18:00-20:00","20:00-22:00"],
         address: '请选择',
         user_address_id: '',
         updoor_date: '请选择',
@@ -97,7 +98,7 @@ Page({
     bindTimeChange (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
         this.setData({
-            updoor_time: e.detail.value
+            updoor_time: this.data.timeList[e.detail.value]
         })
     },
     playRecord () {
@@ -303,6 +304,7 @@ Page({
             user_token: wx.getStorageSync('token'),
             user_address_id: this.data.user_address_id,
             updoor_date: this.data.updoor_date,
+            updoor_time: this.data.updoor_time,
             desc: this.data.desc,
             images: this.data.images,
             voice: this.data.voice,

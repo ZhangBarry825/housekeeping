@@ -48,10 +48,13 @@ Page({
                     for (let i = 0; i < res.list.length; i++) {
                         res.list[i].demand_time=numToTime(res.list[i].demand_time)
                     }
-                    that.setData({
-                        dataList: that.data.dataList.concat(res.list),
-                        pageNum:pageNum
-                    })
+                   if(res.list.length>0){
+                       that.setData({
+                           dataList: that.data.dataList.concat(res.list),
+                           pageNum:pageNum
+                       })
+                   }
+                    console.log(that.data.dataList,2)
                 } else {
                     console.log('获取数据失败');
                 }
