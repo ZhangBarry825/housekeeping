@@ -65,7 +65,7 @@
                                 <block wx:for="{{imagesUrl}}" wx:key="*this">
                                     <view class="weui-uploader__file clearBox">
 										<icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
-                                        <image class="weui-uploader__img" bindtap="previewImage" src="{{item}}" mode="aspectFill" />
+                                        <image class="weui-uploader__img" bindtap="previewImage" data-index="{{index}}" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
                             </view>

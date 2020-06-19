@@ -66,10 +66,14 @@ Page({
     },
     /* 预览图片 */
     previewImage (e) {
+        let that = this
+        console.log('show')
+        console.log(e.currentTarget.dataset.index)
+        console.log(that.data.imagesUrl)
         wx.previewImage({
-            current: e.currentTarget.id,
+            current: that.data.imagesUrl[e.currentTarget.dataset.index],
             // 当前显示图片的http链接
-            urls: this.data.images // 需要预览的图片http链接列表
+            urls: that.data.imagesUrl // 需要预览的图片http链接列表
         })
     },
     deleteImg (e) {

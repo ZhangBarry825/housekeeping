@@ -24,6 +24,12 @@ Page({
       url: '/pages/publish-task/detail/detail?demand_id=' + this.data.orderId
     })
   },
+  goMaster(e){
+    let id=e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
   // 获取列表
   retrieveData () {
     let that = this

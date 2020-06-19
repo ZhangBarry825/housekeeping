@@ -81,7 +81,7 @@
     </view>
 
     <view class="user">
-        <image class="avatar" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
+        <image class="avatar" bind:tap="goMaster" data-id="{{renlist.master_user_id}}" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>

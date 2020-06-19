@@ -27,7 +27,7 @@
             </view>
             <view class="detail">
                 <view class="line1">
-                    <image class="avatar" mode="aspectFill" src="{{item.head_portrait}}"></image>
+                    <image class="avatar" bind:tap="goMaster" data-id="{{item.master_user_id}}" mode="aspectFill" src="{{item.head_portrait}}"></image>
                     <view class="userinfo">
                         <view class="info1">
                             <view class="name">{{item.user_nickname}}</view>

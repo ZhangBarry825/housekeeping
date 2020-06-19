@@ -2,25 +2,23 @@
 <view>
     <view class="head">
         <view class="user">
-            <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+            <image class="avatar" mode="aspectFill" src="{{dataDetail.head_portrait}}"></image>
             <view class="userinfo">
                 <view class="info1">
-                    <view class="name">赵师傅</view>
-                    <view class="gold">保证金2000</view>
+                    <view class="name">{{dataDetail.user_nickname}}</view>
+                    <view class="gold">保证金{{dataDetail.margin_amount}}</view>
                 </view>
-                <view class="info2">服务50次 | 评价40条 | 好评率100%</view>
+                <view class="info2"> 服务{{dataDetail.order_total}}次 | 评价{{dataDetail.evaluation_total}}条 | 好评率{{dataDetail.evaluation_credit_rate}}%</view>
             </view>
         </view>
         <view class="comment">
             <view>免收空跑腿</view>
             <view>包月赠送一次</view>
             <view>包年赠送一个月</view>
-            <view>包年赠送一个月</view>
-            <view>包年赠送一个月</view>
         </view>
     </view>
     <view>
-        <view class="commedsant">
+        <view class="commedsant" wx:for="{{masterList}}" wx:key="key">
             <view class="title">
                 <text>历史评价</text>
                 <text class="time">{{dataDetail.create_time}}</text>
@@ -32,31 +30,31 @@
                     </view>
                     <view class="information">
                         <view>
-                            <view>评价名称</view>
+                            <view>{{item.user_nickname}}</view>
                             <view class="stars">
                                 <text>综合评分</text>
-                                <image src="../../images/star1.png" wx:for="{{5}}"></image>
-                                <image src="../../images/star0.png" wx:for="{{starLeft}}"></image>
+                                <image src="../../images/star1.png" wx:for="{{item.score}}" wx:key="key"></image>
+                                <image src="../../images/star0.png" wx:for="{{item.left}}" wx:key="key"></image>
                             </view>
                         </view>
-                        <view>2020-04-23 10:59</view>
+                        <view>{{item.create_time}}</view>
                     </view>
                 </view>
                 <view class="tags">
                     <text class="tagsTitle">评价内容</text>
-                    <view class="box">师傅牛师傅牛师傅牛师傅牛</view>
+                    <view class="box">{{item.content}}</view>
                 </view>
                 <view class="tags">
                     <text class="tagsTitle">整体印象</text>
                     <view class="box">
-                        <view wx:for="{{5}}" wx:key="key" class="tag selected">整体印象</view>
+                        <view wx:for="{{item.options}}" wx:key="key" class="tag selected">{{item}}</view>
                     </view>
                 </view>
-                <view class="tags">
+                <view class="tags" wx:if="{{item.complete_rendering.length>0}}">
                     <text class="tagsTitle">完成效果</text>
                     <view class="boxasd">
-                        <view wx:for="{{5}}" wx:key="key" class="tag-ted">
-                            <image src="../../images/avatar1.png" mode="aspectFill" />
+                        <view wx:for="{{item.complete_rendering}}" wx:for-item="itm" wx:for-index="idx" wx:key="key" class="tag-ted">
+                            <image bind:tap="previewImg" data-items="{{item.complete_rendering}}" data-item="{{itm}}" src="{{itm}}" mode="aspectFill" />
                         </view>
                     </view>
                 </view>

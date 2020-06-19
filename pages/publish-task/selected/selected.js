@@ -20,6 +20,12 @@ Page({
       phone: e.detail.value
     })
   },
+  goMaster(e){
+    let id=e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
   // 创建订单
   weChatPdaayment () {
     if(!checkPhone(this.data.phone)){
@@ -55,8 +61,6 @@ Page({
               console.log(res, "失败")
             }
           })
-          console.log(res, "111")
-
         }
       })
     }

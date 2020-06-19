@@ -16,7 +16,7 @@ Page({
     },
     // 获取数据
     retrieveData (status) {
-        wx.showNavigationBarLoading()
+        // wx.showNavigationBarLoading()
         wx.showLoading({
             title: '加载中',
         })
@@ -32,7 +32,7 @@ Page({
                 if (data.list == "" || data.list.length == 0) {
                     setTimeout(() => {
                         wx.stopPullDownRefresh();
-                        wx.hideNavigationBarLoading()
+                        // wx.hideNavigationBarLoading()
                         wx.hideLoading();
                     }, 500)
                     setTimeout(() => {
@@ -64,7 +64,7 @@ Page({
                     })
                     setTimeout(() => {
                         wx.stopPullDownRefresh();
-                        wx.hideNavigationBarLoading()
+                        // wx.hideNavigationBarLoading()
                         wx.hideLoading();
                     }, 1000)
 
@@ -74,7 +74,7 @@ Page({
         });
         setTimeout(() => {
             wx.stopPullDownRefresh();
-            wx.hideNavigationBarLoading()
+            // wx.hideNavigationBarLoading()
             wx.hideLoading();
         }, 2000)
 
@@ -201,7 +201,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        wx.showNavigationBarLoading()
+        // wx.showNavigationBarLoading()
         this.setData({
             page: 1,
             datalist: []

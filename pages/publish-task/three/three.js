@@ -61,6 +61,12 @@ Page({
       }
     })
   },
+  goMaster(e){
+    let id=e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
   // 跳转需求
   goToDetail () {
     console.log(this.data.renlist)

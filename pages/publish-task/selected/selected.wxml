@@ -9,7 +9,7 @@
         <text class="content">￥{{dataset.price}}</text>
     </view>
     <view class="user">
-        <image class="avatar" mode="aspectFill" src="{{dataset.head_portrait}}"></image>
+        <image class="avatar" bind:tap="goMaster" data-id="{{dataset.master_user_id}}"  mode="aspectFill" src="{{dataset.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{dataset.user_nickname}}</view>
