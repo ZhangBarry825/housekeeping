@@ -17,7 +17,9 @@
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>
-                <view class="gold">保证金{{renlist.margin_amount}}</view>
+                <view class="gold">
+                    {{renlist.margin_amount==null||renlist.margin_amount==0||renlist.margin_amount=='0.00'?'实名认证':'保证金'+renlist.margin_amount}}
+                </view>
             </view>
             <view class="info2">
                 服务{{renlist.order_total}} | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%

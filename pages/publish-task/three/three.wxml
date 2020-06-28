@@ -48,7 +48,7 @@
             </view>
             <view class="line1">
                 <text class="label">订单状态： </text>
-                <text class="content">{{renlist.status==0?'没有报价':renlist.status==1?renlist.offer_total+'人已经报价':renlist.status==2?'未预约':
+                <text class="content">{{renlist.status==0?'没有报价':renlist.status==1?'已有人已经报价':renlist.status==2?'未预约':
                 renlist.status==3?'待上门':renlist.status==4?'已上门':renlist.status==5?'已完成':renlist.status==6?'已评价':renlist.status==7?'退款申请':
                 renlist.status==8?'确认退款':renlist.status==9?'已退款':renlist.status==10?'需求取消':renlist.status==11?'需求关闭':
                 renlist.status==12?'投诉':'无状态'}}</text>
@@ -85,7 +85,7 @@
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>
-                <view class="gold">保证金{{margin_amount}}</view>
+                <view class="gold">{{renlist.margin_amount==null||renlist.margin_amount==0||renlist.margin_amount=='0.00'?'实名认证':'保证金'+renlist.margin_amount}}</view>
             </view>
             <view class="info2">
                 服务{{renlist.order_total}}次 | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%

@@ -1,29 +1,30 @@
-<!--pages/comment_detail/comment_detail.wxml-->
+<!-- pages/comment_detail/comment_detail.wxml -->
 <view class="page">
     <view class="requirement">
-        <text class="title">我的需求： </text>
+        <text class="title">我的需求：</text>
         <text class="content">{{dataDetail.demand_title}}</text>
     </view>
     <view class="price">
-        <text class="title">订单总额： </text>
+        <text class="title">订单总额：</text>
         <text class="content">￥{{dataDetail.price}}</text>
     </view>
     <view class="price">
-        <text class="title">实付金额： </text>
+        <text class="title">实付金额：</text>
         <text class="content">￥{{dataDetail.price}}</text>
     </view>
-
     <view class="userInfo">
         <view class="user">
             <image class="avatar" mode="aspectFill" src="{{dataDetail.head_portrait}}"></image>
             <view class="userinfo">
                 <view class="info1">
                     <view class="name">{{dataDetail.user_nickname}}</view>
-                    <view class="gold">保证金{{dataDetail.margin_amount}}</view>
-                    <!--                <view class="distance">-->
-                    <!--                    <image src="../../images/address.png"></image>-->
-                    <!--                    <text>3.2公里</text>-->
-                    <!--                </view>-->
+                    <view class="gold">
+                        {{dataDetail.margin_amount==null||dataDetail.margin_amount==0||dataDetail.margin_amount=='0.00'?'实名认证':'保证金'+dataDetail.margin_amount}}
+                    </view>
+                    <!-- <view class="distance"> -->
+                    <!-- <image src="../../images/address.png"></image> -->
+                    <!-- <text>3.2公里</text> -->
+                    <!-- </view> -->
                 </view>
                 <view class="info2">
                     服务{{dataDetail.order_total}}次 | 评价{{dataDetail.evaluation_total}}条 | 好评率{{dataDetail.evaluation_credit_rate}}%
@@ -31,7 +32,6 @@
             </view>
         </view>
     </view>
-
     <view class="comment">
         <view class="title">
             <text>评价信息</text>
@@ -44,25 +44,15 @@
         </view>
         <view class="tags">
             <text class="tagsTitle">评价内容</text>
-            <view class="box">
-                {{dataDetail.content}}
-            </view>
+            <view class="box">{{dataDetail.content}}</view>
         </view>
         <view class="tags">
             <text class="tagsTitle">整体印象</text>
             <view class="box">
-                <view wx:for="{{dataDetail.options_title}}" wx:key="key" class="tag selected" >{{item}}</view>
+                <view wx:for="{{dataDetail.options_title}}" wx:key="key" class="tag selected">
+                    {{item}}
+                </view>
             </view>
         </view>
-
     </view>
-
 </view>
-
-
-
-
-
-
-
-

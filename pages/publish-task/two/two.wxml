@@ -31,7 +31,10 @@
                     <view class="userinfo">
                         <view class="info1">
                             <view class="name">{{item.user_nickname}}</view>
-                            <view class="gold">保证金{{item.margin_amount}}</view>
+                            <!-- <view class="gold">保证金{{item.margin_amount}}</view> -->
+                            <view class="gold">
+                                {{item.margin_amount==null||item.margin_amount==0||item.margin_amount=='0.00'?'实名认证':'保证金'+item.margin_amount}}
+                            </view>
                             <!-- <view class="distance">
                                 <image src="../../../images/address.png"></image>
                                 <text>3.2公里</text>

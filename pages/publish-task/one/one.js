@@ -12,7 +12,7 @@ Page({
             value: '',
             checked: false
         },
-        timeList:["6:00-8:00","8:00-10:00","10:00-12:00","12:00-14:00","14:00-16:00","16:00-18:00","18:00-20:00","20:00-22:00"],
+        timeList: ["6:00-8:00", "8:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00", "20:00-22:00"],
         address: '请选择',
         user_address_id: '',
         updoor_date: '请选择',
@@ -25,8 +25,8 @@ Page({
         voiceImg: '../../../images/voice2.png',
         innerAudioContext: wx.createInnerAudioContext(),//音频播放上下文
 
-        agreementOne:'',
-        agreementTwo:'',
+        agreementOne: '',
+        agreementTwo: '',
         recordStatus: false,
         recorderManager: '', //录音管理上下文
         recordVoice: {},
@@ -49,18 +49,23 @@ Page({
     chooseImage (e) {
         var that = this;
         wx.chooseImage({
-            count: 1,
+            count: 6,
             sizeType: ['original', 'compressed'],
             // 可以指定是原图还是压缩图，默认二者都有
             sourceType: ['album', 'camera'],
             // 可以指定来源是相册还是相机，默认二者都有
             success: function (res) {
-                console.log(res.tempFilePaths)
+                let tempFile = res.tempFilePaths
+                for (let i = 0;i < tempFile.length;i++) {
+                    // const element = tempFile[i];
+                    that.uploadImg(tempFile[i])
+                }
+                console.log(res, "选择")
                 // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
                 // that.setData({
                 //     images: that.data.images.concat(res.tempFilePaths)
                 // });
-                that.uploadImg(res.tempFilePaths[0])
+                // that.uploadImg(res.tempFilePaths[0])
             }
         })
     },
@@ -77,7 +82,6 @@ Page({
         })
     },
     deleteImg (e) {
-
         var that = this;
         var nowList = []; /*新数据*/
         var images = that.data.images; /*原数据*/
@@ -286,10 +290,10 @@ Page({
 
     },
     seeDetail (e) {
-        let id=e.currentTarget.dataset.id
+        let id = e.currentTarget.dataset.id
         console.log(id)
         wx.navigateTo({
-            url: '/pages/agreement-detail/agreement-detail?id='+id
+            url: '/pages/agreement-detail/agreement-detail?id=' + id
         })
     },
     checkChange (e) {
@@ -321,7 +325,7 @@ Page({
             tip = '请选择上门日期'
         } else if (formData.updoor_time == '请选择') {
             tip = '请选择上门时间'
-        }else if (!this.data.checkAgreement.checked) {
+        } else if (!this.data.checkAgreement.checked) {
             tip = '请阅读并同意相关协议'
         } else {
             ifShow = false
@@ -332,7 +336,7 @@ Page({
                     console.log(res, 999)
                     if (res.code == 200) {
                         wx.showToast({
-                            title: '发布成功',
+                            title: '发布成功,请等待师傅报价',
                             icon: "none",
                             duration: 1000
                         })
@@ -357,15 +361,15 @@ Page({
         console.log(formData)
     },
 
-    fetchData(){
+    fetchData () {
         let that = this
         api.get({
             url: '/Article/privacy_agreement',
             success: res => {
                 console.log(res, 765)
-                if(res.code == 200){
+                if (res.code == 200) {
                     that.setData({
-                        agreementTwo:res.data.article_id
+                        agreementTwo: res.data.article_id
                     })
                 }
             }
@@ -374,9 +378,9 @@ Page({
             url: '/Article/service_agreement',
             success: res => {
                 console.log(res, 765)
-                if(res.code == 200){
+                if (res.code == 200) {
                     that.setData({
-                        agreementOne:res.data.article_id
+                        agreementOne: res.data.article_id
                     })
                 }
             }

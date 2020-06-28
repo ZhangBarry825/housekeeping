@@ -33,6 +33,38 @@ Page({
       }
     })
   },
+  cancelRefund () {
+    api.post({
+      url: `/Order/update_order_refund`,
+      data: {
+        user_id: wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id: this.data.order_id,
+        status: this.data.renlist.status
+      },
+      success: res => {
+        if (res.code == 200) {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          })
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 2
+            })
+          }, 2000)
+        } else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        console.log(res)
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
