@@ -98,6 +98,7 @@
   padding: 5rpx 15rpx;
   box-sizing: border-box;
   border: 1px solid gainsboro;
+  position: relative;
   color: #0b0b0b;
 }
 .page .recorder-box .button image {

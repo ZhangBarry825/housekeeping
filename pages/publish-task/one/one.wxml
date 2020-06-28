@@ -95,6 +95,7 @@
             <view wx:if="{{hasRecord}}"  class="button button2" bind:tap="playRecord">
                 <image src="{{voiceImg}}"></image>
                 {{recordVoice.duration}}
+                <span class="weui-badge" style="position: absolute; top: -0.6em; left: -0.9em;" bind:tap="deleteRecord">X</span>
             </view>
         </view>
 

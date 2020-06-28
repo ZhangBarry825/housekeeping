@@ -105,6 +105,15 @@ Page({
             updoor_time: this.data.timeList[e.detail.value]
         })
     },
+    deleteRecord(){
+      console.log('delete')
+        this.setData({
+            hasRecord:false,
+            voice:'',
+            canStop:false,
+            recordVoice:{}
+        })
+    },
     playRecord () {
         console.log('play')
         let that = this
