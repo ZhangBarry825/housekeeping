@@ -6,9 +6,13 @@
             <view class="userinfo">
                 <view class="info1">
                     <view class="name">{{dataDetail.user_nickname}}</view>
-                    <view class="gold">保证金{{dataDetail.margin_amount}}</view>
+                    <view class="gold">
+                        {{dataDetail.margin_amount==null||dataDetail.margin_amount==0||dataDetail.margin_amount=='0.00'?'实名认证':'保证金'+dataDetail.margin_amount}}
+                    </view>
                 </view>
-                <view class="info2"> 服务{{dataDetail.order_total}}次 | 评价{{dataDetail.evaluation_total}}条 | 好评率{{dataDetail.evaluation_credit_rate}}%</view>
+                <view class="info2">
+                    服务{{dataDetail.order_total}}次 | 评价{{dataDetail.evaluation_total}}条 | 好评率{{dataDetail.evaluation_credit_rate}}%
+                </view>
             </view>
         </view>
         <view class="comment">
@@ -47,7 +51,9 @@
                 <view class="tags">
                     <text class="tagsTitle">整体印象</text>
                     <view class="box">
-                        <view wx:for="{{item.options}}" wx:key="key" class="tag selected">{{item}}</view>
+                        <view wx:for="{{item.options}}" wx:key="key" class="tag selected">
+                            {{item}}
+                        </view>
                     </view>
                 </view>
                 <view class="tags" wx:if="{{item.complete_rendering.length>0}}">

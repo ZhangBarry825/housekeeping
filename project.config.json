@@ -141,6 +141,20 @@
 					"id": -1,
 					"name": "pages/complaintDetails/complaintDetails",
 					"pathName": "pages/complaintDetails/complaintDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/publish-task/one/one",
+					"pathName": "pages/publish-task/one/one",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/publish-task/one/one",
+					"pathName": "pages/publish-task/one/one",
 					"scene": null
 				}
 			]

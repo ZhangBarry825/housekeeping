@@ -1,11 +1,10 @@
-<!--pages/publish-task/one/one.wxml-->
+<!-- pages/publish-task/one/one.wxml -->
 <view class="page">
     <view class="progress">
         <view class="item">
             <view class="img">
                 <image class="i1" mode="aspectFill" src="../../../images/p1.png"></image>
             </view>
-
             <text>发布需求</text>
         </view>
         <view class="connect"></view>
@@ -64,7 +63,7 @@
                             <view class="weui-uploader__files" id="uploaderFiles">
                                 <block wx:for="{{imagesUrl}}" wx:key="*this">
                                     <view class="weui-uploader__file clearBox">
-										<icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red"/>
+                                        <icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red" />
                                         <image class="weui-uploader__img" bindtap="previewImage" data-index="{{index}}" src="{{item}}" mode="aspectFill" />
                                     </view>
                                 </block>
@@ -76,50 +75,53 @@
                     </view>
                 </view>
             </view>
-            <text class="tips"><text style="color: red"></text>上传完整清晰的图片，以便家政准确报价({{images.length}}/6)</text>
+            <text class="tips">
+                <text style="color: red"></text>
+                上传完整清晰的图片，以便家政准确报价({{images.length}}/6)
+            </text>
         </view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_active">
                 <view class="weui-cell__bd">
                     <textarea bindinput="bindinput" maxlength="{{150}}" value="{{desc}}" class="weui-textarea" placeholder="请填写其他需求或特殊需求，方便家政带齐工具，以及更合理的报价。" style="height: 3.3em" />
-
                 </view>
             </view>
         </view>
         <view class=" recorder-box">
             <text>{{desLength}}/150</text>
-            <view wx:if="{{!hasRecord}}" class="button" bindtouchend="looseButton"  bindlongpress="pressButton">
+            <view wx:if="{{!hasRecord}}" class="button" bindtouchend="looseButton" bindlongpress="pressButton">
                 <image src="../../../images/voice.png"></image>
                 <text>长按录音</text>
             </view>
-            <view wx:if="{{hasRecord}}"  class="button button2" bind:tap="playRecord">
+            <view wx:if="{{hasRecord}}" class="button button2" bind:tap="playRecord">
                 <image src="{{voiceImg}}"></image>
                 {{recordVoice.duration}}
                 <span class="weui-badge" style="position: absolute; top: -0.6em; left: -0.9em;" bind:tap="deleteRecord">X</span>
             </view>
         </view>
-
     </view>
     <view class="promise">
         <label class="weui-agree" bind:tap="checkChange">
             <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}" class="weui-agree__checkbox-check" />
             <span class="weui-agree__checkbox"></span>
-            <span class="weui-agree__text">我已阅读并同意<a data-id="{{agreementOne}}" catchtap="seeDetail" class="weui-agree__link">《家政服务协议》</a><a data-id="{{agreementTwo}}"  catchtap="seeDetail" class="weui-agree__link">《隐私政策》</a></span>
+            <span class="weui-agree__text">
+                我已阅读并同意
+                <a data-id="{{agreementOne}}" catchtap="seeDetail" class="weui-agree__link">
+                    《家政服务协议》
+                </a>
+                <a data-id="{{agreementTwo}}" catchtap="seeDetail" class="weui-agree__link">
+                    《隐私政策》
+                </a>
+            </span>
         </label>
     </view>
     <view class="page__bd">
         <view class="weui-article">
             <view class="weui-article__section">
                 <view class="weui-article__h3">温馨提示：</view>
-                <view class="weui-article__p">
-                    1、下单后，请关注微信通知，将会有家政持续为您报价；
-                </view>
-                <view class="weui-article__p">
-                    2、请保持电话畅通，会有家政和您联系，您也可以主动联系家政；
-                </view>
-                <view class="weui-article__p">
-                    3、为了保证您的权益，所有费用请通过家政服务平台支付；
-                </view>
+                <view class="weui-article__p">1、下单后，请关注微信通知，将会有家政持续为您报价；</view>
+                <view class="weui-article__p">2、请保持电话畅通，会有家政和您联系，您也可以主动联系家政；</view>
+                <view class="weui-article__p">3、为了保证您的权益，所有费用请通过家政服务平台支付；</view>
             </view>
         </view>
     </view>
@@ -127,14 +129,3 @@
         <view class="button" bind:tap="publishForm">发布需求</view>
     </view>
 </view>
-
-
-
-
-
-
-
-
-
-
-

@@ -1,26 +1,32 @@
-<!--pages/publish-task/selected/selected.wxml-->
+<!-- pages/publish-task/selected/selected.wxml -->
 <view class="page">
     <view class="requirement">
-        <text class="title">我的需求： </text>
+        <text class="title">我的需求：</text>
         <text class="content">{{dataset.demand_title}}</text>
     </view>
     <view class="price">
-        <text class="title">家政报价： </text>
+        <text class="title">家政报价：</text>
         <text class="content">￥{{dataset.price}}</text>
     </view>
+    <view class="price">
+        <text class="title">备注说明：</text>
+        <text class="content">￥{{dataset.nots}}</text>
+    </view>
     <view class="user">
-        <image class="avatar" bind:tap="goMaster" data-id="{{dataset.master_user_id}}"  mode="aspectFill" src="{{dataset.head_portrait}}"></image>
+        <image class="avatar" bind:tap="goMaster" data-id="{{dataset.master_user_id}}" mode="aspectFill" src="{{dataset.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{dataset.user_nickname}}</view>
-                <view class="gold">保证金{{dataset.margin_amount}}</view>
-<!--                <view class="distance">-->
-<!--                    <image src="../../../images/address.png"></image>-->
-<!--                    <text>3.2公里</text>-->
-<!--                </view>-->
+                <view class="gold">
+                    {{dataset.margin_amount==null||dataset.margin_amount==0||dataset.margin_amount=='0.00'?'实名认证':'保证金'+dataset.margin_amount}}
+                </view>
+                <!-- <view class="distance"> -->
+                <!-- <image src="../../../images/address.png"></image> -->
+                <!-- <text>3.2公里</text> -->
+                <!-- </view> -->
             </view>
             <view class="info2">
-                 服务{{dataset.order_total}}次 | 评价{{dataset.evaluation_total}}条 | 好评率{{dataset.evaluation_credit_rate}}%
+                服务{{dataset.order_total}}次 | 评价{{dataset.evaluation_total}}条 | 好评率{{dataset.evaluation_credit_rate}}%
             </view>
         </view>
     </view>
@@ -31,7 +37,7 @@
     <view class="orderPrice2">
         <text class="title">联系方式</text>
         <view class="content">
-            <input bindinput="updatePhone" value="{{phone}}" placeholder="请输入手机号码"/>
+            <input bindinput="updatePhone" value="{{phone}}" placeholder="请输入手机号码" />
         </view>
     </view>
     <view class="submit">

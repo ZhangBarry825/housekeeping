@@ -1,6 +1,5 @@
 // pages/order/order.js
 import { numToTime } from "../../utils/util";
-
 const app = getApp()
 const api = require('../../utils/api.js');
 Page({
@@ -100,7 +99,7 @@ Page({
             wx.navigateTo({
                 url: '/pages/publish-task/four/four?id=' + orderid
             })
-        }else if (status ==6) {
+        } else if (status == 6) {
             wx.navigateTo({
                 url: '/pages/comment_detail/comment_detail?id=' + orderid
             })

@@ -1,15 +1,15 @@
-<!--pages/refund/refund.wxml-->
+<!-- pages/refund/refund.wxml -->
 <view class="page">
     <view class="requirement">
-        <text class="title">我的需求： </text>
+        <text class="title">我的需求：</text>
         <text class="content">{{renlist.title}}</text>
     </view>
     <view class="price">
-        <text class="title">订单总额： </text>
+        <text class="title">订单总额：</text>
         <text class="content">￥{{renlist.offer_price}}</text>
     </view>
     <view class="price">
-        <text class="title">实付金额： </text>
+        <text class="title">实付金额：</text>
         <text class="content">￥{{renlist.price}}</text>
     </view>
     <view class="user">
@@ -17,7 +17,9 @@
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>
-                <view class="gold">保证金{{renlist.margin_amount}}</view>
+                <view class="gold">
+                    {{renlist.margin_amount==null||renlist.margin_amount==0||renlist.margin_amount=='0.00'?'实名认证':'保证金'+renlist.margin_amount}}
+                </view>
             </view>
             <view class="info2">
                 服务{{renlist.order_total}}次 | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%
@@ -26,14 +28,13 @@
     </view>
     <view class="orderPrice">
         <text class="title">退款金额</text>
-        <input class="weui-input" bindinput="openingvalue"  placeholder="请输入退款金额"/>
+        <input class="weui-input" bindinput="openingvalue" placeholder="请输入退款金额" />
     </view>
     <view class="reason">
         <text class="title">退款理由</text>
         <textarea class="weui-textarea" bindinput="textgvalue" style="height:5em" />
         <text class="num">0/100</text>
     </view>
-
     <view class="submit">
         <view class="button" bind:tap="confirmSubmission">确认申请</view>
     </view>
