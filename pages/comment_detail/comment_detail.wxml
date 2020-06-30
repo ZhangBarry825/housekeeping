@@ -13,7 +13,7 @@
         <text class="content">￥{{dataDetail.price}}</text>
     </view>
     <view class="userInfo">
-        <view class="user">
+        <view class="user" data-id="{{dataDetail.master_user_id}}" bind:tap="goMaster">
             <image class="avatar" mode="aspectFill" src="{{dataDetail.head_portrait}}"></image>
             <view class="userinfo">
                 <view class="info1">

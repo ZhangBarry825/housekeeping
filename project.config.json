@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
@@ -23,7 +23,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -155,6 +155,14 @@
 					"id": -1,
 					"name": "pages/publish-task/one/one",
 					"pathName": "pages/publish-task/one/one",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "pages/master-details/master-details",
+					"pathName": "pages/master-details/master-details",
+					"query": "master_user_id= 80",
 					"scene": null
 				}
 			]

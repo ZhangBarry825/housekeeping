@@ -1,8 +1,6 @@
-<!--pages/publish-task/three/three.wxml-->
+<!-- pages/publish-task/three/three.wxml -->
 <view class="page">
-    <view class="warn">
-        请在家政完成服务后再验收服务
-    </view>
+    <view class="warn">请在家政完成服务后再验收服务</view>
     <view class="progress">
         <view class="item">
             <text>雇佣家政</text>
@@ -14,7 +12,7 @@
         <view class="connect"></view>
         <view class="item">
             <text>家政预约时间</text>
-            <image src="../../../images/check1.png"  wx:if="{{renlist.booking_date0}}"></image>
+            <image src="../../../images/check1.png" wx:if="{{renlist.booking_date0}}"></image>
             <image src="../../../images/check0.png" wx:if="{{!renlist.booking_date0}}"></image>
             <text class="time" wx:if="{{renlist.booking_date0}}">{{renlist.booking_date1}}</text>
             <text class="time" wx:if="{{renlist.booking_date0}}">{{renlist.booking_time}}</text>
@@ -31,11 +29,10 @@
         <view class="item">
             <text>验收服务</text>
             <image src="../../../images/check0.png"></image>
-            <text class="time"> </text>
-            <text class="time"> </text>
+            <text class="time"></text>
+            <text class="time"></text>
         </view>
     </view>
-
     <view class="order">
         <view class="title">
             <view class="left">订单信息</view>
@@ -43,34 +40,31 @@
         </view>
         <view class="items">
             <view class="line1">
-                <text class="label">订单内容： </text>
+                <text class="label">订单内容：</text>
                 <text class="content">{{renlist.title}}</text>
             </view>
-            <view class="line1">
-                <text class="label">订单状态： </text>
-                <text class="content">{{renlist.status==0?'没有报价':renlist.status==1?'已有人已经报价':renlist.status==2?'未预约':
-                renlist.status==3?'待上门':renlist.status==4?'已上门':renlist.status==5?'已完成':renlist.status==6?'已评价':renlist.status==7?'退款申请':
-                renlist.status==8?'确认退款':renlist.status==9?'已退款':renlist.status==10?'需求取消':renlist.status==11?'需求关闭':
-                renlist.status==12?'投诉':'无状态'}}</text>
+            <view class="line1" style=" display: flex;">
+                <text class="label">订单状态：</text>
+                <text class="content"> {{renlist.status==0?"待付款":renlist.status==1||renlist.status==2||renlist.status==3?"待完成":renlist.status==4?"订单完成":renlist.status==12?"已评价":"暂无状态"}} </text>
             </view>
             <view class="line1">
-                <text class="label">订单总额： </text>
+                <text class="label">订单总额：</text>
                 <text class="content">{{renlist.offer_price}}元</text>
             </view>
             <view class="line1">
-                <text class="label">实付金额： </text>
+                <text class="label">实付金额：</text>
                 <text class="content">{{renlist.price}}元</text>
             </view>
             <view class="line1">
-                <text class="label">雇佣家政： </text>
+                <text class="label">雇佣家政：</text>
                 <text class="content">{{renlist.user_nickname}}</text>
             </view>
             <view class="line1">
-                <text class="label">雇佣支付： </text>
+                <text class="label">雇佣支付：</text>
                 <text class="content">{{renlist.create_time}}</text>
             </view>
             <view class="line1">
-                <text class="label">订单编号： </text>
+                <text class="label">订单编号：</text>
                 <text class="content">{{renlist.order_id}}</text>
             </view>
         </view>
@@ -79,37 +73,34 @@
             <view class="right">></view>
         </view>
     </view>
-
-    <view class="user">
-        <image class="avatar" bind:tap="goMaster" data-id="{{renlist.master_user_id}}" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
+    <view class="user" bind:tap="goMaster" data-id="{{renlist.master_user_id}}">
+        <image class="avatar" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>
-                <view class="gold">{{renlist.margin_amount==null||renlist.margin_amount==0||renlist.margin_amount=='0.00'?'实名认证':'保证金'+renlist.margin_amount}}</view>
+                <view class="gold">
+                    {{renlist.margin_amount==null||renlist.margin_amount==0||renlist.margin_amount=='0.00'?'实名认证':'保证金'+renlist.margin_amount}}
+                </view>
             </view>
             <view class="info2">
                 服务{{renlist.order_total}}次 | 评价{{renlist.evaluation_total}}条 | 好评率{{renlist.evaluation_credit_rate}}%
             </view>
         </view>
     </view>
-
     <view class="buttons buttons1">
         <view class="button1" bind:tap="refund">退款</view>
         <view class="button2" bind:tap="complaint">投诉</view>
         <view class="button3" bind:tap="checkService">验收服务</view>
     </view>
-<!--    <view class="buttons buttons2">-->
-<!--        <view class="button1">退款</view>-->
-<!--    </view>-->
-
+    <!-- <view class="buttons buttons2"> -->
+    <!-- <view class="button1">退款</view> -->
+    <!-- </view> -->
     <view class="erq" wx:if="{{ifShow}}" bind:tap="cancelCheck">
         <view class="top">
             <!-- <image src="../../../images/erweima.png"></image> -->
             <image src="{{qrCode}}"></image>
             <text>{{verification_code}}</text>
         </view>
-        <view class="tips">
-            请师傅扫码核销
-        </view>
+        <view class="tips">请师傅扫码核销</view>
     </view>
 </view>

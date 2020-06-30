@@ -61,8 +61,8 @@ Page({
       }
     })
   },
-  goMaster(e){
-    let id=e.currentTarget.dataset.id
+  goMaster (e) {
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
       url: '/pages/master-details/master-details?master_user_id=' + id
     })
@@ -106,7 +106,7 @@ Page({
   // 跳转投诉
   complaint () {
     wx.navigateTo({
-      url: '/pages/publish-task/five/five?order_id=' + this.data.order_id
+      url: '/pages/publish-task/five/five?order_id=' + this.data.order_id + '&renlist=' + JSON.stringify(this.data.renlist)
     })
   },
   refund () {

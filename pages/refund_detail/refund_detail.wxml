@@ -13,7 +13,7 @@
         <text class="content">￥{{renlist.order_amount}}</text>
     </view>
     <view class="userInfo">
-        <view class="user">
+        <view class="user" data-id="{{renlist.master_user_id}}" bind:tap="goMaster">
             <image class="avatar" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
             <view class="userinfo">
                 <view class="info1">

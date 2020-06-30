@@ -15,6 +15,12 @@ Page({
       amount: e.detail.value
     })
   },
+  goMaster (e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
   // 确认支付
   weChatPay () {
     // if(this.data.amount)

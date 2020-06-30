@@ -2,9 +2,9 @@
 <view class="page">
     <view class="warn">订单交易成功或交易关闭15天后投诉入口关闭</view>
     <view class="info">
-        <view class="line1">家庭保洁-开荒</view>
-        <view class="line2">订单完成时间：2020-04-23 18:00</view>
-        <view class="line3">需求详情 ></view>
+        <view class="line1">{{renlist.title}}</view>
+        <view class="line2">订单支付时间：{{renlist.create_time}}</view>
+        <!-- <view class="line3">需求详情 ></view> -->
     </view>
     <view class="detail">
         <view class="item">

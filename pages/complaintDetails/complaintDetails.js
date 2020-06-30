@@ -12,7 +12,12 @@ Page({
     detailData: [],
     renlist: {}
   },
-
+  goMaster (e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
   retrieveData () {
     let that = this
     api.post({

@@ -109,13 +109,13 @@ Page({
             updoor_time: this.data.timeList[e.detail.value]
         })
     },
-    deleteRecord(){
-      console.log('delete')
+    deleteRecord () {
+        console.log('delete')
         this.setData({
-            hasRecord:false,
-            voice:'',
-            canStop:false,
-            recordVoice:{}
+            hasRecord: false,
+            voice: '',
+            canStop: false,
+            recordVoice: {}
         })
     },
     playRecord () {
@@ -313,6 +313,34 @@ Page({
         })
     },
     publishForm () {
+        let that = this
+
+        wx.requestSubscribeMessage({
+            tmplIds: ['bCtKlaln1xub8VQUXf7nuYB75l9-_OAHN_v4bo69kGc'],
+            success: (res) => {
+                console.log(res)
+                if (res['bCtKlaln1xub8VQUXf7nuYB75l9-_OAHN_v4bo69kGc'] == 'accept') {
+                    wx.showLoading({
+                        title: '加载中',
+                    })
+                    // console.log('获取access_token成功', req.data.access_token)
+                    that.authorize(123)
+                } else {
+                    wx.showModal({
+                        title: '温馨提示',
+                        content: '请同意授权哦!',
+                        showCancel: false,
+                        success: res => {
+                            if (res.confirm) {
+                                // 这里可以写自己的逻辑
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    },
+    authorize (touser) {
         console.log(this.data.checkAgreement)
         let category_pid = this.data.category_pid
         let category_id = this.data.category_id
@@ -325,7 +353,9 @@ Page({
             desc: this.data.desc,
             images: this.data.images,
             voice: this.data.voice,
+            touser: touser
         }
+
         let tip = '请填写数据'
         let ifShow = true
         if (formData.user_address_id == '') {
@@ -338,11 +368,13 @@ Page({
             tip = '请阅读并同意相关协议'
         } else {
             ifShow = false
+
             api.post({
                 url: '/Demand/insert/' + category_pid + "/" + category_id,
                 data: formData,
                 success: res => {
                     console.log(res, 999)
+                    wx.hideLoading()
                     if (res.code == 200) {
                         wx.showToast({
                             title: '发布成功,请等待师傅报价',
@@ -365,8 +397,6 @@ Page({
                 duration: 1000
             })
         }
-
-
         console.log(formData)
     },
 

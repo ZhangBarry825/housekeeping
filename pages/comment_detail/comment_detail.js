@@ -1,5 +1,5 @@
 // pages/comment_detail/comment_detail.js
-import {numToTime} from "../../utils/util";
+import { numToTime } from "../../utils/util";
 
 const api = require('../../utils/api.js');
 Page({
@@ -8,34 +8,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hidden:false,
-    dataDetail:{},
-    starNum:0,
-    starLeft:5,
+    hidden: false,
+    dataDetail: {},
+    starNum: 0,
+    starLeft: 5,
   },
-  changHidden(){
+  changHidden () {
     this.setData({
-      hidden:!this.data.hidden
+      hidden: !this.data.hidden
     })
   },
-  fetchData(){
+  goMaster (e) {
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '/pages/master-details/master-details?master_user_id=' + id
+    })
+  },
+  fetchData () {
     let that = this
     api.post({
       url: '/Order/evaluation_info',
       data: {
-        user_id:wx.getStorageSync('userid'),
-        user_token:wx.getStorageSync('token'),
-        order_id:that.data.id
+        user_id: wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id: that.data.id
       },
       success: res => {
-        console.log(res,852)
+        console.log(res, 852)
         if (res.code == 200) {
-          res.data.create_time=numToTime(res.data.create_time)
-          res.data.options_title=res.data.options_title.split(',')
+          res.data.create_time = numToTime(res.data.create_time)
+          res.data.options_title = res.data.options_title.split(',')
           that.setData({
-            dataDetail:res.data,
-            starNum:parseInt(res.data.score),
-            starLeft:5-parseInt(res.data.score)
+            dataDetail: res.data,
+            starNum: parseInt(res.data.score),
+            starLeft: 5 - parseInt(res.data.score)
           })
         } else {
           console.log('获取数据失败');
@@ -49,7 +55,7 @@ Page({
   onLoad: function (options) {
     console.log(options.id)
     this.setData({
-      id:options.id
+      id: options.id
     })
     this.fetchData()
   },

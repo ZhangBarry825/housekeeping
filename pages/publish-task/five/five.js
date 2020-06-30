@@ -24,7 +24,8 @@ Page({
       value: '',
       checked: false
     },
-    options_id: ''
+    options_id: '',
+    renlist: {}
   },
   seeDetail (e) {
     let id = e.currentTarget.dataset.id
@@ -294,8 +295,10 @@ Page({
   onLoad: function (options) {
     this.getAChoice()
     this.fetchData()
+    console.log(JSON.parse(options.renlist))
     this.setData({
       order_id: options.order_id,
+      renlist: JSON.parse(options.renlist)
     })
     console.log(options)
   },

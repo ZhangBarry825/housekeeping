@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "mp-gallery": "../../miniprogram_npm/weui-miniprogram/gallery/gallery"
+    "mp-gallery": "/miniprogram_npm/weui-miniprogram/gallery/gallery"
   },
   "navigationBarTitleText": "需求详情"
 }
