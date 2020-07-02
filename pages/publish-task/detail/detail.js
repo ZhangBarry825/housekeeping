@@ -13,7 +13,8 @@ Page({
     innerAudioContext: '',
     voiceImg: '../../../images/voice1.png',
     show: false,
-    hasVoice: false
+    hasVoice: false,
+    playing:false,
   },
   previewImg () {
     this.setData({
@@ -69,23 +70,34 @@ Page({
     let that = this
     let ACT = this.data.innerAudioContext
     ACT.src = this.data.detailData.voice
-    ACT.play()
-    ACT.onPlay(() => {
+    if(this.data.playing){
+      ACT.stop()
       that.setData({
-        voiceImg: '../../../images/voice1.gif'
+        voiceImg: '../../../images/voice1.png',
+        playing:false
       })
-      console.log('开始播放')
-    })
-    ACT.onEnded((res) => {
-      console.log('播放停止')
-      that.setData({
-        voiceImg: '../../../images/voice1.png'
+    }else {
+      ACT.play()
+      ACT.onPlay(() => {
+        that.setData({
+          voiceImg: '../../../images/voice1.gif',
+          playing:true
+        })
+        console.log('开始播放')
       })
-    })
-    ACT.onError((res) => {
-      console.log(res.errMsg)
-      console.log(res.errCode)
-    })
+      ACT.onEnded((res) => {
+        console.log('播放停止')
+        that.setData({
+          voiceImg: '../../../images/voice1.png',
+          playing:false
+        })
+      })
+      ACT.onError((res) => {
+        console.log(res.errMsg)
+        console.log(res.errCode)
+      })
+    }
+
   },
   /**
    * 生命周期函数--监听页面加载
