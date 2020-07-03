@@ -1,34 +1,33 @@
-<!--pages/address/list/list.wxml-->
+<!-- pages/address/list/list.wxml -->
 <view class="page">
     <view class="weui-cells weui-cells_checkbox weui-cells_after-title">
-
         <checkbox-group bindchange="checkboxChange">
             <label class="weui-cell weui-check__label" wx:for-index="idx" wx:for="{{addressList}}" wx:key="value">
-<!--                <view class="weui-cell__hd">-->
-<!--                    <checkbox-->
-<!--                            class="weui-check"-->
-<!--                            value="{{item.value}}"-->
-<!--                            checked="{{item.checked}}"-->
-<!--                    />-->
-<!--                    <i class="weui-icon-checked"></i>-->
-<!--                </view>-->
-                <view class="weui-cell__bd add0" data-item="{{item}}"  bind:tap="selectAdd" >
-                   <view class="add1">
-                       <view class="default" wx:if="{{item.status == '1'}}">默认</view>
-                       <view class="door"> {{item.address}}{{item.addresses}}</view>
-                   </view>
-                   <view class="add2">{{item.province}}{{item.city}}{{item.area}}</view>
-                   <view class="add3">
-                       {{item.name}}({{item.sex=='1'?'先生':'女士'}}) {{item.mobile}}
-                   </view>
+                <!-- <view class="weui-cell__hd"> -->
+                <!-- <checkbox -->
+                <!-- class="weui-check" -->
+                <!-- value="{{item.value}}" -->
+                <!-- checked="{{item.checked}}" -->
+                <!-- /> -->
+                <!-- <i class="weui-icon-checked"></i> -->
+                <!-- </view> -->
+                <view class="weui-cell__bd add0" data-item="{{item}}" bind:tap="selectAdd">
+                    <view class="add1">
+                        <view class="default" wx:if="{{item.status == '1'}}">默认</view>
+                        <view class="door">{{item.address}}{{item.addresses}}</view>
+                    </view>
+                    <view class="add2">{{item.province}}{{item.city}}{{item.area}}</view>
+                    <view class="add3">
+                        {{item.name}}({{item.sex=='1'?'先生':'女士'}}) {{item.mobile}}
+                    </view>
                 </view>
-                <view class="weui-cell__ft weui-cell__ft_in-access editBox" data-item="{{item}}"  bind:tap="goEdit">
+                <view class="weui-cell__ft weui-cell__ft_in-access editBox" data-item="{{item}}" bind:tap="goEdit">
                     <image class="right" src="../../../images/cc-edit.png"></image>
                 </view>
             </label>
         </checkbox-group>
     </view>
-    <view class="add" bind:tap="goAdd" data-type="add">
-        添加新地址
+    <view class="add">
+        <view class="addad" bind:tap="goAdd" data-type="add">添加新地址</view>
     </view>
 </view>

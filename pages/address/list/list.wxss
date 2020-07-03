@@ -15,14 +15,20 @@
   height: 50rpx;
 }
 .page .add {
-  margin-top: 30rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   color: white;
-  padding: 20rpx 0;
+}
+.page .add .addad {
+  width: 95%;
+  margin: 30rpx auto;
   background-color: #00c97d;
-  width: 100%;
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius: 10rpx 10rpx;
 }
 .page .right {
   width: 35rpx;

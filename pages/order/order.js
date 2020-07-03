@@ -148,6 +148,14 @@ Page({
             url: '/pages/publish-task/four/four'
         })
     },
+    jumpDetails (e) {
+        console.log(e.currentTarget.dataset, "0")
+        if (e.currentTarget.dataset.status == 0) {
+            wx.navigateTo({
+                url: '/pages/publish-task/detail/detail?demand_id=' + e.currentTarget.dataset.id
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */

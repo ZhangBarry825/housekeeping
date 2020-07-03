@@ -10,13 +10,9 @@
     box-sizing: border-box;
     background-color: #fff;
 
-    .left {
+    .left {}
 
-    }
-
-    .middle {
-
-    }
+    .middle {}
 
     .right {
       image {
@@ -27,14 +23,22 @@
   }
 
   .add {
-    margin-top: 30rpx;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+
     color: white;
-    padding: 20rpx 0;
-    background-color: #00c97d;
-    width: 100%;
+
+    .addad {
+      width: 95%;
+      margin: 30rpx auto;
+      background-color: #00c97d;
+      padding: 20rpx 0;
+      text-align: center;
+      border-radius: 10rpx 10rpx;
+    }
   }
 
   .right {
@@ -46,7 +50,8 @@
     .add1 {
       display: flex;
       flex-direction: row;
-      .default{
+
+      .default {
         padding: 0 10rpx;
         border-radius: 5rpx;
         display: flex;
@@ -60,7 +65,8 @@
         width: 60rpx;
         height: 40rpx;
       }
-      .door{
+
+      .door {
         font-size: 33rpx;
         word-break: break-all;
         display: -webkit-box;
@@ -70,17 +76,17 @@
         width: 500rpx;
       }
     }
-    .add2{
+
+    .add2 {
       font-size: 23rpx;
       margin: 10rpx 0;
     }
-    .add3{
+
+    .add3 {
       font-size: 23rpx;
       color: #999;
     }
   }
 
-  .editBox{
-
-  }
+  .editBox {}
 }

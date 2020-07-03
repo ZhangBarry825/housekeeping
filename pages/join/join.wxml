@@ -1,26 +1,22 @@
-<!--pages/join/join.wxml-->
+<!-- pages/join/join.wxml -->
 <view class="page">
     <view class="item1">
-<!--        <view class="item">-->
-<!--            <view class="left">-->
-<!--                师傅名称-->
-<!--            </view>-->
-<!--            <view class="right">-->
-<!--                <input bindinput="updateNickname" value="{{user_nickname}}"  class="weui-input" placeholder=""/>-->
-<!--            </view>-->
-<!--        </view>-->
+        <!-- <view class="item"> -->
+        <!-- <view class="left"> -->
+        <!-- 师傅名称 -->
+        <!-- </view> -->
+        <!-- <view class="right"> -->
+        <!-- <input bindinput="updateNickname" value="{{user_nickname}}"  class="weui-input" placeholder=""/> -->
+        <!-- </view> -->
+        <!-- </view> -->
         <view class="item">
-            <view class="left">
-                联系人姓名
-            </view>
+            <view class="left">联系人姓名</view>
             <view class="right">
-                <input bindinput="updateContactName" value="{{contact_name}}" class="weui-input" placeholder=""/>
+                <input bindinput="updateContactName" value="{{contact_name}}" class="weui-input" placeholder="" />
             </view>
         </view>
         <view class="item">
-            <view class="left left1">
-                上传头像
-            </view>
+            <view class="left left1">上传头像</view>
             <view class="right">
                 <view class="avatar" bind:tap="chooseImage4">
                     <image wx:if="{{imgUrl4.length==0}}" src="../../images/addPic2.png"></image>
@@ -34,19 +30,19 @@
                 <text>联系地址</text>
             </view>
             <view class="right">
-                <input value="{{address}}" bindinput="updateAddress" class="weui-input addressInput" placeholder=""/>
+                <input value="{{address}}" bindinput="updateAddress" class="weui-input addressInput" placeholder="" />
             </view>
         </view>
-<!--        <view class="item">-->
-<!--            <view class="left">-->
-<!--                服务类目-->
-<!--            </view>-->
-<!--            <view class="right">-->
-<!--                <picker bindchange="bindPickerChange" value="{{type}}" range="{{typeList}}">-->
-<!--                    <input class="weui-input" value="{{type}}" disabled placeholder=""/>-->
-<!--                </picker>-->
-<!--            </view>-->
-<!--        </view>-->
+        <!-- <view class="item"> -->
+        <!-- <view class="left"> -->
+        <!-- 服务类目 -->
+        <!-- </view> -->
+        <!-- <view class="right"> -->
+        <!-- <picker bindchange="bindPickerChange" value="{{type}}" range="{{typeList}}"> -->
+        <!-- <input class="weui-input" value="{{type}}" disabled placeholder=""/> -->
+        <!-- </picker> -->
+        <!-- </view> -->
+        <!-- </view> -->
     </view>
     <view class="item2">
         <view class="title">
@@ -54,19 +50,15 @@
             <text class="text2">请如实输入以下信息</text>
         </view>
         <view class="item">
-            <view class="left">
-                真实姓名
-            </view>
+            <view class="left">真实姓名</view>
             <view class="right">
-                <input bindchange="bindRealName" value="{{real_name}}"  class="weui-input" placeholder="请输入您身份证上的姓名"/>
+                <input bindchange="bindRealName" value="{{real_name}}" class="weui-input" placeholder="请输入您身份证上的姓名" />
             </view>
         </view>
         <view class="item">
-            <view class="left">
-                身份证号
-            </view>
+            <view class="left">身份证号</view>
             <view class="right">
-                <input bindchange="bindIDCard" value="{{id_card_number}}" class="weui-input" placeholder="请输入您身份证上的号码"/>
+                <input bindchange="bindIDCard" value="{{id_card_number}}" class="weui-input" placeholder="请输入您身份证上的号码" />
             </view>
         </view>
         <view class="pictures">
@@ -74,7 +66,6 @@
                 <view class="pic" bind:tap="chooseImage1">
                     <image wx:if="{{imgUrl1.length==0}}" src="../../images/addPic.png"></image>
                     <text wx:if="{{imgUrl1.length==0}}">上传身份证正面</text>
-
                     <image wx:if="{{imgUrl1.length>0}}" class="image1" src="{{imgUrl1}}"></image>
                 </view>
                 <view class="pic" bind:tap="chooseImage2">
@@ -83,9 +74,7 @@
                     <image wx:if="{{imgUrl2.length>0}}" class="image1" src="{{imgUrl2}}"></image>
                 </view>
             </view>
-            <view class="line2">
-                请上传1张本人手持身份证号的照片
-            </view>
+            <view class="line2">请上传1张本人手持身份证号的照片</view>
             <view class="line3">
                 <view class="pic" bind:tap="chooseImage3">
                     <image wx:if="{{imgUrl3.length==0}}" src="../../images/addPic.png"></image>
@@ -103,16 +92,29 @@
     </view>
     <view class="item3">
         <label class="weui-agree" bind:tap="checkChange">
-            <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}"  class="weui-agree__checkbox-check"/>
+            <checkbox value="{{checkAgreement.value}}" checked="{{checkAgreement.checked}}" class="weui-agree__checkbox-check" />
             <span class="weui-agree__checkbox"></span>
-            <span class="weui-agree__text">阅读并同意
-                <a catchtap="seeDetail" data-id="{{agreementId}}" class="weui-agree__link">《家政平台用户协议》</a>
+            <span class="weui-agree__text">
+                阅读并同意
+                <a catchtap="seeDetail" data-id="{{agreementId}}" class="weui-agree__link">
+                    《家政平台用户协议》
+                </a>
             </span>
         </label>
         <view class="button-box">
             <view class="button" bind:tap="submitForm" data-type="publish">立即入驻</view>
         </view>
     </view>
-
-
+    <view class="itemdasd">
+        <view class="itemdasd-ban">
+            <view class="tu">
+                <image src="{{download.logo}}"></image>
+            </view>
+            <view class="title">
+                <view class="text1">{{download.title}}</view>
+                <view class="text2">请复制链接，从浏览器中打开</view>
+            </view>
+            <view class="copy" bind:tap="copyLink">复制链接</view>
+        </view>
+    </view>
 </view>

@@ -20,6 +20,24 @@ Page({
     })
   },
   confirmSubmission () {
+    if (this.data.apply_amount != 0 && this.data.apply_amount > 0) {
+      if (this.data.apply_amount > this.data.renlist.price) {
+        wx.showToast({
+          title: '金额不能大于实付金额',
+          icon: 'none',
+          duration: 2000
+        })
+        return false
+      }
+    } else {
+      wx.showToast({
+        title: '金额不能小于0',
+        icon: 'none',
+        duration: 2000
+      })
+      return false
+    }
+    console.log("111")
     api.post({
       url: `/Order/insert_refund`,
       data: {
@@ -62,6 +80,8 @@ Page({
     this.setData({
       apply_amount: e.detail.value
     })
+
+
     console.log(e.detail.value)
   },
   // 退款理由

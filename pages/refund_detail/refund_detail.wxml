@@ -89,7 +89,10 @@
             </view>
         </view>
     </view>
-    <view class="cancel" wx:if="{{renlist.status==21||renlist.status==23||renlist.status==24?true:false}}">
+    <view class="cancel" wx:if="{{renlist.types==0?true:false}}">
         <view class="adsd" bind:tap="cancelRefund">取消退款</view>
+    </view>
+    <view class="cancel" wx:if="{{renlist.status==2?true:false}}">
+        <view class="adsd" bind:tap="cancelRefund">申请客服接入</view>
     </view>
 </view>

@@ -164,6 +164,12 @@
 					"pathName": "pages/master-details/master-details",
 					"query": "master_user_id= 80",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/join/join",
+					"pathName": "pages/join/join",
+					"scene": null
 				}
 			]
 		}

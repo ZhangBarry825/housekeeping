@@ -19,7 +19,7 @@
                     <text>{{menu===0?'雇佣截止时间':menu===1?'退款发起时间':'投诉发起时间'}} {{menu===0?item.offer_endtime:menu===1?item.create_time:item.complaints_time}}</text>
 
                 </view>
-                <view class="middle">
+                <view class="middle" bind:tap="jumpDetails" data-status="{{item.status}}" data-id="{{item.demand_id}}" >
                     <view class="line1">
                         <view class="left">{{item.title}}</view>
                         <view class="right" > {{item.status==0?'暂无报价':item.status==1?item.offer_total+'人已经报价':item.status==2?'未预约':item.status==3?'待上门':item.status==4?'已上门':
@@ -32,6 +32,9 @@
                         <!-- <view class="right">{{item.offer_total}}人已经报价</view> -->
                     </view>
                     <view class="line2">需求发布时间：{{item.create_time}}</view>
+                    <view class="line2">类目：{{item.demand_category}}</view>
+                    <view class="line2" wx:if="{{item.status==6}}">下单时间：{{item.order_create_time}}</view>
+                    <view class="line2" wx:if="{{item.status==6}}">师傅：{{item.user_nickname}}</view>
                 </view>
                 <view class="bottom">
                     <text>
