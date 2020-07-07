@@ -1,4 +1,6 @@
 // pages/join/join.js
+import {checkPhone} from "../../utils/util";
+
 const api = require('../../utils/api.js');
 Page({
 
@@ -16,7 +18,7 @@ Page({
         imgUrl4: '',
         typeList: [],
         type: '',
-
+        phone:'',
         user_nickname: '',
         contact_name: '',
         address: '',
@@ -32,7 +34,12 @@ Page({
         download: {}
     },
 
-
+    updatePhone(e){
+        console.log(e.detail.value)
+        this.setData({
+            phone: e.detail.value
+        })
+    },
     previewImage (e) {
         wx.previewImage({
             current: e.currentTarget.id, // 当前显示图片的http链接
@@ -208,6 +215,7 @@ Page({
             user_id: wx.getStorageSync('userid'),
             user_token: wx.getStorageSync('token'),
             contact_name: this.data.contact_name,
+            mobile: this.data.phone,
             head_portrait: this.data.imgUrl4,
             address: this.data.address,
             service_category: this.data.service_category,
@@ -223,6 +231,8 @@ Page({
 
         if (formData.contact_name == '') {
             tip = '请输入联系人'
+        } else if (formData.mobile == '' || !checkPhone(formData.mobile)) {
+            tip = '请输入正确的联系电话'
         } else if (formData.head_portrait == '') {
             tip = '请上传头像'
         } else if (formData.address == '') {

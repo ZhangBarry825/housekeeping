@@ -16,6 +16,14 @@
             </view>
         </view>
         <view class="item">
+            <view class="left" bind:tap="selectMap">
+                <text>联系电话</text>
+            </view>
+            <view class="right">
+                <input value="{{phone}}" bindinput="updatePhone" class="weui-input addressInput" placeholder="" />
+            </view>
+        </view>
+        <view class="item">
             <view class="left left1">上传头像</view>
             <view class="right">
                 <view class="avatar" bind:tap="chooseImage4">
