@@ -48,6 +48,14 @@
                     <text class="tagsTitle">评价内容</text>
                     <view class="box">{{item.content}}</view>
                 </view>
+                <view class="tags" wx:if="{{item.images.length>0}}">
+                    <text class="tagsTitle"></text>
+                    <view class="boxasd">
+                        <view wx:for="{{item.images}}" wx:for-item="itm" wx:for-index="idx" wx:key="key" class="tag-ted">
+                            <image bind:tap="previewImg" data-items="{{item.images}}" data-item="{{itm}}" src="{{itm}}" mode="aspectFill" />
+                        </view>
+                    </view>
+                </view>
                 <view class="tags">
                     <text class="tagsTitle">整体印象</text>
                     <view class="box">

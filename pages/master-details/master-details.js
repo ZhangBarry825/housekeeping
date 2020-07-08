@@ -37,6 +37,7 @@ Page({
                     if (res.list.length > 0) {
                         console.log(JSON.parse(res.list[0].complete_rendering), 963)
                         for (let i = 0;i < res.list.length;i++) {
+
                             res.list[i].complete_rendering = JSON.parse(res.list[i].complete_rendering)
                             res.list[i].complete_rendering[0] = res.list[i].complete_rendering[0].split(",")
                             console.log(res.list[i].complete_rendering[0], "iii")
@@ -44,6 +45,15 @@ Page({
                             res.list[i].left = 5 - parseInt(res.list[i].score)
                             res.list[i].create_time = numToTime(res.list[i].create_time)
                             res.list[i].options = res.list[i].options.split(",")
+                            if(res.list[i].options[0]==""){
+                                res.list[i].options=[]
+                            }
+                            if(res.list[i].images!==""){
+                                res.list[i].images=JSON.parse(res.list[i].images)
+                                for (let j = 0; j <res.list[i].images.length ; j++) {
+                                    res.list[i].images[j]=api.HOST+"/"+res.list[i].images[j]
+                                }
+                            }
                             //添加host
                             let img = res.list[i].complete_rendering[0]
                             if (res.list[i].complete_rendering && res.list[i].complete_rendering != null && res.list[i].complete_rendering.length > 0) {
@@ -59,6 +69,7 @@ Page({
                             }
                         }
                         console.log(res.list, "00")
+
                         that.setData({
                             masterList: res.list,
                         })
