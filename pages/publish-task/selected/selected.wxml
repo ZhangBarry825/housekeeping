@@ -10,7 +10,7 @@
     </view>
     <view class="price">
         <text class="title">备注说明：</text>
-        <text class="content">￥{{dataset.nots}}</text>
+        <text class="content">{{dataset.nots}}</text>
     </view>
     <view class="user" bind:tap="goMaster" data-id="{{dataset.master_user_id}}">
         <image class="avatar" mode="aspectFill" src="{{dataset.head_portrait}}"></image>

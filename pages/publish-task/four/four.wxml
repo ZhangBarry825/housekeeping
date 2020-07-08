@@ -9,7 +9,7 @@
     <view class="userInfo">
         <view class="title">服务师傅</view>
         <view class="user" data-id="{{orderDetail.master_user_id}}" bind:tap="goMaster">
-            <image class="avatar" mode="aspectFill" src="../../../images/avatar1.png"></image>
+            <image class="avatar" mode="aspectFill" src="{{orderDetail.head_portrait}}"></image>
             <view class="userinfo">
                 <view class="info1">
                     <view class="name">{{orderDetail.user_nickname}}</view>

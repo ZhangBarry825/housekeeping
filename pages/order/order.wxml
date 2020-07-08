@@ -40,7 +40,7 @@
                     <text class="user-nickname">
                         <text  wx:if="{{item.status==4||item.status==5||item.status==6}}" >师傅：{{item.user_nickname}}</text>
                     </text>
-                    <view class="tousuButton"  data-status='{{999}}' data-demandid="{{item.demand_id}}" data-orderid="{{item.order_id}}" wx:if="{{item.status==4||item.status==5||item.status==6}}" bind:tap="goToPage">
+                    <view class="tousuButton"  data-status='{{999}}' data-demandid="{{item.demand_id}}" data-orderid="{{item.order_id}}" wx:if="{{item.status==5||item.status==6}}" bind:tap="goToPage">
                         投诉
                     </view>
 

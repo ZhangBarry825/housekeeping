@@ -39,8 +39,8 @@ Page({
                         for (let i = 0;i < res.list.length;i++) {
 
                             res.list[i].complete_rendering = JSON.parse(res.list[i].complete_rendering)
-                            res.list[i].complete_rendering[0] = res.list[i].complete_rendering[0].split(",")
-                            console.log(res.list[i].complete_rendering[0], "iii")
+                            // res.list[i].complete_rendering[0] = res.list[i].complete_rendering[0].split(",")
+                            console.log(res.list[i].complete_rendering, "iii")
                             res.list[i].score = parseInt(res.list[i].score)
                             res.list[i].left = 5 - parseInt(res.list[i].score)
                             res.list[i].create_time = numToTime(res.list[i].create_time)
@@ -55,12 +55,11 @@ Page({
                                 }
                             }
                             //添加host
-                            let img = res.list[i].complete_rendering[0]
-                            if (res.list[i].complete_rendering && res.list[i].complete_rendering != null && res.list[i].complete_rendering.length > 0) {
+                            let img = res.list[i].complete_rendering
+                            if (res.list[i].complete_rendering!="[]" && res.list[i].complete_rendering && res.list[i].complete_rendering != null && res.list[i].complete_rendering.length > 0) {
                                 for (let j = 0;j < img.length;j++) {
                                     console.log(img, "0120")
                                     img[j] = api.HOST + '/' + img[j]
-                                    img[j]
                                     // res.list[i].complete_rendering[j] = api.HOST + '/' + res.list[i].complete_rendering[j]
                                 }
                                 res.list[i].complete_rendering = img

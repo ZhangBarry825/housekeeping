@@ -30,7 +30,7 @@
             <view>
                 <view class="appraiser">
                     <view>
-                        <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+                        <image class="avatar" mode="aspectFill" src="{{item.head_portrait}}"></image>
                     </view>
                     <view class="information">
                         <view>
