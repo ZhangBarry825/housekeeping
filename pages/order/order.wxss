@@ -74,11 +74,18 @@
   color: #ff6600;
 }
 .page .content .item .bottom {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0 20rpx;
+  padding: 15rpx 20rpx;
   font-size: 25rpx;
+}
+.user-nickname {
+  justify-self: flex-start;
+  display: flex;
+  align-items: center;
 }
 .page .content .item .bottom .color {
   color: #ff6600;
@@ -91,10 +98,18 @@
   border-radius: 10rpx;
   height: 50rpx;
   line-height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu1 {
   width: 100%;
+}
+.tousuButton {
+  color: #fff;
+  padding: 7rpx 50rpx;
+  background-color: #cccccc;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+  line-height: 50rpx;
+  height: 50rpx;
 }
 .page .content .menu1 .item2 .bottom .button {
   color: #fff;
@@ -104,7 +119,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu1 .item3 .bottom .button {
   color: #fff;
@@ -114,7 +128,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu1 .item4 .bottom .button {
   color: #fff;
@@ -124,7 +137,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu2 {
   width: 100%;
@@ -137,7 +149,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu2 .item7 .bottom .button {
   color: #fff;
@@ -147,7 +158,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .page .content .menu3 {
   width: 100%;
@@ -160,7 +170,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .statusbutton {
   color: #fff;
@@ -170,7 +179,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .chooseAMaster {
   color: #fff;
@@ -180,7 +188,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .toEvaluate {
   color: #fff;
@@ -190,7 +197,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .details {
   color: #fff;
@@ -200,7 +206,6 @@
   border-radius: 10rpx;
   line-height: 50rpx;
   height: 50rpx;
-  margin-top: 30rpx;
 }
 .nodata {
   display: flex;

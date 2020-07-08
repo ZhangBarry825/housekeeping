@@ -13,7 +13,7 @@
         </view>
         <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
             <view class="item">
-                <view class="label">订单类别</view>
+                <view class="label">投诉类别</view>
                 <view class="middle">{{current}}</view>
             </view>
         </picker>

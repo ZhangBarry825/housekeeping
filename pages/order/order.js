@@ -53,6 +53,7 @@ Page({
                         item.offer_endtime = numToTime(item.offer_endtime)
                         item.complaints_time = numToTime(item.complaints_time)
                         item.demand_create_time = numToTime(item.demand_create_time)
+                        item.order_create_time = numToTime(item.order_create_time)
                         if (item.offer_price == null) {
                             item.offer_price = 0
                         }
@@ -103,7 +104,11 @@ Page({
             wx.navigateTo({
                 url: '/pages/comment_detail/comment_detail?id=' + orderid
             })
-        } else if (status == 0 || status == 12 || status == 11) {
+        } else if (status == 999) {
+            wx.navigateTo({
+                url: '/pages/publish-task/five/five?order_id=' + orderid
+            })
+        }  else if (status == 0 || status == 12 || status == 11) {
             wx.showToast({
                 title: '当前不可操作',
                 icon: 'none',

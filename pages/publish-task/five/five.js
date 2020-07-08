@@ -1,4 +1,6 @@
 // pages/publish-task/five/five.js
+import {numToTime} from "../../../utils/util";
+
 const api = require('../../../utils/api.js');
 const app = getApp()
 Page({
@@ -288,19 +290,64 @@ Page({
       }
     })
 
+
+    api.post({
+      url: `/Order/order_info`,
+      data: {
+        user_id: wx.getStorageSync('userid'),
+        user_token: wx.getStorageSync('token'),
+        order_id: this.data.order_id
+      },
+      success: res => {
+        res.list.create_time = numToTime(res.list.create_time)
+        if (res.list.demand_time != null && res.list.demand_time != undefined) {
+          res.list.demand_time0 = true
+          res.list.demand_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.demand_time0 = false
+        }
+        if (res.list.booking_date != null && res.list.booking_date != undefined) {
+          res.list.booking_date0 = true
+          res.list.booking_date1 = numToTime(res.list.booking_date).split(' ')[0]
+        } else {
+          res.list.booking_date0 = false
+        }
+        if (res.list.demand_time != null && res.list.demand_time != undefined) {
+          res.list.demand_time0 = true
+          res.list.demand_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.demand_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.demand_time0 = false
+        }
+        if (res.list.door_in_time != null && res.list.door_in_time != undefined) {
+          res.list.door_in_time0 = true
+          res.list.door_in_time1 = numToTime(res.list.demand_time).split(' ')[0]
+          res.list.door_in_time2 = numToTime(res.list.demand_time).split(' ')[1]
+        } else {
+          res.list.door_in_time0 = false
+        }
+
+        this.setData({
+          renlist: res.list
+        })
+        console.log(res, "111")
+      }
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getAChoice()
-    this.fetchData()
-    console.log(JSON.parse(options.renlist))
+    console.log(options)
     this.setData({
       order_id: options.order_id,
-      renlist: JSON.parse(options.renlist)
+      // renlist: JSON.parse(options.renlist)
     })
-    console.log(options)
+    this.getAChoice()
+    this.fetchData()
+    // console.log(JSON.parse(options.renlist))
   },
 
   /**
