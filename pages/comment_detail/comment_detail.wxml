@@ -46,11 +46,27 @@
             <text class="tagsTitle">评价内容</text>
             <view class="box">{{dataDetail.content}}</view>
         </view>
+        <view class="tags" wx:if="{{dataDetail.complete_rendering.length>0}}">
+            <text class="tagsTitle"></text>
+            <view class="boxasd">
+                <view wx:for="{{dataDetail.images}}" wx:for-item="itm" wx:for-index="idx" wx:key="itm" class="tag-ted">
+                    <image bind:tap="previewImg" data-items="{{dataDetail.images}}" data-item="{{itm}}" src="{{itm}}" mode="aspectFill" />
+                </view>
+            </view>
+        </view>
         <view class="tags">
             <text class="tagsTitle">整体印象</text>
             <view class="box">
                 <view wx:for="{{dataDetail.options_title}}" wx:key="key" class="tag selected">
                     {{item}}
+                </view>
+            </view>
+        </view>
+        <view class="tags" wx:if="{{dataDetail.complete_rendering.length>0}}">
+            <text class="tagsTitle">完成效果</text>
+            <view class="boxasd">
+                <view wx:for="{{dataDetail.complete_rendering}}" wx:for-item="itm" wx:for-index="idx" wx:key="itm" class="tag-ted">
+                    <image bind:tap="previewImg" data-items="{{dataDetail.complete_rendering}}" data-item="{{itm}}" src="{{itm}}" mode="aspectFill" />
                 </view>
             </view>
         </view>

@@ -145,6 +145,20 @@
   color: #fb9605;
   border: 1px solid #fb9605;
 }
+.page .comment .tags .boxasd {
+  display: flex;
+  flex-wrap: wrap;
+}
+.page .comment .tags .boxasd .tag-ted {
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 20rpx;
+  margin-bottom: 20rpx;
+}
+.page .comment .tags .boxasd .tag-ted > image {
+  width: 150rpx;
+  height: 150rpx;
+}
 .page .comment .weui-cell_active {
   background-color: #f2f2f2;
   box-sizing: border-box;

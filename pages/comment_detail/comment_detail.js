@@ -34,19 +34,43 @@ Page({
         order_id: that.data.id
       },
       success: res => {
-        console.log(res, 852)
+
         if (res.code == 200) {
           res.data.create_time = numToTime(res.data.create_time)
           res.data.options_title = res.data.options_title.split(',')
+          if(res.data.options_title[0]==""){
+            res.data.options_title=[]
+          }
+          res.data.images=JSON.parse(res.data.images)
+          for (let i = 0; i < res.data.images.length; i++) {
+            res.data.images[i]=api.HOST+"/"+res.data.images[i]
+          }
+
+          console.log(res.data.options_title,9977)
+          res.data.complete_rendering = JSON.parse(res.data.complete_rendering)
+          for (let i = 0; i < res.data.complete_rendering.length; i++) {
+            res.data.complete_rendering[i]=api.HOST+"/"+res.data.complete_rendering[i]
+          }
+        console.log(api.HOST)
           that.setData({
             dataDetail: res.data,
             starNum: parseInt(res.data.score),
             starLeft: 5 - parseInt(res.data.score)
           })
+          console.log(res.data, 852)
         } else {
           console.log('获取数据失败');
         }
       }
+    })
+  },
+  previewImg (e) {
+    let items = e.currentTarget.dataset.items
+    let item = e.currentTarget.dataset.item
+    wx.previewImage({
+      current: item,
+      // 当前显示图片的http链接
+      urls: items // 需要预览的图片http链接列表
     })
   },
   /**

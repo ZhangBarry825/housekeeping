@@ -46,6 +46,31 @@
                 </view>
             </view>
         </view>
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{imagesUrl}}" wx:key="*this">
+                                    <view class="weui-uploader__file clearBox">
+                                        <icon bind:tap="deleteImg" class="ui_uploader_item_icon clearImg" data-index="{{index}}" type="clear" size="20" color="red" />
+                                        <image class="weui-uploader__img" bindtap="previewImage" data-index="{{index}}" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box" wx:if="{{images.length<6}}">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+<!--            <text class="tips">-->
+<!--                <text style="color: red"></text>-->
+<!--                上传完整清晰的图片，以便家政准确报价({{images.length}}/6)-->
+<!--            </text>-->
+        </view>
         <view class="hidden">
             <image bind:tap="changHidden" wx:if="{{!anonymous}}" src="../../../images/check0.png"></image>
             <image bind:tap="changHidden" wx:if="{{anonymous}}" src="../../../images/check1.png"></image>

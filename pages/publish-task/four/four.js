@@ -21,8 +21,104 @@ Page({
         checkTags: [],
         starNum: 4,
         anonymous: false,
-        orderDetail: {}
+        orderDetail: {},
+        images: [],		/*保存上传图片url的数组*/
+        imagesUrl: [],		/*展示上传图片url的数组*/
     },
+    uploadImg (p) {
+        wx.showLoading({
+            title: '上传中',
+        })
+        let that = this;
+        console.log(wx.getStorageSync('userid'), 'user_id')
+        console.log(wx.getStorageSync('token'), 'token')
+        wx.uploadFile({
+            url: api.HOST + "/wxapi.php/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+            filePath: p,
+            name: 'images_' + wx.getStorageSync('userid'),
+            formData: {
+                user_id: wx.getStorageSync('userid'),
+                user_token: wx.getStorageSync('token')
+            },     //需要传的关于这个图片的信息，比如这个图片属于哪个用户的
+            success (res) {
+                console.log(JSON.parse(res.data), 333)
+                console.log(api.HOST + "/" + JSON.parse(res.data).files)
+                if (JSON.parse(res.data).code == 200) {
+                    that.setData({
+                        imagesUrl: that.data.imagesUrl.concat(api.HOST + "/" + JSON.parse(res.data).files),
+                        images: that.data.images.concat(JSON.parse(res.data).files)
+                    });
+                }
+                wx.hideLoading()
+            },
+            fail (res) {
+                console.log(res, 888)
+                wx.showToast({
+                    title: '网络异常,请稍后重试',
+                    icon: "none",
+                    duration: 1000
+                })
+                that.setData({
+                    images: []
+                })
+                wx.hideLoading()
+            }
+
+        })
+
+    },
+    chooseImage (e) {
+        var that = this;
+        wx.chooseImage({
+            count: 6,
+            sizeType: ['original', 'compressed'],
+            // 可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'],
+            // 可以指定来源是相册还是相机，默认二者都有
+            success: function (res) {
+                let tempFile = res.tempFilePaths
+                for (let i = 0;i < tempFile.length;i++) {
+                    // const element = tempFile[i];
+                    that.uploadImg(tempFile[i])
+                }
+                console.log(res, "选择")
+                // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+                // that.setData({
+                //     images: that.data.images.concat(res.tempFilePaths)
+                // });
+                // that.uploadImg(res.tempFilePaths[0])
+            }
+        })
+    },
+    /* 预览图片 */
+    previewImage (e) {
+        let that = this
+        console.log('show')
+        console.log(e.currentTarget.dataset.index)
+        console.log(that.data.imagesUrl)
+        wx.previewImage({
+            current: that.data.imagesUrl[e.currentTarget.dataset.index],
+            // 当前显示图片的http链接
+            urls: that.data.imagesUrl // 需要预览的图片http链接列表
+        })
+    },
+    deleteImg (e) {
+        var that = this;
+        var nowList = []; /*新数据*/
+        var images = that.data.images; /*原数据*/
+
+        for (let i = 0;i < images.length;i++) {
+            if (i != e.currentTarget.dataset.index) {
+                nowList.push(images[i])
+            }
+        }
+        this.setData({
+            images: nowList,
+            imagesUrl: nowList
+        })
+        console.log(this.data.images, 987)
+    },
+
     updateDesc (e) {
         this.setData({
             descLength: e.detail.value.length,
@@ -127,6 +223,7 @@ Page({
             content: this.data.desc,
             options_id: this.data.checkTags,
             anonymous: this.data.anonymous,
+            images:this.data.images
         }
         console.log(formData, 975)
         if (formData.content == '') {
@@ -167,7 +264,7 @@ Page({
         console.log(options, 9090)
         this.setData({
             order_id: options.id,
-            renlist: JSON.parse(options.renlist)
+            // renlist: JSON.parse(options.renlist)
         })
     },
 
