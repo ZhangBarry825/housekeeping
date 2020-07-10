@@ -62,7 +62,7 @@
                 </text>
                 <!-- <text>师傅已经处理退款</text> -->
             </view>
-            <view class="right">{{renlist.create_time}}</view>
+            <view class="right" wx:if="{{renlist.status==22}}">{{renlist.update_time}}</view>
         </view>
         <view class="content">
             <view class="line line4">
@@ -81,11 +81,11 @@
             </view>
             <view wx:if="{{renlist.status==22}}" class="line line5">
                 <view class="line-title">退款时间：</view>
-                <view class="line-content">{{renlist.automatic_time}}</view>
+                <view class="line-content">{{renlist.update_time}}</view>
             </view>
             <view wx:if="{{renlist.status==23}}" class="line line5">
                 <view class="line-title">师傅处理时间：</view>
-                <view class="line-content">{{renlist.automatic_time}}</view>
+                <view class="line-content">{{renlist.update_time}}</view>
             </view>
         </view>
     </view>

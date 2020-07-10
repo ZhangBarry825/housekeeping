@@ -23,6 +23,8 @@ Page({
       success: res => {
         console.log(res)
         res.data.create_time = numToTime(res.data.create_time)
+        res.data.update_time = numToTime(res.data.update_time)
+        res.data.automatic_time = numToTime(res.data.automatic_time)
         if (res.data.refund_amount == null) {
           res.data.refund_amount = 0
         }
