@@ -105,9 +105,17 @@ Page({
   },
   // 跳转投诉
   complaint () {
-    wx.navigateTo({
-      url: '/pages/publish-task/five/five?order_id=' + this.data.order_id + '&renlist=' + JSON.stringify(this.data.renlist)
-    })
+    let complain = this.data.renlist.complaints_status
+    if(complain==null){
+      wx.navigateTo({
+        url: '/pages/publish-task/five/five?order_id=' + this.data.order_id + '&renlist=' + JSON.stringify(this.data.renlist)
+      })
+    }else {
+      wx.navigateTo({
+        url: '/pages/complaintDetails/complaintDetails?orderid=' + this.data.order_id
+      })
+    }
+
   },
   refund () {
     wx.navigateTo({

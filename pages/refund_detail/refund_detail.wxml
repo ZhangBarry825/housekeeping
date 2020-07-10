@@ -47,7 +47,7 @@
             </view>
             <view class="line line2">
                 <view class="line-title">退款金额：</view>
-                <view class="line-content">￥{{renlist.refund_amount}}</view>
+                <view class="line-content">￥{{renlist.apply_amount}}</view>
             </view>
             <view class="line line3">
                 <view class="line-title">退款理由：</view>
@@ -73,7 +73,7 @@
             </view>
             <view class="line line2">
                 <view class="line-title">退款金额：</view>
-                <view class="line-content">￥{{renlist.refund_amount}}</view>
+                <view class="line-content">￥{{renlist.apply_amount}}</view>
             </view>
             <view wx:if="{{renlist.status==23}}" class="line line2">
                 <view class="line-title">师傅拒绝理由：</view>

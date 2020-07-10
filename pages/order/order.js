@@ -84,6 +84,7 @@ Page({
         console.log(e.currentTarget.dataset, "12")
         let status = e.currentTarget.dataset.status
         let orderid = e.currentTarget.dataset.orderid
+
         if (status == 1) {
             wx.navigateTo({
                 url: '/pages/publish-task/two/two?demandid=' + e.currentTarget.dataset.demandid
@@ -105,9 +106,18 @@ Page({
                 url: '/pages/comment_detail/comment_detail?id=' + orderid
             })
         } else if (status == 999) {
-            wx.navigateTo({
-                url: '/pages/publish-task/five/five?order_id=' + orderid
-            })
+            let complain = e.currentTarget.dataset.complain
+            if(complain==null){
+                wx.navigateTo({
+                    url: '/pages/publish-task/five/five?order_id=' + orderid
+                })
+            }else {
+                console.log(orderid,'orderid')
+                wx.navigateTo({
+                    url: '/pages/complaintDetails/complaintDetails?orderid=' + orderid
+                })
+            }
+
         }  else if (status == 0 || status == 12 || status == 11) {
             wx.showToast({
                 title: '当前不可操作',
