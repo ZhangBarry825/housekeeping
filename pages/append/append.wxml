@@ -13,7 +13,7 @@
         <text class="content">￥{{renlist.price}}</text>
     </view>
     <view class="user" data-id="{{renlist.master_user_id}}" bind:tap="goMaster">
-        <image class="avatar" mode="aspectFill" src="../../images/avatar1.png"></image>
+        <image class="avatar" mode="aspectFill" src="{{renlist.head_portrait}}"></image>
         <view class="userinfo">
             <view class="info1">
                 <view class="name">{{renlist.user_nickname}}</view>
