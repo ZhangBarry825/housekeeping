@@ -29,6 +29,7 @@ Page({
       },
       success: res => {
         res.list.complaints_files = JSON.parse(res.list.complaints_files)
+        res.list.complaints_content = JSON.parse(res.list.complaints_content)
         res.list.service_in_time = JSON.parse(res.list.service_in_time)
         res.list.end_time = JSON.parse(res.list.end_time)
         let images = []
