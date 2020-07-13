@@ -2,8 +2,6 @@ import "./date";
 var app = getApp();
 var tryingLogin = false;
 var host = "https://jz2020.njflwlkj.com";
-// var appid="wx6533831d98a6b7de";
-// var secret = "18d7d3612709192105cf3ee5008e13a2";
 var appid = "wx1802f78e06cf3960";
 var secret = "a4ba79593c89112ad88889801640d5f4";
 var client_id = "wxapp";
