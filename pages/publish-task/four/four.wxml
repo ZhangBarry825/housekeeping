@@ -2,7 +2,7 @@
 <view class="page">
     <view class="warn">订单完成，满意请给师傅一个评价以示鼓励</view>
     <view class="info">
-        <view class="line1">家庭保洁-开荒</view>
+        <view class="line1">{{orderDetail.title}}</view>
         <view class="line2">订单完成时间：{{orderDetail.order_end_time}}</view>
         <view class="line3" bind:tap="goDetail">需求详情 ></view>
     </view>
