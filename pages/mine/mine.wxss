@@ -18,3 +18,7 @@
 .page .weui-cells .weui-cell__ft_in-access {
   font-size: 27rpx;
 }
+.page .weui-actionsheet__cell {
+  background-color: #ffffff !important;
+  font-weight: normal;
+}

@@ -48,7 +48,7 @@
         <view class="weui-mask" bind:tap="cancelShow"></view>
         <view class="weui-actionsheet weui-actionsheet_toggle">
             <view class="weui-actionsheet__menu">
-                <view class="weui-actionsheet__cell" bind:tap="callPhone">电话客服</view>
+                <button class="weui-actionsheet__cell" open-type="contact" bindcontact="handleContact">联系客服</button>
             </view>
             <view class="weui-actionsheet__action">
                 <view class="weui-actionsheet__cell" bind:tap="cancelShow">取消</view>

@@ -22,6 +22,13 @@ Page({
             showContact: false
         })
     },
+    handleContact (e) {
+        console.log(e.detail.path)
+        console.log(e.detail.query)
+        this.setData({
+            showContact: false
+        })
+    },
     joinUs () {
         if(this.data.status==0){
             wx.navigateTo({
