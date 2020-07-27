@@ -11,7 +11,7 @@ module.exports = {
     HOST: host,
     client_id: client_id,
     client_secret: client_secret,
-    API_ROOT: host + '/wxapi.php',
+    API_ROOT: host + '/wxapi.php?',
     API_VERSION: '1.1.0',
     AppID: appid,
     AppSecret: secret,

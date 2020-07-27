@@ -228,7 +228,7 @@ Page({
         console.log(wx.getStorageSync('token'), 'token')
         console.log('正在上传', this.data.recordVoice.tempFilePath)
         wx.uploadFile({
-            url: api.HOST + "/wxapi.php/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+            url: api.HOST + "/wxapi.php?/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
             filePath: this.data.recordVoice.tempFilePath,
             name: 'voice_' + wx.getStorageSync('userid'),
             formData: {
@@ -264,7 +264,7 @@ Page({
         console.log(wx.getStorageSync('userid'), 'user_id')
         console.log(wx.getStorageSync('token'), 'token')
         wx.uploadFile({
-            url: api.HOST + "/wxapi.php/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+            url: api.HOST + "/wxapi.php?/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
             filePath: p,
             name: 'images_' + wx.getStorageSync('userid'),
             formData: {

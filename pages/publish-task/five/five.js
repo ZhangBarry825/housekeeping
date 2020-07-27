@@ -132,7 +132,7 @@ Page({
     console.log(wx.getStorageSync('token'), 'token')
 
     wx.uploadFile({
-      url: api.HOST + "/wxapi.php/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
+      url: api.HOST + "/wxapi.php?/Home/upload_img?client_id=" + api.client_id + "&client_secret=" + api.client_secret, //此处换上你的接口地址
       filePath: p,
       name: 'images_' + wx.getStorageSync('userid'),
       formData: {
@@ -177,7 +177,7 @@ Page({
     let user_token = wx.getStorageSync('token')
     let usid = wx.getStorageSync('userid')
     wx.uploadFile({
-      url: api.HOST + "/wxapi.php/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret,
+      url: api.HOST + "/wxapi.php?/Home/upload_voice?client_id=" + api.client_id + "&client_secret=" + api.client_secret,
       filePath: src,
       header: {
         'content-type': 'multipart/form-data'
